@@ -60,7 +60,7 @@ const meridianPoints = [
       {
         id: 'LU-6',
         name: '孔最',
-        transliteration: '',
+        transliteration: 'Kongzui',
         english: 'Maximum Opening',
         pinyin: '',
         korean: '',
@@ -70,7 +70,7 @@ const meridianPoints = [
       {
         id: 'LU-7',
         name: '列缺',
-        transliteration: '',
+        transliteration: 'Lieque',
         english: 'Broken Sequence',
         pinyin: '',
         korean: '',
@@ -80,7 +80,7 @@ const meridianPoints = [
       {
         id: 'LU-8',
         name: '經渠',
-        transliteration: '',
+        transliteration: 'Jingqu',
         english: 'Channel Gutter',
         pinyin: '',
         korean: '',
@@ -90,7 +90,7 @@ const meridianPoints = [
       {
         id: 'LU-9',
         name: '太淵',
-        transliteration: '',
+        transliteration: 'Jingqu',
         english: 'Supreme Abyss',
         pinyin: '',
         korean: '',
@@ -100,7 +100,7 @@ const meridianPoints = [
       {
         id: 'LU-10',
         name: '魚際',
-        transliteration: '',
+        transliteration: 'Yuji',
         english: 'Fish Border',
         pinyin: '',
         korean: '',
@@ -110,7 +110,7 @@ const meridianPoints = [
       {
         id: 'LU-11',
         name: '魚際',
-        transliteration: '',
+        transliteration: 'Shaoshang',
         english: 'Lesser Shang',
         pinyin: '',
         korean: '',
