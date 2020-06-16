@@ -1,12 +1,13 @@
 import React from 'react'
-import { Text, ListItemContainer } from '../atoms'
+import { Text, ListItemContainer, Button } from '../atoms'
 
 export const ListItem = (props) => {
-  const { data } = props
-  const handlePress = () => {}
+  const { data, handlePrimaryPress } = props
   return (
-    <ListItemContainer onPress={handlePress}>
-      <Text>{data.title}</Text>
+    <ListItemContainer>
+      <Button onPress={handlePrimaryPress}>
+        <Text>{data.title}</Text>
+      </Button>
     </ListItemContainer>
   )
 }

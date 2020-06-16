@@ -10,12 +10,18 @@ import { ListItem } from '../../../components/molecules'
 import MeridianData from '../../../shared/meridian-data'
 
 const MeridianRoute = (navigation) => {
+  const handlePrimaryPress = (meridianPointsArray) => {
+    navigation.navigate('Meridian Points', {
+      meridianPointsArray,
+    })
+  }
+
   return (
     <Container>
       <FlatList
         data={MeridianData}
         renderItem={({ item }) => (
-          <ListItem data={item} navigation={navigation} />
+          <ListItem data={item} handlePrimaryPress={handlePrimaryPress} />
         )}
         keyExtractor={(item) => item.id}
       />

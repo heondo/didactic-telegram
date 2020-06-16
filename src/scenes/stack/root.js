@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { connect } from 'react-redux'
 import auth from '@react-native-firebase/auth'
+import AsyncStorage from '@react-native-community/async-storage'
 
 import { MatCommIcon } from '../../components/atoms'
 import AccountStackScreen from '../account/AccountStack'
@@ -14,14 +15,15 @@ import HomeStackScreen from '../home/HomeStack'
 const Tab = createBottomTabNavigator()
 
 function StackNavigator({ theme, login, authState }) {
+  const [hasBeenLaunched, setHasBeenLaunched] = useState(false)
   useEffect(() => {
-    // _isFirstLaunch()
+    checkWasLaunched()
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged)
     return subscriber // unsubscribe on unmount
   }, [])
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  function onAuthStateChanged(user) {
+  const onAuthStateChanged = (user) => {
     // console.log(user)
     const strippedDown = user
       ? {
@@ -29,8 +31,20 @@ function StackNavigator({ theme, login, authState }) {
           email: user.email,
           photoURL: user.photoURL,
         }
-      : {}
+      : null
     login({ user: strippedDown })
+  }
+
+  const checkWasLaunched = async () => {
+    try {
+      const wasLaunched = await AsyncStorage.getItem('wasLaunched')
+      if (wasLaunched === null) {
+        setHasBeenLaunched(false)
+      }
+      setHasBeenLaunched(true)
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   // const _isFirstLaunch = async () => {
@@ -45,8 +59,8 @@ function StackNavigator({ theme, login, authState }) {
   //   }
   // }
 
-  if (!authState?.displayName) {
-    return <FirstLaunch />
+  if (!hasBeenLaunched) {
+    return <FirstLaunch setHasBeenLaunched={setHasBeenLaunched} />
   }
 
   return (

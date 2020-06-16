@@ -7,30 +7,44 @@ import {
   Title,
   Button,
   ButtonText,
+  View,
+  MatCommIcon,
 } from '../../components/atoms'
 import auth from '@react-native-firebase/auth'
 import { GoogleSignin } from '@react-native-community/google-signin'
+import AsyncStorage from '@react-native-community/async-storage'
 
-function HomeScreen({ navigation, theme, authState }) {
-  //   const [user, setUser] = useState(null)
-  async function onGoogleButtonPress() {
-    // await AsyncStorage.setItem('wasLaunched', 'true')
-    // Get the users ID token
+function FirstLaunch({ navigation, theme, authState, setHasBeenLaunched }) {
+  const onGoogleButtonPress = async () => {
+    await AsyncStorage.setItem('wasLaunched', 'true')
     const { idToken } = await GoogleSignin.signIn()
-    // Create a Google credential with the token
     const googleCredential = auth.GoogleAuthProvider.credential(idToken)
-    // Sign-in the user with the credential
     return auth().signInWithCredential(googleCredential)
   }
-  // const [accountState, setAccountState] = useState<string | null>(null)
+
+  const handleContinue = async () => {
+    try {
+      await AsyncStorage.setItem('wasLaunched', 'true')
+      setHasBeenLaunched(true)
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <Container>
         <Title>Welcome to Accupuncturist</Title>
         <Text>Login in to sync your memories between devices</Text>
-        <Button width={'35%'}>
-          <ButtonText onPress={onGoogleButtonPress}>Google</ButtonText>
-        </Button>
+        <View>
+          <Button width={'35%'}>
+            <ButtonText onPress={handleContinue}>Continue Offline</ButtonText>
+          </Button>
+          <Button width={'35%'}>
+            <MatCommIcon name="google" size={25} />
+            <ButtonText onPress={onGoogleButtonPress}>Google</ButtonText>
+          </Button>
+        </View>
       </Container>
     </ThemeProvider>
   )
@@ -43,4 +57,4 @@ const mapStateToProps = ({ theme, auth: authState }) => {
   }
 }
 
-export default connect(mapStateToProps)(HomeScreen)
+export default connect(mapStateToProps)(FirstLaunch)

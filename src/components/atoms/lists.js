@@ -8,7 +8,4 @@ export const FlatList = styled.FlatList`
 export const ListItemContainer = styled.View`
   background-color: ${(props) => props.theme.PRIMARY_BACKGROUND_COLOR};
   color: ${(props) => props.theme.PRIMARY_TEXT_COLOR};
-  margin: 3px 0px;
-  padding: 4px;
-  border: 1px solid black;
 `
