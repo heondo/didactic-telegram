@@ -2,18 +2,17 @@ import * as React from 'react'
 
 import { createStackNavigator } from '@react-navigation/stack'
 
-import AccountScreen from './AccountScreen'
-import LoginScreen from './LoginScreen'
 import { connect } from 'react-redux'
+import PrimaryMeridianList from './MeridianTabSreen'
 
-const AccountStack = createStackNavigator()
+const MeridiansStack = createStackNavigator()
 
-function AccountStackScreen({ theme }) {
+function MeridianStackScreen({ theme }) {
   return (
-    <AccountStack.Navigator>
-      <AccountStack.Screen
-        name="Account"
-        component={AccountScreen}
+    <MeridiansStack.Navigator>
+      <MeridiansStack.Screen
+        name="Primary Meridians"
+        component={PrimaryMeridianList}
         options={{
           headerShown: false,
           headerStyle: {
@@ -25,14 +24,7 @@ function AccountStackScreen({ theme }) {
           headerTintColor: theme.PRIMARY_TEXT_COLOR,
         }}
       />
-      <AccountStack.Screen
-        name="Login"
-        component={LoginScreen}
-        options={{
-          headerShown: false,
-        }}
-      />
-    </AccountStack.Navigator>
+    </MeridiansStack.Navigator>
   )
 }
 
@@ -42,4 +34,4 @@ const mapStateToProps = ({ theme }) => {
   }
 }
 
-export default connect(mapStateToProps)(AccountStackScreen)
+export default connect(mapStateToProps)(MeridianStackScreen)

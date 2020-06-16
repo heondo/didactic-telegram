@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
-import { Dimensions } from 'react-native'
+import { Dimensions, Text } from 'react-native'
 import { connect } from 'react-redux'
-import { TabView, SceneMap } from 'react-native-tab-view'
+import { TabView } from 'react-native-tab-view'
+import PrimaryMeridianList from './PrimaryMeridianList'
 import { ThemeProvider } from 'styled-components/native'
-import MeridianRoute from './points/MeridianList'
-import MeridianExtraRoute from './points/MerdiaianExtraList'
 
-function HomeScreen({ navigation, theme }) {
-  // const [accountState, setAccountState] = useState<string | null>(null)
+function MeridianTabScreen({ navigation, theme }) {
   const [index, setIndex] = useState(0)
   const [routes] = useState([
     { key: 'meridian', title: 'Primary' },
@@ -17,17 +15,13 @@ function HomeScreen({ navigation, theme }) {
   const renderScene = ({ route }) => {
     switch (route.key) {
       case 'meridian':
-        return <MeridianRoute navigation={navigation} />
+        return <PrimaryMeridianList />
       case 'meridianExtras':
-        return <MeridianExtraRoute navigation={navigation} />
+        return <Text>Extras</Text>
       default:
         return null
     }
   }
-  // SceneMap({
-  //   meridian: MeridianRoute,
-  //   meridianExtras: MeridianExtraRoute,
-  // })
 
   const initialLayout = { width: Dimensions.get('window').width }
 
@@ -49,4 +43,4 @@ const mapStateToProps = ({ theme }) => {
   }
 }
 
-export default connect(mapStateToProps)(HomeScreen)
+export default connect(mapStateToProps)(MeridianTabScreen)
