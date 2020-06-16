@@ -9,15 +9,25 @@ import MeridianExtraRoute from './points/MerdiaianExtraList'
 function HomeScreen({ navigation, theme }) {
   // const [accountState, setAccountState] = useState<string | null>(null)
   const [index, setIndex] = useState(0)
-  const [routes] = React.useState([
+  const [routes] = useState([
     { key: 'meridian', title: 'Primary' },
     { key: 'meridianExtras', title: 'Extras' },
   ])
 
-  const renderScene = SceneMap({
-    meridian: MeridianRoute,
-    meridianExtras: MeridianExtraRoute,
-  })
+  const renderScene = ({ route }) => {
+    switch (route.key) {
+      case 'meridian':
+        return <MeridianRoute navigation={navigation} />
+      case 'meridianExtras':
+        return <MeridianExtraRoute navigation={navigation} />
+      default:
+        return null
+    }
+  }
+  // SceneMap({
+  //   meridian: MeridianRoute,
+  //   meridianExtras: MeridianExtraRoute,
+  // })
 
   const initialLayout = { width: Dimensions.get('window').width }
 

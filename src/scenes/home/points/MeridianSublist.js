@@ -1,16 +1,26 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Container, FlatList } from '../../../components/atoms'
+import { Container, FlatList, Text } from '../../../components/atoms'
 import { ListItem } from '../../../components/molecules'
 import MeridianData from '../../../shared/meridian-data'
 
-const MeridianSublistRoute = ({ navigation }) => {
-  const { meridianID, points } = navigation.state || null
+const MeridianSublistRoute = (props) => {
+  // const { meridianID, points } = navigation.state || null
+  const { params } = props.route // primaryName, meridianPointsArray
   return (
     <Container>
+      <Text>{params.primaryName}</Text>
       <FlatList
-        data={MeridianData}
-        renderItem={({ item }) => <ListItem title={item.title} />}
+        data={params.meridianPointsArray}
+        renderItem={({ item }) => (
+          <ListItem
+            data={item}
+            handlePrimaryPress={() => {
+              console.log(item)
+            }}
+            title={item.english}
+          />
+        )}
         keyExtractor={(item) => item.id}
       />
     </Container>

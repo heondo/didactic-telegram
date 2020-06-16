@@ -9,26 +9,26 @@ import {
 import { ListItem } from '../../../components/molecules'
 import MeridianData from '../../../shared/meridian-data'
 
-const MeridianRoute = (navigation) => {
-  const handlePrimaryPress = (meridianPointsArray) => {
-    navigation.navigate('Meridian Points', {
+const MeridianRoute = ({ navigation }) => {
+  const handlePrimaryPress = (primaryName, meridianPointsArray) => {
+    navigation.navigate('Meridian Points List', {
+      primaryName,
       meridianPointsArray,
     })
   }
 
   return (
-    <Container>
-      <FlatList
-        data={MeridianData}
-        renderItem={({ item }) => (
-          <ListItem data={item} handlePrimaryPress={handlePrimaryPress} />
-        )}
-        keyExtractor={(item) => item.id}
-      />
-    </Container>
-    //   <Container>
-    //     <Text>Scene First</Text>
-    //   </Container>
+    <FlatList
+      data={MeridianData}
+      renderItem={({ item }) => (
+        <ListItem
+          data={item}
+          handlePrimaryPress={handlePrimaryPress}
+          title={item.english}
+        />
+      )}
+      keyExtractor={(item) => item.id}
+    />
   )
 }
 const mapStateToProps = ({ theme }) => {

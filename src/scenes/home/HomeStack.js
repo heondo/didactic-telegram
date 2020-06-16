@@ -27,7 +27,7 @@ function HomeStackScreen({ theme }) {
         }}
       />
       <HomeStack.Screen
-        name="Sublist"
+        name="Meridian Points List"
         component={MeridianSublist}
         options={{
           headerShown: false,

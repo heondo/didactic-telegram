@@ -24,7 +24,6 @@ function StackNavigator({ theme, login, authState }) {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const onAuthStateChanged = (user) => {
-    // console.log(user)
     const strippedDown = user
       ? {
           displayName: user.displayName,
@@ -46,18 +45,6 @@ function StackNavigator({ theme, login, authState }) {
       console.log(err)
     }
   }
-
-  // const _isFirstLaunch = async () => {
-  //   try {
-  //     const wasLaunched = await AsyncStorage.getItem('wasLaunched')
-  //     if (wasLaunched !== null) {
-  //       setHasBeenLaunched(true)
-  //     }
-  //     setHasBeenLaunched(false)
-  //   } catch (err) {
-  //     console.log(err)
-  //   }
-  // }
 
   if (!hasBeenLaunched) {
     return <FirstLaunch setHasBeenLaunched={setHasBeenLaunched} />
