@@ -26,6 +26,7 @@ export const ListItem = styled.View`
 export const Text = styled.Text`
   color: ${(props) => props.theme.PRIMARY_TEXT_COLOR};
   font-size: 16px;
+  text-align: center;
 `
 
 export const RedText = styled(Text)`

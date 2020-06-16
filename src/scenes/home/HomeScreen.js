@@ -1,13 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Text } from 'react-native'
 import { ThemeProvider } from 'styled-components/native'
+import { Text, Container } from '../../components/atoms'
 
 function HomeScreen({ navigation, theme }) {
   // const [accountState, setAccountState] = useState<string | null>(null)
   return (
     <ThemeProvider theme={theme}>
-      <Text>Home Screen</Text>
+      <Container>
+        <Text>Home Screen</Text>
+      </Container>
     </ThemeProvider>
   )
 }

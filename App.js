@@ -6,9 +6,9 @@
  * @flow strict-local
  */
 import 'react-native-gesture-handler'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Provider } from 'react-redux'
-import { lightTheme } from './src/shared/theme'
+import { darkTheme } from './src/shared/theme'
 import store from './src/state/store'
 import { ThemeProvider } from 'styled-components/native'
 import StackNavigator from './src/scenes/stack/root'
@@ -16,7 +16,7 @@ import StackNavigator from './src/scenes/stack/root'
 const App = () => {
   return (
     <Provider store={store}>
-      <ThemeProvider theme={lightTheme}>
+      <ThemeProvider theme={darkTheme}>
         <StackNavigator />
       </ThemeProvider>
     </Provider>
