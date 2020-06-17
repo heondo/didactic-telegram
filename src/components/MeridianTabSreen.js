@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Dimensions, Text } from 'react-native'
+import { Dimensions } from 'react-native'
 import { connect } from 'react-redux'
 import { TabView } from 'react-native-tab-view'
 import PrimaryMeridianList from './PrimaryMeridianList'
@@ -17,6 +17,7 @@ function MeridianTabScreen({ navigation, theme }) {
       case 'meridian':
         return <PrimaryMeridianList navigation={navigation} />
       case 'meridianExtras':
+        // TODO: change this to the extra meridians, they will need different components
         return <PrimaryMeridianList navigation={navigation} />
       default:
         return null

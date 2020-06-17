@@ -4,8 +4,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import { MatCommIcon } from './atoms'
-import MeridiansStack from './MeridiansStackScreen'
+import { MatCommIcon, MatIcon } from './atoms'
+import MeridiansStackScreen from './MeridiansStackScreen'
+import SettingsStackScreen from './SettingsStackScreen'
 
 const Tab = createBottomTabNavigator()
 
@@ -23,11 +24,24 @@ function RootStackNavigator({ theme }) {
         }}>
         <Tab.Screen
           name="Meridians"
-          component={MeridiansStack}
+          component={MeridiansStackScreen}
           options={{
             tabBarIcon: ({ focused }) => (
               <MatCommIcon
                 name="view-list"
+                color={focused ? theme.WHITE : theme.GREY}
+                size={25}
+              />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Settings"
+          component={SettingsStackScreen}
+          options={{
+            tabBarIcon: ({ focused }) => (
+              <MatIcon
+                name="settings"
                 color={focused ? theme.WHITE : theme.GREY}
                 size={25}
               />
