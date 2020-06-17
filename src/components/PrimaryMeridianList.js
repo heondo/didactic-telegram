@@ -7,7 +7,7 @@ import { MeridianListItem } from './molecules'
 
 const PrimaryMeridianList = ({ navigation }) => {
   const goToPointsList = (meridianTitle, meridianPointsArray) => {
-    navigation.navigate('Meridian Points List', {
+    navigation.navigate('Meridian Points', {
       meridianTitle,
       meridianPointsArray,
     })

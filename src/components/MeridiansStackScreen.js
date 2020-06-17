@@ -26,10 +26,10 @@ function MeridianStackScreen({ theme }) {
         }}
       />
       <MeridiansStack.Screen
-        name="Meridian Points List"
+        name="Meridian Points"
         component={MeridianPointsList}
         options={{
-          headerShown: false,
+          headerShown: true,
           headerStyle: {
             backgroundColor: theme.PRIMARY_BACKGROUND_COLOR,
           },
