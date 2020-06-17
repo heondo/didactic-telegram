@@ -3,7 +3,8 @@ import * as React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 
 import { connect } from 'react-redux'
-import PrimaryMeridianList from './MeridianTabSreen'
+import MeridianTabScreen from './MeridianTabSreen'
+import MeridianPointsList from './organisms/MeridianPointsList'
 
 const MeridiansStack = createStackNavigator()
 
@@ -12,7 +13,21 @@ function MeridianStackScreen({ theme }) {
     <MeridiansStack.Navigator>
       <MeridiansStack.Screen
         name="Primary Meridians"
-        component={PrimaryMeridianList}
+        component={MeridianTabScreen}
+        options={{
+          headerShown: false,
+          headerStyle: {
+            backgroundColor: theme.PRIMARY_BACKGROUND_COLOR,
+          },
+          headerTitleStyle: {
+            color: theme.PRIMARY_TEXT_COLOR,
+          },
+          headerTintColor: theme.PRIMARY_TEXT_COLOR,
+        }}
+      />
+      <MeridiansStack.Screen
+        name="Meridian Points List"
+        component={MeridianPointsList}
         options={{
           headerShown: false,
           headerStyle: {

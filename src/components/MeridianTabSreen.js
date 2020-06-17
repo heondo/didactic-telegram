@@ -15,7 +15,7 @@ function MeridianTabScreen({ navigation, theme }) {
   const renderScene = ({ route }) => {
     switch (route.key) {
       case 'meridian':
-        return <PrimaryMeridianList />
+        return <PrimaryMeridianList navigation={navigation} />
       case 'meridianExtras':
         return <Text>Extras</Text>
       default:

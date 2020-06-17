@@ -5,15 +5,23 @@ import MeridianData from '../shared/meridian-data'
 import { ThemeProvider } from 'styled-components'
 import { MeridianListItem } from './molecules'
 
-const PrimaryMeridianList = (props) => {
+const PrimaryMeridianList = ({ navigation }) => {
+  const goToPointsList = (meridianPointsArray) => {
+    navigation.navigate('Meridian Points List', {
+      meridianPointsArray,
+    })
+  }
+
   return (
     <View>
       <FlatList
         data={MeridianData}
         renderItem={({ item }) => (
+          // pass in a callback to navigate to ea MeridianPointsList page
           <MeridianListItem
             title={item.english}
             id={item.id}
+            goToPointsList={goToPointsList}
             points={item.points || []}
           />
         )}

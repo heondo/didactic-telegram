@@ -5,14 +5,11 @@ import PropTypes from 'prop-types'
 
 export const MeridianListItemContainer = styled(Button)``
 
-export function MeridianListItem({ id, title, points, goToPointsList }) {
-  const handlePress = () => {
-    goToPointsList(points)
-  }
+export function MeridianListItem({ id, title }) {
   // pass in the points array when pressing the Meridian Point to enter the
   // Meridian Points List, instead of the normal meridian lists. JEez this naming convention is confusing my head
   return (
-    <MeridianListItemContainer onPress={handlePress}>
+    <MeridianListItemContainer>
       <Text>{id}</Text>
       <Text>{title}</Text>
     </MeridianListItemContainer>
@@ -22,7 +19,4 @@ export function MeridianListItem({ id, title, points, goToPointsList }) {
 MeridianListItem.propTypes = {
   id: PropTypes.string,
   title: PropTypes.string,
-  image: PropTypes.string,
-  points: PropTypes.array,
-  goToPointsList: PropTypes.func,
 }
