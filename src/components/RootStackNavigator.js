@@ -2,6 +2,7 @@ import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 import { MatCommIcon } from './atoms'
 import MeridiansStack from './MeridiansStackScreen'
@@ -43,4 +44,10 @@ const mapStateToProps = ({ theme, auth: authState }) => {
     authState,
   }
 }
+
+RootStackNavigator.propTypes = {
+  theme: PropTypes.object,
+  auth: PropTypes.object,
+}
+
 export default connect(mapStateToProps)(RootStackNavigator)
