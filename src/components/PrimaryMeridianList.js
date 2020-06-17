@@ -6,7 +6,7 @@ import { MeridianListItem } from './molecules'
 
 const PrimaryMeridianList = ({ navigation }) => {
   const goToPointsList = (meridianTitle, meridianPointsArray) => {
-    navigation.navigate('Meridian Points', {
+    navigation.navigate('Meridian Points List', {
       meridianTitle,
       meridianPointsArray,
     })
@@ -20,6 +20,7 @@ const PrimaryMeridianList = ({ navigation }) => {
           // pass in a callback to navigate to ea MeridianPointsList page
           <MeridianListItem
             title={item.english}
+            chinese={item.chinese}
             id={item.id}
             goToPointsList={goToPointsList}
             points={item.points || []}

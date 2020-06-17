@@ -5,3 +5,7 @@ export const Text = styled.Text`
   font-size: 16px;
   text-align: center;
 `
+
+export const CodeText = styled(Text)`
+  margin-right: 4px;
+`

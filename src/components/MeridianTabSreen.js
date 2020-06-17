@@ -17,7 +17,7 @@ function MeridianTabScreen({ navigation, theme }) {
       case 'meridian':
         return <PrimaryMeridianList navigation={navigation} />
       case 'meridianExtras':
-        return <Text>Extras</Text>
+        return <PrimaryMeridianList navigation={navigation} />
       default:
         return null
     }

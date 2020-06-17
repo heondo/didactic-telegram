@@ -10,6 +10,7 @@ import MeridiansStack from './MeridiansStackScreen'
 const Tab = createBottomTabNavigator()
 
 function RootStackNavigator({ theme }) {
+  // do i put logic here. If authState.loggedIn
   return (
     <NavigationContainer>
       <Tab.Navigator

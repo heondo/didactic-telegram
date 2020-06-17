@@ -16,6 +16,7 @@ const MeridianPointsList = ({ route, navigation }) => {
           // pass in a callback to navigate to ea MeridianPointsList page
           <MeridianPointListItem
             title={item.english}
+            chinese={item.name}
             id={item.id}
             points={item.points || []}
           />

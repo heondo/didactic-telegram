@@ -6,3 +6,8 @@ export const FlatList = styled.FlatList`
   width: ${(props) => (props.width ? props.width : '100%')};
   padding: 0px 8px;
 `
+export const ListItem = styled.View`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`

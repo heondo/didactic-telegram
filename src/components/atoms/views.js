@@ -9,3 +9,8 @@ export const View = styled.SafeAreaView`
   align-items: center;
   width: ${(props) => (props.width ? props.width : '100%')};
 `
+
+export const Row = styled.View`
+  display: flex;
+  flex-direction: row;
+`
