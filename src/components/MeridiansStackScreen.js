@@ -15,7 +15,7 @@ function MeridianStackScreen({ theme }) {
         name="Primary Meridians"
         component={MeridianTabScreen}
         options={{
-          headerShown: false,
+          headerShown: true,
           headerStyle: {
             backgroundColor: theme.PRIMARY_BACKGROUND_COLOR,
           },

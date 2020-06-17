@@ -1,11 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { View, Text } from './atoms'
+import { SettingsListItem } from './molecules/SettingsListItem'
 
 const SettingsListScreen = ({ navigation }) => {
   return (
     <View>
-      <Text>Hello</Text>
+      <SettingsListItem title="Change Theme" />
     </View>
   )
 }

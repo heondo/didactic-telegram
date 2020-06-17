@@ -11,7 +11,7 @@ function SettingsStackScreen({ theme }) {
   return (
     <SettingsStack.Navigator>
       <SettingsStack.Screen
-        name="Settings List"
+        name="Settings"
         component={SettingsListScreen}
         options={{
           headerShown: true,
