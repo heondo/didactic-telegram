@@ -7,7 +7,7 @@ const store = configureStore({
     theme: themeSlice.reducer,
     auth: authSlice.reducer,
   }),
-  middleware: [],
+  // middleware: [],
 })
 
 export default store
