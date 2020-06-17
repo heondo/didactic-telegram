@@ -1,5 +1,5 @@
 import React from 'react'
-import { CodeText, Row, Text, Button, ListItem } from '../atoms'
+import { Row, Text, Button, ListItem, ButtonText } from '../atoms'
 import styled from 'styled-components/native'
 import PropTypes from 'prop-types'
 
@@ -22,10 +22,10 @@ export function MeridianListItem({
     <MeridianListItemContainer onPress={handlePress}>
       <ListItem>
         <Row>
-          <CodeText>{id}:</CodeText>
-          <Text>{title}</Text>
+          <ButtonText>{id}:</ButtonText>
+          <ButtonText>{title}</ButtonText>
         </Row>
-        <Text>{chinese}</Text>
+        <ButtonText>{chinese}</ButtonText>
       </ListItem>
     </MeridianListItemContainer>
   )

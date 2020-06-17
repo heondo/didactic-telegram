@@ -15,8 +15,7 @@ export const DisabledButton = styled(Button)`
 `
 
 export const ButtonText = styled.Text`
-  font-size: 18px;
-  font-weight: bold;
-  color: ${(props) => props.theme.WHITE};
+  font-size: 16px;
+  color: ${(props) => props.theme.PRIMARY_BUTTON_TEXT_COLOR};
   text-align: center;
 `

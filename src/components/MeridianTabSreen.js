@@ -11,10 +11,10 @@ const RenderTabBar = (props) => {
     <TabBar
       {...props}
       indicatorStyle={{
-        backgroundColor: theme.WHITE,
+        backgroundColor: theme.TAB_INDICATOR,
       }}
       style={{
-        backgroundColor: theme.PRIMARY_BACKGROUND_COLOR,
+        backgroundColor: theme.TAB_BACKGROUND,
       }}
     />
   )

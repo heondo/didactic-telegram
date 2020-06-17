@@ -1,5 +1,5 @@
 import React from 'react'
-import { CodeText, Text, Button, ListItem, Row } from '../atoms'
+import { ButtonText, Button, ListItem, Row } from '../atoms'
 import styled from 'styled-components/native'
 import PropTypes from 'prop-types'
 
@@ -12,7 +12,7 @@ export function SettingsListItem(props) {
   return (
     <SettingsListItemContainer>
       <ListItem>
-        <Text>{title}</Text>
+        <ButtonText>{title}</ButtonText>
       </ListItem>
     </SettingsListItemContainer>
   )

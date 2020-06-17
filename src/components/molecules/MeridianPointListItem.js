@@ -1,5 +1,5 @@
 import React from 'react'
-import { CodeText, Text, Button, ListItem, Row } from '../atoms'
+import { ButtonText, Button, ListItem, Row } from '../atoms'
 import styled from 'styled-components/native'
 import PropTypes from 'prop-types'
 
@@ -12,10 +12,10 @@ export function MeridianPointListItem({ id, title, chinese }) {
     <MeridianPointListItemContainer>
       <ListItem>
         <Row>
-          <CodeText>{id}:</CodeText>
-          <Text>{title}</Text>
+          <ButtonText>{id}:</ButtonText>
+          <ButtonText>{title}</ButtonText>
         </Row>
-        <Text>{chinese}</Text>
+        <ButtonText>{chinese}</ButtonText>
       </ListItem>
     </MeridianPointListItemContainer>
   )
