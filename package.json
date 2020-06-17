@@ -6,8 +6,8 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "prettier:write": "npx prettier --write **/*.{js,jsx}",
-    "clean-gradle": "cd android && gradlew.bat clean && cd ..",
+    "prettier:write": "npx prettier --write '**/*.{js,jsx}'",
+    "clean-gradle": "cd android && gradle clean && cd ..",
     "test": "jest",
     "lint": "eslint ."
   },
