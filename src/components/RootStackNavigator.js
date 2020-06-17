@@ -15,7 +15,9 @@ function RootStackNavigator({ theme }) {
         tabBarOptions={{
           activeBackgroundColor: theme.BLACK,
           inactiveBackgroundColor: theme.BLACK,
-          showLabel: false,
+          activeTintColor: theme.WHITE,
+          inactiveTintColor: theme.GREY,
+          showLabel: true,
         }}>
         <Tab.Screen
           name="Meridians"
