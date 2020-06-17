@@ -14,3 +14,7 @@ export const Row = styled.View`
   display: flex;
   flex-direction: row;
 `
+
+export const PaddedView = styled(View)`
+  padding: 6px;
+`

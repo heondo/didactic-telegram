@@ -5,13 +5,20 @@ import { TabView, TabBar } from 'react-native-tab-view'
 import PrimaryMeridianList from './PrimaryMeridianList'
 import { ThemeProvider } from 'styled-components/native'
 
-const renderTabBar = (props) => (
-  <TabBar
-    {...props}
-    indicatorStyle={{ backgroundColor: 'white' }}
-    style={{ backgroundColor: 'black' }}
-  />
-)
+const RenderTabBar = (props) => {
+  const { theme } = props
+  return (
+    <TabBar
+      {...props}
+      indicatorStyle={{
+        backgroundColor: theme.WHITE,
+      }}
+      style={{
+        backgroundColor: theme.PRIMARY_BACKGROUND_COLOR,
+      }}
+    />
+  )
+}
 
 function MeridianTabScreen({ navigation, theme }) {
   const [index, setIndex] = useState(0)
@@ -41,7 +48,7 @@ function MeridianTabScreen({ navigation, theme }) {
         renderScene={renderScene}
         onIndexChange={setIndex}
         initialLayout={initialLayout}
-        renderTabBar={renderTabBar}
+        renderTabBar={(props) => <RenderTabBar {...props} theme={theme} />}
       />
     </ThemeProvider>
   )

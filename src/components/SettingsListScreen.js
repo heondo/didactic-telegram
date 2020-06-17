@@ -1,13 +1,23 @@
 import React from 'react'
+import { Switch } from 'react-native'
 import { connect } from 'react-redux'
-import { View, Text } from './atoms'
-import { SettingsListItem } from './molecules/SettingsListItem'
+import PropTypes from 'prop-types'
 
-const SettingsListScreen = ({ navigation }) => {
+import { View, PaddedView, Text, Row } from './atoms'
+import { themeSlice } from '../state/theme/slice'
+import { ThemeProvider } from 'styled-components'
+
+const SettingsListScreen = ({ theme, navigation, toggleTheme }) => {
   return (
-    <View>
-      <SettingsListItem title="Change Theme" />
-    </View>
+    <ThemeProvider theme={theme}>
+      <PaddedView>
+        <Text>Settings</Text>
+        <Row>
+          <Text>Enable Dark Theme</Text>
+          <Switch onValueChange={toggleTheme} value={theme.mode !== 'light'} />
+        </Row>
+      </PaddedView>
+    </ThemeProvider>
   )
 }
 const mapStateToProps = ({ theme }) => {
@@ -16,24 +26,11 @@ const mapStateToProps = ({ theme }) => {
   }
 }
 
-export default connect(mapStateToProps)(SettingsListScreen)
+export default connect(mapStateToProps, {
+  toggleTheme: themeSlice.actions.toggleTheme,
+})(SettingsListScreen)
 
-// {
-//   "chinese": "手太阴肺经",
-//   "english": "Lung",
-//   "id": "LU",
-//   "korean": "수태음폐경",
-//   "points": [
-//     {
-//       "english": "Middle Palace",
-//       "id": "LU-1",
-//       "korean": "jung bu 중부",
-//       "name": "中府",
-//       "pinyin": "zhōng fǔ",
-//       "romaji": "chū fu",
-//       "transliteration": "Zhongfu",
-//       "vietnamese": "Trung phủ"
-//   ],
-//   "title": "Lung",
-//   "viet": "Thủ thái âm phế"
-// }
+SettingsListScreen.propTypes = {
+  theme: PropTypes.object,
+  navigation: PropTypes.object,
+}

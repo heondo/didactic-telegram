@@ -7,9 +7,9 @@ export const themeSlice = createSlice({
   reducers: {
     toggleTheme(state, action) {
       if (state.mode === 'light') {
-        state = darkTheme
+        return darkTheme
       } else {
-        state = lightTheme
+        return lightTheme
       }
     },
   },
