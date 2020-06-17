@@ -6,8 +6,9 @@ import { ThemeProvider } from 'styled-components'
 import { MeridianListItem } from './molecules'
 
 const PrimaryMeridianList = ({ navigation }) => {
-  const goToPointsList = (meridianPointsArray) => {
+  const goToPointsList = (meridianTitle, meridianPointsArray) => {
     navigation.navigate('Meridian Points List', {
+      meridianTitle,
       meridianPointsArray,
     })
   }

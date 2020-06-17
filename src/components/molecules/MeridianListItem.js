@@ -7,10 +7,9 @@ export const MeridianListItemContainer = styled(Button)``
 
 export function MeridianListItem({ id, title, points, goToPointsList }) {
   const handlePress = () => {
-    goToPointsList(points)
+    goToPointsList(title, points)
   }
-  // pass in the points array when pressing the Meridian Point to enter the
-  // Meridian Points List, instead of the normal meridian lists. JEez this naming convention is confusing my head
+
   return (
     <MeridianListItemContainer onPress={handlePress}>
       <Text>{id}</Text>
@@ -22,7 +21,6 @@ export function MeridianListItem({ id, title, points, goToPointsList }) {
 MeridianListItem.propTypes = {
   id: PropTypes.string,
   title: PropTypes.string,
-  image: PropTypes.string,
   points: PropTypes.array,
   goToPointsList: PropTypes.func,
 }

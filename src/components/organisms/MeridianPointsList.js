@@ -1,12 +1,27 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+
 import { View, FlatList, Text } from '../atoms'
+import { MeridianPointListItem } from '../molecules'
 
 const MeridianPointsList = ({ route, navigation }) => {
+  const { meridianPointsArray, meridianTitle } = route.params
   return (
     <View>
-      <Text>This is the list of points of a specific meridian</Text>
-      <Text>{JSON.stringify(route.params.meridianPointsArray)}</Text>
+      <Text>{meridianTitle}</Text>
+      <FlatList
+        data={meridianPointsArray}
+        renderItem={({ item }) => (
+          // pass in a callback to navigate to ea MeridianPointsList page
+          <MeridianPointListItem
+            title={item.english}
+            id={item.id}
+            points={item.points || []}
+          />
+        )}
+        keyExtractor={(item) => item.id}
+      />
     </View>
   )
 }
@@ -17,6 +32,11 @@ const mapStateToProps = ({ theme }) => {
 }
 
 export default connect(mapStateToProps)(MeridianPointsList)
+
+MeridianPointsList.propTypes = {
+  route: PropTypes.object,
+  navigation: PropTypes.object,
+}
 
 // {
 //   "chinese": "手太阴肺经",
