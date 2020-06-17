@@ -1,8 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { View, FlatList, Text } from './atoms'
+import { View, FlatList } from './atoms'
 import MeridianData from '../shared/meridian-data'
-import { ThemeProvider } from 'styled-components'
 import { MeridianListItem } from './molecules'
 
 const PrimaryMeridianList = ({ navigation }) => {
