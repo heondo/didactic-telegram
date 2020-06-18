@@ -6,7 +6,7 @@ export const Button = styled.TouchableOpacity`
   width: ${(props) => (props.width ? props.width : '100%')};
   border-radius: 5px;
   padding: 16px;
-  margin: ${(props) => (props.mg ? props.mg : '0')};
+  margin: ${(props) => (props.mg ? props.mg : '4px 0')};
 `
 
 export const DisabledButton = styled(Button)`

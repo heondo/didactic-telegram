@@ -6,8 +6,16 @@ import { View, FlatList } from '../atoms'
 import { MeridianPointListItem } from '../molecules'
 import { ThemeProvider } from 'styled-components'
 
-const MeridianPointsList = ({ theme, route }) => {
+const MeridianPointsList = ({ theme, route, navigation }) => {
   const { meridianPointsArray } = route.params
+
+  const handlePointItemPress = (pointID, headerName) => {
+    navigation.navigate('Point Details', {
+      id: pointID,
+      headerName,
+    })
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <View>
@@ -20,6 +28,7 @@ const MeridianPointsList = ({ theme, route }) => {
               chinese={item.name}
               id={item.id}
               points={item.points || []}
+              handlePointItemPress={handlePointItemPress}
             />
           )}
           keyExtractor={(item) => item.id}

@@ -44,7 +44,7 @@ const SettingsListScreen = ({ theme, authState, navigation, toggleTheme }) => {
             <Text>
               You are not logged in, sign in to save your images across devices
             </Text>
-            <Button mg="4px 0" onPress={onGoogleButtonPress}>
+            <Button onPress={onGoogleButtonPress}>
               <Row>
                 <ButtonText>Sign In</ButtonText>
               </Row>

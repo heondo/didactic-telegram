@@ -19,7 +19,7 @@ export function MeridianListItem({
   }
 
   return (
-    <MeridianListItemContainer mg="4px 0" onPress={handlePress}>
+    <MeridianListItemContainer onPress={handlePress}>
       <ListItem>
         <Row>
           <ButtonText mg="0 4px 0 0">{id}:</ButtonText>
