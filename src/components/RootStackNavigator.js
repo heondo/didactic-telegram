@@ -13,7 +13,6 @@ import SettingsStackScreen from './SettingsStackScreen'
 const Tab = createBottomTabNavigator()
 
 function RootStackNavigator({ theme, login, authState }) {
-  // do i put logic here. If authState.loggedIn
   const [initializing, setInitializing] = useState(true)
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged)
@@ -23,6 +22,20 @@ function RootStackNavigator({ theme, login, authState }) {
 
   const onAuthStateChanged = (user) => {
     console.log(user)
+    /**
+     * {"displayName": "allen kim",
+     * "email": "heondo.testing@gmail.com",
+     *  "emailVerified": true,
+     * "isAnonymous": false,
+     * "metadata": {"creationTime":
+     *              1592270109651,
+     * "lastSignInTime":
+     * 1592447993784},
+     * "phoneNumber": null,
+     * "photoURL": "https://lh4.googleusercontent.com/-OCEpxGO_lfc/AAAAAAAAAAI/AAAAAAAAAAA/AMZuuckY3lpXI87ByO_01S3iVzRN4NJfaA/s96-c/photo.jpg", "providerData": [[Object]],
+     * "providerId": "firebase",
+     * "uid": "KEFNhcwb2bUjVdHeSMIOlCyok0a2"
+     */
     const strippedDown = user
       ? {
           displayName: user.displayName,
