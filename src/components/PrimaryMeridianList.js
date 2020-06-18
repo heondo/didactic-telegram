@@ -5,11 +5,11 @@ import MeridianData from '../shared/meridian-data'
 import { MeridianListItem } from './molecules'
 
 const PrimaryMeridianList = ({ navigation }) => {
-  const goToPointsList = (meridianTitle, meridianPointsArray) => {
+  const goToPointsList = (meridianTitle, meridianPointsArray, headerName) => {
     navigation.navigate('Meridian Points List', {
       meridianTitle,
       meridianPointsArray,
-      headerName: meridianTitle,
+      headerName,
     })
   }
 

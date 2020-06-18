@@ -1,5 +1,5 @@
 import React from 'react'
-import { ButtonText, Button, ListItem, Row } from '../atoms'
+import { ButtonText, Button, ListItem } from '../atoms'
 import styled from 'styled-components/native'
 import PropTypes from 'prop-types'
 

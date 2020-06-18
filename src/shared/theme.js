@@ -19,6 +19,7 @@ const nord = {
 }
 
 export const lightTheme = {
+  ...nord,
   mode: 'light',
   LOGO_COLOR: nord.frost2,
   BLACK: 'black',

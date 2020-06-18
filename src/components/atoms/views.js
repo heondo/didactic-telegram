@@ -14,6 +14,7 @@ export const View = styled.SafeAreaView`
 export const Row = styled.View`
   display: flex;
   flex-direction: row;
+  justify-content: center;
   margin: ${(props) => (props.mg ? props.mg : '0')};
 `
 
