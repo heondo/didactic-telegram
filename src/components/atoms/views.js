@@ -7,14 +7,20 @@ export const View = styled.SafeAreaView`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: ${(props) => (props.mg ? props.mg : '0')};
   width: ${(props) => (props.width ? props.width : '100%')};
 `
 
 export const Row = styled.View`
   display: flex;
   flex-direction: row;
+  margin: ${(props) => (props.mg ? props.mg : '0')};
 `
 
 export const PaddedView = styled(View)`
   padding: 6px;
+`
+
+export const EmptySpace = styled.View`
+  flex-grow: 1;
 `

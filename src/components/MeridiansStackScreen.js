@@ -28,7 +28,8 @@ function MeridianStackScreen({ theme }) {
       <MeridiansStack.Screen
         name="Meridian Points List"
         component={MeridianPointsList}
-        options={{
+        options={({ route }) => ({
+          title: route.params.headerName,
           headerShown: true,
           headerStyle: {
             backgroundColor: theme.PRIMARY_BACKGROUND_COLOR,
@@ -37,7 +38,7 @@ function MeridianStackScreen({ theme }) {
             color: theme.PRIMARY_TEXT_COLOR,
           },
           headerTintColor: theme.PRIMARY_TEXT_COLOR,
-        }}
+        })}
       />
     </MeridiansStack.Navigator>
   )

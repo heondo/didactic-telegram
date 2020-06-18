@@ -4,11 +4,12 @@ export const FlatList = styled.FlatList`
   background-color: ${(props) => props.theme.PRIMARY_BACKGROUND_COLOR};
   color: ${(props) => props.theme.PRIMARY_TEXT_COLOR};
   width: ${(props) => (props.width ? props.width : '100%')};
-  padding: 0px 8px;
+  padding: 6px 8px;
+  margin: ${(props) => (props.mg ? props.mg : '0')};
 `
 
 export const ListItem = styled.View`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  margin: ${(props) => (props.mg ? props.mg : '0')};
 `

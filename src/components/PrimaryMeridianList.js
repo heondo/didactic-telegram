@@ -9,6 +9,7 @@ const PrimaryMeridianList = ({ navigation }) => {
     navigation.navigate('Meridian Points List', {
       meridianTitle,
       meridianPointsArray,
+      headerName: meridianTitle,
     })
   }
 

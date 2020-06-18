@@ -2,28 +2,30 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import { View, FlatList, Text } from '../atoms'
+import { View, FlatList } from '../atoms'
 import { MeridianPointListItem } from '../molecules'
+import { ThemeProvider } from 'styled-components'
 
-const MeridianPointsList = ({ route, navigation }) => {
-  const { meridianPointsArray, meridianTitle } = route.params
+const MeridianPointsList = ({ theme, route }) => {
+  const { meridianPointsArray } = route.params
   return (
-    <View>
-      <Text>{meridianTitle}</Text>
-      <FlatList
-        data={meridianPointsArray}
-        renderItem={({ item }) => (
-          // pass in a callback to navigate to ea MeridianPointsList page
-          <MeridianPointListItem
-            title={item.english}
-            chinese={item.name}
-            id={item.id}
-            points={item.points || []}
-          />
-        )}
-        keyExtractor={(item) => item.id}
-      />
-    </View>
+    <ThemeProvider theme={theme}>
+      <View>
+        <FlatList
+          data={meridianPointsArray}
+          renderItem={({ item }) => (
+            // pass in a callback to navigate to ea MeridianPointsList page
+            <MeridianPointListItem
+              title={item.english}
+              chinese={item.name}
+              id={item.id}
+              points={item.points || []}
+            />
+          )}
+          keyExtractor={(item) => item.id}
+        />
+      </View>
+    </ThemeProvider>
   )
 }
 const mapStateToProps = ({ theme }) => {

@@ -3,16 +3,27 @@ import { Switch } from 'react-native'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import { View, PaddedView, Text, Row } from './atoms'
+import { View, PaddedView, Text, Row, EmptySpace } from './atoms'
 import { themeSlice } from '../state/theme/slice'
 import { ThemeProvider } from 'styled-components'
 
-const SettingsListScreen = ({ theme, navigation, toggleTheme }) => {
+// no need for fancy settings pages just yet. Just a simple dark theme, sign in and sign out feature.
+
+const SettingsListScreen = ({ theme, authState, navigation, toggleTheme }) => {
   return (
     <ThemeProvider theme={theme}>
       <PaddedView>
-        <Text>Settings</Text>
-        <Row>
+        <Text>
+          {authState.loggedIn ? (
+            'true'
+          ) : (
+            <Text>
+              You are not logged in, sign in to save your images across devices
+            </Text>
+          )}
+        </Text>
+        <EmptySpace />
+        <Row mg="4px 0">
           <Text>Enable Dark Theme</Text>
           <Switch onValueChange={toggleTheme} value={theme.mode !== 'light'} />
         </Row>
@@ -20,9 +31,10 @@ const SettingsListScreen = ({ theme, navigation, toggleTheme }) => {
     </ThemeProvider>
   )
 }
-const mapStateToProps = ({ theme }) => {
+const mapStateToProps = ({ theme, authState }) => {
   return {
     theme,
+    authState,
   }
 }
 
