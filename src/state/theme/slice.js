@@ -3,9 +3,9 @@ import { lightTheme, darkTheme } from '../../shared/theme'
 
 export const themeSlice = createSlice({
   name: 'theme',
-  initialState: lightTheme,
+  initialState: darkTheme,
   reducers: {
-    toggleTheme(state, action) {
+    toggleTheme(state, __) {
       if (state.mode === 'light') {
         return darkTheme
       } else {

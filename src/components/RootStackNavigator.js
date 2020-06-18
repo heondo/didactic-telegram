@@ -21,7 +21,6 @@ function RootStackNavigator({ theme, login, authState }) {
   }, [])
 
   const onAuthStateChanged = (user) => {
-    console.log(user)
     /**
      * {"displayName": "allen kim",
      * "email": "heondo.testing@gmail.com",

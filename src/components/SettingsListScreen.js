@@ -5,9 +5,18 @@ import PropTypes from 'prop-types'
 import auth from '@react-native-firebase/auth'
 import { GoogleSignin } from '@react-native-community/google-signin'
 
-import { PaddedView, Text, Row, EmptySpace, Button, ButtonText } from './atoms'
+import {
+  PaddedView,
+  Text,
+  Row,
+  EmptySpace,
+  Button,
+  ButtonText,
+  View,
+} from './atoms'
 import { themeSlice } from '../state/theme/slice'
 import { ThemeProvider } from 'styled-components'
+import { ProfileBanner } from './molecules'
 
 // no need for fancy settings pages just yet. Just a simple dark theme, sign in and sign out feature.
 
@@ -29,12 +38,11 @@ const SettingsListScreen = ({ theme, authState, navigation, toggleTheme }) => {
           TODO: need to change this not logged in or out component into its own file
         */}
         {authState.loggedIn ? (
-          <Text>Hello {authState.displayName}</Text>
+          <ProfileBanner />
         ) : (
           <>
             <Text>
               You are not logged in, sign in to save your images across devices
-              {JSON.stringify(authState)}
             </Text>
             <Button mg="4px 0" onPress={onGoogleButtonPress}>
               <Row>
