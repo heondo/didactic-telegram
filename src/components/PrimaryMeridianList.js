@@ -20,6 +20,7 @@ const PrimaryMeridianList = ({ navigation }) => {
         renderItem={({ item }) => (
           // pass in a callback to navigate to ea MeridianPointsList page
           <MeridianListItem
+            // TODO: this is where to customize the language for the whatever
             title={item.english}
             chinese={item.chinese}
             id={item.id}

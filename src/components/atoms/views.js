@@ -21,6 +21,10 @@ export const View = styled.SafeAreaView`
   width: ${(props) => (props.width ? props.width : '100%')};
 `
 
+export const PointDetailsView = styled(View)`
+  justify-content: flex-start;
+`
+
 export const Row = styled.View`
   display: flex;
   flex-direction: row;
