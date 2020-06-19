@@ -21,6 +21,17 @@ export const View = styled.SafeAreaView`
   width: ${(props) => (props.width ? props.width : '100%')};
 `
 
+export const SrollView = styled.ScrollView`
+  flex: 1;
+  background-color: ${(props) => props.theme.PRIMARY_BACKGROUND_COLOR};
+  color: ${(props) => props.theme.PRIMARY_TEXT_COLOR};
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+  margin: ${(props) => (props.mg ? props.mg : '0')};
+  width: ${(props) => (props.width ? props.width : '100%')};
+`
+
 export const PointDetailsView = styled(View)`
   justify-content: flex-start;
 `

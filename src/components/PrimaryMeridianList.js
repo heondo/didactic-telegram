@@ -1,10 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { View, FlatList } from './atoms'
+import { SrollView, FlatList } from './atoms'
 import PrimaryMeridianData from '../shared/data/primary-meridian-data'
 import { MeridianListItem } from './molecules'
+import { ThemeProvider } from 'styled-components'
 
-const PrimaryMeridianList = ({ navigation }) => {
+const PrimaryMeridianList = ({ navigation, theme }) => {
   const goToPointsList = (meridianTitle, meridianPointsArray, headerName) => {
     navigation.navigate('Meridian Points List', {
       meridianTitle,
@@ -14,7 +15,7 @@ const PrimaryMeridianList = ({ navigation }) => {
   }
 
   return (
-    <View>
+    <ThemeProvider theme={theme}>
       <FlatList
         data={PrimaryMeridianData}
         renderItem={({ item }) => (
@@ -30,7 +31,7 @@ const PrimaryMeridianList = ({ navigation }) => {
         )}
         keyExtractor={(item) => item.pointID}
       />
-    </View>
+    </ThemeProvider>
   )
 }
 const mapStateToProps = ({ theme }) => {
