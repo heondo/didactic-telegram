@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 export const MeridianPointListItemContainer = styled(Button)``
 
 export function MeridianPointListItem({
-  id,
+  pointID,
   title,
   chinese,
   handlePointItemPress,
@@ -16,14 +16,14 @@ export function MeridianPointListItem({
 
   // clicking this should go to the MeridianPointDetails, just send the id as the param
   const handlePress = () => {
-    handlePointItemPress(id, `${id} - ${title}`)
+    handlePointItemPress(pointID, `${pointID} - ${title}`)
   }
 
   return (
     <MeridianPointListItemContainer mg="4px 0" onPress={handlePress}>
       <ListItem>
         <Row>
-          <ButtonText mg="0 4px 0 0">{id}:</ButtonText>
+          <ButtonText mg="0 4px 0 0">{pointID}:</ButtonText>
           <ButtonText>{title}</ButtonText>
         </Row>
         <EmptySpace />
@@ -34,7 +34,7 @@ export function MeridianPointListItem({
 }
 
 MeridianPointListItem.propTypes = {
-  id: PropTypes.string,
+  pointID: PropTypes.string,
   title: PropTypes.string,
   chinese: PropTypes.string,
 }

@@ -11,7 +11,7 @@ const MeridianPointsList = ({ theme, route, navigation }) => {
 
   const handlePointItemPress = (pointID, headerName) => {
     navigation.navigate('Point Details', {
-      id: pointID,
+      pointID,
       headerName,
     })
   }
@@ -27,12 +27,12 @@ const MeridianPointsList = ({ theme, route, navigation }) => {
               // TODO: this is where to customize the language for the whatever
               title={item.english}
               chinese={item.name}
-              id={item.id}
+              pointID={item.pointID}
               points={item.points || []}
               handlePointItemPress={handlePointItemPress}
             />
           )}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.pointID}
         />
       </View>
     </ThemeProvider>

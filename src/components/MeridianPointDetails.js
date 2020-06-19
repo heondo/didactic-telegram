@@ -7,7 +7,7 @@ import { ThemeProvider } from 'styled-components'
 import MeridianPointsData from '../shared/data/meridian-points-data'
 
 function MeridianPointDetails({ route, theme }) {
-  const { id } = route.params
+  const { pointID } = route.params
   // pass in the points array when pressing the Meridian Point to enter the
   // Meridian Points List, instead of the normal meridian lists. JEez this naming convention is confusing my head
   return (
@@ -21,7 +21,10 @@ function MeridianPointDetails({ route, theme }) {
           mg="0 0 6px 0"
         />
         {/* <EmptySpace /> */}
-        <Text>{JSON.stringify(MeridianPointsData[id])}</Text>
+        {/* TODO: format the details section, what to display even. I just know that
+          passing in an pointID 
+        */}
+        <Text>{JSON.stringify(MeridianPointsData[pointID])}</Text>
       </PointDetailsView>
     </ThemeProvider>
   )

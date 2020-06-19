@@ -23,12 +23,12 @@ const PrimaryMeridianList = ({ navigation }) => {
             // TODO: this is where to customize the language for the whatever
             title={item.english}
             chinese={item.chinese}
-            id={item.id}
+            pointID={item.pointID}
             goToPointsList={goToPointsList}
             points={item.points || []}
           />
         )}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.pointID}
       />
     </View>
   )
