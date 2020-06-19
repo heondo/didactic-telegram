@@ -16,7 +16,7 @@ export function MeridianPointListItem({
 
   // clicking this should go to the MeridianPointDetails, just send the id as the param
   const handlePress = () => {
-    handlePointItemPress(id, `${title} ${chinese}`)
+    handlePointItemPress(id, `${id} - ${title}`)
   }
 
   return (

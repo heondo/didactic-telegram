@@ -25,7 +25,8 @@ export const Row = styled.View`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: ${(props) => (props.mg ? props.mg : '0')};
+  align-items: center;
+  margin: ${(props) => (props.mg ? props.mg : '4px 0')};
 `
 
 export const PaddedView = styled(View)`

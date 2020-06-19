@@ -5,7 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { connect } from 'react-redux'
 import MeridianTabScreen from './MeridianTabSreen'
 import MeridianPointDetails from './MeridianPointDetails'
-import MeridianPointsList from './organisms/MeridianPointsList'
+import MeridianPointsList from './MeridianPointsList'
 
 const MeridiansStack = createStackNavigator()
 

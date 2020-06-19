@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { View, FlatList } from './atoms'
-import MeridianData from '../shared/meridian-data'
+import PrimaryMeridianData from '../shared/data/primary-meridian-data'
 import { MeridianListItem } from './molecules'
 
 const PrimaryMeridianList = ({ navigation }) => {
@@ -16,7 +16,7 @@ const PrimaryMeridianList = ({ navigation }) => {
   return (
     <View>
       <FlatList
-        data={MeridianData}
+        data={PrimaryMeridianData}
         renderItem={({ item }) => (
           // pass in a callback to navigate to ea MeridianPointsList page
           <MeridianListItem

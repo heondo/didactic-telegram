@@ -5,15 +5,7 @@ import PropTypes from 'prop-types'
 import auth from '@react-native-firebase/auth'
 import { GoogleSignin } from '@react-native-community/google-signin'
 
-import {
-  PaddedView,
-  Text,
-  Row,
-  EmptySpace,
-  Button,
-  ButtonText,
-  View,
-} from './atoms'
+import { PaddedView, Text, Row, EmptySpace, Button, ButtonText } from './atoms'
 import { themeSlice } from '../state/theme/slice'
 import { ThemeProvider } from 'styled-components'
 import { ProfileBanner } from './molecules'

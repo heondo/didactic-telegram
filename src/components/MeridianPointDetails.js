@@ -1,14 +1,22 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { Text } from './atoms'
+import { Text, View } from './atoms'
 import PropTypes from 'prop-types'
+import { ThemeProvider } from 'styled-components'
+import MeridianPointsData from '../shared/data/meridian-points-data'
 
-function MeridianPointDetails(props) {
-  const { id } = props
+function MeridianPointDetails({ route, theme }) {
+  const { id } = route.params
   // pass in the points array when pressing the Meridian Point to enter the
   // Meridian Points List, instead of the normal meridian lists. JEez this naming convention is confusing my head
-  return <Text>{id}</Text>
+  return (
+    <ThemeProvider theme={theme}>
+      <View>
+        <Text>{JSON.stringify(MeridianPointsData[id])}</Text>
+      </View>
+    </ThemeProvider>
+  )
 }
 
 const mapStateToProps = ({ theme }) => {
