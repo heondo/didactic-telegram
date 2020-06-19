@@ -12,7 +12,7 @@ import { ProfileBanner } from './molecules'
 
 // no need for fancy settings pages just yet. Just a simple dark theme, sign in and sign out feature.
 
-const SettingsListScreen = ({ theme, authState, navigation, toggleTheme }) => {
+const SettingsListScreen = ({ theme, authState, toggleTheme }) => {
   const onGoogleButtonPress = async () => {
     try {
       const { idToken } = await GoogleSignin.signIn()

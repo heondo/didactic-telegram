@@ -1,8 +1,8 @@
 import styled from 'styled-components/native'
 
 export const Image = styled.Image`
-  width: 100%;
-  height: 400px;
+  width: ${(props) => (props.width ? props.width : '100%')};
+  height: ${(props) => (props.height ? props.height : '200px')};
   margin: ${(props) => (props.mg ? props.mg : '6px 0')};
 `
 
