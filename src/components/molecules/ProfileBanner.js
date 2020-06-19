@@ -6,6 +6,7 @@ import { ThemeProvider } from 'styled-components'
 
 import { Text, Row, Button, ButtonText, ProfileImage } from '../atoms'
 import { authSlice } from '../../state/auth/slice'
+import firebaseAPI from '../../api/firebase'
 
 function ProfileBannerComponent({ authState, theme, logout }) {
   const capialize = (str, lower = false) =>
@@ -14,12 +15,8 @@ function ProfileBannerComponent({ authState, theme, logout }) {
     )
 
   const handleLogout = async () => {
-    try {
-      await auth().signOut()
-      logout()
-    } catch (err) {
-      console.error(err)
-    }
+    await firebaseAPI.logout()
+    logout()
   }
 
   // pass in the points array when pressing the Meridian Point to enter the

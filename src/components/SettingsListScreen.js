@@ -2,26 +2,17 @@ import React from 'react'
 import { Switch } from 'react-native'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import auth from '@react-native-firebase/auth'
-import { GoogleSignin } from '@react-native-community/google-signin'
 
 import { PaddedView, Text, Row, EmptySpace, Button, ButtonText } from './atoms'
 import { themeSlice } from '../state/theme/slice'
 import { ThemeProvider } from 'styled-components'
 import { ProfileBanner } from './molecules'
+import firebaseAPI from '../api/firebase'
 
 // no need for fancy settings pages just yet. Just a simple dark theme, sign in and sign out feature.
 
 const SettingsListScreen = ({ theme, authState, toggleTheme }) => {
-  const onGoogleButtonPress = async () => {
-    try {
-      const { idToken } = await GoogleSignin.signIn()
-      const googleCredential = auth.GoogleAuthProvider.credential(idToken)
-      return auth().signInWithCredential(googleCredential)
-    } catch (err) {
-      console.error(err)
-    }
-  }
+  const onGoogleButtonPress = async () => await firebaseAPI.login()
 
   return (
     <ThemeProvider theme={theme}>

@@ -21,20 +21,6 @@ function RootStackNavigator({ theme, login, authState }) {
   }, [])
 
   const onAuthStateChanged = (user) => {
-    /**
-     * {"displayName": "allen kim",
-     * "email": "heondo.testing@gmail.com",
-     *  "emailVerified": true,
-     * "isAnonymous": false,
-     * "metadata": {"creationTime":
-     *              1592270109651,
-     * "lastSignInTime":
-     * 1592447993784},
-     * "phoneNumber": null,
-     * "photoURL": "https://lh4.googleusercontent.com/-OCEpxGO_lfc/AAAAAAAAAAI/AAAAAAAAAAA/AMZuuckY3lpXI87ByO_01S3iVzRN4NJfaA/s96-c/photo.jpg", "providerData": [[Object]],
-     * "providerId": "firebase",
-     * "uid": "KEFNhcwb2bUjVdHeSMIOlCyok0a2"
-     */
     const strippedDown = user
       ? {
           displayName: user.displayName,
@@ -112,3 +98,18 @@ RootStackNavigator.propTypes = {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(RootStackNavigator)
+
+/**
+ * {"displayName": "allen kim",
+ * "email": "heondo.testing@gmail.com",
+ *  "emailVerified": true,
+ * "isAnonymous": false,
+ * "metadata": {"creationTime":
+ *              1592270109651,
+ * "lastSignInTime":
+ * 1592447993784},
+ * "phoneNumber": null,
+ * "photoURL": "https://lh4.googleusercontent.com/-OCEpxGO_lfc/AAAAAAAAAAI/AAAAAAAAAAA/AMZuuckY3lpXI87ByO_01S3iVzRN4NJfaA/s96-c/photo.jpg", "providerData": [[Object]],
+ * "providerId": "firebase",
+ * "uid": "KEFNhcwb2bUjVdHeSMIOlCyok0a2"
+ */

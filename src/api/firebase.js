@@ -1,7 +1,7 @@
 import auth from '@react-native-firebase/auth'
 import { GoogleSignin } from '@react-native-community/google-signin'
 
-const firebase = {
+const firebaseAPI = {
   login: async () => {
     try {
       const { idToken } = await GoogleSignin.signIn()
@@ -20,4 +20,4 @@ const firebase = {
   },
 }
 
-export default firebase
+export default firebaseAPI

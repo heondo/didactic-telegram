@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import firebase from '../../api/firebase'
 
 export const authSlice = createSlice({
   name: 'authState',
@@ -26,3 +27,12 @@ export const authSlice = createSlice({
     },
   },
 })
+
+export const firebaseThunkLogin = () => async (dispatch) => {
+  try {
+    const repoDetails = await firebase.login()
+    // dispatch(getRepoDetailsSuccess(repoDetails))
+  } catch (err) {
+    // dispatch(getRepoDetailsFailed(err.toString()))
+  }
+}
