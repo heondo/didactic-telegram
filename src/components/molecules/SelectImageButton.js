@@ -1,18 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from '@react-navigation/native'
-import styled from 'styled-components/native'
 import PropTypes from 'prop-types'
 
-import { selectImage } from '../../services'
 import selectImageService from '../../services/selectImage'
 import firebaseService from '../../services/firebase'
 import {
   ButtonText,
   Button,
-  PaddedView,
   Div,
-  Text,
   Row,
   EmptySpace,
   SecondaryButton,

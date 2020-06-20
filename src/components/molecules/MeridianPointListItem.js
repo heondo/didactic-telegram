@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
 
 export const MeridianPointListItemContainer = styled(Button)``
 
-export function MeridianPointListItemComponent({
+function MeridianPointListItemComponent({
   pointID,
   title,
   chinese,

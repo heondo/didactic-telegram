@@ -8,7 +8,7 @@ import { Row, Button, ListItem, ButtonText, EmptySpace } from '../atoms'
 
 export const MeridianListItemContainer = styled(Button)``
 
-export function MeridianListItemComponent({
+function MeridianListItemComponent({
   pointID,
   title,
   points,

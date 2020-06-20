@@ -8,15 +8,17 @@ import { ButtonText, Button, ListItem } from '../atoms'
 
 const SettingsListItemContainer = styled(Button)``
 
-export function SettingsListItemComponent({ title }) {
+function SettingsListItemComponent({ title, theme }) {
   // pass in the points array when pressing the Meridian Point to enter the
   // Meridian Points List, instead of the normal meridian lists. JEez this naming convention is confusing my head
   return (
-    <SettingsListItemContainer>
-      <ListItem>
-        <ButtonText>{title}</ButtonText>
-      </ListItem>
-    </SettingsListItemContainer>
+    <ThemeProvider theme={theme}>
+      <SettingsListItemContainer>
+        <ListItem>
+          <ButtonText>{title}</ButtonText>
+        </ListItem>
+      </SettingsListItemContainer>
+    </ThemeProvider>
   )
 }
 

@@ -25,7 +25,7 @@ function MeridianPointDetails({ route, theme }) {
         />
         {/* <EmptySpace /> */}
         {/* TODO: format the details section, what to display even. I just know that
-          passing in an pointID 
+          passing in an pointID
         */}
         <Text>{JSON.stringify(MeridianPointsData[pointID])}</Text>
         <SelectImageButton

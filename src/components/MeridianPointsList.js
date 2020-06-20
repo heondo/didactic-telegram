@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import { View, FlatList } from './atoms'
+import { FlatList } from './atoms'
 import { MeridianPointListItem } from './molecules'
 import { ThemeProvider } from 'styled-components'
 
