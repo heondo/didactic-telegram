@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 // import ImagePicker from 'react-native-image-picker'
 
-import { Text, PointDetailsView, Image } from './atoms'
+import { Text, PointDetailsView, Image, Div } from './atoms'
 import { SelectImageButton } from './molecules'
 import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
@@ -24,6 +24,9 @@ function MeridianPointDetails({ route, theme, userImages, authState }) {
           }}
           mg="0 0 6px 0"
         />
+        <Div>
+          <Text>{pointID} Details</Text>
+        </Div>
         {/* <EmptySpace /> */}
         {/* TODO: format the details section, what to display even. I just know that
           passing in an pointID
