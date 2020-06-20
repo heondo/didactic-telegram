@@ -5,8 +5,7 @@ import PropTypes from 'prop-types'
 
 export const SettingsListItemContainer = styled(Button)``
 
-export function SettingsListItem(props) {
-  const { title } = props
+export function SettingsListItem({ title }) {
   // pass in the points array when pressing the Meridian Point to enter the
   // Meridian Points List, instead of the normal meridian lists. JEez this naming convention is confusing my head
   return (

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { SrollView, FlatList } from './atoms'
+import { ScrollView, FlatList } from './atoms'
 import PrimaryMeridianData from '../shared/data/primary-meridian-data'
 import { MeridianListItem } from './molecules'
 import { ThemeProvider } from 'styled-components'

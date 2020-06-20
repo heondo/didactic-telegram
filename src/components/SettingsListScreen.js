@@ -7,12 +7,14 @@ import { PaddedView, Text, Row, EmptySpace, Button, ButtonText } from './atoms'
 import { themeSlice } from '../state/theme/slice'
 import { ThemeProvider } from 'styled-components'
 import { ProfileBanner } from './molecules'
-import firebaseAPI from '../api/firebase'
+import firebaseAPI from '../services/firebase'
 
 // no need for fancy settings pages just yet. Just a simple dark theme, sign in and sign out feature.
 
 const SettingsListScreen = ({ theme, authState, toggleTheme }) => {
-  const onGoogleButtonPress = async () => await firebaseAPI.login()
+  const onGoogleButtonPress = async () => {
+    await firebaseAPI.login()
+  }
 
   return (
     <ThemeProvider theme={theme}>

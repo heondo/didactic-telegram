@@ -6,7 +6,7 @@ import { ThemeProvider } from 'styled-components'
 
 import { Text, Row, Button, ButtonText, ProfileImage } from '../atoms'
 import { authSlice } from '../../state/auth/slice'
-import firebaseAPI from '../../api/firebase'
+import firebaseAPI from '../../services/firebase'
 
 function ProfileBannerComponent({ authState, theme, logout }) {
   const capialize = (str, lower = false) =>
