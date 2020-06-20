@@ -28,7 +28,7 @@ function MeridianPointDetails({ route, theme, userImages, authState }) {
         {/* TODO: format the details section, what to display even. I just know that
           passing in an pointID
         */}
-        <Text>{JSON.stringify(MeridianPointsData[pointID])}</Text>
+        {/* <Text>{JSON.stringify(MeridianPointsData[pointID])}</Text>
         {authState.loggedIn ? (
           <>
             <SelectImageButton
@@ -37,17 +37,17 @@ function MeridianPointDetails({ route, theme, userImages, authState }) {
               setSelectedImage={setSelectedImage}
             />
             <Text>Upload an image to link this point with that memory</Text>
-            {selectedImage ? (
-              <>
-                <Image source={selectedImage} />
-                <Text>{selectedImage.data.length}</Text>
-              </>
-            ) : null}
           </>
         ) : (
           <Text>Login to upload your own image</Text>
         )}
-        <Text>{JSON.stringify(userImages)}</Text>
+        {selectedImage ? (
+          <>
+            <Image source={selectedImage} />
+            <Text>{selectedImage.data.length}</Text>
+          </>
+        ) : null}
+        <Text>{JSON.stringify(userImages)}</Text> */}
       </PointDetailsView>
     </ThemeProvider>
   )
