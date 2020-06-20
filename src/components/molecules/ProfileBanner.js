@@ -15,8 +15,12 @@ function ProfileBannerComponent({ authState, theme, logout }) {
     )
 
   const handleLogout = async () => {
-    await firebaseService.logout()
-    logout()
+    try {
+      await firebaseService.logout()
+      logout()
+    } catch (err) {
+      console.error(err)
+    }
   }
 
   // pass in the points array when pressing the Meridian Point to enter the

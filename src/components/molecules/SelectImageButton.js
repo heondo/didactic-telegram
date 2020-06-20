@@ -23,9 +23,8 @@ function SelectImageButtonComponent({
   selectedImage,
   setSelectedImage,
   theme,
+  pointID,
 }) {
-  console.log(theme)
-
   // pass in the points array when pressing the Meridian Point to enter the
   // Meridian Points List, instead of the normal meridian lists. JEez this naming convention is confusing my head
 
@@ -33,11 +32,15 @@ function SelectImageButtonComponent({
 
   const handleSelectImage = () => {
     selectImageService.handleSelectImage(setSelectedImage)
-    // console.log(imageData)
   }
 
   const handleSubmitImage = () => {
-    firebaseService.putFile()
+    firebaseService.putFile(
+      authState.uid,
+      pointID,
+      selectedImage.path,
+      selectedImage.fileType,
+    )
   }
 
   return (
@@ -45,7 +48,7 @@ function SelectImageButtonComponent({
       <Div pd="6px">
         {selectedImage ? (
           <Row>
-            <Button onPress={handleSelectImage} width="45%">
+            <Button onPress={handleSubmitImage} width="45%">
               <ButtonText>Submit</ButtonText>
             </Button>
             <EmptySpace />
@@ -79,4 +82,5 @@ SelectImageButtonComponent.propTypes = {
   setSelectedImage: PropTypes.func,
   theme: PropTypes.object,
   authState: PropTypes.object,
+  pointID: PropTypes.string,
 }

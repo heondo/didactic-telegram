@@ -21,12 +21,13 @@ const firebaseService = {
       console.error(err)
     }
   },
-  putFile: async (userID, pointID, filePath) => {
+  putFile: async (userID, pointID, filePath, fileType) => {
     try {
-      const reference = storage().ref(`userPointImages/${userID}-${pointID}`) // TODO: Get the file type and add it
-      console.log(reference, pointID, filePath)
-      // const pathToFile = `${filePath}`
-      // await reference.putFile(pathToFile)
+      console.log(`images\/${userID}\/${pointID}.${fileType}`)
+      const reference = storage().ref(
+        `images\/${userID}\/${pointID}.${fileType}`,
+      )
+      await reference.putFile(filePath)
     } catch (err) {
       console.error(err)
     }

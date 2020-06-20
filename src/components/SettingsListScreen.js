@@ -13,7 +13,11 @@ import firebaseService from '../services/firebase'
 
 const SettingsListScreen = ({ theme, authState, toggleTheme }) => {
   const onGoogleButtonPress = async () => {
-    await firebaseService.login()
+    try {
+      await firebaseService.login()
+    } catch (err) {
+      console.error(err)
+    }
   }
 
   return (

@@ -12,7 +12,7 @@ const options = {
 const selectImageService = {
   handleSelectImage: (callbackSetState = null) => {
     ImagePicker.showImagePicker(options, (response) => {
-      //   console.log('Response = ', Object.keys(response))
+      console.log('Response = ', Object.keys(response))
       if (response.didCancel) {
         console.log('User cancelled image picker')
       } else if (response.error) {
@@ -20,9 +20,15 @@ const selectImageService = {
       } else if (response.customButton) {
         console.log('User tapped custom button: ', response.customButton)
       } else {
-        const source = { uri: response.uri, data: response.data }
+        const fileNameSplit = response.fileName.split('.')
+        const selectedImageData = {
+          uri: response.uri,
+          data: response.data,
+          path: response.path,
+          fileType: fileNameSplit[fileNameSplit.length - 1],
+        }
         if (callbackSetState) {
-          callbackSetState(source)
+          callbackSetState(selectedImageData)
           //also send back the data?
         }
         // console.log(source)
