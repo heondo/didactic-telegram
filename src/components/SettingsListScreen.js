@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import { PaddedView, Text, Row, EmptySpace, Button, ButtonText } from './atoms'
-import { themeSlice } from '../state/theme/slice'
+import { toggleTheme } from '../state/theme/slice'
 import { ThemeProvider } from 'styled-components'
 import { ProfileBanner } from './molecules'
 import firebaseService from '../services/firebase'
@@ -68,7 +68,7 @@ const mapStateToProps = ({ theme, authState, userImages }) => {
 }
 
 export default connect(mapStateToProps, {
-  toggleTheme: themeSlice.actions.toggleTheme,
+  toggleTheme,
 })(SettingsListScreen)
 
 SettingsListScreen.propTypes = {

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 import selectImageService from '../../services/selectImage'
 import firebaseService from '../../services/firebase'
-import { userImagesSlice } from '../../state/userImages/slice'
+import { thunkAddImage } from '../../state/userImages/slice'
 import {
   ButtonText,
   Button,
@@ -21,7 +21,8 @@ function SelectImageButtonComponent({
   setSelectedImage,
   theme,
   pointID,
-  addImageToState,
+  thunkAddImage,
+  // addImageToState,
 }) {
   // pass in the points array when pressing the Meridian Point to enter the
   // Meridian Points List, instead of the normal meridian lists. JEez this naming convention is confusing my head
@@ -34,16 +35,23 @@ function SelectImageButtonComponent({
 
   const handleSubmitImage = async () => {
     try {
-      const downloadURL = await firebaseService.putFile(
+      await thunkAddImage(
         authState.uid,
         pointID,
         selectedImage.path,
         selectedImage.fileType,
       )
-      addImageToState({
-        pointID,
-        downloadURL,
-      })
+      // const downloadURL = await firebaseService.putFile(
+      //   authState.uid,
+      //   pointID,
+      //   selectedImage.path,
+      //   selectedImage.fileType,
+      // )
+      // console.log(downloadURL)
+      // addImageToState({
+      //   pointID,
+      //   downloadURL,
+      // })
       // add the image to the user slice
     } catch (err) {
       console.error(err)
@@ -81,7 +89,8 @@ const mapStateToProps = ({ theme, authState }) => {
 }
 
 const mapDispatchToProps = {
-  addImageToState: userImagesSlice.actions.addImage,
+  // addImageToState,
+  thunkAddImage,
 }
 
 export const SelectImageButton = connect(

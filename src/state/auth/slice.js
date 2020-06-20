@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export const authSlice = createSlice({
+const authSlice = createSlice({
   name: 'authState',
   initialState: {
     loggedIn: false,
@@ -26,6 +26,9 @@ export const authSlice = createSlice({
     },
   },
 })
+
+export const { login, logout } = authSlice.actions
+export default authSlice.reducer
 
 // const firebaseThunkLogin = () => async (dispatch) => {
 //   try {

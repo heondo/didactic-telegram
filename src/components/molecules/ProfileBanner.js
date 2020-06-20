@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
 
 import { Text, Row, Button, ButtonText, ProfileImage } from '../atoms'
-import { authSlice } from '../../state/auth/slice'
+import { logout } from '../../state/auth/slice'
 import firebaseService from '../../services/firebase'
 
 function ProfileBannerComponent({ authState, theme, logout }) {
@@ -53,7 +53,7 @@ const mapStateToProps = ({ theme, authState }) => {
 }
 
 const mapDispatchToProps = {
-  logout: authSlice.actions.logout,
+  logout: logout,
 }
 
 export const ProfileBanner = connect(

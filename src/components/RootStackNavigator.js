@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import auth from '@react-native-firebase/auth'
 
 import { MatCommIcon, MatIcon } from './atoms'
-import { authSlice } from '../state/auth/slice'
+import { login } from '../state/auth/slice'
 import MeridiansStackScreen from './MeridiansStackScreen'
 import SettingsStackScreen from './SettingsStackScreen'
 
@@ -90,7 +90,7 @@ const mapStateToProps = ({ theme, authState }) => {
 }
 
 const mapDispatchToProps = {
-  login: authSlice.actions.login,
+  login,
 }
 
 RootStackNavigator.propTypes = {
