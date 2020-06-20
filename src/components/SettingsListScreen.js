@@ -11,7 +11,7 @@ import firebaseService from '../services/firebase'
 
 // no need for fancy settings pages just yet. Just a simple dark theme, sign in and sign out feature.
 
-const SettingsListScreen = ({ theme, authState, toggleTheme }) => {
+const SettingsListScreen = ({ theme, authState, toggleTheme, userImages }) => {
   const onGoogleButtonPress = async () => {
     try {
       await firebaseService.login()
@@ -59,10 +59,11 @@ const SettingsListScreen = ({ theme, authState, toggleTheme }) => {
     </ThemeProvider>
   )
 }
-const mapStateToProps = ({ theme, authState }) => {
+const mapStateToProps = ({ theme, authState, userImages }) => {
   return {
     theme,
     authState,
+    userImages,
   }
 }
 

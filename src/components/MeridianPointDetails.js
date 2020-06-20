@@ -8,9 +8,10 @@ import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
 import MeridianPointsData from '../shared/data/meridian-points-data'
 
-function MeridianPointDetails({ route, theme }) {
+function MeridianPointDetails({ route, theme, userImages, authState }) {
   const { pointID } = route.params
   const [selectedImage, setSelectedImage] = useState(null)
+  console.log(userImages)
   // pass in the points array when pressing the Meridian Point to enter the
   // Meridian Points List, instead of the normal meridian lists. JEez this naming convention is confusing my head
   return (
@@ -28,23 +29,35 @@ function MeridianPointDetails({ route, theme }) {
           passing in an pointID
         */}
         <Text>{JSON.stringify(MeridianPointsData[pointID])}</Text>
-        <SelectImageButton
-          pointID={pointID}
-          selectedImage={selectedImage}
-          setSelectedImage={setSelectedImage}
-        />
-        <Text>Upload an image to link this point with that memory</Text>
-        {selectedImage ? <Image source={selectedImage} /> : null}
-        {selectedImage ? <Text>{selectedImage.data.length}</Text> : null}
+        {authState.loggedIn ? (
+          <>
+            <SelectImageButton
+              pointID={pointID}
+              selectedImage={selectedImage}
+              setSelectedImage={setSelectedImage}
+            />
+            <Text>Upload an image to link this point with that memory</Text>
+            {selectedImage ? (
+              <>
+                <Image source={selectedImage} />
+                <Text>{selectedImage.data.length}</Text>
+              </>
+            ) : null}
+          </>
+        ) : (
+          <Text>Login to upload your own image</Text>
+        )}
+        <Text>{JSON.stringify(userImages)}</Text>
       </PointDetailsView>
     </ThemeProvider>
   )
 }
 
-const mapStateToProps = ({ theme, authState }) => {
+const mapStateToProps = ({ theme, authState, userImages }) => {
   return {
     theme,
     authState,
+    userImages,
   }
 }
 

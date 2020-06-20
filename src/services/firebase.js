@@ -28,6 +28,8 @@ const firebaseService = {
         `images\/${userID}\/${pointID}.${fileType}`,
       )
       await reference.putFile(filePath)
+      const downloadURL = await reference.getDownloadURL()
+      return downloadURL
     } catch (err) {
       console.error(err)
     }
