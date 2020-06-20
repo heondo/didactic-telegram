@@ -9,6 +9,10 @@ export const Button = styled.TouchableOpacity`
   margin: ${(props) => (props.mg ? props.mg : '4px 0')};
 `
 
+export const SecondaryButton = styled(Button)`
+  background-color: ${(props) => props.theme.SECONDARY_BUTTON_COLOR};
+`
+
 export const DisabledButton = styled(Button)`
   background-color: ${(props) => props.theme.GREY};
   color: ${(props) => props.theme.LIGHT_GREY};

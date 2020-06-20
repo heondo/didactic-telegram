@@ -1,31 +1,82 @@
 import React from 'react'
-import { ButtonText, Button, PaddedView, Div, Text } from '../atoms'
-import { selectImage } from '../../services'
+import { connect } from 'react-redux'
+import { ThemeProvider } from '@react-navigation/native'
 import styled from 'styled-components/native'
 import PropTypes from 'prop-types'
-import selectImageService from '../../services/selectImage'
 
-export function SelectImageButton({ selectImage, setSelectedImage }) {
+import { selectImage } from '../../services'
+import selectImageService from '../../services/selectImage'
+import firebaseService from '../../services/firebase'
+import {
+  ButtonText,
+  Button,
+  PaddedView,
+  Div,
+  Text,
+  Row,
+  EmptySpace,
+  SecondaryButton,
+} from '../atoms'
+
+function SelectImageButtonComponent({
+  authState,
+  selectedImage,
+  setSelectedImage,
+  theme,
+}) {
+  console.log(theme)
+
   // pass in the points array when pressing the Meridian Point to enter the
   // Meridian Points List, instead of the normal meridian lists. JEez this naming convention is confusing my head
 
   // const select
 
-  const handlePress = () => {
+  const handleSelectImage = () => {
     selectImageService.handleSelectImage(setSelectedImage)
     // console.log(imageData)
   }
 
+  const handleSubmitImage = () => {
+    firebaseService.putFile()
+  }
+
   return (
-    <Div pd="6px">
-      <Button onPress={handlePress}>
-        <ButtonText>Select an image</ButtonText>
-      </Button>
-    </Div>
+    <ThemeProvider theme={theme}>
+      <Div pd="6px">
+        {selectedImage ? (
+          <Row>
+            <Button onPress={handleSelectImage} width="45%">
+              <ButtonText>Submit</ButtonText>
+            </Button>
+            <EmptySpace />
+            <SecondaryButton onPress={handleSelectImage} width="45%">
+              <ButtonText>Change Image</ButtonText>
+            </SecondaryButton>
+          </Row>
+        ) : (
+          <Button onPress={handleSelectImage}>
+            <ButtonText>Select an image</ButtonText>
+          </Button>
+        )}
+      </Div>
+    </ThemeProvider>
   )
 }
 
-SelectImageButton.propTypes = {
+const mapStateToProps = ({ theme, authState }) => {
+  return {
+    theme,
+    authState,
+  }
+}
+
+export const SelectImageButton = connect(mapStateToProps)(
+  SelectImageButtonComponent,
+)
+
+SelectImageButtonComponent.propTypes = {
   selectImage: PropTypes.string,
   setSelectedImage: PropTypes.func,
+  theme: PropTypes.object,
+  authState: PropTypes.object,
 }

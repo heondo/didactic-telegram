@@ -1,11 +1,14 @@
 import React from 'react'
-import { ButtonText, Button, ListItem } from '../atoms'
+import { connect } from 'react-redux'
+import { ThemeProvider } from '@react-navigation/native'
 import styled from 'styled-components/native'
 import PropTypes from 'prop-types'
 
-export const SettingsListItemContainer = styled(Button)``
+import { ButtonText, Button, ListItem } from '../atoms'
 
-export function SettingsListItem({ title }) {
+const SettingsListItemContainer = styled(Button)``
+
+export function SettingsListItemComponent({ title }) {
   // pass in the points array when pressing the Meridian Point to enter the
   // Meridian Points List, instead of the normal meridian lists. JEez this naming convention is confusing my head
   return (
@@ -17,6 +20,17 @@ export function SettingsListItem({ title }) {
   )
 }
 
-SettingsListItem.propTypes = {
+const mapStateToProps = ({ theme, authState }) => {
+  return {
+    theme,
+    authState,
+  }
+}
+
+export const SettingsListItem = connect(mapStateToProps)(
+  SettingsListItemContainer,
+)
+
+SettingsListItemComponent.propTypes = {
   title: PropTypes.string,
 }

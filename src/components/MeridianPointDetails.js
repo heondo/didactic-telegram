@@ -29,19 +29,22 @@ function MeridianPointDetails({ route, theme }) {
         */}
         <Text>{JSON.stringify(MeridianPointsData[pointID])}</Text>
         <SelectImageButton
+          pointID={pointID}
           selectedImage={selectedImage}
           setSelectedImage={setSelectedImage}
         />
         <Text>Upload an image to link this point with that memory</Text>
         {selectedImage ? <Image source={selectedImage} /> : null}
+        {selectedImage ? <Text>{selectedImage.data.length}</Text> : null}
       </PointDetailsView>
     </ThemeProvider>
   )
 }
 
-const mapStateToProps = ({ theme }) => {
+const mapStateToProps = ({ theme, authState }) => {
   return {
     theme,
+    authState,
   }
 }
 

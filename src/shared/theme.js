@@ -32,6 +32,7 @@ export const lightTheme = {
   TAB_BACKGROUND: nord.aurora3,
   TAB_INDICATOR: nord.snowStorm2,
   PRIMARY_BUTTON_COLOR: nord.frost2,
+  SECONDARY_BUTTON_COLOR: nord.aurora2,
   PRIMARY_BUTTON_TEXT_COLOR: nord.snowStorm1,
 }
 
@@ -43,5 +44,6 @@ export const darkTheme = {
   TAB_BACKGROUND: nord.frost2,
   TAB_INDICATOR: nord.snowStorm1,
   PRIMARY_BUTTON_COLOR: nord.nordNight1,
+  SECONDARY_BUTTON_COLOR: nord.frost0,
   PRIMARY_BUTTON_TEXT_COLOR: nord.snowStorm2,
 }

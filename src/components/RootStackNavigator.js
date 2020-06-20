@@ -21,11 +21,13 @@ function RootStackNavigator({ theme, login, authState }) {
   }, [])
 
   const onAuthStateChanged = (user) => {
+    // console.log(user?.uid)
     const strippedDown = user
       ? {
           displayName: user.displayName,
           email: user.email,
           photoURL: user.photoURL,
+          uid: user.uid,
         }
       : null
     if (initializing) {
