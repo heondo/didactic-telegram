@@ -6,13 +6,13 @@ import PropTypes from 'prop-types'
 import auth from '@react-native-firebase/auth'
 
 import { MatCommIcon, MatIcon } from './atoms'
-import { login } from '../state/auth/slice'
+import { thunkLogin } from '../state/auth/slice'
 import MeridiansStackScreen from './MeridiansStackScreen'
 import SettingsStackScreen from './SettingsStackScreen'
 
 const Tab = createBottomTabNavigator()
 
-function RootStackNavigator({ theme, login, authState }) {
+function RootStackNavigator({ theme, thunkLogin, authState }) {
   const [initializing, setInitializing] = useState(true)
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged)
@@ -20,20 +20,24 @@ function RootStackNavigator({ theme, login, authState }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const onAuthStateChanged = (user) => {
-    const strippedDown = user
-      ? {
-          displayName: user.displayName,
-          email: user.email,
-          photoURL: user.photoURL,
-          uid: user.uid,
-        }
-      : null
-    if (initializing) {
-      setInitializing(false)
-    }
-    if (user) {
-      login({ user: strippedDown })
+  const onAuthStateChanged = async (user) => {
+    try {
+      const strippedDown = user
+        ? {
+            displayName: user.displayName,
+            email: user.email,
+            photoURL: user.photoURL,
+            uid: user.uid,
+          }
+        : null
+      if (initializing) {
+        setInitializing(false)
+      }
+      if (user) {
+        await thunkLogin(strippedDown)
+      }
+    } catch (err) {
+      console.error(err)
     }
   }
 
@@ -90,7 +94,7 @@ const mapStateToProps = ({ theme, authState }) => {
 }
 
 const mapDispatchToProps = {
-  login,
+  thunkLogin,
 }
 
 RootStackNavigator.propTypes = {

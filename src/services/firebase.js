@@ -45,6 +45,17 @@ const firebaseService = {
       console.error(err)
     }
   },
+  getUserImages: async (userID) => {
+    try {
+      const userFireStoreImages = await firestore()
+        .collection('images')
+        .doc(userID)
+        .get()
+      return userFireStoreImages._data
+    } catch (err) {
+      console.error(err)
+    }
+  },
 }
 
 export default firebaseService

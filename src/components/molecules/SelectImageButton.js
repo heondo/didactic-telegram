@@ -47,7 +47,6 @@ function SelectImageButtonComponent({
       //   selectedImage.path,
       //   selectedImage.fileType,
       // )
-      // console.log(downloadURL)
       // addImageToState({
       //   pointID,
       //   downloadURL,

@@ -11,7 +11,6 @@ import MeridianPointsData from '../shared/data/meridian-points-data'
 function MeridianPointDetails({ route, theme, userImages, authState }) {
   const { pointID } = route.params
   const [selectedImage, setSelectedImage] = useState(null)
-  console.log(userImages)
   // pass in the points array when pressing the Meridian Point to enter the
   // Meridian Points List, instead of the normal meridian lists. JEez this naming convention is confusing my head
   return (
