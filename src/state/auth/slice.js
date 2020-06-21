@@ -38,7 +38,16 @@ const authSlice = createSlice({
     },
     logout(state, action) {
       return {
+        isLoading: false,
+        error: null,
         loggedIn: false,
+      }
+    },
+    setAuthError(state, action) {
+      const { message } = action.payload
+      return {
+        ...state,
+        error: message,
       }
     },
   },
@@ -58,6 +67,7 @@ export const thunkLogin = (user) => async (dispatch) => {
     dispatch(authEndLoading())
   } catch (err) {
     console.error(err)
+    dispatch(authEndLoading())
   }
 }
 

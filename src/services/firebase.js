@@ -35,8 +35,10 @@ const firebaseService = {
         .doc(userID)
         .set(
           {
-            [pointID]: downloadURL,
-            // imageURL: downloadURL,
+            [pointID]: {
+              note: '',
+              imageURL: downloadURL,
+            },
           },
           { merge: true },
         )

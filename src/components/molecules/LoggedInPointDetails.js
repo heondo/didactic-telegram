@@ -5,13 +5,17 @@ import PropTypes from 'prop-types'
 
 import { Image, Text, AddImageButton, MatIcon, Div } from '../atoms'
 import MeridianPointsData from '../../shared/data/meridian-points-data'
+import { SelectImageButton } from './SelectImageButton'
 function LoggedInPointDetailsComponent({
   theme,
   authState,
   userImages,
   pointID,
 }) {
-  const imageURL = userImages.images[pointID] || null
+  const imageURL =
+    userImages.images && userImages.images[pointID]
+      ? userImages.images[pointID].imageURL
+      : null
   const {
     name,
     transliteration,
@@ -42,6 +46,11 @@ function LoggedInPointDetailsComponent({
         <Text>{vietnamese}</Text>
         <Text>{alternative}</Text>
       </Div>
+      <SelectImageButton
+        pointID={pointID}
+        selectedImage={selectedImage}
+        setSelectedImage={setSelectedImage}
+      />
       <AddImageButton>
         {/* If a user has selected an image to upload or has an uploaded image show an edit button */}
         {selectedImage || imageURL ? (

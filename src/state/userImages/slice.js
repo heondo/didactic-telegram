@@ -27,7 +27,10 @@ const userImagesSlice = createSlice({
         ...state,
         images: {
           ...state.images,
-          [pointID]: downloadURL,
+          [pointID]: {
+            note: '',
+            imageURL: downloadURL,
+          },
         },
       }
     },

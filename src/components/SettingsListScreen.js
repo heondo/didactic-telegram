@@ -28,12 +28,9 @@ const SettingsListScreen = ({
     }
   }
 
-  if (authState.isLoading) {
-    return <LoadingOverlay />
-  }
-
   return (
     <ThemeProvider theme={theme}>
+      {authState.isLoading ? <LoadingOverlay /> : null}
       <PaddedView>
         {/* <Text>
           TODO: need to change this not logged in or out component into its own file

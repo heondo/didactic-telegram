@@ -23,6 +23,17 @@ export const View = styled.SafeAreaView`
   width: ${(props) => (props.width ? props.width : '100%')};
 `
 
+export const OverLay = styled(View)`
+  position: absolute; /* Sit on top of the page content */
+  background-color: ${(props) => props.theme.OVERLAY_BG_COLOR};
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.5;
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+`
+
 export const ScrollView = styled.ScrollView`
   flex: 1;
   background-color: ${(props) => props.theme.PRIMARY_BACKGROUND_COLOR};

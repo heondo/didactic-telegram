@@ -16,3 +16,5 @@ export const MatIcon = styled(MIcon)`
     props.color ? props.color : props.theme.PRIMARY_BUTTON_TEXT_COLOR};
   /* color: white; */
 `
+
+export const LoadingCircle = styled.ActivityIndicator``
