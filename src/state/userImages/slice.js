@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
 import firebaseService from '../../services/firebase'
-import { firebase } from '@react-native-firebase/storage'
 
 const userImagesSlice = createSlice({
   name: 'userImages',

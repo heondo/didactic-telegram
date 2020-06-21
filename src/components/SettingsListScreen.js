@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import { PaddedView, Text, Row, EmptySpace, Button, ButtonText } from './atoms'
 import { toggleTheme } from '../state/theme/slice'
 import { ThemeProvider } from 'styled-components'
-import { ProfileBanner } from './molecules'
+import { ProfileBanner, LoadingOverlay } from './molecules'
 import firebaseService from '../services/firebase'
 
 // no need for fancy settings pages just yet. Just a simple dark theme, sign in and sign out feature.
@@ -18,6 +18,10 @@ const SettingsListScreen = ({ theme, authState, toggleTheme, userImages }) => {
     } catch (err) {
       console.error(err)
     }
+  }
+
+  if (authState.isLoading) {
+    return <LoadingOverlay />
   }
 
   return (
