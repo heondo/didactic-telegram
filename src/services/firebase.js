@@ -1,7 +1,7 @@
-// import { utils } from '@react-native-firebase/app'
+import { utils } from '@react-native-firebase/app'
 import storage from '@react-native-firebase/storage'
 import auth from '@react-native-firebase/auth'
-// import firestore from '@react-native-firebase/firestore'
+import firestore from '@react-native-firebase/firestore'
 import { GoogleSignin } from '@react-native-community/google-signin'
 
 const firebaseService = {
@@ -29,6 +29,17 @@ const firebaseService = {
       )
       await reference.putFile(filePath)
       const downloadURL = await reference.getDownloadURL()
+      // i have the userID, pointID, and image URL from the firebase storage...
+      await firestore()
+        .collection('images')
+        .doc(userID)
+        .set(
+          {
+            [pointID]: downloadURL,
+            // imageURL: downloadURL,
+          },
+          { merge: true },
+        )
       return downloadURL
     } catch (err) {
       console.error(err)
