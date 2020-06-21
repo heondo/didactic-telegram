@@ -11,13 +11,13 @@ const authSlice = createSlice({
     loggedIn: false,
   },
   reducers: {
-    startLoading: (state) => {
+    authStartLoading: (state) => {
       return {
         ...state,
         isLoading: true,
       }
     },
-    finishLoading: (state) => {
+    authEndLoading: (state) => {
       return {
         ...state,
         isLoading: false,
@@ -46,7 +46,7 @@ const authSlice = createSlice({
 
 export const thunkLogin = (user) => async (dispatch) => {
   try {
-    dispatch(startLoading())
+    dispatch(authStartLoading())
     dispatch(login({ user }))
     const userImages = await firebaseService.getUserImages(user.uid)
     dispatch(
@@ -55,7 +55,7 @@ export const thunkLogin = (user) => async (dispatch) => {
       }),
     )
     // console.log(usersImages)
-    dispatch(finishLoading())
+    dispatch(authEndLoading())
   } catch (err) {
     console.error(err)
   }
@@ -70,7 +70,12 @@ export const thunkLogout = () => async (dispatch) => {
   }
 }
 
-export const { login, logout, startLoading, finishLoading } = authSlice.actions
+export const {
+  login,
+  logout,
+  authStartLoading,
+  authEndLoading,
+} = authSlice.actions
 export default authSlice.reducer
 
 // const firebaseThunkLogin = () => async (dispatch) => {

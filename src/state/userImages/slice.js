@@ -9,13 +9,13 @@ const userImagesSlice = createSlice({
     images: null,
   },
   reducers: {
-    startLoading: (state, action) => {
+    imageStartLoading: (state, action) => {
       return {
         ...state,
         isLoading: true,
       }
     },
-    endLoading: (state, action) => {
+    imageEndLoading: (state, action) => {
       return {
         ...state,
         isLoading: false,
@@ -50,8 +50,8 @@ const userImagesSlice = createSlice({
 
 export const {
   addImageToState,
-  startLoading,
-  endLoading,
+  imageStartLoading,
+  imageEndLoading,
   initializeImages,
   setImagesNull,
 } = userImagesSlice.actions
@@ -61,7 +61,7 @@ export default userImagesSlice.reducer
 // export const thunkGetImages = (userID) => async (dispatch) => {
 //   // call the firebase thing and get the docs
 //   try {
-//     dispatch(startLoading())
+//     dispatch(imageStartLoading())
 //     const images = await firebaseService.getUserImages(userID)
 //     console.log('users images are: ', images)
 //   } catch (err) {
@@ -74,7 +74,7 @@ export const thunkAddImage = (userID, pointID, filePath, fileType) => async (
 ) => {
   // pass in the file path to the image, use the firebase API to upload and get the image url
   try {
-    dispatch(startLoading())
+    dispatch(imageStartLoading())
     const imageDownloadURL = await firebaseService.putFile(
       userID,
       pointID,
@@ -87,10 +87,10 @@ export const thunkAddImage = (userID, pointID, filePath, fileType) => async (
         downloadURL: imageDownloadURL,
       }),
     )
-    dispatch(endLoading())
+    dispatch(imageEndLoading())
     // after getting the download url, upload to firestore...
   } catch (err) {
-    dispatch(endLoading())
+    dispatch(imageEndLoading())
     console.error(err)
   }
 }
