@@ -26,7 +26,10 @@ const userImagesSlice = createSlice({
       const { pointID, downloadURL } = action.payload
       return {
         ...state,
-        [pointID]: downloadURL,
+        images: {
+          ...state.images,
+          [pointID]: downloadURL,
+        },
       }
     },
     initializeImages: (state, action) => {
