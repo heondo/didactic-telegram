@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { initializeImages } from '../userImages/slice'
+import { initializeImages, setImagesNull } from '../userImages/slice'
 import firebaseService from '../../services/firebase'
 
 const authSlice = createSlice({
@@ -56,6 +56,15 @@ export const thunkLogin = (user) => async (dispatch) => {
     )
     // console.log(usersImages)
     dispatch(finishLoading())
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+export const thunkLogout = () => async (dispatch) => {
+  try {
+    dispatch(logout())
+    dispatch(setImagesNull())
   } catch (err) {
     console.error(err)
   }

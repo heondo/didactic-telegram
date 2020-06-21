@@ -40,6 +40,12 @@ const userImagesSlice = createSlice({
       }
       // I want to, grab the objects from the document....it may come back as an array. No wait.abs
     },
+    setImagesNull: (state, action) => {
+      return {
+        ...state,
+        images: null,
+      }
+    },
   },
 })
 
@@ -48,6 +54,7 @@ export const {
   startLoading,
   endLoading,
   initializeImages,
+  setImagesNull,
 } = userImagesSlice.actions
 
 export default userImagesSlice.reducer

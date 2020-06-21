@@ -4,6 +4,9 @@ export const Button = styled.TouchableOpacity`
   margin: ${(props) => (props.mg ? props.mg : '4px')} 0;
   background-color: ${(props) => props.theme.PRIMARY_BUTTON_COLOR};
   width: ${(props) => (props.width ? props.width : '100%')};
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 5px;
   padding: 16px;
   margin: ${(props) => (props.mg ? props.mg : '4px 0')};
@@ -11,6 +14,15 @@ export const Button = styled.TouchableOpacity`
 
 export const SecondaryButton = styled(Button)`
   background-color: ${(props) => props.theme.SECONDARY_BUTTON_COLOR};
+`
+
+export const AddImageButton = styled(Button)`
+  border-radius: 25px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  bottom: 20px;
+  left: 25px;
 `
 
 export const DisabledButton = styled(Button)`

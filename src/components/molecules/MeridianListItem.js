@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 
 import { Row, Button, ListItem, ButtonText, EmptySpace } from '../atoms'
 
-export const MeridianListItemContainer = styled(Button)``
+const MeridianListItemContainer = styled(Button)``
 
 function MeridianListItemComponent({
   pointID,

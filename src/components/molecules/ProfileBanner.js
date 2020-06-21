@@ -5,10 +5,10 @@ import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
 
 import { Text, Row, Button, ButtonText, ProfileImage } from '../atoms'
-import { logout } from '../../state/auth/slice'
+import { thunkLogout } from '../../state/auth/slice'
 import firebaseService from '../../services/firebase'
 
-function ProfileBannerComponent({ authState, theme, logout }) {
+function ProfileBannerComponent({ authState, theme, thunkLogout }) {
   const capialize = (str, lower = false) =>
     (lower ? str.toLowerCase() : str).replace(/(?:^|\s|["'([{])+\S/g, (match) =>
       match.toUpperCase(),
@@ -17,7 +17,7 @@ function ProfileBannerComponent({ authState, theme, logout }) {
   const handleLogout = async () => {
     try {
       await firebaseService.logout()
-      logout()
+      await thunkLogout()
     } catch (err) {
       console.error(err)
     }
@@ -53,7 +53,7 @@ const mapStateToProps = ({ theme, authState }) => {
 }
 
 const mapDispatchToProps = {
-  logout: logout,
+  thunkLogout,
 }
 
 export const ProfileBanner = connect(

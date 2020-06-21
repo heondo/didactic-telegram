@@ -35,7 +35,7 @@ export const ScrollView = styled.ScrollView`
   width: ${(props) => (props.width ? props.width : '100%')};
 `
 
-export const PointDetailsView = styled(ScrollView)`
+export const PointDetailsView = styled(View)`
   /* justify-content: flex-start; */
 `
 
