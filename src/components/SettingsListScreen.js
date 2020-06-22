@@ -2,22 +2,27 @@ import React from 'react'
 import { Switch } from 'react-native'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import auth from '@react-native-firebase/auth'
-import { GoogleSignin } from '@react-native-community/google-signin'
 
 import { PaddedView, Text, Row, EmptySpace, Button, ButtonText } from './atoms'
-import { themeSlice } from '../state/theme/slice'
+import { toggleTheme } from '../state/theme/slice'
+import { authStartLoading } from '../state/auth/slice'
 import { ThemeProvider } from 'styled-components'
-import { ProfileBanner } from './molecules'
+import { ProfileBanner, LoadingOverlay } from './molecules'
+import firebaseService from '../services/firebase'
 
 // no need for fancy settings pages just yet. Just a simple dark theme, sign in and sign out feature.
 
-const SettingsListScreen = ({ theme, authState, navigation, toggleTheme }) => {
+const SettingsListScreen = ({
+  theme,
+  authState,
+  toggleTheme,
+  userImages,
+  authStartLoading,
+}) => {
   const onGoogleButtonPress = async () => {
     try {
-      const { idToken } = await GoogleSignin.signIn()
-      const googleCredential = auth.GoogleAuthProvider.credential(idToken)
-      return auth().signInWithCredential(googleCredential)
+      authStartLoading()
+      await firebaseService.login()
     } catch (err) {
       console.error(err)
     }
@@ -25,6 +30,7 @@ const SettingsListScreen = ({ theme, authState, navigation, toggleTheme }) => {
 
   return (
     <ThemeProvider theme={theme}>
+      {authState.isLoading ? <LoadingOverlay /> : null}
       <PaddedView>
         {/* <Text>
           TODO: need to change this not logged in or out component into its own file
@@ -62,15 +68,17 @@ const SettingsListScreen = ({ theme, authState, navigation, toggleTheme }) => {
     </ThemeProvider>
   )
 }
-const mapStateToProps = ({ theme, authState }) => {
+const mapStateToProps = ({ theme, authState, userImages }) => {
   return {
     theme,
     authState,
+    userImages,
   }
 }
 
 export default connect(mapStateToProps, {
-  toggleTheme: themeSlice.actions.toggleTheme,
+  toggleTheme,
+  authStartLoading,
 })(SettingsListScreen)
 
 SettingsListScreen.propTypes = {

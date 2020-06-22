@@ -1,10 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { View, FlatList } from './atoms'
+import { FlatList } from './atoms'
 import PrimaryMeridianData from '../shared/data/primary-meridian-data'
 import { MeridianListItem } from './molecules'
+import { ThemeProvider } from 'styled-components'
 
-const PrimaryMeridianList = ({ navigation }) => {
+const PrimaryMeridianList = ({ navigation, theme }) => {
   const goToPointsList = (meridianTitle, meridianPointsArray, headerName) => {
     navigation.navigate('Meridian Points List', {
       meridianTitle,
@@ -14,22 +15,23 @@ const PrimaryMeridianList = ({ navigation }) => {
   }
 
   return (
-    <View>
+    <ThemeProvider theme={theme}>
       <FlatList
         data={PrimaryMeridianData}
         renderItem={({ item }) => (
           // pass in a callback to navigate to ea MeridianPointsList page
           <MeridianListItem
+            // TODO: this is where to customize the language for the whatever
             title={item.english}
             chinese={item.chinese}
-            id={item.id}
+            pointID={item.pointID}
             goToPointsList={goToPointsList}
             points={item.points || []}
           />
         )}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.pointID}
       />
-    </View>
+    </ThemeProvider>
   )
 }
 const mapStateToProps = ({ theme }) => {

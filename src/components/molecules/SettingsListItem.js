@@ -1,23 +1,38 @@
 import React from 'react'
-import { ButtonText, Button, ListItem } from '../atoms'
+import { connect } from 'react-redux'
+import { ThemeProvider } from '@react-navigation/native'
 import styled from 'styled-components/native'
 import PropTypes from 'prop-types'
 
-export const SettingsListItemContainer = styled(Button)``
+import { ButtonText, Button, ListItem } from '../atoms'
 
-export function SettingsListItem(props) {
-  const { title } = props
+const SettingsListItemContainer = styled(Button)``
+
+function SettingsListItemComponent({ title, theme }) {
   // pass in the points array when pressing the Meridian Point to enter the
   // Meridian Points List, instead of the normal meridian lists. JEez this naming convention is confusing my head
   return (
-    <SettingsListItemContainer>
-      <ListItem>
-        <ButtonText>{title}</ButtonText>
-      </ListItem>
-    </SettingsListItemContainer>
+    <ThemeProvider theme={theme}>
+      <SettingsListItemContainer>
+        <ListItem>
+          <ButtonText>{title}</ButtonText>
+        </ListItem>
+      </SettingsListItemContainer>
+    </ThemeProvider>
   )
 }
 
-SettingsListItem.propTypes = {
+const mapStateToProps = ({ theme, authState }) => {
+  return {
+    theme,
+    authState,
+  }
+}
+
+export const SettingsListItem = connect(mapStateToProps)(
+  SettingsListItemContainer,
+)
+
+SettingsListItemComponent.propTypes = {
   title: PropTypes.string,
 }

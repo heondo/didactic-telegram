@@ -6,13 +6,13 @@ import PropTypes from 'prop-types'
 import auth from '@react-native-firebase/auth'
 
 import { MatCommIcon, MatIcon } from './atoms'
-import { authSlice } from '../state/auth/slice'
+import { thunkLogin } from '../state/auth/slice'
 import MeridiansStackScreen from './MeridiansStackScreen'
 import SettingsStackScreen from './SettingsStackScreen'
 
 const Tab = createBottomTabNavigator()
 
-function RootStackNavigator({ theme, login, authState }) {
+function RootStackNavigator({ theme, thunkLogin, authState }) {
   const [initializing, setInitializing] = useState(true)
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged)
@@ -20,33 +20,24 @@ function RootStackNavigator({ theme, login, authState }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const onAuthStateChanged = (user) => {
-    /**
-     * {"displayName": "allen kim",
-     * "email": "heondo.testing@gmail.com",
-     *  "emailVerified": true,
-     * "isAnonymous": false,
-     * "metadata": {"creationTime":
-     *              1592270109651,
-     * "lastSignInTime":
-     * 1592447993784},
-     * "phoneNumber": null,
-     * "photoURL": "https://lh4.googleusercontent.com/-OCEpxGO_lfc/AAAAAAAAAAI/AAAAAAAAAAA/AMZuuckY3lpXI87ByO_01S3iVzRN4NJfaA/s96-c/photo.jpg", "providerData": [[Object]],
-     * "providerId": "firebase",
-     * "uid": "KEFNhcwb2bUjVdHeSMIOlCyok0a2"
-     */
-    const strippedDown = user
-      ? {
-          displayName: user.displayName,
-          email: user.email,
-          photoURL: user.photoURL,
-        }
-      : null
-    if (initializing) {
-      setInitializing(false)
-    }
-    if (user) {
-      login({ user: strippedDown })
+  const onAuthStateChanged = async (user) => {
+    try {
+      const strippedDown = user
+        ? {
+            displayName: user.displayName,
+            email: user.email,
+            photoURL: user.photoURL,
+            uid: user.uid,
+          }
+        : null
+      if (initializing) {
+        setInitializing(false)
+      }
+      if (user) {
+        await thunkLogin(strippedDown)
+      }
+    } catch (err) {
+      console.error(err)
     }
   }
 
@@ -103,7 +94,7 @@ const mapStateToProps = ({ theme, authState }) => {
 }
 
 const mapDispatchToProps = {
-  login: authSlice.actions.login,
+  thunkLogin,
 }
 
 RootStackNavigator.propTypes = {
@@ -112,3 +103,18 @@ RootStackNavigator.propTypes = {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(RootStackNavigator)
+
+/**
+ * {"displayName": "allen kim",
+ * "email": "heondo.testing@gmail.com",
+ *  "emailVerified": true,
+ * "isAnonymous": false,
+ * "metadata": {"creationTime":
+ *              1592270109651,
+ * "lastSignInTime":
+ * 1592447993784},
+ * "phoneNumber": null,
+ * "photoURL": "https://lh4.googleusercontent.com/-OCEpxGO_lfc/AAAAAAAAAAI/AAAAAAAAAAA/AMZuuckY3lpXI87ByO_01S3iVzRN4NJfaA/s96-c/photo.jpg", "providerData": [[Object]],
+ * "providerId": "firebase",
+ * "uid": "KEFNhcwb2bUjVdHeSMIOlCyok0a2"
+ */

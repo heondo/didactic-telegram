@@ -1,11 +1,13 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
-import { themeSlice } from './theme/slice'
-import { authSlice } from './auth/slice'
+import themeReducer from './theme/slice'
+import authReducer from './auth/slice'
+import userImagesReducer from './userImages/slice'
 
 const store = configureStore({
   reducer: combineReducers({
-    theme: themeSlice.reducer,
-    authState: authSlice.reducer,
+    theme: themeReducer,
+    authState: authReducer,
+    userImages: userImagesReducer,
   }),
 })
 

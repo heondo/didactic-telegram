@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import { View, FlatList } from './atoms'
+import { FlatList } from './atoms'
 import { MeridianPointListItem } from './molecules'
 import { ThemeProvider } from 'styled-components'
 
@@ -11,29 +11,28 @@ const MeridianPointsList = ({ theme, route, navigation }) => {
 
   const handlePointItemPress = (pointID, headerName) => {
     navigation.navigate('Point Details', {
-      id: pointID,
+      pointID,
       headerName,
     })
   }
 
   return (
     <ThemeProvider theme={theme}>
-      <View>
-        <FlatList
-          data={meridianPointsArray}
-          renderItem={({ item }) => (
-            // pass in a callback to navigate to ea MeridianPointsList page
-            <MeridianPointListItem
-              title={item.english}
-              chinese={item.name}
-              id={item.id}
-              points={item.points || []}
-              handlePointItemPress={handlePointItemPress}
-            />
-          )}
-          keyExtractor={(item) => item.id}
-        />
-      </View>
+      <FlatList
+        data={meridianPointsArray}
+        renderItem={({ item }) => (
+          // pass in a callback to navigate to ea MeridianPointsList page
+          <MeridianPointListItem
+            // TODO: this is where to customize the language for the whatever
+            title={item.english}
+            chinese={item.name}
+            pointID={item.pointID}
+            points={item.points || []}
+            handlePointItemPress={handlePointItemPress}
+          />
+        )}
+        keyExtractor={(item) => item.pointID}
+      />
     </ThemeProvider>
   )
 }
