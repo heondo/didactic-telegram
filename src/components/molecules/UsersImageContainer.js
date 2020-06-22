@@ -9,9 +9,9 @@ function UsersImageContainerComponent({ theme, authState, imageURL }) {
   return (
     <ThemeProvider theme={theme}>
       <Div>
-        <AddImageButton>
+        {/* <AddImageButton>
           <MatIcon name="edit" size={18} />
-        </AddImageButton>
+        </AddImageButton> */}
         {/* <MatIcon name="edit" /> */}
         <Image source={{ uri: imageURL }} />
       </Div>

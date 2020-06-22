@@ -3,10 +3,20 @@ import { connect } from 'react-redux'
 import { ThemeProvider } from '@react-navigation/native'
 import PropTypes from 'prop-types'
 
-import { Image, Text, AddImageButton, MatIcon, Div } from '../atoms'
+import {
+  Image,
+  Text,
+  AddImageButton,
+  MatIcon,
+  Div,
+  Button,
+  ButtonText,
+  EmptySpace,
+} from '../atoms'
 import MeridianPointsData from '../../shared/data/meridian-points-data'
 import { SelectImageButton } from './SelectImageButton'
 import { UsersImageContainer } from './UsersImageContainer'
+import { LoadingOverlay } from './LoadingOverlay'
 function LoggedInPointDetailsComponent({
   theme,
   authState,
@@ -31,6 +41,7 @@ function LoggedInPointDetailsComponent({
 
   return (
     <ThemeProvider theme={theme}>
+      {userImages.isLoading || authState.isLoading ? <LoadingOverlay /> : null}
       {/* If a user has uploaded an image display their image or a default image */}
       {imageURL && !selectedImage ? (
         <UsersImageContainer imageURL={imageURL} />
@@ -42,7 +53,8 @@ function LoggedInPointDetailsComponent({
       {!imageURL && !selectedImage ? (
         // no selected or uploaded image
         <Image
-          source={require('../../../public/images/462-4629470_file-upload-logo-png-transparent-png.png')}
+          source={require('../../../public/images/no-image-add.png')}
+          resizeMode="contain"
         />
       ) : null}
       <Div>
@@ -67,6 +79,15 @@ function LoggedInPointDetailsComponent({
           <MatIcon name="add-a-photo" size={18} />
         )}
       </AddImageButton> */}
+      <EmptySpace />
+      <SelectImageButton
+        pointID={pointID}
+        selectedImage={selectedImage}
+        setSelectedImage={setSelectedImage}
+      />
+      {/* <Button width="90%" mg="6px 0">
+        <ButtonText>Edit Point</ButtonText>
+      </Button> */}
     </ThemeProvider>
   )
 }

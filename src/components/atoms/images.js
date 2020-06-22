@@ -9,5 +9,6 @@ export const Image = styled.Image`
 export const ProfileImage = styled(Image)`
   width: 50px;
   height: 50px;
+  resize-mode: contain;
   border-radius: 25px;
 `

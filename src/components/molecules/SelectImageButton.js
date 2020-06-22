@@ -72,7 +72,7 @@ function SelectImageButtonComponent({
           </Row>
         ) : (
           <Button onPress={handleSelectImage}>
-            <ButtonText>Select an image</ButtonText>
+            <ButtonText>Edit Point</ButtonText>
           </Button>
         )}
       </Div>

@@ -42,7 +42,6 @@ function MeridianPointDetails({ route, theme, userImages, authState }) {
           </>
         ) : null}
         <Text>{JSON.stringify(userImages)}</Text> */}
-        <EmptySpace />
       </PointDetailsView>
     </ThemeProvider>
   )
