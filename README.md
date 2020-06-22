@@ -29,7 +29,7 @@ My dad got his accupuncture license this year and did a great at his school with
 ##### Week 1
 * Creating a redux store to toggle between light and dark themes
 * Setting up the stack navigator and tab screens, other basic navigation
-* Styling is very basic because I am not exactly sure what information needs to be show yet, keeping the pages simple for that specific reason
+* Styling is very basic because I am not exactly sure what information needs to be shown yet, keeping the pages simple for that specific reason
 * Implement signing in through Firebase
 * Aggregate accupuncture meridians data into csv format from Wikipedia (thanks to Regex101.com and Wiki Tables for being fairly consistents)
 * Selecct an image to upload
