@@ -6,11 +6,17 @@ import { MeridianListItem } from './molecules'
 import { ThemeProvider } from 'styled-components'
 
 const PrimaryMeridianList = ({ navigation, theme }) => {
-  const goToPointsList = (meridianTitle, meridianPointsArray, headerName) => {
-    navigation.navigate('Meridian Points List', {
+  const goToPointsTab = (
+    meridianTitle,
+    meridianPointsArray,
+    headerName,
+    meridianID = null,
+  ) => {
+    navigation.navigate('Point Tabs', {
       meridianTitle,
       meridianPointsArray,
       headerName,
+      meridianID,
     })
   }
 
@@ -24,12 +30,12 @@ const PrimaryMeridianList = ({ navigation, theme }) => {
             // TODO: this is where to customize the language for the whatever
             title={item.english}
             chinese={item.chinese}
-            pointID={item.pointID}
-            goToPointsList={goToPointsList}
+            meridianID={item.meridianID}
+            goToPointsTab={goToPointsTab}
             points={item.points || []}
           />
         )}
-        keyExtractor={(item) => item.pointID}
+        keyExtractor={(item) => item.meridianID}
       />
     </ThemeProvider>
   )

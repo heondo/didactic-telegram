@@ -10,7 +10,7 @@ const MeridianPointsList = ({ theme, route, navigation }) => {
   const { meridianPointsArray } = route.params
 
   const handlePointItemPress = (pointID, headerName) => {
-    navigation.navigate('Point Details', {
+    navigation.navigate('Point Tabs', {
       pointID,
       headerName,
     })

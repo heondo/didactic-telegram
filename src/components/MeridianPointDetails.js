@@ -6,8 +6,8 @@ import { LoggedInPointDetails } from './molecules'
 import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
 
-function MeridianPointDetails({ route, theme, userImages, authState }) {
-  const { pointID } = route.params
+function MeridianPointDetails({ pointID, theme, userImages, authState }) {
+  // const { pointID } = route.params
   // pass in the points array when pressing the Meridian Point to enter the
   // Meridian Points List, instead of the normal meridian lists. JEez this naming convention is confusing my head
   return (
