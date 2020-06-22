@@ -5,19 +5,23 @@ const userImagesSlice = createSlice({
   name: 'userImages',
   initialState: {
     isLoading: false,
+    loadingMessage: '',
     error: null,
     images: null,
   },
   reducers: {
     imageStartLoading: (state, action) => {
+      const { message } = action.payload || ''
       return {
         ...state,
+        loadingMessage: message,
         isLoading: true,
       }
     },
     imageEndLoading: (state, action) => {
       return {
         ...state,
+        loadingMessage: '',
         isLoading: false,
       }
     },

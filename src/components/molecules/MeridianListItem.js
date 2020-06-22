@@ -19,6 +19,7 @@ function MeridianListItemComponent({
   const handlePress = () => {
     // navigation to Meridian Points, passing in the Meridian Name and the points
     // associated with the Meridian in an array form
+
     goToPointsTab(title, points, `${title} ${chinese}`, meridianID)
   }
 
