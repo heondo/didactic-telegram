@@ -17,12 +17,13 @@ export const SecondaryButton = styled(Button)`
 `
 
 export const AddImageButton = styled(Button)`
-  border-radius: 25px;
-  width: 50px;
-  height: 50px;
+  border-radius: 20px;
+  z-index: 2;
+  width: 25px;
+  height: 25px;
   position: absolute;
-  bottom: 20px;
-  left: 25px;
+  top: 20px;
+  right: 25px;
 `
 
 export const DisabledButton = styled(Button)`
