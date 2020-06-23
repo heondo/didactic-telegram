@@ -23,7 +23,6 @@ const firebaseService = {
   },
   putFile: async (userID, pointID, filePath, fileType) => {
     try {
-      console.log(`images\/${userID}\/${pointID}.${fileType}`)
       const reference = storage().ref(
         `images\/${userID}\/${pointID}.${fileType}`,
       )

@@ -65,17 +65,6 @@ export const {
 
 export default userImagesSlice.reducer
 
-// export const thunkGetImages = (userID) => async (dispatch) => {
-//   // call the firebase thing and get the docs
-//   try {
-//     dispatch(imageStartLoading())
-//     const images = await firebaseService.getUserImages(userID)
-//     console.log('users images are: ', images)
-//   } catch (err) {
-//     console.error(err)
-//   }
-// }
-
 export const thunkAddImage = (userID, pointID, filePath, fileType) => async (
   dispatch,
 ) => {
