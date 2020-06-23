@@ -9,17 +9,18 @@ import { Row, Button, ListItem, ButtonText, EmptySpace } from '../atoms'
 const MeridianListItemContainer = styled(Button)``
 
 function MeridianListItemComponent({
-  pointID,
+  meridianID,
   title,
   points,
-  goToPointsList,
+  goToPointsTab,
   chinese,
   theme,
 }) {
   const handlePress = () => {
     // navigation to Meridian Points, passing in the Meridian Name and the points
     // associated with the Meridian in an array form
-    goToPointsList(title, points, `${title} ${chinese}`)
+
+    goToPointsTab(title, points, `${title} ${chinese}`, meridianID)
   }
 
   return (
@@ -27,7 +28,7 @@ function MeridianListItemComponent({
       <MeridianListItemContainer onPress={handlePress}>
         <ListItem>
           <Row>
-            <ButtonText mg="0 4px 0 0">{pointID}:</ButtonText>
+            <ButtonText mg="0 4px 0 0">{meridianID}:</ButtonText>
             <ButtonText>{title}</ButtonText>
           </Row>
           <EmptySpace />

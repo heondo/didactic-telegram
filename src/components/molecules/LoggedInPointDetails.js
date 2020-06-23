@@ -38,10 +38,13 @@ function LoggedInPointDetailsComponent({
     alternative,
   } = MeridianPointsData[pointID] || null
   const [selectedImage, setSelectedImage] = useState(null)
+  const [loadingState, setLoadingState] = useState(false)
 
   return (
     <ThemeProvider theme={theme}>
-      {userImages.isLoading || authState.isLoading ? <LoadingOverlay /> : null}
+      {loadingState ? (
+        <LoadingOverlay message="Uploading image to our servers" />
+      ) : null}
       {/* If a user has uploaded an image display their image or a default image */}
       {imageURL && !selectedImage ? (
         <UsersImageContainer imageURL={imageURL} />
@@ -84,6 +87,7 @@ function LoggedInPointDetailsComponent({
         pointID={pointID}
         selectedImage={selectedImage}
         setSelectedImage={setSelectedImage}
+        setLoadingState={setLoadingState}
       />
       {/* <Button width="90%" mg="6px 0">
         <ButtonText>Edit Point</ButtonText>

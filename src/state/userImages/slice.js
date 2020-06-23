@@ -5,19 +5,23 @@ const userImagesSlice = createSlice({
   name: 'userImages',
   initialState: {
     isLoading: false,
+    loadingMessage: '',
     error: null,
     images: null,
   },
   reducers: {
     imageStartLoading: (state, action) => {
+      const { message } = action.payload || ''
       return {
         ...state,
+        loadingMessage: message,
         isLoading: true,
       }
     },
     imageEndLoading: (state, action) => {
       return {
         ...state,
+        loadingMessage: '',
         isLoading: false,
       }
     },
@@ -60,17 +64,6 @@ export const {
 } = userImagesSlice.actions
 
 export default userImagesSlice.reducer
-
-// export const thunkGetImages = (userID) => async (dispatch) => {
-//   // call the firebase thing and get the docs
-//   try {
-//     dispatch(imageStartLoading())
-//     const images = await firebaseService.getUserImages(userID)
-//     console.log('users images are: ', images)
-//   } catch (err) {
-//     console.error(err)
-//   }
-// }
 
 export const thunkAddImage = (userID, pointID, filePath, fileType) => async (
   dispatch,

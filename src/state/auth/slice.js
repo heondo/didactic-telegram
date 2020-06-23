@@ -63,7 +63,6 @@ export const thunkLogin = (user) => async (dispatch) => {
         userImages,
       }),
     )
-    // console.log(usersImages)
     dispatch(authEndLoading())
   } catch (err) {
     console.error(err)

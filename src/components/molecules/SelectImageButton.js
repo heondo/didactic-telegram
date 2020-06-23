@@ -22,6 +22,7 @@ function SelectImageButtonComponent({
   theme,
   pointID,
   thunkAddImage,
+  setLoadingState,
   // addImageToState,
 }) {
   // pass in the points array when pressing the Meridian Point to enter the
@@ -35,12 +36,15 @@ function SelectImageButtonComponent({
 
   const handleSubmitImage = async () => {
     try {
+      setLoadingState(true)
       await thunkAddImage(
         authState.uid,
         pointID,
         selectedImage.path,
         selectedImage.fileType,
       )
+      setLoadingState(false)
+      setSelectedImage(null)
       // const downloadURL = await firebaseService.putFile(
       //   authState.uid,
       //   pointID,
