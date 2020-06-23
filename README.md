@@ -25,7 +25,7 @@ My dad got his accupuncture license this year and did a great at his school with
 * Grab user images when the user is finished authenticating.
 * Add a loading overlay for each individual accupuncture point when uploading an image
 
-![meridian-point](public/readme/primary_meridians.png)
+![meridian-point](public/readme/meridian-point.png)
 ![select-image](public/readme/select-image.png)
 
 ##### Week 1
