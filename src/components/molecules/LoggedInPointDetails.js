@@ -42,7 +42,9 @@ function LoggedInPointDetailsComponent({
 
   return (
     <ThemeProvider theme={theme}>
-      {loadingState ? <LoadingOverlay /> : null}
+      {loadingState ? (
+        <LoadingOverlay message="Uploading image to our servers" />
+      ) : null}
       {/* If a user has uploaded an image display their image or a default image */}
       {imageURL && !selectedImage ? (
         <UsersImageContainer imageURL={imageURL} />
