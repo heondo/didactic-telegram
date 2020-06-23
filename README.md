@@ -18,8 +18,6 @@ My dad got his accupuncture license this year and did a great at his school with
 
 ### Progress
 
-*Screenshots coming*
-
 ##### Week 2
 * Upload the image to Firebase Storage, and create an associated link to the image in Firestore
 * Setup thunk middleware to dispatch loading and finished loading state changes when signing in (then also for the image upload...although its a little overwhelming right now)
@@ -33,3 +31,5 @@ My dad got his accupuncture license this year and did a great at his school with
 * Implement signing in through Firebase
 * Aggregate accupuncture meridians data into csv format from Wikipedia (thanks to Regex101.com and Wiki Tables for being fairly consistents)
 * Selecct an image to upload
+
+![Points List](/public/readme/primary-meridians.png?raw=true "Optional Title")
