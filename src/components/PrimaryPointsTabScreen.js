@@ -6,6 +6,7 @@ import { TabView, TabBar } from 'react-native-tab-view'
 import { ThemeProvider } from 'styled-components/native'
 import { Text, View } from './atoms'
 import MeridianPointDetails from './MeridianPointDetails'
+import primaryMeridiansData from '../shared/data/primary-meridian-data'
 
 const RenderTabBar = (props) => {
   const { theme } = props
@@ -23,12 +24,10 @@ const RenderTabBar = (props) => {
 }
 
 function PrimaryPointsTabScreen({ navigation, theme, route }) {
-  const {
-    meridianTitle,
-    meridianPointsArray,
-    headerName,
-    meridianID,
-  } = route.params
+  const { meridianTitle, headerName, meridianID } = route.params
+
+  const meridianPointsArray = primaryMeridiansData[meridianID].points
+  console.log(meridianPointsArray)
 
   const pointsToRoutes = meridianPointsArray.map((p) => ({
     key: p.pointID,

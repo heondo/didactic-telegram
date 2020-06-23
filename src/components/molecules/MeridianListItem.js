@@ -11,7 +11,7 @@ const MeridianListItemContainer = styled(Button)``
 function MeridianListItemComponent({
   meridianID,
   title,
-  points,
+  // points,
   goToPointsTab,
   chinese,
   theme,
@@ -20,7 +20,7 @@ function MeridianListItemComponent({
     // navigation to Meridian Points, passing in the Meridian Name and the points
     // associated with the Meridian in an array form
 
-    goToPointsTab(title, points, `${title} ${chinese}`, meridianID)
+    goToPointsTab(title, `${title} ${chinese}`, meridianID)
   }
 
   return (
