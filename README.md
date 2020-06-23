@@ -31,5 +31,4 @@ My dad got his accupuncture license this year and did a great at his school with
 * Implement signing in through Firebase
 * Aggregate accupuncture meridians data into csv format from Wikipedia (thanks to Regex101.com and Wiki Tables for being fairly consistents)
 * Selecct an image to upload
-
-![Points List](/public/readme/primary-meridians.png?raw=true "Optional Title")
+![Points List](public/readme/primary-meridians.png)
