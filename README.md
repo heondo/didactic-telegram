@@ -15,7 +15,11 @@ My dad got his accupuncture license this year and did a great at his school with
 * Add loading message for different redux states
 * Get extra meridian points data
 * Refix settings page and figure out the sign out button positioning
-* ~Trying to figure out the design for the upload image page.~
+* Ask dad what details to show on the page
+* Add note feature for the points
+* Limit file size for image upload
+* Figure out why loading large tab screens take so long and how to work around that
+* ~Trying to figure out the design for the upload image image.~
 * ~Swiping between the different points. Probably makes the most sense to use the tab swipe component~
 
 ### Progress
