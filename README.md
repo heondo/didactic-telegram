@@ -32,4 +32,4 @@ My dad got his accupuncture license this year and did a great at his school with
 * Aggregate accupuncture meridians data into csv format from Wikipedia (thanks to Regex101.com and Wiki Tables for being fairly consistents)
 * Selecct an image to upload
 
-![Points List](public/readme/primary-meridians.png)
+![Points List](/public/readme/primary-meridians.png)
