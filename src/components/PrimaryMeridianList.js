@@ -12,7 +12,7 @@ const PrimaryMeridianList = ({ navigation, theme }) => {
     headerName,
     meridianID = null,
   ) => {
-    navigation.navigate('Point Tabs', {
+    navigation.navigate('Meridian Points List', {
       meridianTitle,
       meridianPointsArray,
       headerName,

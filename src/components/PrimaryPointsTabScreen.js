@@ -51,7 +51,7 @@ function PrimaryPointsTabScreen({ navigation, theme, route }) {
     // }
   }
 
-  const initialLayout = { width: Dimensions.get('window').width }
+  //   const initialLayout = { width: Dimensions.get('window').width }
 
   return (
     <ThemeProvider theme={theme}>
@@ -59,7 +59,7 @@ function PrimaryPointsTabScreen({ navigation, theme, route }) {
         navigationState={{ index, routes }}
         renderScene={renderScene}
         onIndexChange={setIndex}
-        initialLayout={initialLayout}
+        // initialLayout={initialLayout}
         lazy={true}
         renderTabBar={(props) => (
           <RenderTabBar
