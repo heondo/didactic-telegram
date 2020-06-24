@@ -14,6 +14,7 @@ export const ButtonText = styled(Text)`
 export const TextInput = styled.TextInput`
   color: ${(props) => props.theme.PRIMARY_TEXT_COLOR};
   width: 90%;
+  height: 40px;
   background-color: transparent;
   border: 0px;
 `

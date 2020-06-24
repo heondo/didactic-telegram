@@ -113,6 +113,7 @@ export const thunkAddImage = (
       pointID,
       filePath,
       fileType,
+      note,
     )
     dispatch(
       addImageToState({
