@@ -6,7 +6,7 @@ import { MeridianListItem } from './molecules'
 import { ThemeProvider } from 'styled-components'
 
 const PrimaryMeridianList = ({ navigation, theme }) => {
-  const goToPointsTab = (
+  const goToPointsList = (
     meridianTitle,
     meridianPointsArray,
     headerName,
@@ -31,7 +31,7 @@ const PrimaryMeridianList = ({ navigation, theme }) => {
             title={item.english}
             chinese={item.chinese}
             meridianID={item.meridianID}
-            goToPointsTab={goToPointsTab}
+            goToPointsList={goToPointsList}
             points={item.points || []}
           />
         )}

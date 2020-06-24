@@ -55,7 +55,7 @@ function LoggedInPointDetailsComponent({
 
   const handleSubmitNote = async () => {
     setNoteLoading(true)
-    await thunkAddNote(authState.uid, pointID, noteText)
+    await thunkAddNote(authState.uid, pointID, noteText.trim())
     setNoteLoading(false)
   }
 

@@ -6,7 +6,6 @@ import { ThemeProvider } from 'styled-components'
 import {
   Text,
   Div,
-  ButtonText,
   ProfileImage,
   ProfileBannerContainer,
   TransparentButton,
@@ -43,7 +42,7 @@ function ProfileBannerComponent({ authState, theme, thunkLogout }) {
           <ProfileImage source={{ uri: authState.photoURL }} mg="0 12px" />
           <Text fontSize="22px">{capitalize(authState.displayName)}</Text>
           <TransparentButton onPress={handleLogout}>
-            <ButtonText>Sign Out</ButtonText>
+            <Text>Sign Out</Text>
           </TransparentButton>
         </ProfileBannerContainer>
       </Div>

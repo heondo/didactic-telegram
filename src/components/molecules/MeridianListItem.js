@@ -12,7 +12,7 @@ function MeridianListItemComponent({
   meridianID,
   title,
   points,
-  goToPointsTab,
+  goToPointsList,
   chinese,
   theme,
 }) {
@@ -20,7 +20,7 @@ function MeridianListItemComponent({
     // navigation to Meridian Points, passing in the Meridian Name and the points
     // associated with the Meridian in an array form
 
-    goToPointsTab(title, points, `${title} ${chinese}`, meridianID)
+    goToPointsList(title, points, `${title} ${chinese}`, meridianID)
   }
 
   return (
