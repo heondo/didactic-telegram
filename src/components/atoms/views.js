@@ -61,6 +61,7 @@ export const Row = styled.View`
   justify-content: center;
   align-items: center;
   margin: ${(props) => (props.mg ? props.mg : '4px 0')};
+  padding: ${(props) => (props.pd ? props.pd : '4px')};
 `
 
 export const PaddedView = styled(View)`

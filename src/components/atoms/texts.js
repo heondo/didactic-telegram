@@ -10,3 +10,10 @@ export const Text = styled.Text`
 export const ButtonText = styled(Text)`
   color: ${(props) => props.theme.PRIMARY_BUTTON_TEXT_COLOR};
 `
+
+export const TextInput = styled.TextInput`
+  color: ${(props) => props.theme.PRIMARY_TEXT_COLOR};
+  width: 90%;
+  background-color: transparent;
+  border: 0px;
+`

@@ -21,7 +21,25 @@ const firebaseService = {
       console.error(err)
     }
   },
-  putFile: async (userID, pointID, filePath, fileType) => {
+  updateNote: async (userID, pointID, note) => {
+    if (!note) return
+    try {
+      await firestore()
+        .collection('images')
+        .doc(userID)
+        .set(
+          {
+            [pointID]: {
+              note: note,
+            },
+          },
+          { merge: true },
+        )
+    } catch (err) {
+      console.error()
+    }
+  },
+  putFile: async (userID, pointID, filePath, fileType, note = '') => {
     try {
       const reference = storage().ref(
         `images\/${userID}\/${pointID}.${fileType}`,
@@ -35,7 +53,7 @@ const firebaseService = {
         .set(
           {
             [pointID]: {
-              note: '',
+              note: note,
               imageURL: downloadURL,
             },
           },

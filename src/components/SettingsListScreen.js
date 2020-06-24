@@ -15,14 +15,13 @@ import {
   Image,
   MatIcon,
   MatCommIcon,
+  TransparentButton,
 } from './atoms'
 import { toggleTheme } from '../state/theme/slice'
 import { authStartLoading } from '../state/auth/slice'
-import styled, { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import { ProfileBanner, LoadingOverlay } from './molecules'
 import firebaseService from '../services/firebase'
-
-const SignOutButton = styled.TouchableOpacity``
 
 // no need for fancy settings pages just yet. Just a simple dark theme, sign in and sign out feature.
 
@@ -60,14 +59,14 @@ const SettingsListScreen = ({
               />
               <ProfileBannerContainer>
                 {/* <ProfileImage source={{ uri: authState.photoURL }} mg="0 12px" /> */}
-                <SignOutButton onPress={onGoogleButtonPress}>
+                <TransparentButton onPress={onGoogleButtonPress}>
                   <Row>
                     <MatCommIcon name="google" size={24} />
                     <ButtonText mg="4px 6px" fontSize="24px">
                       SIGN IN
                     </ButtonText>
                   </Row>
-                </SignOutButton>
+                </TransparentButton>
               </ProfileBannerContainer>
             </Div>
           </>

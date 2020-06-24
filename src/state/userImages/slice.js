@@ -26,14 +26,32 @@ const userImagesSlice = createSlice({
       }
     },
     addImageToState: (state, action) => {
-      const { pointID, downloadURL } = action.payload
+      const { pointID, downloadURL, note } = action.payload
       return {
         ...state,
         images: {
           ...state.images,
           [pointID]: {
-            note: '',
+            note,
             imageURL: downloadURL,
+          },
+        },
+      }
+    },
+    addNoteToState: (state, action) => {
+      const { pointID, note } = action.payload
+      const imageURL =
+        (state.images &&
+          state.images[pointID] &&
+          state.images[pointID].imageURL) ||
+        null
+      return {
+        ...state,
+        images: {
+          ...state.images,
+          [pointID]: {
+            note,
+            imageURL,
           },
         },
       }
@@ -61,13 +79,32 @@ export const {
   imageEndLoading,
   initializeImages,
   setImagesNull,
+  addNoteToState,
 } = userImagesSlice.actions
 
 export default userImagesSlice.reducer
 
-export const thunkAddImage = (userID, pointID, filePath, fileType) => async (
-  dispatch,
-) => {
+export const thunkAddNote = (userID, pointID, note) => async (dispatch) => {
+  try {
+    await firebaseService.updateNote(userID, pointID, note)
+    dispatch(
+      addNoteToState({
+        pointID,
+        note,
+      }),
+    )
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+export const thunkAddImage = (
+  userID,
+  pointID,
+  filePath,
+  fileType,
+  note,
+) => async (dispatch) => {
   // pass in the file path to the image, use the firebase API to upload and get the image url
   try {
     dispatch(imageStartLoading())
@@ -81,6 +118,7 @@ export const thunkAddImage = (userID, pointID, filePath, fileType) => async (
       addImageToState({
         pointID,
         downloadURL: imageDownloadURL,
+        note,
       }),
     )
     dispatch(imageEndLoading())

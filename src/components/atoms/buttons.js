@@ -16,6 +16,11 @@ export const SecondaryButton = styled(Button)`
   background-color: ${(props) => props.theme.SECONDARY_BUTTON_COLOR};
 `
 
+export const TransparentButton = styled(Button)`
+  background-color: transparent;
+  padding: 4px;
+`
+
 export const AddImageButton = styled(Button)`
   border-radius: 20px;
   z-index: 2;

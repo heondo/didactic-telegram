@@ -21,6 +21,7 @@ function SelectImageButtonComponent({
   setSelectedImage,
   theme,
   pointID,
+  note,
   thunkAddImage,
   setLoadingState,
   // addImageToState,
@@ -42,6 +43,7 @@ function SelectImageButtonComponent({
         pointID,
         selectedImage.path,
         selectedImage.fileType,
+        note,
       )
       setLoadingState(false)
       setSelectedImage(null)
@@ -76,7 +78,7 @@ function SelectImageButtonComponent({
           </Row>
         ) : (
           <Button onPress={handleSelectImage}>
-            <ButtonText>Edit Point</ButtonText>
+            <ButtonText>Edit Image</ButtonText>
           </Button>
         )}
       </Div>

@@ -3,21 +3,17 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 // import auth from '@react-native-firebase/auth'
 import { ThemeProvider } from 'styled-components'
-import styled from 'styled-components/native'
 import {
   Text,
   Div,
-  Row,
-  Button,
   ButtonText,
   ProfileImage,
   ProfileBannerContainer,
+  TransparentButton,
   Image,
 } from '../atoms'
 import { thunkLogout } from '../../state/auth/slice'
 import firebaseService from '../../services/firebase'
-
-const SignOutButton = styled.TouchableOpacity``
 
 function ProfileBannerComponent({ authState, theme, thunkLogout }) {
   const capitalize = (str, lower = false) =>
@@ -46,9 +42,9 @@ function ProfileBannerComponent({ authState, theme, thunkLogout }) {
         <ProfileBannerContainer>
           <ProfileImage source={{ uri: authState.photoURL }} mg="0 12px" />
           <Text fontSize="22px">{capitalize(authState.displayName)}</Text>
-          <SignOutButton onPress={handleLogout}>
+          <TransparentButton onPress={handleLogout}>
             <ButtonText>Sign Out</ButtonText>
-          </SignOutButton>
+          </TransparentButton>
         </ProfileBannerContainer>
       </Div>
     </ThemeProvider>
