@@ -82,7 +82,7 @@ function LoggedInPointDetailsComponent({
           onChangeText={(text) => setNoteText(text)}
           value={noteText}
         />
-        {noteLoading ? (
+        {noteLoading || imageUploading ? (
           <TransparentButton width="7%" onPress={handleSubmitNote}>
             <LoadingCircle />
           </TransparentButton>
