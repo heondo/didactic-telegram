@@ -14,6 +14,7 @@ import {
   Div,
   Image,
   MatIcon,
+  MatCommIcon,
 } from './atoms'
 import { toggleTheme } from '../state/theme/slice'
 import { authStartLoading } from '../state/auth/slice'
@@ -61,8 +62,10 @@ const SettingsListScreen = ({
                 {/* <ProfileImage source={{ uri: authState.photoURL }} mg="0 12px" /> */}
                 <SignOutButton onPress={onGoogleButtonPress}>
                   <Row>
-                    <ButtonText fontSize="24px">Sign In</ButtonText>
-                    <MatIcon icone="google" />
+                    <MatCommIcon name="google" size={24} />
+                    <ButtonText mg="4px 6px" fontSize="24px">
+                      SIGN IN
+                    </ButtonText>
                   </Row>
                 </SignOutButton>
               </ProfileBannerContainer>
