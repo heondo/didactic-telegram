@@ -20,6 +20,7 @@ import { SelectImageButton } from './SelectImageButton'
 import { UsersImageContainer } from './UsersImageContainer'
 import { LoadingOverlay } from './LoadingOverlay'
 import { thunkAddNote } from '../../state/userImages/slice'
+
 function LoggedInPointDetailsComponent({
   theme,
   authState,
@@ -78,7 +79,8 @@ function LoggedInPointDetailsComponent({
       ) : null}
       <Row>
         <TextInput
-          style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+          placeholder="Add a note"
+          placeholderTextColor={theme.GREY}
           onChangeText={(text) => setNoteText(text)}
           value={noteText}
         />

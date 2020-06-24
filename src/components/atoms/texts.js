@@ -16,5 +16,9 @@ export const TextInput = styled.TextInput`
   width: 90%;
   height: 40px;
   background-color: transparent;
-  border: 0px;
+  border-style: solid;
+  /* Most components in react native support unique border width and 
+     colors on each side of the component */
+  border-bottom-color: ${(props) => props.theme.PRIMARY_TEXT_COLOR};
+  border-bottom-width: 1px;
 `
