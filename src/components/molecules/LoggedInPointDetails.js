@@ -13,6 +13,7 @@ import {
   TextInput,
   EmptySpace,
   Row,
+  LoadingCircle,
 } from '../atoms'
 import MeridianPointsData from '../../shared/data/meridian-points-data'
 import { SelectImageButton } from './SelectImageButton'
@@ -47,11 +48,14 @@ function LoggedInPointDetailsComponent({
   } = MeridianPointsData[pointID] || null
   const [selectedImage, setSelectedImage] = useState(null)
   const [imageUploading, setImageUploading] = useState(false)
+  const [noteLoading, setNoteLoading] = useState(false)
 
   const [noteText, setNoteText] = useState(note)
 
-  const handleSubmitNote = () => {
-    thunkAddNote(authState.uid, pointID, noteText)
+  const handleSubmitNote = async () => {
+    setNoteLoading(true)
+    await thunkAddNote(authState.uid, pointID, noteText)
+    setNoteLoading(false)
   }
 
   return (
@@ -78,7 +82,11 @@ function LoggedInPointDetailsComponent({
           onChangeText={(text) => setNoteText(text)}
           value={noteText}
         />
-        {noteText !== note ? (
+        {noteLoading ? (
+          <TransparentButton width="7%" onPress={handleSubmitNote}>
+            <LoadingCircle />
+          </TransparentButton>
+        ) : noteText !== note ? (
           <TransparentButton width="7%" onPress={handleSubmitNote}>
             <MatCommIcon name="cloud-upload-outline" size={18} />
           </TransparentButton>
