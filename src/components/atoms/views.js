@@ -11,6 +11,11 @@ export const Div = styled.View`
   width: ${(props) => (props.width ? props.width : '100%')};
 `
 
+export const ProfileBannerContainer = styled(Div)`
+  position: absolute;
+  background-color: transparent;
+`
+
 export const View = styled.SafeAreaView`
   flex: 1;
   background-color: ${(props) => props.theme.PRIMARY_BACKGROUND_COLOR};

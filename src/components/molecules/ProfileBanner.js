@@ -11,15 +11,13 @@ import {
   Button,
   ButtonText,
   ProfileImage,
-  EmptySpace,
+  ProfileBannerContainer,
+  Image,
 } from '../atoms'
 import { thunkLogout } from '../../state/auth/slice'
 import firebaseService from '../../services/firebase'
 
-const SignOutButton = styled.TouchableOpacity`
-  /* background-color: ${(props) => props.theme.PRIMARY_BUTTON_COLOR}; */
-  /* width: ${(props) => (props.width ? props.width : '100%')}; */
-`
+const SignOutButton = styled.TouchableOpacity``
 
 function ProfileBannerComponent({ authState, theme, thunkLogout }) {
   const capitalize = (str, lower = false) =>
@@ -40,18 +38,19 @@ function ProfileBannerComponent({ authState, theme, thunkLogout }) {
   // Meridian Points List, instead of the normal meridian lists. JEez this naming convention is confusing my head
   return (
     <ThemeProvider theme={theme}>
-      <Row>
-        <ProfileImage source={{ uri: authState.photoURL }} mg="0 12px" />
-        <Div width="auto">
+      <Div>
+        <Image
+          source={require('../../../public/images/backdrop-sample.png')}
+          resizeMode="cover"
+        />
+        <ProfileBannerContainer>
+          <ProfileImage source={{ uri: authState.photoURL }} mg="0 12px" />
           <Text fontSize="22px">{capitalize(authState.displayName)}</Text>
           <SignOutButton onPress={handleLogout}>
             <ButtonText>Sign Out</ButtonText>
           </SignOutButton>
-        </Div>
-        {/* <Button onPress={handleLogout}>
-            <ButtonText>Sign Out</ButtonText>
-          </Button> */}
-      </Row>
+        </ProfileBannerContainer>
+      </Div>
     </ThemeProvider>
   )
 }

@@ -30,10 +30,3 @@ export const DisabledButton = styled(Button)`
   background-color: ${(props) => props.theme.GREY};
   color: ${(props) => props.theme.LIGHT_GREY};
 `
-
-export const ButtonText = styled.Text`
-  font-size: 16px;
-  color: ${(props) => props.theme.PRIMARY_BUTTON_TEXT_COLOR};
-  text-align: center;
-  margin: ${(props) => (props.mg ? props.mg : '0')};
-`

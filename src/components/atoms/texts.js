@@ -6,3 +6,7 @@ export const Text = styled.Text`
   text-align: center;
   margin: ${(props) => (props.mg ? props.mg : '0')};
 `
+
+export const ButtonText = styled(Text)`
+  color: ${(props) => props.theme.PRIMARY_BUTTON_TEXT_COLOR};
+`

@@ -3,12 +3,25 @@ import { Switch } from 'react-native'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import { PaddedView, Text, Row, EmptySpace, Button, ButtonText } from './atoms'
+import {
+  View,
+  Text,
+  Row,
+  EmptySpace,
+  Button,
+  ButtonText,
+  ProfileBannerContainer,
+  Div,
+  Image,
+  MatIcon,
+} from './atoms'
 import { toggleTheme } from '../state/theme/slice'
 import { authStartLoading } from '../state/auth/slice'
-import { ThemeProvider } from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import { ProfileBanner, LoadingOverlay } from './molecules'
 import firebaseService from '../services/firebase'
+
+const SignOutButton = styled.TouchableOpacity``
 
 // no need for fancy settings pages just yet. Just a simple dark theme, sign in and sign out feature.
 
@@ -31,7 +44,7 @@ const SettingsListScreen = ({
   return (
     <ThemeProvider theme={theme}>
       {authState.isLoading ? <LoadingOverlay /> : null}
-      <PaddedView>
+      <View>
         {/* <Text>
           TODO: need to change this not logged in or out component into its own file
         */}
@@ -39,14 +52,21 @@ const SettingsListScreen = ({
           <ProfileBanner />
         ) : (
           <>
-            <Text>
-              You are not logged in, sign in to save your images across devices
-            </Text>
-            <Button onPress={onGoogleButtonPress}>
-              <Row>
-                <ButtonText>Sign In</ButtonText>
-              </Row>
-            </Button>
+            <Div>
+              <Image
+                source={require('../../public/images/backdrop-sample.png')}
+                resizeMode="cover"
+              />
+              <ProfileBannerContainer>
+                {/* <ProfileImage source={{ uri: authState.photoURL }} mg="0 12px" /> */}
+                <SignOutButton onPress={onGoogleButtonPress}>
+                  <Row>
+                    <ButtonText fontSize="24px">Sign In</ButtonText>
+                    <MatIcon icone="google" />
+                  </Row>
+                </SignOutButton>
+              </ProfileBannerContainer>
+            </Div>
           </>
         )}
         {/* </Text> */}
@@ -64,7 +84,7 @@ const SettingsListScreen = ({
             value={theme.mode !== 'light'}
           />
         </Row>
-      </PaddedView>
+      </View>
     </ThemeProvider>
   )
 }
