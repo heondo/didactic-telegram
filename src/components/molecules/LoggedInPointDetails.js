@@ -51,8 +51,6 @@ function LoggedInPointDetailsComponent({
   const [imageUploading, setImageUploading] = useState(false)
   const [noteLoading, setNoteLoading] = useState(false)
 
-  console.log(selectedImage)
-
   const [noteText, setNoteText] = useState(note)
 
   const handleSubmitNote = async () => {
@@ -129,6 +127,7 @@ function LoggedInPointDetailsComponent({
         pointID={pointID}
         note={noteText}
         selectedImage={selectedImage}
+        existingImageURL={imageURL}
         setLoadingState={setImageUploading}
         setSelectedImage={setSelectedImage}
       />

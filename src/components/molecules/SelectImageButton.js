@@ -25,6 +25,7 @@ function SelectImageButtonComponent({
   note,
   thunkAddImage,
   setLoadingState,
+  existingImageURL,
   // addImageToState,
 }) {
   // pass in the points array when pressing the Meridian Point to enter the
@@ -36,11 +37,10 @@ function SelectImageButtonComponent({
     selectImageService.handleSelectImage(setSelectedImage)
   }
   //
-  const handleEditImage = () => {
+  const handleEditImage = (photoToEditPath) => {
     RNPhotoEditor.Edit({
-      path: selectedImage.path,
+      path: photoToEditPath,
       onDone: (imagePath) => {
-        console.log(imagePath)
         const editedImage = {
           uri: `file://${imagePath}`,
           path: imagePath,
@@ -92,13 +92,15 @@ function SelectImageButtonComponent({
               <ButtonText>Swap Image</ButtonText>
             </SecondaryButton>
             <EmptySpace />
-            <SecondaryButton onPress={handleEditImage} width="30%">
+            <SecondaryButton
+              onPress={() => handleEditImage(selectedImage.path)}
+              width="30%">
               <ButtonText>Edit Image</ButtonText>
             </SecondaryButton>
           </Row>
         ) : (
-          <Button onPress={handleSelectImage}>
-            <ButtonText>Edit Image</ButtonText>
+          <Button onPress={handleSelectImage} width="40%">
+            <ButtonText>Change Image</ButtonText>
           </Button>
         )}
       </Div>

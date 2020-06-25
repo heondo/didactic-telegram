@@ -63,7 +63,7 @@ const SettingsListScreen = ({
                   <Row>
                     <MatCommIcon name="google" size={24} />
                     <ButtonText mg="4px 6px" fontSize="24px">
-                      SIGN IN
+                      - SIGN IN
                     </ButtonText>
                   </Row>
                 </TransparentButton>
