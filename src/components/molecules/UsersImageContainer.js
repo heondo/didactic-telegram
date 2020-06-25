@@ -13,7 +13,7 @@ function UsersImageContainerComponent({ theme, authState, imageURL }) {
           <MatIcon name="edit" size={18} />
         </AddImageButton> */}
         {/* <MatIcon name="edit" /> */}
-        <Image source={{ uri: imageURL }} />
+        <Image source={{ uri: imageURL }} resizeMode="contain" />
       </Div>
     </ThemeProvider>
   )

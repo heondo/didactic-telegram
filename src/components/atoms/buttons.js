@@ -8,7 +8,7 @@ export const Button = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  padding: 16px;
+  padding: 16px 8px;
   margin: ${(props) => (props.mg ? props.mg : '4px 0')};
 `
 

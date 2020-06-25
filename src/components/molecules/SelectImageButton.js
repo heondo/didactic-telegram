@@ -2,10 +2,11 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from '@react-navigation/native'
 import PropTypes from 'prop-types'
+import { RNPhotoEditor } from 'react-native-photo-editor'
 
 import selectImageService from '../../services/selectImage'
 import firebaseService from '../../services/firebase'
-import { thunkAddImage } from '../../state/userImages/slice'
+import { thunkAddImage, setImagesNull } from '../../state/userImages/slice'
 import {
   ButtonText,
   Button,
@@ -33,6 +34,21 @@ function SelectImageButtonComponent({
 
   const handleSelectImage = () => {
     selectImageService.handleSelectImage(setSelectedImage)
+  }
+  //
+  const handleEditImage = () => {
+    RNPhotoEditor.Edit({
+      path: selectedImage.path,
+      onDone: (imagePath) => {
+        console.log(imagePath)
+        const editedImage = {
+          uri: `file://${imagePath}`,
+          path: imagePath,
+          fileType: imagePath.split('.')[imagePath.split('.').length - 1],
+        }
+        setSelectedImage(editedImage)
+      },
+    })
   }
 
   const handleSubmitImage = async () => {
@@ -68,12 +84,16 @@ function SelectImageButtonComponent({
       <Div pd="6px">
         {selectedImage ? (
           <Row>
-            <Button onPress={handleSubmitImage} width="45%">
+            <Button onPress={handleSubmitImage} width="30%">
               <ButtonText>Submit</ButtonText>
             </Button>
             <EmptySpace />
-            <SecondaryButton onPress={handleSelectImage} width="45%">
-              <ButtonText>Change Image</ButtonText>
+            <SecondaryButton onPress={handleSelectImage} width="30%">
+              <ButtonText>Swap Image</ButtonText>
+            </SecondaryButton>
+            <EmptySpace />
+            <SecondaryButton onPress={handleEditImage} width="30%">
+              <ButtonText>Edit Image</ButtonText>
             </SecondaryButton>
           </Row>
         ) : (

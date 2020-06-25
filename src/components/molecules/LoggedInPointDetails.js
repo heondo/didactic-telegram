@@ -51,6 +51,8 @@ function LoggedInPointDetailsComponent({
   const [imageUploading, setImageUploading] = useState(false)
   const [noteLoading, setNoteLoading] = useState(false)
 
+  console.log(selectedImage)
+
   const [noteText, setNoteText] = useState(note)
 
   const handleSubmitNote = async () => {
@@ -68,7 +70,7 @@ function LoggedInPointDetailsComponent({
       ) : null}
       {selectedImage ? (
         // no uploaded image, but there is a selected image
-        <Image source={selectedImage} />
+        <Image source={{ uri: selectedImage.uri }} resizeMode="contain" />
       ) : null}
       {!imageURL && !selectedImage ? (
         // no selected or uploaded image
@@ -80,6 +82,7 @@ function LoggedInPointDetailsComponent({
       <Row>
         <TextInput
           placeholder="Add a note"
+          maxLength={300}
           placeholderTextColor={theme.GREY}
           onChangeText={(text) => setNoteText(text)}
           value={noteText}
@@ -88,7 +91,7 @@ function LoggedInPointDetailsComponent({
           <TransparentButton width="7%" onPress={handleSubmitNote}>
             <LoadingCircle />
           </TransparentButton>
-        ) : noteText !== note ? (
+        ) : noteText.trim() !== note ? (
           <TransparentButton width="7%" onPress={handleSubmitNote}>
             <MatCommIcon name="cloud-upload-outline" size={18} />
           </TransparentButton>
