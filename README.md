@@ -14,14 +14,14 @@ My dad got his accupuncture license this year and did a great at his school with
 
 ### Todos
 
-- Stop using the same image
 - Add loading message for different redux states
 - Get extra meridian points data
 - Refix settings page and figure out the sign out button positioning
 - Ask dad what details to show on the page
-- Add note feature for the points
-- Limit file size for image upload
 - Figure out why loading large tab screens take so long and how to work around that
+- ~Add note feature for the points~
+- ~Limit file size for image upload~
+- ~Stop using the same image~
 - ~Trying to figure out the design for the upload image image.~
 - ~Swiping between the different points. Probably makes the most sense to use the tab swipe component~
 
@@ -29,7 +29,7 @@ My dad got his accupuncture license this year and did a great at his school with
 
 ##### Week 2
 
-- Allow a user to edit an image after selecting one in their camera roll thanks to (react-native-photo-editor)
+- Allow a user to edit an image after selecting one in their camera roll thanks to ([react-native-photo-editor](https://github.com/prscX/react-native-photo-editor))
 - Add a note to the image, update note individually or note and selected image together
 - Upload the image to Firebase Storage, and create an associated link to the image in Firestore
 - Setup thunk middleware to dispatch loading and finished loading state changes when signing in (then also for the image upload...although its a little overwhelming right now)
