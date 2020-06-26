@@ -60,4 +60,5 @@ buck-out/
 
 
 /android/app/google-services.json
+/android/app/my-upload-keystore.json
 environment.js

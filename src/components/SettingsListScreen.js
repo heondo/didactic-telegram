@@ -56,10 +56,10 @@ const SettingsListScreen = ({
                 <TransparentButton onPress={onGoogleButtonPress} width="50%">
                   <Row>
                     <MatCommIcon name="google" size={24} />
-                    <ButtonText mg="4px 6px" fontSize="24px">
+                    <Text mg="4px 6px" fontSize="24px">
                       {' '}
                       - SIGN IN
-                    </ButtonText>
+                    </Text>
                   </Row>
                 </TransparentButton>
               </ProfileBannerContainer>
