@@ -27,10 +27,8 @@ function MeridianListItemComponent({
     <ThemeProvider theme={theme}>
       <MeridianListItemContainer onPress={handlePress}>
         <ListItem>
-          <Row>
-            <ButtonText mg="0 4px 0 0">{meridianID}:</ButtonText>
-            <ButtonText>{title}</ButtonText>
-          </Row>
+          <ButtonText mg="0 4px 0 0">{meridianID}:</ButtonText>
+          <ButtonText>{title}</ButtonText>
           <EmptySpace />
           <ButtonText>{chinese}</ButtonText>
         </ListItem>

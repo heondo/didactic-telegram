@@ -11,5 +11,6 @@ export const FlatList = styled.FlatList`
 export const ListItem = styled.View`
   display: flex;
   flex-direction: row;
+  padding: 2px 4px;
   margin: ${(props) => (props.mg ? props.mg : '0')};
 `
