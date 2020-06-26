@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { TabView, TabBar } from 'react-native-tab-view'
 // import PrimaryMeridianList from './PrimaryMeridianList'
 import { ThemeProvider } from 'styled-components/native'
-import { Text, View } from './atoms'
+import { Text } from './atoms'
 import MeridianPointDetails from './MeridianPointDetails'
 
 const RenderTabBar = (props) => {

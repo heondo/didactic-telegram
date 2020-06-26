@@ -4,14 +4,14 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import {
-  View,
+  SafeAreaView,
   Text,
   Row,
   EmptySpace,
   Button,
   ButtonText,
   ProfileBannerContainer,
-  Div,
+  View,
   Image,
   MatIcon,
   MatCommIcon,
@@ -44,7 +44,7 @@ const SettingsListScreen = ({
   return (
     <ThemeProvider theme={theme}>
       {authState.isLoading ? <LoadingOverlay /> : null}
-      <View>
+      <SafeAreaView pd="0">
         {/* <Text>
           TODO: need to change this not logged in or out component into its own file
         */}
@@ -52,28 +52,29 @@ const SettingsListScreen = ({
           <ProfileBanner />
         ) : (
           <>
-            <Div>
+            <View>
               <Image
                 source={require('../../public/images/backdrop-sample.png')}
                 resizeMode="cover"
               />
               <ProfileBannerContainer>
                 {/* <ProfileImage source={{ uri: authState.photoURL }} mg="0 12px" /> */}
-                <TransparentButton onPress={onGoogleButtonPress}>
+                <TransparentButton onPress={onGoogleButtonPress} width="50%">
                   <Row>
                     <MatCommIcon name="google" size={24} />
                     <ButtonText mg="4px 6px" fontSize="24px">
+                      {' '}
                       - SIGN IN
                     </ButtonText>
                   </Row>
                 </TransparentButton>
               </ProfileBannerContainer>
-            </Div>
+            </View>
           </>
         )}
         {/* </Text> */}
         <EmptySpace />
-        <Row mg="4px 0">
+        <View mg="4px 0">
           <Text>
             {theme.mode === 'light' ? 'Enable' : 'Disable'} Dark Theme
           </Text>
@@ -85,8 +86,8 @@ const SettingsListScreen = ({
             onValueChange={toggleTheme}
             value={theme.mode !== 'light'}
           />
-        </Row>
-      </View>
+        </View>
+      </SafeAreaView>
     </ThemeProvider>
   )
 }

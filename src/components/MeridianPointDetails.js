@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { Text, PointDetailsView, EmptySpace } from './atoms'
+import { Text, EmptySpace, SafeAreaView } from './atoms'
 import { LoggedInPointDetails } from './molecules'
 import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
@@ -12,7 +12,7 @@ function MeridianPointDetails({ route, theme, userImages, authState }) {
   // Meridian Points List, instead of the normal meridian lists. JEez this naming convention is confusing my head
   return (
     <ThemeProvider theme={theme}>
-      <PointDetailsView>
+      <SafeAreaView>
         {authState.loggedIn ? (
           <LoggedInPointDetails pointID={pointID} />
         ) : (
@@ -42,7 +42,7 @@ function MeridianPointDetails({ route, theme, userImages, authState }) {
           </>
         ) : null}
         <Text>{JSON.stringify(userImages)}</Text> */}
-      </PointDetailsView>
+      </SafeAreaView>
     </ThemeProvider>
   )
 }

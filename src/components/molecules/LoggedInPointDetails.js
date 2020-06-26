@@ -7,7 +7,7 @@ import {
   Image,
   Text,
   MatIcon,
-  Div,
+  View,
   TransparentButton,
   MatCommIcon,
   TextInput,
@@ -99,7 +99,7 @@ function LoggedInPointDetailsComponent({
           </TransparentButton>
         )}
       </Row>
-      <Div>
+      <View>
         <Text>{name}</Text>
         <Text>{transliteration}</Text>
         <Text>{english}</Text>
@@ -108,7 +108,7 @@ function LoggedInPointDetailsComponent({
         <Text>{romaji}</Text>
         <Text>{vietnamese}</Text>
         <Text>{alternative}</Text>
-      </Div>
+      </View>
       {/* <SelectImageButton
         pointID={pointID}
         selectedImage={selectedImage}

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { FlatList } from './atoms'
+import { FlatList, SafeAreaView } from './atoms'
 import PrimaryMeridianData from '../shared/data/primary-meridian-data'
 import { MeridianListItem } from './molecules'
 import { ThemeProvider } from 'styled-components'
@@ -24,6 +24,7 @@ const PrimaryMeridianList = ({ navigation, theme }) => {
     <ThemeProvider theme={theme}>
       <FlatList
         data={PrimaryMeridianData}
+        contentContainerStyle={{ flexGrow: 1, alignItems: 'center' }}
         renderItem={({ item }) => (
           // pass in a callback to navigate to ea MeridianPointsList page
           <MeridianListItem

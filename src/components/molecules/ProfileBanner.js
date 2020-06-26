@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
 import {
   Text,
-  Div,
+  View,
   ProfileImage,
   ProfileBannerContainer,
   TransparentButton,
@@ -22,6 +22,7 @@ function ProfileBannerComponent({ authState, theme, thunkLogout }) {
 
   const handleLogout = async () => {
     try {
+      console.log('not even working right now')
       await firebaseService.logout()
       await thunkLogout()
     } catch (err) {
@@ -33,19 +34,24 @@ function ProfileBannerComponent({ authState, theme, thunkLogout }) {
   // Meridian Points List, instead of the normal meridian lists. JEez this naming convention is confusing my head
   return (
     <ThemeProvider theme={theme}>
-      <Div>
+      <View>
         <Image
           source={require('../../../public/images/backdrop-sample.png')}
           resizeMode="cover"
         />
         <ProfileBannerContainer>
-          <ProfileImage source={{ uri: authState.photoURL }} mg="0 12px" />
+          <ProfileImage
+            source={{ uri: authState.photoURL }}
+            mg="0 12px"
+            width="50px"
+            height="50px"
+          />
           <Text fontSize="22px">{capitalize(authState.displayName)}</Text>
-          <TransparentButton onPress={handleLogout}>
+          <TransparentButton onPress={handleLogout} width="30%">
             <Text>Sign Out</Text>
           </TransparentButton>
         </ProfileBannerContainer>
-      </Div>
+      </View>
     </ThemeProvider>
   )
 }

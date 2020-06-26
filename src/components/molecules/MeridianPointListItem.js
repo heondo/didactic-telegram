@@ -3,10 +3,8 @@ import { connect } from 'react-redux'
 import { ThemeProvider } from '@react-navigation/native'
 import styled from 'styled-components/native'
 
-import { ButtonText, Button, ListItem, Row, EmptySpace } from '../atoms'
+import { ButtonText, ListItemButton, Row, EmptySpace } from '../atoms'
 import PropTypes from 'prop-types'
-
-const MeridianPointListItemContainer = styled(Button)``
 
 function MeridianPointListItemComponent({
   pointID,
@@ -25,14 +23,14 @@ function MeridianPointListItemComponent({
 
   return (
     <ThemeProvider theme={theme}>
-      <MeridianPointListItemContainer mg="4px 0" onPress={handlePress}>
-        <ListItem>
-          <ButtonText mg="0 4px 0 0">{pointID}:</ButtonText>
+      <ListItemButton onPress={handlePress}>
+        <Row>
+          <ButtonText mg="0 6px 0 0">{pointID}:</ButtonText>
           <ButtonText>{title}</ButtonText>
           <EmptySpace />
           <ButtonText>{chinese}</ButtonText>
-        </ListItem>
-      </MeridianPointListItemContainer>
+        </Row>
+      </ListItemButton>
     </ThemeProvider>
   )
 }

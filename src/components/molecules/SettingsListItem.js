@@ -4,20 +4,16 @@ import { ThemeProvider } from '@react-navigation/native'
 import styled from 'styled-components/native'
 import PropTypes from 'prop-types'
 
-import { ButtonText, Button, ListItem } from '../atoms'
-
-const SettingsListItemContainer = styled(Button)``
+import { ButtonText, ListItemButton, Row } from '../atoms'
 
 function SettingsListItemComponent({ title, theme }) {
   // pass in the points array when pressing the Meridian Point to enter the
   // Meridian Points List, instead of the normal meridian lists. JEez this naming convention is confusing my head
   return (
     <ThemeProvider theme={theme}>
-      <SettingsListItemContainer>
-        <ListItem>
-          <ButtonText>{title}</ButtonText>
-        </ListItem>
-      </SettingsListItemContainer>
+      <ListItemButton>
+        <ButtonText>{title}</ButtonText>
+      </ListItemButton>
     </ThemeProvider>
   )
 }
@@ -30,7 +26,7 @@ const mapStateToProps = ({ theme, authState }) => {
 }
 
 export const SettingsListItem = connect(mapStateToProps)(
-  SettingsListItemContainer,
+  SettingsListItemComponent,
 )
 
 SettingsListItemComponent.propTypes = {

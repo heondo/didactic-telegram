@@ -10,7 +10,7 @@ import { thunkAddImage, setImagesNull } from '../../state/userImages/slice'
 import {
   ButtonText,
   Button,
-  Div,
+  View,
   Row,
   EmptySpace,
   SecondaryButton,
@@ -81,7 +81,7 @@ function SelectImageButtonComponent({
 
   return (
     <ThemeProvider theme={theme}>
-      <Div pd="6px">
+      <View pd="6px">
         {selectedImage ? (
           <Row>
             <Button onPress={handleSubmitImage} width="30%">
@@ -103,7 +103,7 @@ function SelectImageButtonComponent({
             <ButtonText>Change Image</ButtonText>
           </Button>
         )}
-      </Div>
+      </View>
     </ThemeProvider>
   )
 }

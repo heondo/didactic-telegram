@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import { FlatList } from './atoms'
+import { FlatList, SafeAreaView } from './atoms'
 import { MeridianPointListItem } from './molecules'
 import { ThemeProvider } from 'styled-components'
 
@@ -20,6 +20,7 @@ const MeridianPointsList = ({ theme, route, navigation }) => {
     <ThemeProvider theme={theme}>
       <FlatList
         data={meridianPointsArray}
+        contentContainerStyle={{ flexGrow: 1, alignItems: 'center' }}
         renderItem={({ item }) => (
           // pass in a callback to navigate to ea MeridianPointsList page
           <MeridianPointListItem

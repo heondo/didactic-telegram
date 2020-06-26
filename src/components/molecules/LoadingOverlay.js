@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { ThemeProvider } from '@react-navigation/native'
 import PropTypes from 'prop-types'
 
-import { View, Text, OverLay, LoadingCircle } from '../atoms'
+import { Text, OverLay, LoadingCircle } from '../atoms'
 
 function LoadingOverlayComponent({ theme, authState, message }) {
   return (
