@@ -14,6 +14,7 @@ import {
   EmptySpace,
   Row,
   LoadingCircle,
+  SafeAreaView,
 } from '../atoms'
 import MeridianPointsData from '../../shared/data/meridian-points-data'
 import { SelectImageButton } from './SelectImageButton'
@@ -61,79 +62,81 @@ function LoggedInPointDetailsComponent({
 
   return (
     <ThemeProvider theme={theme}>
-      {imageUploading ? <LoadingOverlay /> : null}
-      {/* If a user has uploaded an image display their image or a default image */}
-      {imageURL && !selectedImage ? (
-        <UsersImageContainer imageURL={imageURL} />
-      ) : null}
-      {selectedImage ? (
-        // no uploaded image, but there is a selected image
-        <Image source={{ uri: selectedImage.uri }} resizeMode="contain" />
-      ) : null}
-      {!imageURL && !selectedImage ? (
-        // no selected or uploaded image
-        <Image
-          source={require('../../../public/images/no-image-add.png')}
-          resizeMode="contain"
-        />
-      ) : null}
-      <Row>
-        <TextInput
-          placeholder="Add a note"
-          maxLength={300}
-          placeholderTextColor={theme.GREY}
-          onChangeText={(text) => setNoteText(text)}
-          value={noteText}
-        />
-        {noteLoading || imageUploading ? (
-          <TransparentButton width="7%" onPress={handleSubmitNote}>
-            <LoadingCircle />
-          </TransparentButton>
-        ) : noteText.trim() !== note ? (
-          <TransparentButton width="7%" onPress={handleSubmitNote}>
-            <MatCommIcon name="cloud-upload-outline" size={18} />
-          </TransparentButton>
-        ) : (
-          <TransparentButton width="7%">
-            <MatIcon name="check" size={18} />
-          </TransparentButton>
-        )}
-      </Row>
-      <View>
-        <Text>{name}</Text>
-        <Text>{transliteration}</Text>
-        <Text>{english}</Text>
-        <Text>{pinyin}</Text>
-        <Text>{korean}</Text>
-        <Text>{romaji}</Text>
-        <Text>{vietnamese}</Text>
-        <Text>{alternative}</Text>
-      </View>
-      {/* <SelectImageButton
+      <SafeAreaView>
+        {imageUploading ? <LoadingOverlay /> : null}
+        {/* If a user has uploaded an image display their image or a default image */}
+        {imageURL && !selectedImage ? (
+          <UsersImageContainer imageURL={imageURL} />
+        ) : null}
+        {selectedImage ? (
+          // no uploaded image, but there is a selected image
+          <Image source={{ uri: selectedImage.uri }} resizeMode="contain" />
+        ) : null}
+        {!imageURL && !selectedImage ? (
+          // no selected or uploaded image
+          <Image
+            source={require('../../../public/images/no-image-add.png')}
+            resizeMode="contain"
+          />
+        ) : null}
+        <Row>
+          <TextInput
+            placeholder="Add a note"
+            maxLength={300}
+            placeholderTextColor={theme.GREY}
+            onChangeText={(text) => setNoteText(text)}
+            value={noteText}
+          />
+          {noteLoading || imageUploading ? (
+            <TransparentButton pd="0" width="7%" onPress={handleSubmitNote}>
+              <LoadingCircle />
+            </TransparentButton>
+          ) : noteText.trim() !== note ? (
+            <TransparentButton pd="0" width="7%" onPress={handleSubmitNote}>
+              <MatCommIcon name="cloud-upload-outline" size={18} />
+            </TransparentButton>
+          ) : (
+            <TransparentButton pd="0" width="7%">
+              <MatIcon name="check" size={18} />
+            </TransparentButton>
+          )}
+        </Row>
+        <View>
+          <Text>{name}</Text>
+          <Text>{transliteration}</Text>
+          <Text>{english}</Text>
+          <Text>{pinyin}</Text>
+          <Text>{korean}</Text>
+          <Text>{romaji}</Text>
+          <Text>{vietnamese}</Text>
+          <Text>{alternative}</Text>
+        </View>
+        {/* <SelectImageButton
         pointID={pointID}
         selectedImage={selectedImage}
         setSelectedImage={setSelectedImage}
       /> */}
-      {/* <AddImageButton>
+        {/* <AddImageButton>
         {selectedImage || imageURL ? (
           <MatIcon name="edit" size={18} />
         ) : (
           <MatIcon name="add-a-photo" size={18} />
         )}
       </AddImageButton> */}
-      <EmptySpace />
-      {/* <Text>Edit iamge, add note</Text> */}
-      <SelectImageButton
-        pointID={pointID}
-        note={noteText}
-        selectedImage={selectedImage}
-        existingImageURL={imageURL}
-        setLoadingState={setImageUploading}
-        setSelectedImage={setSelectedImage}
-      />
-      {/* <Button width="90%" mg="6px 0">
+        <EmptySpace />
+        {/* <Text>Edit iamge, add note</Text> */}
+        <SelectImageButton
+          pointID={pointID}
+          note={noteText}
+          selectedImage={selectedImage}
+          existingImageURL={imageURL}
+          setLoadingState={setImageUploading}
+          setSelectedImage={setSelectedImage}
+        />
+        {/* <Button width="90%" mg="6px 0">
         <ButtonText>Edit Point</ButtonText>
       </Button> */}
+      </SafeAreaView>
     </ThemeProvider>
   )
 }

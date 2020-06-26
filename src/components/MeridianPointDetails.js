@@ -12,7 +12,7 @@ function MeridianPointDetails({ route, theme, userImages, authState }) {
   // Meridian Points List, instead of the normal meridian lists. JEez this naming convention is confusing my head
   return (
     <ThemeProvider theme={theme}>
-      <SafeAreaView>
+      <SafeAreaView pd="0">
         {authState.loggedIn ? (
           <LoggedInPointDetails pointID={pointID} />
         ) : (
