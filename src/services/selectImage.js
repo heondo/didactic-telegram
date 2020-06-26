@@ -35,8 +35,6 @@ const selectImageService = {
           callbackSetState(selectedImageData)
           //also send back the data?
         }
-        // console.log(source)
-        // You can also display the image using data:
         // const source = { uri: 'data:image/jpeg;base64,' + response.data };
         // return 'data:image/jpeg;base64,' + response.data
       }

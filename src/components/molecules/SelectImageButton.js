@@ -5,8 +5,7 @@ import PropTypes from 'prop-types'
 import { RNPhotoEditor } from 'react-native-photo-editor'
 
 import selectImageService from '../../services/selectImage'
-import firebaseService from '../../services/firebase'
-import { thunkAddImage, setImagesNull } from '../../state/userImages/slice'
+import { thunkAddImage } from '../../state/userImages/slice'
 import {
   ButtonText,
   Button,
@@ -63,17 +62,6 @@ function SelectImageButtonComponent({
       )
       setLoadingState(false)
       setSelectedImage(null)
-      // const downloadURL = await firebaseService.putFile(
-      //   authState.uid,
-      //   pointID,
-      //   selectedImage.path,
-      //   selectedImage.fileType,
-      // )
-      // addImageToState({
-      //   pointID,
-      //   downloadURL,
-      // })
-      // add the image to the user slice
     } catch (err) {
       console.error(err)
     }
@@ -116,7 +104,6 @@ const mapStateToProps = ({ theme, authState }) => {
 }
 
 const mapDispatchToProps = {
-  // addImageToState,
   thunkAddImage,
 }
 

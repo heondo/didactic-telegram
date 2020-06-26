@@ -1,4 +1,3 @@
-import { utils } from '@react-native-firebase/app'
 import storage from '@react-native-firebase/storage'
 import auth from '@react-native-firebase/auth'
 import firestore from '@react-native-firebase/firestore'
@@ -22,7 +21,9 @@ const firebaseService = {
     }
   },
   updateNote: async (userID, pointID, note) => {
-    if (!note) return
+    if (!note) {
+      return
+    }
     try {
       await firestore()
         .collection('images')

@@ -23,12 +23,7 @@ const RenderTabBar = (props) => {
 }
 
 function PrimaryPointsTabScreen({ navigation, theme, route }) {
-  const {
-    meridianTitle,
-    meridianPointsArray,
-    headerName,
-    meridianID,
-  } = route.params
+  const { meridianPointsArray } = route.params
 
   const pointsToRoutes = meridianPointsArray.map((p) => ({
     key: p.pointID,
@@ -40,15 +35,6 @@ function PrimaryPointsTabScreen({ navigation, theme, route }) {
 
   const renderScene = ({ route }) => {
     return <MeridianPointDetails pointID={route.key} />
-    // switch (route.key) {
-    //   case 'meridian':
-    //   // return <PrimaryMeridianList navigation={navigation} />
-    //   case 'meridianExtras':
-    //   // TODO: change this to the extra meridians, they will need different components
-    //   // return <PrimaryMeridianList navigation={navigation} />
-    //   default:
-    //     return null
-    // }
   }
 
   //   const initialLayout = { width: Dimensions.get('window').width }

@@ -1,10 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from '@react-navigation/native'
-import styled from 'styled-components/native'
 import PropTypes from 'prop-types'
 
-import { ButtonText, ListItemButton, Row } from '../atoms'
+import { ButtonText, ListItemButton } from '../atoms'
 
 function SettingsListItemComponent({ title, theme }) {
   // pass in the points array when pressing the Meridian Point to enter the

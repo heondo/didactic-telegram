@@ -85,13 +85,5 @@ export const {
   authStartLoading,
   authEndLoading,
 } = authSlice.actions
-export default authSlice.reducer
 
-// const firebaseThunkLogin = () => async (dispatch) => {
-//   try {
-//     const repoDetails = await firebase.login()
-//     // dispatch(getRepoDetailsSuccess(repoDetails))
-//   } catch (err) {
-//     // dispatch(getRepoDetailsFailed(err.toString()))
-//   }
-// }
+export default authSlice.reducer

@@ -8,12 +8,10 @@ import {
   Text,
   Row,
   EmptySpace,
-  Button,
   ButtonText,
   ProfileBannerContainer,
   View,
   Image,
-  MatIcon,
   MatCommIcon,
   TransparentButton,
 } from './atoms'
@@ -45,9 +43,6 @@ const SettingsListScreen = ({
     <ThemeProvider theme={theme}>
       {authState.isLoading ? <LoadingOverlay /> : null}
       <SafeAreaView pd="0">
-        {/* <Text>
-          TODO: need to change this not logged in or out component into its own file
-        */}
         {authState.loggedIn ? (
           <ProfileBanner />
         ) : (
@@ -58,7 +53,6 @@ const SettingsListScreen = ({
                 resizeMode="cover"
               />
               <ProfileBannerContainer>
-                {/* <ProfileImage source={{ uri: authState.photoURL }} mg="0 12px" /> */}
                 <TransparentButton onPress={onGoogleButtonPress} width="50%">
                   <Row>
                     <MatCommIcon name="google" size={24} />

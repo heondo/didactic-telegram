@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from '@react-navigation/native'
-import styled from 'styled-components/native'
 
 import { ButtonText, ListItemButton, Row, EmptySpace } from '../atoms'
 import PropTypes from 'prop-types'
