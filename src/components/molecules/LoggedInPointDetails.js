@@ -111,20 +111,7 @@ function LoggedInPointDetailsComponent({
           <Text>{vietnamese}</Text>
           <Text>{alternative}</Text>
         </View>
-        {/* <SelectImageButton
-        pointID={pointID}
-        selectedImage={selectedImage}
-        setSelectedImage={setSelectedImage}
-      /> */}
-        {/* <AddImageButton>
-        {selectedImage || imageURL ? (
-          <MatIcon name="edit" size={18} />
-        ) : (
-          <MatIcon name="add-a-photo" size={18} />
-        )}
-      </AddImageButton> */}
         <EmptySpace />
-        {/* <Text>Edit iamge, add note</Text> */}
         <SelectImageButton
           pointID={pointID}
           note={noteText}
@@ -133,9 +120,6 @@ function LoggedInPointDetailsComponent({
           setLoadingState={setImageUploading}
           setSelectedImage={setSelectedImage}
         />
-        {/* <Button width="90%" mg="6px 0">
-        <ButtonText>Edit Point</ButtonText>
-      </Button> */}
       </SafeAreaView>
     </ThemeProvider>
   )
