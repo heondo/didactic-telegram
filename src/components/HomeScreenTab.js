@@ -1,24 +1,16 @@
 import React from 'react'
-
 import { createStackNavigator } from '@react-navigation/stack'
-
 import { connect } from 'react-redux'
-import { Text, SafeAreaView } from './atoms'
+
+import PrimaryMeridiansScreen from './screens/PrimaryMeridiansScreen'
 
 const HomeScreenStack = createStackNavigator()
-
-const Hello = () => (
-  <SafeAreaView>
-    <Text>Hello</Text>
-  </SafeAreaView>
-)
-
 function HomeScreenTab({ theme }) {
   return (
     <HomeScreenStack.Navigator>
       <HomeScreenStack.Screen
         name="Home"
-        component={Hello}
+        component={PrimaryMeridiansScreen}
         options={{
           headerShown: true,
           headerStyle: {
