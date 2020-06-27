@@ -2,16 +2,21 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { connect } from 'react-redux'
 
-import PrimaryMeridiansScreen from './screens/PrimaryMeridiansScreen'
+import {
+  PrimaryMeridiansScreen,
+  PrimaryMeridianPointsScreen,
+  PrimaryPointDetailsTabs,
+} from './screens'
 
 const HomeScreenStack = createStackNavigator()
-function HomeScreenTab({ theme }) {
+function HomeScreenTab({ theme, navigation }) {
   return (
     <HomeScreenStack.Navigator>
       <HomeScreenStack.Screen
-        name="Home"
+        name="Primary Meridians List"
         component={PrimaryMeridiansScreen}
         options={{
+          headerTitle: 'Meridians',
           headerShown: true,
           headerStyle: {
             backgroundColor: theme.PRIMARY_BACKGROUND_COLOR,
@@ -21,6 +26,35 @@ function HomeScreenTab({ theme }) {
           },
           headerTintColor: theme.PRIMARY_TEXT_COLOR,
         }}
+      />
+      <HomeScreenStack.Screen
+        name="Primary Meridian Points List"
+        component={PrimaryMeridianPointsScreen}
+        options={({ route }) => ({
+          headerTitle: route.params.name,
+          headerShown: true,
+          headerStyle: {
+            backgroundColor: theme.PRIMARY_BACKGROUND_COLOR,
+          },
+          headerTitleStyle: {
+            color: theme.PRIMARY_TEXT_COLOR,
+          },
+          headerTintColor: theme.PRIMARY_TEXT_COLOR,
+        })}
+      />
+      <HomeScreenStack.Screen
+        name="Primary Point Details"
+        component={PrimaryPointDetailsTabs}
+        options={({ route }) => ({
+          headerShown: true,
+          headerStyle: {
+            backgroundColor: theme.PRIMARY_BACKGROUND_COLOR,
+          },
+          headerTitleStyle: {
+            color: theme.PRIMARY_TEXT_COLOR,
+          },
+          headerTintColor: theme.PRIMARY_TEXT_COLOR,
+        })}
       />
     </HomeScreenStack.Navigator>
   )

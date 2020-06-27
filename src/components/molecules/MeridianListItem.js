@@ -2,17 +2,34 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
-import { Text, Row, EmptySpace } from '../atoms'
+import { Text, Button, View, Image, Row } from '../atoms'
 
-function MeridianListItemComponent({ theme, meridianID, chinese, name }) {
+function MeridianListItemComponent({
+  meridianID,
+  chinese,
+  name,
+  points,
+  handleMeridianPress,
+  theme,
+}) {
+  const handleButtonPress = () => {
+    handleMeridianPress(meridianID, name, points)
+  }
   return (
     <ThemeProvider theme={theme}>
-      <Row>
-        <Text>{meridianID} - </Text>
-        <Text>{name}</Text>
-        <EmptySpace />
-        <Text>{chinese}</Text>
-      </Row>
+      <View width="50%" pd="4px 20px">
+        <Button onPress={handleButtonPress}>
+          <Image
+            source={require('../../../public/images/generic-lung.jpg')}
+            width="50px"
+            height="50px"
+            resizeMode="contain"
+          />
+          <Text>{meridianID}</Text>
+          <Text>{name}</Text>
+          <Text>{chinese}</Text>
+        </Button>
+      </View>
     </ThemeProvider>
   )
 }
@@ -28,6 +45,8 @@ MeridianListItemComponent.propTypes = {
   meridianID: PropTypes.string,
   chinese: PropTypes.string,
   english: PropTypes.string,
+  points: PropTypes.array,
+  handleMeridianPress: PropTypes.func,
 }
 
 export const MeridianListItem = connect(mapStateToProps)(

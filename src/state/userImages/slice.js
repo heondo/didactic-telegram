@@ -2,7 +2,12 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const userImagesSlice = createSlice({
   name: 'userImages',
-  initialState: {},
+  initialState: {
+    isLoading: false,
+    loadingMessage: '',
+    error: null,
+    images: null,
+  },
   reducers: {},
 })
 
