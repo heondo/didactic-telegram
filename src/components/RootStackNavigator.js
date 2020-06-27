@@ -1,50 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import { connect } from 'react-redux'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import auth from '@react-native-firebase/auth'
 
-import { MatCommIcon, MatIcon } from './atoms'
-import { thunkLogin } from '../state/auth/slice'
-import MeridiansStackScreen from './MeridiansStackScreen'
-import SettingsStackScreen from './SettingsStackScreen'
+import { MatCommIcon } from './atoms'
+import HomeScreenTab from './HomeScreenTab'
 
 const Tab = createBottomTabNavigator()
 
-function RootStackNavigator({ theme, thunkLogin, authState }) {
-  const [initializing, setInitializing] = useState(true)
-  useEffect(() => {
-    const subscriber = auth().onAuthStateChanged(onAuthStateChanged)
-    return subscriber // unsubscribe on unmount
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  const onAuthStateChanged = async (user) => {
-    try {
-      const strippedDown = user
-        ? {
-            displayName: user.displayName,
-            email: user.email,
-            photoURL: user.photoURL,
-            uid: user.uid,
-          }
-        : null
-      if (initializing) {
-        setInitializing(false)
-      }
-      if (user) {
-        await thunkLogin(strippedDown)
-      }
-    } catch (err) {
-      console.error(err)
-    }
-  }
-
-  if (initializing) {
-    return null
-  }
-
+function RootStackNavigator({ theme, authState }) {
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -56,25 +21,12 @@ function RootStackNavigator({ theme, thunkLogin, authState }) {
           showLabel: true,
         }}>
         <Tab.Screen
-          name="Meridians"
-          component={MeridiansStackScreen}
+          name="Home"
+          component={HomeScreenTab}
           options={{
             tabBarIcon: ({ focused }) => (
               <MatCommIcon
-                name="view-list"
-                color={focused ? theme.WHITE : theme.GREY}
-                size={25}
-              />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Settings"
-          component={SettingsStackScreen}
-          options={{
-            tabBarIcon: ({ focused }) => (
-              <MatIcon
-                name="settings"
+                name="home"
                 color={focused ? theme.WHITE : theme.GREY}
                 size={25}
               />
@@ -93,28 +45,9 @@ const mapStateToProps = ({ theme, authState }) => {
   }
 }
 
-const mapDispatchToProps = {
-  thunkLogin,
-}
-
 RootStackNavigator.propTypes = {
   theme: PropTypes.object,
   auth: PropTypes.object,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(RootStackNavigator)
-
-/**
- * {"displayName": "allen kim",
- * "email": "heondo.testing@gmail.com",
- *  "emailVerified": true,
- * "isAnonymous": false,
- * "metadata": {"creationTime":
- *              1592270109651,
- * "lastSignInTime":
- * 1592447993784},
- * "phoneNumber": null,
- * "photoURL": "https://lh4.googleusercontent.com/-OCEpxGO_lfc/AAAAAAAAAAI/AAAAAAAAAAA/AMZuuckY3lpXI87ByO_01S3iVzRN4NJfaA/s96-c/photo.jpg", "providerData": [[Object]],
- * "providerId": "firebase",
- * "uid": "KEFNhcwb2bUjVdHeSMIOlCyok0a2"
- */
+export default connect(mapStateToProps)(RootStackNavigator)

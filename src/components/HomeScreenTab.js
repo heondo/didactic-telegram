@@ -1,18 +1,24 @@
-import * as React from 'react'
+import React from 'react'
 
 import { createStackNavigator } from '@react-navigation/stack'
 
 import { connect } from 'react-redux'
-import SettingsListScreen from './SettingsListScreen'
+import { Text, SafeAreaView } from './atoms'
 
-const SettingsStack = createStackNavigator()
+const HomeScreenStack = createStackNavigator()
 
-function SettingsStackScreen({ theme }) {
+const Hello = () => (
+  <SafeAreaView>
+    <Text>Hello</Text>
+  </SafeAreaView>
+)
+
+function HomeScreenTab({ theme }) {
   return (
-    <SettingsStack.Navigator>
-      <SettingsStack.Screen
-        name="Settings"
-        component={SettingsListScreen}
+    <HomeScreenStack.Navigator>
+      <HomeScreenStack.Screen
+        name="Home"
+        component={Hello}
         options={{
           headerShown: true,
           headerStyle: {
@@ -24,7 +30,7 @@ function SettingsStackScreen({ theme }) {
           headerTintColor: theme.PRIMARY_TEXT_COLOR,
         }}
       />
-    </SettingsStack.Navigator>
+    </HomeScreenStack.Navigator>
   )
 }
 
@@ -34,4 +40,4 @@ const mapStateToProps = ({ theme }) => {
   }
 }
 
-export default connect(mapStateToProps)(SettingsStackScreen)
+export default connect(mapStateToProps)(HomeScreenTab)

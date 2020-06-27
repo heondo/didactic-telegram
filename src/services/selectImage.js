@@ -1,11 +1,11 @@
 import ImagePicker from 'react-native-image-picker'
 
 const options = {
-  title: 'Select Image',
-  quality: 0.9,
-  maxWidth: 700,
-  maxHeight: 500,
-  allowsEditing: true,
+  // title: 'Select Image',
+  // quality: 0.9,
+  // maxWidth: 700,
+  // maxHeight: 500,
+  // allowsEditing: true,
   //   customButtons: [{ name: 'fb', title: 'Choose Photo from Facebook' }],
   // storageOptions: {
   //   skipBackup: true,
@@ -13,33 +13,6 @@ const options = {
   // },
 }
 
-const selectImageService = {
-  handleSelectImage: (callbackSetState = null) => {
-    ImagePicker.showImagePicker(options, (response) => {
-      console.log('Response = ', Object.keys(response))
-      if (response.didCancel) {
-        console.log('User cancelled image picker')
-      } else if (response.error) {
-        console.log('ImagePicker Error: ', response.error)
-      } else if (response.customButton) {
-        console.log('User tapped custom button: ', response.customButton)
-      } else {
-        const fileNameSplit = response.fileName.split('.')
-        const selectedImageData = {
-          uri: response.uri,
-          data: response.data,
-          path: response.path,
-          fileType: fileNameSplit[fileNameSplit.length - 1],
-        }
-        if (callbackSetState) {
-          callbackSetState(selectedImageData)
-          //also send back the data?
-        }
-        // const source = { uri: 'data:image/jpeg;base64,' + response.data };
-        // return 'data:image/jpeg;base64,' + response.data
-      }
-    })
-  },
-}
+const selectImageService = {}
 
 export default selectImageService
