@@ -11,6 +11,11 @@ export const Button = styled.TouchableOpacity`
   margin: ${(props) => (props.mg ? props.mg : '4px')};
 `
 
+export const MeridianSquare = styled(Button)`
+  border-radius: 18px;
+  elevation: 4;
+`
+
 export const SecondaryButton = styled(Button)`
   background-color: ${(props) => props.theme.SECONDARY_BUTTON_COLOR};
 `

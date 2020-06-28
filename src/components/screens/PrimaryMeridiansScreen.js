@@ -28,7 +28,7 @@ const PrimaryMeridiansScreenComponent = ({ navigation, theme }) => {
             handleMeridianPress={handleMeridianPress}
           />
         )}
-        numColumns={2}
+        numColumns={3}
         horizontal={false}
         keyExtractor={(item) => item.meridianID}
       />
