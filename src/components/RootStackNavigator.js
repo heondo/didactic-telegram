@@ -1,15 +1,46 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import PropTypes from 'prop-types'
+import auth from '@react-native-firebase/auth'
 
 import { MatCommIcon } from './atoms'
 import HomeScreenTab from './HomeScreenTab'
+import SettingsScreen from './SettingsScreenTab'
+import { thunkLogin } from '../state/auth/slice'
 
 const Tab = createBottomTabNavigator()
 
-function RootStackNavigator({ theme, authState }) {
+function RootStackNavigator({ theme, authState, thunkLogin }) {
+  const [initializing, setInitializing] = useState(true)
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged)
+    return subscriber // unsubscribe on unmount
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const onAuthStateChanged = async (user) => {
+    try {
+      const strippedDown = user
+        ? {
+            displayName: user.displayName,
+            email: user.email,
+            photoURL: user.photoURL,
+            uid: user.uid,
+          }
+        : null
+      if (initializing) {
+        setInitializing(false)
+      }
+      if (user) {
+        await thunkLogin(strippedDown)
+      }
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -33,6 +64,19 @@ function RootStackNavigator({ theme, authState }) {
             ),
           }}
         />
+        <Tab.Screen
+          name="Settings"
+          component={SettingsScreen}
+          options={{
+            tabBarIcon: ({ focused }) => (
+              <MatCommIcon
+                name="settings"
+                color={focused ? theme.WHITE : theme.GREY}
+                size={25}
+              />
+            ),
+          }}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   )
@@ -50,4 +94,6 @@ RootStackNavigator.propTypes = {
   auth: PropTypes.object,
 }
 
-export default connect(mapStateToProps)(RootStackNavigator)
+export default connect(mapStateToProps, {
+  thunkLogin,
+})(RootStackNavigator)

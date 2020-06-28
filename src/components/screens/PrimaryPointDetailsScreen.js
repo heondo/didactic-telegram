@@ -8,7 +8,7 @@ import {
   EmptySpace,
   Header,
   Row,
-  PointImage,
+  ImageAbsolute,
   TextInput,
 } from '../atoms'
 import MERIDIAN_POINTS_DATA from '../../shared/data/meridianPointsData'
@@ -18,7 +18,8 @@ const PrimaryPointDetailsScreenComponent = ({ navigation, theme, pointID }) => {
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaView pd="0 0 8px 0">
-        <PointImage
+        {/* <HeaderText>{pointID}: </HeaderText> */}
+        <ImageAbsolute
           source={require('../../shared/images/no-image-add.png')}
           height="100%"
           resizeMode="contain"
@@ -33,8 +34,10 @@ const PrimaryPointDetailsScreenComponent = ({ navigation, theme, pointID }) => {
         <EmptySpace />
         <TextInput
           multiline={true}
+          numberOfLines={6}
+          maxLength={500}
           placeholderTextColor={theme.GREY}
-          placeholder="Add a note"
+          placeholder="Add a note..."
         />
       </SafeAreaView>
     </ThemeProvider>

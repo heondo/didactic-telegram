@@ -5,17 +5,31 @@ import { PrimaryPointDetailsScreen } from './PrimaryPointDetailsScreen'
 
 import Swiper from 'react-native-swiper'
 
-export const PrimaryPointDetailsTabs = ({ navigation, route, theme }) => {
+const PrimaryPointDetailsTabsComponent = ({ navigation, route, theme }) => {
   const { pointID, points } = route.params
 
   return (
-    <Swiper
-      showsButtons={true}
-      showsPagination={false}
-      index={parseInt(pointID.split('-')[1], 0) - 1}>
-      {points.map((p) => (
-        <PrimaryPointDetailsScreen key={p} pointID={p} />
-      ))}
-    </Swiper>
+    <ThemeProvider theme={theme}>
+      <Swiper
+        showsButtons={true}
+        showsPagination={false}
+        index={parseInt(pointID.split('-')[1], 0) - 1}>
+        {points.map((p) => (
+          <PrimaryPointDetailsScreen key={p} pointID={p} />
+        ))}
+      </Swiper>
+    </ThemeProvider>
   )
 }
+
+const mapStateToProps = ({ theme, authState, userImages }) => {
+  return {
+    theme,
+    authState,
+    userImages,
+  }
+}
+
+export const PrimaryPointDetailsTabs = connect(mapStateToProps)(
+  PrimaryPointDetailsTabsComponent,
+)
