@@ -3,11 +3,8 @@ import { Dimensions } from 'react-native'
 import { connect } from 'react-redux'
 import { TabView, TabBar } from 'react-native-tab-view'
 import { ThemeProvider } from 'styled-components/native'
-import { View } from '../atoms'
 
-const FirstRoute = () => <View />
-
-const SecondRoute = () => <View />
+import { PrimaryPointDetailsScreen } from './PrimaryPointDetailsScreen'
 
 const RenderTabBar = (props) => {
   const { theme } = props
@@ -24,23 +21,16 @@ const RenderTabBar = (props) => {
   )
 }
 
-function PrimaryPointDetailsTabComponent({ navigation, theme }) {
-  const [index, setIndex] = useState(0)
-  const [routes] = useState([
-    { key: 'meridian', title: 'Primary' },
-    { key: 'meridianExtras', title: 'Extras' },
-  ])
+function PrimaryPointDetailsTabComponent({ navigation, route, theme }) {
+  const { pointID, points } = route.params
+  const initialIndex = parseInt(pointID.split('-')[1], 0) - 1
+  const [index, setIndex] = useState(initialIndex)
+  const [routes] = useState(points.map((id) => ({ key: id, title: id })))
 
   const renderScene = ({ route }) => {
-    switch (route.key) {
-      case 'meridian':
-        return <FirstRoute navigation={navigation} />
-      case 'meridianExtras':
-        // TODO: change this to the extra meridians, they will need different components
-        return <SecondRoute navigation={navigation} />
-      default:
-        return null
-    }
+    return (
+      <PrimaryPointDetailsScreen navigation={navigation} pointID={route.key} />
+    )
   }
 
   const initialLayout = { width: Dimensions.get('window').width }
@@ -52,7 +42,15 @@ function PrimaryPointDetailsTabComponent({ navigation, theme }) {
         renderScene={renderScene}
         onIndexChange={setIndex}
         initialLayout={initialLayout}
-        renderTabBar={(props) => <RenderTabBar {...props} theme={theme} />}
+        lazy={true}
+        renderTabBar={(props) => (
+          <RenderTabBar
+            {...props}
+            theme={theme}
+            tabStyle={{ width: 'auto' }}
+            scrollEnabled={true}
+          />
+        )}
       />
     </ThemeProvider>
   )

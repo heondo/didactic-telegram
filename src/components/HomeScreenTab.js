@@ -46,14 +46,7 @@ function HomeScreenTab({ theme, navigation }) {
         name="Primary Point Details"
         component={PrimaryPointDetailsTabs}
         options={({ route }) => ({
-          headerShown: true,
-          headerStyle: {
-            backgroundColor: theme.PRIMARY_BACKGROUND_COLOR,
-          },
-          headerTitleStyle: {
-            color: theme.PRIMARY_TEXT_COLOR,
-          },
-          headerTintColor: theme.PRIMARY_TEXT_COLOR,
+          headerShown: false,
         })}
       />
     </HomeScreenStack.Navigator>
