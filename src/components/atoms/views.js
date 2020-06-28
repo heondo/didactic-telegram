@@ -23,6 +23,10 @@ export const View = styled.View`
   width: ${(props) => (props.width ? props.width : '100%')};
 `
 
+export const Header = styled(View)`
+  background-color: ${(props) => props.theme.nordNight3};
+`
+
 export const ProfileBannerContainer = styled(View)`
   position: absolute;
   background-color: transparent;

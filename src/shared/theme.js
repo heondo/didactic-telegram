@@ -41,7 +41,7 @@ export const lightTheme = {
 export const darkTheme = {
   ...lightTheme,
   mode: 'dark',
-  PRIMARY_BACKGROUND_COLOR: nord.nordNight3,
+  PRIMARY_BACKGROUND_COLOR: nord.nordNight0,
   PRIMARY_TEXT_COLOR: nord.snowStorm2,
   TAB_BACKGROUND: nord.frost2,
   TAB_INDICATOR: nord.snowStorm1,
