@@ -7,7 +7,7 @@ const userImagesSlice = createSlice({
     isLoading: false,
     loadingMessage: '',
     error: null,
-    images: {},
+    images: null,
   },
   reducers: {
     startImageLoading: (state, action) => {
@@ -60,14 +60,16 @@ const userImagesSlice = createSlice({
       const { userImages } = action.payload
       return {
         ...state,
-        images: userImages,
+        images: {
+          ...userImages,
+        },
       }
       // I want to, grab the objects from the document....it may come back as an array. No wait.abs
     },
     setImagesNull: (state, action) => {
       return {
         ...state,
-        images: null,
+        images: {},
       }
     },
   },

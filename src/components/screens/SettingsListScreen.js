@@ -1,6 +1,6 @@
 import React from 'react'
 import { Switch } from 'react-native'
-import { connect } from 'react-redux'
+import { connect, useDispatch } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 
 import {
@@ -14,7 +14,7 @@ import {
 } from '../atoms'
 import { firebaseService } from '../../services'
 import { toggleTheme } from '../../state/theme/slice'
-import { startAuthLoading } from '../../state/auth/slice'
+import { startAuthLoading, thunkLogout } from '../../state/auth/slice'
 import { LoadingOverlay } from '../molecules'
 
 const SettingsListScreenComponent = ({
@@ -24,7 +24,7 @@ const SettingsListScreenComponent = ({
   userImages,
   toggleTheme,
 }) => {
-  console.log(userImages)
+  const dispatch = useDispatch()
 
   const handleGoogleSignIn = async () => {
     try {
@@ -37,6 +37,15 @@ const SettingsListScreenComponent = ({
     }
   }
 
+  const capitalize = (str, lower = false) =>
+    (lower ? str.toLowerCase() : str).replace(/(?:^|\s|["'([{])+\S/g, (match) =>
+      match.toUpperCase(),
+    )
+
+  const handleLogout = () => {
+    dispatch(thunkLogout())
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaView pd="0 0 8px 0">
@@ -45,12 +54,18 @@ const SettingsListScreenComponent = ({
           <ImageAbsolute
             source={require('../../shared/images/backdrop-sample.png')}
           />
-          {authState.isLoggedIn ? (
-            <ProfileImage
-              source={{
-                uri: authState.user.photoURL,
-              }}
-            />
+          {authState.user.isLoggedIn ? (
+            <>
+              <ProfileImage
+                source={{
+                  uri: authState.user.photoURL,
+                }}
+              />
+              <Text fontSize="22px">{capitalize(authState.displayName)}</Text>
+              <TransparentButton onPress={handleLogout} width="30%">
+                <Text>Sign Out</Text>
+              </TransparentButton>
+            </>
           ) : (
             <TransparentButton onPress={handleGoogleSignIn} width="auto">
               <Text fontSize="24px">G - SIGN IN</Text>

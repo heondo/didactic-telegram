@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { connect } from 'react-redux'
+import { connect, useDispatch } from 'react-redux'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import PropTypes from 'prop-types'
@@ -12,16 +12,12 @@ import { thunkLogin } from '../state/auth/slice'
 
 const Tab = createBottomTabNavigator()
 
-function RootStackNavigator({ theme, authState, thunkLogin }) {
+function RootStackNavigator({ theme, authState }) {
+  const dispatch = useDispatch()
+
   const [initializing, setInitializing] = useState(true)
   useEffect(() => {
-    const subscriber = auth().onAuthStateChanged(onAuthStateChanged)
-    return subscriber // unsubscribe on unmount
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  const onAuthStateChanged = async (user) => {
-    try {
+    const onAuthStateChanged = (user) => {
       const strippedDown = user
         ? {
             displayName: user.displayName,
@@ -34,12 +30,14 @@ function RootStackNavigator({ theme, authState, thunkLogin }) {
         setInitializing(false)
       }
       if (user) {
-        await thunkLogin(strippedDown)
+        dispatch(thunkLogin(strippedDown))
       }
-    } catch (err) {
-      console.error(err)
     }
-  }
+
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged)
+    return subscriber // unsubscribe on unmount
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <NavigationContainer>
@@ -94,6 +92,4 @@ RootStackNavigator.propTypes = {
   auth: PropTypes.object,
 }
 
-export default connect(mapStateToProps, {
-  thunkLogin,
-})(RootStackNavigator)
+export default connect(mapStateToProps)(RootStackNavigator)

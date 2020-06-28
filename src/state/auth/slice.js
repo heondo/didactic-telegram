@@ -39,7 +39,16 @@ const authSlice = createSlice({
       return {
         ...state,
         isLoggedIn: true,
-        user,
+        user: {
+          ...user,
+        },
+      }
+    },
+    logout: (state, action) => {
+      return {
+        ...state,
+        user: null,
+        isLoggedIn: false,
       }
     },
   },
@@ -50,6 +59,7 @@ export const {
   endAuthLoading,
   setAuthError,
   setUser,
+  logout,
 } = authSlice.actions
 
 export default authSlice.reducer
@@ -68,5 +78,15 @@ export const thunkLogin = (user) => async (dispatch) => {
   } catch (err) {
     console.error(err)
     dispatch(endAuthLoading())
+  }
+}
+
+export const thunkLogout = () => async (dispatch) => {
+  try {
+    await firebaseService.logout()
+    dispatch(logout())
+    dispatch(setImagesNull())
+  } catch (err) {
+    console.error(err)
   }
 }
