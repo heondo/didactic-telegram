@@ -20,9 +20,12 @@ export const ButtonText = styled(Text)`
 export const TextInput = styled.TextInput`
   width: 90%;
   padding: 6px;
-  color: ${(props) => props.theme.PRIMARY_TEXT_COLOR};
-  background-color: transparent;
-  border-style: solid;
+  color: ${(props) => props.theme.BLACK};
+  background-color: white;
+  border-radius: 4px;
+  opacity: .8;
+  /* border: 1px solid ${(props) => props.theme.PRIMARY_TEXT_COLOR}; */
+  /* border-style: solid;
   border-bottom-color: ${(props) => props.theme.PRIMARY_TEXT_COLOR};
-  border-bottom-width: 1px;
+  border-bottom-width: 1px; */
 `

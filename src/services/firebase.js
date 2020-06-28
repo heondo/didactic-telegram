@@ -26,7 +26,7 @@ export const firebaseService = {
         .collection('images')
         .doc(userID)
         .get()
-      return userFireStoreImages._data
+      return userFireStoreImages._data || {}
     } catch (err) {
       console.error(err)
     }

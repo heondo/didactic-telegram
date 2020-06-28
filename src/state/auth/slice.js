@@ -39,9 +39,7 @@ const authSlice = createSlice({
       return {
         ...state,
         isLoggedIn: true,
-        user: {
-          ...user,
-        },
+        user,
       }
     },
     logout: (state, action) => {

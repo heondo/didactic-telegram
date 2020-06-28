@@ -13,7 +13,12 @@ import {
 } from '../atoms'
 import MERIDIAN_POINTS_DATA from '../../shared/data/meridianPointsData'
 
-const PrimaryPointDetailsScreenComponent = ({ navigation, theme, pointID }) => {
+const PrimaryPointDetailsScreenComponent = ({
+  navigation,
+  theme,
+  authState,
+  pointID,
+}) => {
   const pointData = MERIDIAN_POINTS_DATA[pointID]
   return (
     <ThemeProvider theme={theme}>
@@ -35,17 +40,22 @@ const PrimaryPointDetailsScreenComponent = ({ navigation, theme, pointID }) => {
         <TextInput
           multiline={true}
           numberOfLines={6}
+          style={{ textAlignVertical: 'top' }}
           maxLength={500}
           placeholderTextColor={theme.GREY}
-          placeholder="Add a note..."
+          placeholder={
+            authState.isLoggedIn ? 'Add a note...' : 'Log in to save notes'
+          }
+          editable={authState.isLoggedIn ? true : false}
         />
       </SafeAreaView>
     </ThemeProvider>
   )
 }
-const mapStateToProps = ({ theme }) => {
+const mapStateToProps = ({ theme, authState }) => {
   return {
     theme,
+    authState,
   }
 }
 

@@ -23,16 +23,15 @@ const SettingsListScreenComponent = ({
   authState,
   userImages,
   toggleTheme,
+  startAuthLoading,
 }) => {
   const dispatch = useDispatch()
 
   const handleGoogleSignIn = async () => {
     try {
-      dispatch(
-        startAuthLoading({
-          loadingMessage: 'Logging In',
-        }),
-      )
+      startAuthLoading({
+        loadingMessage: 'Logging In',
+      })
       await firebaseService.googleLogin()
     } catch (err) {
       console.error(err)
@@ -51,7 +50,9 @@ const SettingsListScreenComponent = ({
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaView pd="0 0 8px 0">
-        {authState.isLoading ? <LoadingOverlay /> : null}
+        {authState.isLoading ? (
+          <LoadingOverlay loadingMessage={authState.loadingMessage} />
+        ) : null}
         <View height="50%">
           <ImageAbsolute
             source={require('../../shared/images/backdrop-sample.png')}

@@ -30,7 +30,6 @@ function RootStackNavigator({ theme, authState }) {
         setInitializing(false)
       }
       if (user) {
-        console.log(strippedDown)
         dispatch(thunkLogin(strippedDown))
       }
     }
