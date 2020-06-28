@@ -45,9 +45,9 @@ function HomeScreenTab({ theme, navigation }) {
       <HomeScreenStack.Screen
         name="Primary Point Details"
         component={PrimaryPointDetailsTabs}
-        options={({ route }) => ({
+        options={{
           headerShown: false,
-        })}
+        }}
       />
     </HomeScreenStack.Navigator>
   )

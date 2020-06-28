@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
+import PropTypes from 'prop-types'
 
 import {
   SafeAreaView,
@@ -13,12 +14,7 @@ import {
 } from '../atoms'
 import MERIDIAN_POINTS_DATA from '../../shared/data/meridianPointsData'
 
-const PrimaryPointDetailsScreenComponent = ({
-  navigation,
-  theme,
-  authState,
-  pointID,
-}) => {
+const PrimaryPointDetailsScreenComponent = ({ theme, authState, pointID }) => {
   const pointData = MERIDIAN_POINTS_DATA[pointID]
   return (
     <ThemeProvider theme={theme}>
@@ -57,6 +53,9 @@ const mapStateToProps = ({ theme, authState }) => {
     theme,
     authState,
   }
+}
+PrimaryPointDetailsScreenComponent.propTypes = {
+  pointID: PropTypes.string,
 }
 
 export const PrimaryPointDetailsScreen = connect(mapStateToProps)(

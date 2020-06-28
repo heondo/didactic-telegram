@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
-import { Text, Button, View, Image, Row } from '../atoms'
+import { Text, Button, View, Image } from '../atoms'
 
 function MeridianListItemComponent({
   meridianID,

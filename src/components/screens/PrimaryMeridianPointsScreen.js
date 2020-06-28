@@ -6,7 +6,7 @@ import { FlatList } from '../atoms'
 import { MeridianPointListItem } from '../molecules'
 
 const PrimaryMeridianPointsScreenComponent = ({ navigation, theme, route }) => {
-  const { meridianID, points } = route.params
+  const { points } = route.params
 
   const handlePointPress = (pointID) => {
     navigation.navigate('Primary Point Details', {
