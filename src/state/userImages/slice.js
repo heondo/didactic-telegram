@@ -60,9 +60,7 @@ const userImagesSlice = createSlice({
       const { userImages } = action.payload
       return {
         ...state,
-        images: {
-          ...userImages,
-        },
+        images: userImages,
       }
       // I want to, grab the objects from the document....it may come back as an array. No wait.abs
     },

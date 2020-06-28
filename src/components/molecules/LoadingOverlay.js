@@ -5,12 +5,11 @@ import PropTypes from 'prop-types'
 
 import { Text, OverLay, LoadingCircle } from '../atoms'
 
-function LoadingOverlayComponent({ theme, authState, message }) {
+function LoadingOverlayComponent({ theme, authState }) {
   return (
     <ThemeProvider theme={theme}>
       <OverLay>
         <LoadingCircle size="large" color={theme.LOADING_CIRCLE_COLOR} />
-        {message ? <Text>{message}</Text> : null}
       </OverLay>
     </ThemeProvider>
   )

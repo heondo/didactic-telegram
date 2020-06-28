@@ -28,9 +28,11 @@ const SettingsListScreenComponent = ({
 
   const handleGoogleSignIn = async () => {
     try {
-      startAuthLoading({
-        loadingMessage: 'Logging In',
-      })
+      dispatch(
+        startAuthLoading({
+          loadingMessage: 'Logging In',
+        }),
+      )
       await firebaseService.googleLogin()
     } catch (err) {
       console.error(err)
@@ -54,14 +56,16 @@ const SettingsListScreenComponent = ({
           <ImageAbsolute
             source={require('../../shared/images/backdrop-sample.png')}
           />
-          {authState.user.isLoggedIn ? (
+          {authState.isLoggedIn ? (
             <>
               <ProfileImage
                 source={{
                   uri: authState.user.photoURL,
                 }}
               />
-              <Text fontSize="22px">{capitalize(authState.displayName)}</Text>
+              <Text fontSize="22px">
+                {capitalize(authState.user.displayName)}
+              </Text>
               <TransparentButton onPress={handleLogout} width="30%">
                 <Text>Sign Out</Text>
               </TransparentButton>

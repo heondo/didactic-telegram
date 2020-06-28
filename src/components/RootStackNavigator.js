@@ -30,6 +30,7 @@ function RootStackNavigator({ theme, authState }) {
         setInitializing(false)
       }
       if (user) {
+        console.log(strippedDown)
         dispatch(thunkLogin(strippedDown))
       }
     }
@@ -37,7 +38,7 @@ function RootStackNavigator({ theme, authState }) {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged)
     return subscriber // unsubscribe on unmount
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [dispatch])
 
   return (
     <NavigationContainer>
