@@ -26,5 +26,5 @@ const mapStateToProps = ({ theme, authState }) => {
 export const LoadingOverlay = connect(mapStateToProps)(LoadingOverlayComponent)
 
 LoadingOverlayComponent.propTypes = {
-  loadingMessage: PropTypes.sring,
+  loadingMessage: PropTypes.string,
 }

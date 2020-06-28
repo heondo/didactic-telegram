@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
-import { Text, Button, View, Image } from '../atoms'
+import { Text, MeridianSquare, View, Image } from '../atoms'
 
 function MeridianListItemComponent({
   meridianID,
@@ -17,8 +17,8 @@ function MeridianListItemComponent({
   }
   return (
     <ThemeProvider theme={theme}>
-      <View width="50%" pd="4px 20px">
-        <Button onPress={handleButtonPress}>
+      <View width="33%" pd="4px 8px">
+        <MeridianSquare onPress={handleButtonPress}>
           <Image
             source={require('../../../public/images/generic-lung.jpg')}
             width="50px"
@@ -26,9 +26,9 @@ function MeridianListItemComponent({
             resizeMode="contain"
           />
           <Text>{meridianID}</Text>
-          <Text>{name}</Text>
+          <Text fontSize="14px">{name}</Text>
           <Text>{chinese}</Text>
-        </Button>
+        </MeridianSquare>
       </View>
     </ThemeProvider>
   )

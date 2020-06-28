@@ -12,23 +12,26 @@ import {
   ImageAbsolute,
   TextInput,
   View,
+  TransparentButton,
+  DarkText,
+  SubmitNoteContainer,
 } from '../atoms'
 import MERIDIAN_POINTS_DATA from '../../shared/data/meridianPointsData'
 
-const PrimaryPointDetailsScreenComponent = ({
+const LoggedInDetailsScreenComponent = ({
   theme,
   authState,
   userImages,
   pointID,
 }) => {
   const pointData = MERIDIAN_POINTS_DATA[pointID]
+  const userPointData = userImages.images[pointID] || {}
 
-  const userPointData = userImages[pointID] || null
+  const [noteInput, setNoteInput] = useState(userPointData.note)
 
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaView pd="0 0 8px 0">
-        {/* <HeaderText>{pointID}: </HeaderText> */}
         <ImageAbsolute
           source={require('../../shared/images/no-image-add.png')}
           height="100%"
@@ -42,18 +45,22 @@ const PrimaryPointDetailsScreenComponent = ({
           </Row>
         </Header>
         <EmptySpace />
-        <View>
+        <View pd="4px 8px">
           <TextInput
             multiline={true}
-            numberOfLines={6}
+            numberOfLines={2}
             style={{ textAlignVertical: 'top' }}
             maxLength={500}
             placeholderTextColor={theme.GREY}
-            placeholder={
-              authState.isLoggedIn ? 'Add a note...' : 'Log in to save notes'
-            }
-            editable={authState.isLoggedIn ? true : false}
+            // value={noteInput}
+            // onChangeText={setNoteInput}
+            placeholder="Add a note..."
           />
+          <SubmitNoteContainer>
+            <TransparentButton>
+              <DarkText>></DarkText>
+            </TransparentButton>
+          </SubmitNoteContainer>
         </View>
       </SafeAreaView>
     </ThemeProvider>
@@ -66,10 +73,10 @@ const mapStateToProps = ({ theme, authState, userImages }) => {
     userImages,
   }
 }
-PrimaryPointDetailsScreenComponent.propTypes = {
+LoggedInDetailsScreenComponent.propTypes = {
   pointID: PropTypes.string,
 }
 
-export const PrimaryPointDetailsScreen = connect(mapStateToProps)(
-  PrimaryPointDetailsScreenComponent,
+export const LoggedInDetailsScreen = connect(mapStateToProps)(
+  LoggedInDetailsScreenComponent,
 )

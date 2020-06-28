@@ -15,6 +15,7 @@ export const SafeAreaView = styled.SafeAreaView`
 export const View = styled.View`
   background-color: ${(props) => props.theme.PRIMARY_BACKGROUND_COLOR};
   color: ${(props) => props.theme.PRIMARY_TEXT_COLOR};
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,9 +28,15 @@ export const Header = styled(View)`
   background-color: ${(props) => props.theme.nordNight3};
 `
 
-export const ProfileBannerContainer = styled(View)`
+export const AbsoluteView = styled(View)`
   position: absolute;
   background-color: transparent;
+`
+
+export const SubmitNoteContainer = styled(AbsoluteView)`
+  width: auto;
+  right: 0px;
+  bottom: 0px;
 `
 
 export const OverLay = styled(View)`

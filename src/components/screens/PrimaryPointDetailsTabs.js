@@ -1,11 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components/native'
-import { PrimaryPointDetailsScreen } from './PrimaryPointDetailsScreen'
 
 import Swiper from 'react-native-swiper'
+import { LoggedOutDetailsScreen } from './LoggedOutDetailsScreen'
+import { LoggedInDetailsScreen } from './LoggedInDetailsScreen'
 
-const PrimaryPointDetailsTabsComponent = ({ navigation, route, theme }) => {
+const PrimaryPointDetailsTabsComponent = ({
+  navigation,
+  route,
+  theme,
+  authState,
+}) => {
   const { pointID, points } = route.params
 
   return (
@@ -14,9 +20,9 @@ const PrimaryPointDetailsTabsComponent = ({ navigation, route, theme }) => {
         showsButtons={true}
         showsPagination={false}
         index={parseInt(pointID.split('-')[1], 0) - 1}>
-        {points.map((p) => (
-          <PrimaryPointDetailsScreen key={p} pointID={p} />
-        ))}
+        {authState.isLoggedIn
+          ? points.map((p) => <LoggedInDetailsScreen key={p} pointID={p} />)
+          : points.map((p) => <LoggedOutDetailsScreen key={p} pointID={p} />)}
       </Swiper>
     </ThemeProvider>
   )

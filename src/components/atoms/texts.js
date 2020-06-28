@@ -17,9 +17,13 @@ export const ButtonText = styled(Text)`
   color: ${(props) => props.theme.PRIMARY_BUTTON_TEXT_COLOR};
 `
 
+export const DarkText = styled(Text)`
+  color: ${(props) => props.theme.nordNight3};
+`
+
 export const TextInput = styled.TextInput`
-  width: 90%;
-  padding: 6px;
+  width: 100%;
+  padding: 6px 24px 6px 6px;
   color: ${(props) => props.theme.BLACK};
   background-color: white;
   border-radius: 4px;
