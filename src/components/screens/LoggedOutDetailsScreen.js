@@ -36,6 +36,7 @@ const LoggedOutDetailsScreenComponent = ({ theme, pointID }) => {
         <EmptySpace />
         <View pd="4px 8px">
           <TextInput
+            pd="6px 32px 6px 6px"
             multiline={true}
             numberOfLines={2}
             style={{ textAlignVertical: 'top' }}
