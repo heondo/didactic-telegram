@@ -13,8 +13,8 @@ import {
   TextInput,
   View,
   TransparentButton,
-  DarkText,
   SubmitNoteContainer,
+  MatCommIcon,
 } from '../atoms'
 import MERIDIAN_POINTS_DATA from '../../shared/data/meridianPointsData'
 
@@ -25,9 +25,17 @@ const LoggedInDetailsScreenComponent = ({
   pointID,
 }) => {
   const pointData = MERIDIAN_POINTS_DATA[pointID]
-  const userPointData = userImages.images[pointID] || {}
+  const userImageURL =
+    userImages.images && userImages.images[pointID]
+      ? userImages.images[pointID].imageURL
+      : null
 
-  const [noteInput, setNoteInput] = useState(userPointData.note)
+  const userNote =
+    userImages.images && userImages.images[pointID]
+      ? userImages.images[pointID].note
+      : ''
+
+  const [noteInput, setNoteInput] = useState(userNote)
 
   return (
     <ThemeProvider theme={theme}>
@@ -47,20 +55,27 @@ const LoggedInDetailsScreenComponent = ({
         <EmptySpace />
         <View pd="4px 8px">
           <TextInput
+            pd="6px 32px 6px 6px"
             multiline={true}
             numberOfLines={2}
             style={{ textAlignVertical: 'top' }}
             maxLength={500}
             placeholderTextColor={theme.GREY}
-            // value={noteInput}
-            // onChangeText={setNoteInput}
+            value={noteInput}
+            onChangeText={(text) => setNoteInput(text)}
             placeholder="Add a note..."
           />
-          <SubmitNoteContainer>
-            <TransparentButton>
-              <DarkText>></DarkText>
-            </TransparentButton>
-          </SubmitNoteContainer>
+          {userNote !== noteInput.trim() ? (
+            <SubmitNoteContainer>
+              <TransparentButton>
+                <MatCommIcon
+                  name="send-circle"
+                  size={26}
+                  color={theme.PRIMARY_BUTTON_COLOR}
+                />
+              </TransparentButton>
+            </SubmitNoteContainer>
+          ) : null}
         </View>
       </SafeAreaView>
     </ThemeProvider>

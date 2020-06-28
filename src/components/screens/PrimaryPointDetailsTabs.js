@@ -17,6 +17,7 @@ const PrimaryPointDetailsTabsComponent = ({
   return (
     <ThemeProvider theme={theme}>
       <Swiper
+        loadMinimal={true}
         showsButtons={true}
         showsPagination={false}
         index={parseInt(pointID.split('-')[1], 0) - 1}>

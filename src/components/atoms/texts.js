@@ -23,7 +23,7 @@ export const DarkText = styled(Text)`
 
 export const TextInput = styled.TextInput`
   width: 100%;
-  padding: 6px 24px 6px 6px;
+  padding: ${(props) => (props.pd ? props.pd : '0')};
   color: ${(props) => props.theme.BLACK};
   background-color: white;
   border-radius: 4px;
