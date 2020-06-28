@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { connect } from 'react-redux'
+import { connect, useDispatch } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
 
@@ -15,8 +15,10 @@ import {
   TransparentButton,
   SubmitNoteContainer,
   MatCommIcon,
+  LoadingCircle,
 } from '../atoms'
 import MERIDIAN_POINTS_DATA from '../../shared/data/meridianPointsData'
+import { thunkAddNote } from '../../state/userImages/slice'
 
 const LoggedInDetailsScreenComponent = ({
   theme,
@@ -24,6 +26,7 @@ const LoggedInDetailsScreenComponent = ({
   userImages,
   pointID,
 }) => {
+  const dispatch = useDispatch()
   const pointData = MERIDIAN_POINTS_DATA[pointID]
   const userImageURL =
     userImages.images && userImages.images[pointID]
@@ -36,6 +39,13 @@ const LoggedInDetailsScreenComponent = ({
       : ''
 
   const [noteInput, setNoteInput] = useState(userNote)
+  const [isNoteLoading, setNoteLoading] = useState(false)
+
+  const handleSubmitNote = () => {
+    dispatch(
+      thunkAddNote(authState.user.uid, pointID, noteInput, setNoteLoading),
+    )
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -67,13 +77,19 @@ const LoggedInDetailsScreenComponent = ({
           />
           {userNote !== noteInput.trim() ? (
             <SubmitNoteContainer>
-              <TransparentButton>
-                <MatCommIcon
-                  name="send-circle"
-                  size={26}
-                  color={theme.PRIMARY_BUTTON_COLOR}
-                />
-              </TransparentButton>
+              {isNoteLoading ? (
+                <TransparentButton>
+                  <LoadingCircle />
+                </TransparentButton>
+              ) : (
+                <TransparentButton onPress={handleSubmitNote}>
+                  <MatCommIcon
+                    name="send-circle"
+                    size={26}
+                    color={theme.PRIMARY_BUTTON_COLOR}
+                  />
+                </TransparentButton>
+              )}
             </SubmitNoteContainer>
           ) : null}
         </View>

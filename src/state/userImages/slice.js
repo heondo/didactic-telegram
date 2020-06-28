@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import firebaseService from '../../services/firebase'
+import { firebaseService } from '../../services/firebase'
 
 const userImagesSlice = createSlice({
   name: 'userImages',
@@ -84,8 +84,14 @@ export const {
 
 export default userImagesSlice.reducer
 
-export const thunkAddNote = (userID, pointID, note) => async (dispatch) => {
+export const thunkAddNote = (
+  userID,
+  pointID,
+  note,
+  setLoadingState = () => {},
+) => async (dispatch) => {
   try {
+    setLoadingState(true)
     await firebaseService.updateNote(userID, pointID, note)
     dispatch(
       addNoteToState({
@@ -93,6 +99,7 @@ export const thunkAddNote = (userID, pointID, note) => async (dispatch) => {
         note,
       }),
     )
+    setLoadingState(false)
   } catch (err) {
     console.error(err)
   }
