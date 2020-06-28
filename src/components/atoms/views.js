@@ -36,7 +36,19 @@ export const AbsoluteView = styled(View)`
 export const SubmitNoteContainer = styled(AbsoluteView)`
   width: auto;
   right: 0px;
-  bottom: 0px;
+  bottom: 16px;
+`
+
+export const BottomContentContainer = styled(View)`
+  opacity: 0.85;
+  background-color: ${(props) => props.theme.BOTTOM_SHEET_BACKGROUND};
+  height: 100%;
+`
+
+export const BottomHeaderContainer = styled(BottomContentContainer)`
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  height: auto;
 `
 
 export const OverLay = styled(View)`

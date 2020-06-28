@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { connect, useDispatch } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
+import BottomSheet from 'reanimated-bottom-sheet'
 
 import {
   SafeAreaView,
@@ -9,6 +10,7 @@ import {
   EmptySpace,
   Header,
   Row,
+  Text,
   ImageAbsolute,
   TextInput,
   View,
@@ -17,8 +19,15 @@ import {
   MatCommIcon,
   LoadingCircle,
 } from '../atoms'
+import { BottomSheetHeader, BottomSheetContent } from '../molecules'
 import MERIDIAN_POINTS_DATA from '../../shared/data/meridianPointsData'
 import { thunkAddNote } from '../../state/userImages/slice'
+
+const renderContent = () => (
+  <View>
+    <Text>Content</Text>
+  </View>
+)
 
 const LoggedInDetailsScreenComponent = ({
   theme,
@@ -63,7 +72,7 @@ const LoggedInDetailsScreenComponent = ({
           </Row>
         </Header>
         <EmptySpace />
-        <View pd="4px 8px">
+        <View pd="4px 4px 16px 4px">
           <TextInput
             pd="6px 32px 6px 6px"
             multiline={true}
@@ -93,6 +102,14 @@ const LoggedInDetailsScreenComponent = ({
             </SubmitNoteContainer>
           ) : null}
         </View>
+        <BottomSheet
+          initialSnap={1}
+          snapPoints={[450, 120]}
+          renderContent={(props) => (
+            <BottomSheetContent {...props} pointData={pointData} />
+          )}
+          renderHeader={(props) => <BottomSheetHeader {...props} />}
+        />
       </SafeAreaView>
     </ThemeProvider>
   )

@@ -28,6 +28,7 @@ export const lightTheme = {
   GREY: 'grey',
   FACEBOOK: '#3B5998',
   PRIMARY_BACKGROUND_COLOR: nord.snowStorm0,
+  BOTTOM_SHEET_BACKGROUND: nord.aurora3,
   PRIMARY_TEXT_COLOR: nord.nordNight2,
   TAB_BACKGROUND: nord.aurora3,
   TAB_INDICATOR: nord.snowStorm2,
@@ -48,6 +49,7 @@ export const darkTheme = {
   PRIMARY_BUTTON_COLOR: nord.nordNight1,
   SECONDARY_BUTTON_COLOR: nord.frost0,
   PRIMARY_BUTTON_TEXT_COLOR: nord.snowStorm2,
+  BOTTOM_SHEET_BACKGROUND: nord.nordNight2,
   OVERLAY_BG_COLOR: nord.nordNight0,
   LOADING_CIRCLE_COLOR: nord.aurora3,
 }

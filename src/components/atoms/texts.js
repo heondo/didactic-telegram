@@ -24,10 +24,10 @@ export const DarkText = styled(Text)`
 export const TextInput = styled.TextInput`
   width: 100%;
   padding: ${(props) => (props.pd ? props.pd : '0')};
-  color: ${(props) => props.theme.BLACK};
+  color:  ${(props) => props.theme.nordNight3}; 
   background-color: white;
   border-radius: 4px;
-  opacity: .8;
+  opacity: .5;
   /* border: 1px solid ${(props) => props.theme.PRIMARY_TEXT_COLOR}; */
   /* border-style: solid;
   border-bottom-color: ${(props) => props.theme.PRIMARY_TEXT_COLOR};
