@@ -23,12 +23,6 @@ import { BottomSheetHeader, BottomSheetContent } from '../molecules'
 import MERIDIAN_POINTS_DATA from '../../shared/data/meridianPointsData'
 import { thunkAddNote } from '../../state/userImages/slice'
 
-const renderContent = () => (
-  <View>
-    <Text>Content</Text>
-  </View>
-)
-
 const LoggedInDetailsScreenComponent = ({
   theme,
   authState,
@@ -95,7 +89,7 @@ const LoggedInDetailsScreenComponent = ({
                   <MatCommIcon
                     name="send-circle"
                     size={26}
-                    color={theme.PRIMARY_BUTTON_COLOR}
+                    color={theme.SECONDARY_BUTTON_COLOR}
                   />
                 </TransparentButton>
               )}
@@ -104,7 +98,7 @@ const LoggedInDetailsScreenComponent = ({
         </View>
         <BottomSheet
           initialSnap={1}
-          snapPoints={[450, 120]}
+          snapPoints={[550, 70]}
           renderContent={(props) => (
             <BottomSheetContent {...props} pointData={pointData} />
           )}

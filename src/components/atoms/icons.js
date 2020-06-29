@@ -24,8 +24,8 @@ export const LoadingCircle = styled.ActivityIndicator`
 
 export const BottomSheetBar = styled(View)`
   width: 40%;
-  height: 5px;
+  height: 4px;
   opacity: 0.6;
-  border-radius: 8px;
-  background-color: grey;
+  border-radius: 16px;
+  background-color: lightgrey;
 `

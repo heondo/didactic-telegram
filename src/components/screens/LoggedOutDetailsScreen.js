@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
+import BottomSheet from 'reanimated-bottom-sheet'
 
 import {
   SafeAreaView,
@@ -13,6 +14,7 @@ import {
   TextInput,
   View,
 } from '../atoms'
+import { BottomSheetContent, BottomSheetHeader } from '../molecules'
 import MERIDIAN_POINTS_DATA from '../../shared/data/meridianPointsData'
 
 const LoggedOutDetailsScreenComponent = ({ theme, pointID }) => {
@@ -34,7 +36,7 @@ const LoggedOutDetailsScreenComponent = ({ theme, pointID }) => {
           </Row>
         </Header>
         <EmptySpace />
-        <View pd="4px 8px">
+        <View pd="4px 4px 16px 4px">
           <TextInput
             pd="6px 32px 6px 6px"
             multiline={true}
@@ -46,6 +48,14 @@ const LoggedOutDetailsScreenComponent = ({ theme, pointID }) => {
             editable={false}
           />
         </View>
+        <BottomSheet
+          initialSnap={1}
+          snapPoints={[550, 70]}
+          renderContent={(props) => (
+            <BottomSheetContent {...props} pointData={pointData} />
+          )}
+          renderHeader={(props) => <BottomSheetHeader {...props} />}
+        />
       </SafeAreaView>
     </ThemeProvider>
   )
