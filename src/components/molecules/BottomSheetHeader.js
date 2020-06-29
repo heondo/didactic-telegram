@@ -2,13 +2,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { ThemeProvider } from '@react-navigation/native'
-import { Text, BottomHeaderContainer } from '../atoms'
+import { BottomSheetBar, BottomHeaderContainer } from '../atoms'
 
 function BottomSheetHeaderComponent({ theme }) {
   return (
     <ThemeProvider theme={theme}>
       <BottomHeaderContainer>
-        <Text>Header</Text>
+        <BottomSheetBar />
       </BottomHeaderContainer>
     </ThemeProvider>
   )

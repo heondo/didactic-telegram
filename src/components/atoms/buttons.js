@@ -7,6 +7,7 @@ export const Button = styled.TouchableOpacity`
   align-items: center;
   border-radius: 4px;
   width: ${(props) => (props.width ? props.width : '100%')};
+  height: ${(props) => (props.height ? props.height : 'auto')};
   padding: ${(props) => (props.pd ? props.pd : '4px 6px')};
   margin: ${(props) => (props.mg ? props.mg : '4px')};
 `

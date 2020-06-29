@@ -1,6 +1,7 @@
 import MTCIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 import MIcon from 'react-native-vector-icons/MaterialIcons'
 import styled from 'styled-components/native'
+import { View } from './views'
 
 export const MatCommIcon = styled(MTCIcon)`
   color: ${(props) =>
@@ -19,4 +20,12 @@ export const MatIcon = styled(MIcon)`
 export const LoadingCircle = styled.ActivityIndicator`
   color: ${(props) =>
     props.color ? props.color : props.theme.PRIMARY_TEXT_COLOR};
+`
+
+export const BottomSheetBar = styled(View)`
+  width: 40%;
+  height: 5px;
+  opacity: 0.6;
+  border-radius: 8px;
+  background-color: grey;
 `

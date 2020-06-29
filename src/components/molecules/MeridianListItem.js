@@ -1,8 +1,16 @@
 import React from 'react'
+import { Dimensions } from 'react-native'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
-import { Text, MeridianSquare, View, Image } from '../atoms'
+import {
+  Text,
+  MeridianSquare,
+  View,
+  Image,
+  EmptySpace,
+  HeaderText,
+} from '../atoms'
 
 function MeridianListItemComponent({
   meridianID,
@@ -17,15 +25,13 @@ function MeridianListItemComponent({
   }
   return (
     <ThemeProvider theme={theme}>
-      <View width="33%" pd="4px 8px">
-        <MeridianSquare onPress={handleButtonPress}>
-          <Image
-            source={require('../../../public/images/generic-lung.jpg')}
-            width="50px"
-            height="50px"
-            resizeMode="contain"
-          />
-          <Text>{meridianID}</Text>
+      <View
+        width="33%"
+        height={`${Dimensions.get('screen').height / 5.5}px`}
+        pd="4px 8px">
+        <MeridianSquare onPress={handleButtonPress} height="100%" pd="12px 0">
+          <HeaderText fontSize="28px">{meridianID}</HeaderText>
+          <EmptySpace />
           <Text fontSize="14px">{name}</Text>
           <Text>{chinese}</Text>
         </MeridianSquare>

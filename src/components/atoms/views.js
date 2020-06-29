@@ -22,10 +22,11 @@ export const View = styled.View`
   padding: ${(props) => (props.pd ? props.pd : '0')};
   margin: ${(props) => (props.mg ? props.mg : '0')};
   width: ${(props) => (props.width ? props.width : '100%')};
+  height: ${(props) => (props.height ? props.height : 'auto')};
 `
 
 export const Header = styled(View)`
-  background-color: ${(props) => props.theme.nordNight3};
+  background-color: ${(props) => props.theme.BOTTOM_SHEET_BACKGROUND};
 `
 
 export const AbsoluteView = styled(View)`
@@ -46,9 +47,9 @@ export const BottomContentContainer = styled(View)`
 `
 
 export const BottomHeaderContainer = styled(BottomContentContainer)`
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  height: auto;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  height: 20px;
 `
 
 export const OverLay = styled(View)`
