@@ -23,7 +23,7 @@ import {
 } from '../atoms'
 import { BottomSheetHeader, BottomSheetContent } from '../molecules'
 import MERIDIAN_POINTS_DATA from '../../shared/data/meridianPointsData'
-import { thunkAddNote } from '../../state/userImages/slice'
+import { thunkAddNote, thunkAddImage } from '../../state/userImages/slice'
 import selectImageService from '../../services/selectImage'
 
 const LoggedInDetailsScreenComponent = ({
@@ -65,13 +65,30 @@ const LoggedInDetailsScreenComponent = ({
     selectImageService.handleSelectImage(setSelectedImage)
   }
 
+  const handleSubmitImage = () => {
+    dispatch(
+      thunkAddImage(
+        authState.user.uid,
+        pointID,
+        selectedImage.path,
+        noteInput.trim(),
+        setImageUploading,
+      ),
+    )
+  }
+
+  console.log(userImageURL)
+
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaView pd="0 0 8px 0">
         {selectedImage ? (
           <ImageAbsolute source={selectedImage} resizeMode="contain" />
         ) : null}
-        {!selectedImage ? (
+        {!selectedImage && userImageURL ? (
+          <ImageAbsolute source={{ uri: userImageURL }} resizeMode="contain" />
+        ) : null}
+        {!selectedImage && !userImageURL ? (
           <ImageAbsolute
             source={require('../../shared/images/no-image-default.png')}
             resizeMode="contain"
@@ -85,19 +102,22 @@ const LoggedInDetailsScreenComponent = ({
           </Row>
         </Header>
         <EmptySpace />
-        {selectedImage ? (
-          <Row>
-            <EmptySpace />
-            <CircleIconButton onPress={handleAddImagePress}>
-              <MatIcon name="add" size={36} />
-            </CircleIconButton>
-          </Row>
-        ) : null}
         {!selectedImage ? (
           <Row>
             <EmptySpace />
             <CircleIconButton onPress={handleAddImagePress}>
-              <MatIcon name="edit" size={22} />
+              <MatIcon name="add" size={28} />
+            </CircleIconButton>
+          </Row>
+        ) : null}
+        {selectedImage ? (
+          <Row>
+            <EmptySpace />
+            <CircleIconButton onPress={handleAddImagePress}>
+              <MatIcon name="edit" size={20} />
+            </CircleIconButton>
+            <CircleIconButton onPress={handleSubmitImage}>
+              <MatIcon name="cloud-upload" size={20} />
             </CircleIconButton>
           </Row>
         ) : null}

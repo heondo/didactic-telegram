@@ -105,12 +105,16 @@ export const thunkAddNote = (
   }
 }
 
-export const thunkAddImage = (userID, pointID, filePath, note) => async (
-  dispatch,
-) => {
+export const thunkAddImage = (
+  userID,
+  pointID,
+  filePath,
+  note,
+  setLoadingState = () => {},
+) => async (dispatch) => {
   // pass in the file path to the image, use the firebase API to upload and get the image url
   try {
-    dispatch(startImageLoading())
+    setLoadingState(true)
     const imageDownloadURL = await firebaseService.putFile(
       userID,
       pointID,
@@ -124,10 +128,10 @@ export const thunkAddImage = (userID, pointID, filePath, note) => async (
         note,
       }),
     )
-    dispatch(endImageLoading())
+    setLoadingState(false)
     // after getting the download url, upload to firestore...
   } catch (err) {
-    dispatch(endImageLoading())
+    setLoadingState(false)
     console.error(err)
   }
 }
