@@ -10,7 +10,7 @@ import {
   EmptySpace,
   Header,
   Row,
-  Button,
+  CircleIconButton,
   ButtonText,
   ImageAbsolute,
   TextInput,
@@ -19,10 +19,12 @@ import {
   SubmitNoteContainer,
   MatCommIcon,
   LoadingCircle,
+  MatIcon,
 } from '../atoms'
 import { BottomSheetHeader, BottomSheetContent } from '../molecules'
 import MERIDIAN_POINTS_DATA from '../../shared/data/meridianPointsData'
 import { thunkAddNote } from '../../state/userImages/slice'
+import selectImageService from '../../services/selectImage'
 
 const LoggedInDetailsScreenComponent = ({
   theme,
@@ -46,6 +48,8 @@ const LoggedInDetailsScreenComponent = ({
 
   const [noteInput, setNoteInput] = useState(userNote)
   const [isNoteLoading, setNoteLoading] = useState(false)
+  const [selectedImage, setSelectedImage] = useState(null)
+  const [imageUploading, setImageUploading] = useState(false)
 
   const handleSubmitNote = () => {
     dispatch(
@@ -57,13 +61,22 @@ const LoggedInDetailsScreenComponent = ({
     bottomSheetRef.current.snapTo(0)
   }
 
+  const handleAddImagePress = () => {
+    selectImageService.handleSelectImage(setSelectedImage)
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaView pd="0 0 8px 0">
-        <ImageAbsolute
-          source={require('../../shared/images/no-image-default.png')}
-          resizeMode="contain"
-        />
+        {selectedImage ? (
+          <ImageAbsolute source={selectedImage} resizeMode="contain" />
+        ) : null}
+        {!selectedImage ? (
+          <ImageAbsolute
+            source={require('../../shared/images/no-image-default.png')}
+            resizeMode="contain"
+          />
+        ) : null}
         <Header pd="8px">
           <Row>
             <HeaderText>{pointID}: </HeaderText>
@@ -72,10 +85,23 @@ const LoggedInDetailsScreenComponent = ({
           </Row>
         </Header>
         <EmptySpace />
+        {selectedImage ? (
+          <Row>
+            <EmptySpace />
+            <CircleIconButton onPress={handleAddImagePress}>
+              <MatIcon name="add" size={36} />
+            </CircleIconButton>
+          </Row>
+        ) : null}
+        {!selectedImage ? (
+          <Row>
+            <EmptySpace />
+            <CircleIconButton onPress={handleAddImagePress}>
+              <MatIcon name="edit" size={22} />
+            </CircleIconButton>
+          </Row>
+        ) : null}
         <View pd="4px 4px 20px 4px">
-          <Button>
-            <ButtonText>Edit</ButtonText>
-          </Button>
           <TextInput
             pd="6px 32px 6px 6px"
             multiline={true}

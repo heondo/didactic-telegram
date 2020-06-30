@@ -12,6 +12,16 @@ export const Button = styled.TouchableOpacity`
   margin: ${(props) => (props.mg ? props.mg : '4px')};
 `
 
+export const CircleIconButton = styled(Button)`
+  border-radius: 25px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  width: 50px;
+  height: 50px;
+  opacity: 0.8;
+  padding: 0;
+`
+
 export const TouchableWithoutFeedback = styled.TouchableWithoutFeedback`
   background-color: ${(props) => props.theme.PRIMARY_BUTTON_COLOR};
   display: flex;

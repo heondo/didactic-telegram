@@ -50,12 +50,12 @@ function RootStackNavigator({ theme, authState }) {
           showLabel: true,
         }}>
         <Tab.Screen
-          name="Home"
+          name="Meridians"
           component={HomeScreenTab}
           options={{
             tabBarIcon: ({ focused }) => (
               <MatCommIcon
-                name="home"
+                name="menu"
                 color={focused ? theme.WHITE : theme.GREY}
                 size={25}
               />
