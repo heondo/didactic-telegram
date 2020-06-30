@@ -21,12 +21,15 @@ const LoggedOutDetailsScreenComponent = ({ theme, pointID }) => {
   const pointData = MERIDIAN_POINTS_DATA[pointID]
   let bottomSheetRef = createRef()
 
+  const onHeaderPress = () => {
+    bottomSheetRef.current.snapTo(0)
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaView pd="0 0 8px 0">
         <ImageAbsolute
           source={require('../../shared/images/no-image-add.png')}
-          height="100%"
           resizeMode="contain"
         />
         <Header pd="8px">
@@ -37,7 +40,7 @@ const LoggedOutDetailsScreenComponent = ({ theme, pointID }) => {
           </Row>
         </Header>
         <EmptySpace />
-        <View pd="4px 4px 16px 4px">
+        <View pd="4px 4px 20px 4px">
           <TextInput
             pd="6px 32px 6px 6px"
             multiline={true}
@@ -51,12 +54,14 @@ const LoggedOutDetailsScreenComponent = ({ theme, pointID }) => {
         </View>
         <BottomSheet
           ref={bottomSheetRef}
-          initialSnap={1}
-          snapPoints={[450, 120]}
+          initialSnap={0}
+          snapPoints={[600, 450, 45]}
           renderContent={(props) => (
             <BottomSheetContent {...props} pointData={pointData} />
           )}
-          renderHeader={(props) => <BottomSheetHeader {...props} />}
+          renderHeader={(props) => (
+            <BottomSheetHeader {...props} onHeaderPress={onHeaderPress} />
+          )}
         />
       </SafeAreaView>
     </ThemeProvider>

@@ -7,9 +7,10 @@ import {
   Text,
   MeridianSquareButton,
   View,
-  Image,
+  ImageAbsolute,
   EmptySpace,
   HeaderText,
+  Image,
 } from '../atoms'
 
 function MeridianListItemComponent({
@@ -17,6 +18,7 @@ function MeridianListItemComponent({
   chinese,
   name,
   points,
+  iconPath,
   handleMeridianPress,
   theme,
 }) {
@@ -34,6 +36,10 @@ function MeridianListItemComponent({
           height="100%"
           pd="12px 0">
           <HeaderText fontSize="28px">{meridianID}</HeaderText>
+          <EmptySpace />
+          {iconPath ? (
+            <Image source={iconPath} height="28px" resizeMode="contain" />
+          ) : null}
           <EmptySpace />
           <Text fontSize="14px">{name}</Text>
           <Text>{chinese}</Text>

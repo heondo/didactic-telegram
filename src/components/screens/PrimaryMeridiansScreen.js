@@ -24,6 +24,7 @@ const PrimaryMeridiansScreenComponent = ({ navigation, theme }) => {
             meridianID={item.meridianID}
             name={item.english}
             chinese={item.chinese}
+            iconPath={item.iconPath}
             points={item.points}
             handleMeridianPress={handleMeridianPress}
           />

@@ -10,7 +10,8 @@ import {
   EmptySpace,
   Header,
   Row,
-  Text,
+  Button,
+  ButtonText,
   ImageAbsolute,
   TextInput,
   View,
@@ -61,7 +62,6 @@ const LoggedInDetailsScreenComponent = ({
       <SafeAreaView pd="0 0 8px 0">
         <ImageAbsolute
           source={require('../../shared/images/no-image-default.png')}
-          height="100%"
           resizeMode="contain"
         />
         <Header pd="8px">
@@ -72,7 +72,10 @@ const LoggedInDetailsScreenComponent = ({
           </Row>
         </Header>
         <EmptySpace />
-        <View pd="4px 4px 16px 4px">
+        <View pd="4px 4px 20px 4px">
+          <Button>
+            <ButtonText>Edit</ButtonText>
+          </Button>
           <TextInput
             pd="6px 32px 6px 6px"
             multiline={true}
@@ -104,8 +107,8 @@ const LoggedInDetailsScreenComponent = ({
         </View>
         <BottomSheet
           ref={bottomSheetRef}
-          initialSnap={1}
-          snapPoints={[450, 120]}
+          initialSnap={2}
+          snapPoints={[600, 450, 45]}
           renderContent={(props) => (
             <BottomSheetContent {...props} pointData={pointData} />
           )}
