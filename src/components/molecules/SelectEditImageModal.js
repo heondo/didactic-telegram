@@ -27,10 +27,10 @@ const SelectEditImageModalComponent = ({
     <ThemeProvider theme={theme}>
       <Modal
         animationType="slide"
-        backdropColor="black"
         backdropOpacity={0.8}
         transparent={true}
         isVisible={isModalVisible}
+        onBackdropPress={handleCancelPress}
         coverScreen={false}
         style={{ alignItems: 'center' }}>
         <ModalView>
@@ -44,7 +44,7 @@ const SelectEditImageModalComponent = ({
           <Row>
             <EmptySpace />
             <ModalButton width="auto" pd="0" onPress={handleCancelPress}>
-              <DarkHeaderText fontSize="14px">CANCEL</DarkHeaderText>
+              <ModalButtonText fontSize="16px">CANCEL</ModalButtonText>
             </ModalButton>
           </Row>
         </ModalView>
