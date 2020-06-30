@@ -116,7 +116,7 @@ export const thunkAddImage = (
   // pass in the file path to the image, use the firebase API to upload and get the image url
   try {
     setLoadingState(true)
-    const imageDownloadURL = await firebaseService.putFile(
+    const imageURL = await firebaseService.putFile(
       userID,
       pointID,
       filePath,
@@ -125,7 +125,7 @@ export const thunkAddImage = (
     dispatch(
       addImageToState({
         pointID,
-        downloadURL: imageDownloadURL,
+        imageURL,
         note,
       }),
     )

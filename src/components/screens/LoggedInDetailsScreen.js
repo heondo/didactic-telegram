@@ -78,7 +78,7 @@ const LoggedInDetailsScreenComponent = ({
     )
   }
 
-  console.log(userImageURL)
+  console.log(userImages.images)
 
   return (
     <ThemeProvider theme={theme}>
