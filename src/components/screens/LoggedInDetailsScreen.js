@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, createRef } from 'react'
 import { connect, useDispatch } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
@@ -31,6 +31,8 @@ const LoggedInDetailsScreenComponent = ({
 }) => {
   const dispatch = useDispatch()
   const pointData = MERIDIAN_POINTS_DATA[pointID]
+  let bottomSheetRef = createRef()
+
   const userImageURL =
     userImages.images && userImages.images[pointID]
       ? userImages.images[pointID].imageURL
@@ -48,6 +50,10 @@ const LoggedInDetailsScreenComponent = ({
     dispatch(
       thunkAddNote(authState.user.uid, pointID, noteInput, setNoteLoading),
     )
+  }
+
+  const onHeaderPress = () => {
+    bottomSheetRef.current.snapTo(0)
   }
 
   return (
@@ -97,12 +103,15 @@ const LoggedInDetailsScreenComponent = ({
           ) : null}
         </View>
         <BottomSheet
+          ref={bottomSheetRef}
           initialSnap={1}
-          snapPoints={[550, 70]}
+          snapPoints={[450, 120]}
           renderContent={(props) => (
             <BottomSheetContent {...props} pointData={pointData} />
           )}
-          renderHeader={(props) => <BottomSheetHeader {...props} />}
+          renderHeader={(props) => (
+            <BottomSheetHeader {...props} onHeaderPress={onHeaderPress} />
+          )}
         />
       </SafeAreaView>
     </ThemeProvider>

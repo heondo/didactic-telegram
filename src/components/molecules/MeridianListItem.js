@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
 import {
   Text,
-  MeridianSquare,
+  MeridianSquareButton,
   View,
   Image,
   EmptySpace,
@@ -29,12 +29,15 @@ function MeridianListItemComponent({
         width="33%"
         height={`${Dimensions.get('screen').height / 5.5}px`}
         pd="4px 8px">
-        <MeridianSquare onPress={handleButtonPress} height="100%" pd="12px 0">
+        <MeridianSquareButton
+          onPress={handleButtonPress}
+          height="100%"
+          pd="12px 0">
           <HeaderText fontSize="28px">{meridianID}</HeaderText>
           <EmptySpace />
           <Text fontSize="14px">{name}</Text>
           <Text>{chinese}</Text>
-        </MeridianSquare>
+        </MeridianSquareButton>
       </View>
     </ThemeProvider>
   )

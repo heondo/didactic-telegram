@@ -2,14 +2,20 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { ThemeProvider } from '@react-navigation/native'
-import { BottomSheetBar, BottomHeaderContainer } from '../atoms'
+import {
+  BottomSheetBar,
+  BottomHeaderContainer,
+  BottomHeaderButton,
+} from '../atoms'
 
-function BottomSheetHeaderComponent({ theme }) {
+function BottomSheetHeaderComponent({ theme, onHeaderPress }) {
   return (
     <ThemeProvider theme={theme}>
-      <BottomHeaderContainer>
-        <BottomSheetBar />
-      </BottomHeaderContainer>
+      <BottomHeaderButton onPress={onHeaderPress}>
+        <BottomHeaderContainer>
+          <BottomSheetBar />
+        </BottomHeaderContainer>
+      </BottomHeaderButton>
     </ThemeProvider>
   )
 }

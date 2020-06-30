@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { createRef } from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
@@ -19,6 +19,7 @@ import MERIDIAN_POINTS_DATA from '../../shared/data/meridianPointsData'
 
 const LoggedOutDetailsScreenComponent = ({ theme, pointID }) => {
   const pointData = MERIDIAN_POINTS_DATA[pointID]
+  let bottomSheetRef = createRef()
 
   return (
     <ThemeProvider theme={theme}>
@@ -49,8 +50,9 @@ const LoggedOutDetailsScreenComponent = ({ theme, pointID }) => {
           />
         </View>
         <BottomSheet
+          ref={bottomSheetRef}
           initialSnap={1}
-          snapPoints={[550, 70]}
+          snapPoints={[450, 120]}
           renderContent={(props) => (
             <BottomSheetContent {...props} pointData={pointData} />
           )}

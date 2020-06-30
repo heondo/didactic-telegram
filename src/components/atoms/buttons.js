@@ -12,7 +12,20 @@ export const Button = styled.TouchableOpacity`
   margin: ${(props) => (props.mg ? props.mg : '4px')};
 `
 
-export const MeridianSquare = styled(Button)`
+export const TouchableWithoutFeedback = styled.TouchableWithoutFeedback`
+  background-color: ${(props) => props.theme.PRIMARY_BUTTON_COLOR};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: ${(props) => (props.width ? props.width : '100%')};
+  height: ${(props) => (props.height ? props.height : 'auto')};
+`
+
+export const BottomHeaderButton = styled(TouchableWithoutFeedback)`
+  background-color: ${(props) => props.theme.BOTTOM_SHEET_BACKGROUND};
+`
+
+export const MeridianSquareButton = styled(Button)`
   border-radius: 18px;
   elevation: 4;
 `

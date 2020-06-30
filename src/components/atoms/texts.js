@@ -25,6 +25,7 @@ export const TextInput = styled.TextInput`
   width: 100%;
   padding: ${(props) => (props.pd ? props.pd : '0')};
   color:  ${(props) => props.theme.PRIMARY_TEXT_COLOR}; 
+  background-color: ${(props) => props.theme.PRIMARY_BACKGROUND_COLOR};
   border-radius: 4px;
   opacity: .5;
   /* border: 1px solid ${(props) => props.theme.PRIMARY_TEXT_COLOR}; */

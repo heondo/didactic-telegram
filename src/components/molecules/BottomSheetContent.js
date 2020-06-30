@@ -14,35 +14,42 @@ function BottomSheetContentComponent({ theme, pointData }) {
           <EmptySpace />
         </Row>
         <Row>
-          <Text>chinese: </Text>
-          <Text>{pointData.chinese}</Text>
-          <EmptySpace />
-        </Row>
-        <Row>
-          <Text>english: </Text>
+          <Text>English: </Text>
           <Text>{pointData.english}</Text>
           <EmptySpace />
         </Row>
         <Row>
-          <Text>korean: </Text>
+          <Text>Transliteration: </Text>
+          <Text>{pointData.transliteration}</Text>
+          <EmptySpace />
+        </Row>
+        <Row>
+          <Text>Pinyin: </Text>
+          <Text>{pointData.pinyin}</Text>
+          <EmptySpace />
+        </Row>
+        <Row>
+          <Text>Korean: </Text>
           <Text>{pointData.korean}</Text>
           <EmptySpace />
         </Row>
         <Row>
-          <Text>romaji: </Text>
+          <Text>Romaji: </Text>
           <Text>{pointData.romaji}</Text>
           <EmptySpace />
         </Row>
         <Row>
-          <Text>vietnamese: </Text>
+          <Text>Vietnamese: </Text>
           <Text>{pointData.vietnamese}</Text>
           <EmptySpace />
         </Row>
-        <Row>
-          <Text>alternative: </Text>
-          <Text>{pointData.alternative}</Text>
-          <EmptySpace />
-        </Row>
+        {pointData.alternative ? (
+          <Row>
+            <Text>Alternative: </Text>
+            <Text>{pointData.alternative}</Text>
+            <EmptySpace />
+          </Row>
+        ) : null}
         <EmptySpace />
       </BottomContentContainer>
     </ThemeProvider>
