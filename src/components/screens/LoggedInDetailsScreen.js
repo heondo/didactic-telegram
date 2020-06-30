@@ -60,7 +60,7 @@ const LoggedInDetailsScreenComponent = ({
     <ThemeProvider theme={theme}>
       <SafeAreaView pd="0 0 8px 0">
         <ImageAbsolute
-          source={require('../../shared/images/no-image-add.png')}
+          source={require('../../shared/images/no-image-default.png')}
           height="100%"
           resizeMode="contain"
         />
