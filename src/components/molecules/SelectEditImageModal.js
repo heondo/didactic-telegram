@@ -9,13 +9,20 @@ import {
   ModalButtonText,
   ModalView,
   ModalButton,
+  EmptySpace,
+  Row,
 } from '../atoms'
 
 const SelectEditImageModalComponent = ({
   theme,
   isModalVisible,
   setIsModalVisible,
+  handleAddImagePress,
 }) => {
+  const handleCancelPress = () => {
+    setIsModalVisible(false)
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <Modal
@@ -31,9 +38,15 @@ const SelectEditImageModalComponent = ({
           <ModalButton>
             <ModalButtonText>Edit Image...</ModalButtonText>
           </ModalButton>
-          <ModalButton>
+          <ModalButton onPress={handleAddImagePress}>
             <ModalButtonText>Change Image...</ModalButtonText>
           </ModalButton>
+          <Row>
+            <EmptySpace />
+            <ModalButton width="auto" pd="0" onPress={handleCancelPress}>
+              <DarkHeaderText fontSize="14px">CANCEL</DarkHeaderText>
+            </ModalButton>
+          </Row>
         </ModalView>
       </Modal>
     </ThemeProvider>

@@ -50,7 +50,7 @@ export const TransparentButton = styled(Button)`
 
 export const ModalButton = styled(TransparentButton)`
   align-items: flex-start;
-  padding: 12px 0;
+  padding: ${(props) => (props.pd ? props.pd : '12px 0')};
   margin: 0;
 `
 

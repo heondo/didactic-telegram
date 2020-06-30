@@ -92,6 +92,7 @@ const LoggedInDetailsScreenComponent = ({
     <ThemeProvider theme={theme}>
       <SafeAreaView pd="0 0 8px 0">
         <SelectEditImageModal
+          handleAddImagePress={handleAddImagePress}
           isModalVisible={isModalVisible}
           setIsModalVisible={setIsModalVisible}
         />
