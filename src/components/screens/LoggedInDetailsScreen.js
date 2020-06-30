@@ -73,6 +73,7 @@ const LoggedInDetailsScreenComponent = ({
         selectedImage.path,
         noteInput.trim(),
         setImageUploading,
+        setSelectedImage,
       ),
     )
   }

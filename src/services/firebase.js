@@ -53,7 +53,6 @@ export const firebaseService = {
   },
   putFile: async (userID, pointID, filePath, note = '') => {
     const fileType = filePath.split('.')[filePath.split('.').length - 1]
-    console.log(fileType)
     try {
       const reference = storage().ref(
         `images\/${userID}\/${pointID}.${fileType}`,

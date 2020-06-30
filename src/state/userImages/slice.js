@@ -111,6 +111,7 @@ export const thunkAddImage = (
   filePath,
   note,
   setLoadingState = () => {},
+  setSelectedImage = () => {},
 ) => async (dispatch) => {
   // pass in the file path to the image, use the firebase API to upload and get the image url
   try {
@@ -129,6 +130,7 @@ export const thunkAddImage = (
       }),
     )
     setLoadingState(false)
+    setSelectedImage(null)
     // after getting the download url, upload to firestore...
   } catch (err) {
     setLoadingState(false)
