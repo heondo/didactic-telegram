@@ -48,6 +48,12 @@ export const TransparentButton = styled(Button)`
   background-color: transparent;
 `
 
+export const ModalButton = styled(TransparentButton)`
+  align-items: flex-start;
+  padding: 12px 0;
+  margin: 0;
+`
+
 export const DisabledButton = styled(Button)`
   background-color: ${(props) => props.theme.GREY};
   color: ${(props) => props.theme.LIGHT_GREY};

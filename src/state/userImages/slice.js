@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { firebaseService } from '../../services/firebase'
+import { firebaseService } from '../../services'
 
 const userImagesSlice = createSlice({
   name: 'userImages',

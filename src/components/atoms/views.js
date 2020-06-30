@@ -34,6 +34,14 @@ export const AbsoluteView = styled(View)`
   background-color: transparent;
 `
 
+export const ModalView = styled(View)`
+  background-color: white;
+  align-items: flex-start;
+  padding: 14px 26px;
+  height: auto;
+  width: 80%;
+`
+
 export const SubmitNoteContainer = styled(AbsoluteView)`
   width: auto;
   right: 0px;

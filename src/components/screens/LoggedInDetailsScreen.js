@@ -21,10 +21,15 @@ import {
   LoadingCircle,
   MatIcon,
 } from '../atoms'
-import { BottomSheetHeader, BottomSheetContent } from '../molecules'
+import {
+  BottomSheetHeader,
+  BottomSheetContent,
+  LoadingOverlay,
+  SelectEditImageModal,
+} from '../molecules'
 import MERIDIAN_POINTS_DATA from '../../shared/data/meridianPointsData'
 import { thunkAddNote, thunkAddImage } from '../../state/userImages/slice'
-import selectImageService from '../../services/selectImage'
+import { selectImageService } from '../../services'
 
 const LoggedInDetailsScreenComponent = ({
   theme,
@@ -50,6 +55,7 @@ const LoggedInDetailsScreenComponent = ({
   const [isNoteLoading, setNoteLoading] = useState(false)
   const [selectedImage, setSelectedImage] = useState(null)
   const [imageUploading, setImageUploading] = useState(false)
+  const [isModalVisible, setIsModalVisible] = useState(false)
 
   const handleSubmitNote = () => {
     dispatch(
@@ -65,6 +71,10 @@ const LoggedInDetailsScreenComponent = ({
     selectImageService.handleSelectImage(setSelectedImage)
   }
 
+  const handleSelectEditImage = () => {
+    setIsModalVisible(true)
+  }
+
   const handleSubmitImage = () => {
     dispatch(
       thunkAddImage(
@@ -78,11 +88,16 @@ const LoggedInDetailsScreenComponent = ({
     )
   }
 
-  console.log(userImages.images)
-
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaView pd="0 0 8px 0">
+        <SelectEditImageModal
+          isModalVisible={isModalVisible}
+          setIsModalVisible={setIsModalVisible}
+        />
+        {imageUploading ? (
+          <LoadingOverlay loadingMessage="Uploading image and note" />
+        ) : null}
         {selectedImage ? (
           <ImageAbsolute source={selectedImage} resizeMode="contain" />
         ) : null}
@@ -114,7 +129,7 @@ const LoggedInDetailsScreenComponent = ({
         {selectedImage ? (
           <Row>
             <EmptySpace />
-            <CircleIconButton onPress={handleAddImagePress}>
+            <CircleIconButton onPress={handleSelectEditImage}>
               <MatIcon name="edit" size={20} />
             </CircleIconButton>
             <CircleIconButton onPress={handleSubmitImage}>
@@ -174,6 +189,7 @@ const mapStateToProps = ({ theme, authState, userImages }) => {
     userImages,
   }
 }
+
 LoggedInDetailsScreenComponent.propTypes = {
   pointID: PropTypes.string,
 }

@@ -6,14 +6,13 @@ const options = {
   maxWidth: 800,
   maxHeight: 800,
   allowsEditing: true,
-  // customButtons: [{ name: 'fb', title: 'Choose Photo from Facebook' }],
   // storageOptions: {
   //   skipBackup: true,
   //   path: 'images',
   // },
 }
 
-const selectImageService = {
+export const selectImageService = {
   handleSelectImage: (callbackSetState = null) => {
     ImagePicker.showImagePicker(options, (response) => {
       console.log('Response = ', Object.keys(response))
@@ -39,5 +38,3 @@ const selectImageService = {
     })
   },
 }
-
-export default selectImageService

@@ -18,7 +18,19 @@ export const ButtonText = styled(Text)`
 `
 
 export const DarkText = styled(Text)`
-  color: ${(props) => props.theme.nordNight3};
+  color: ${(props) => props.theme.BLACK};
+`
+
+export const DarkHeaderText = styled(DarkText)`
+  font-weight: bold;
+  font-size: ${(props) => (props.fontSize ? props.fontSize : '28px')};
+  padding: 4px 0;
+`
+
+export const ModalButtonText = styled(DarkText)`
+  text-align: left;
+  color: black;
+  font-weight: 600;
 `
 
 export const TextInput = styled.TextInput`
