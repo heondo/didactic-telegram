@@ -13,6 +13,7 @@ export const Button = styled.TouchableOpacity`
 `
 
 export const CircleIconButton = styled(Button)`
+  elevation: 5;
   border-radius: 22px;
   margin-bottom: 10px;
   margin-right: 10px;
@@ -46,6 +47,7 @@ export const SecondaryButton = styled(Button)`
 
 export const TransparentButton = styled(Button)`
   background-color: transparent;
+  width: ${(props) => (props.width ? props.width : 'auto')};
 `
 
 export const ModalButton = styled(TransparentButton)`

@@ -61,7 +61,7 @@ const SelectEditImageModalComponent = ({
           </ModalButton>
           <Row>
             <EmptySpace />
-            <ModalButton width="auto" pd="0" onPress={handleCancelPress}>
+            <ModalButton pd="0" onPress={handleCancelPress}>
               <ModalButtonText fontSize="16px">CANCEL</ModalButtonText>
             </ModalButton>
           </Row>

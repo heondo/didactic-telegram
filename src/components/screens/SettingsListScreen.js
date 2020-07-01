@@ -72,7 +72,7 @@ const SettingsListScreenComponent = ({
               </TransparentButton>
             </>
           ) : (
-            <TransparentButton onPress={handleGoogleSignIn} width="auto">
+            <TransparentButton onPress={handleGoogleSignIn}>
               <Text fontSize="24px">G - SIGN IN</Text>
             </TransparentButton>
           )}

@@ -3,7 +3,7 @@ import ImagePicker from 'react-native-image-picker'
 const options = {
   title: 'Select Image',
   quality: 1,
-  maxWidth: 800,
+  maxWidth: 500,
   maxHeight: 800,
   allowsEditing: true,
   // storageOptions: {

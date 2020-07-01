@@ -4,21 +4,28 @@
 
 My dad got his accupuncture license this year and did a great at his school with the curriculum because of a memorization technique he implemented. He now teaches (remotely now) this technique to his students and believes a mobile application would be a great tool for aspiring accupuncturists.
 
+### Random Thoughts
+
+- Why is React so much more popular than Angular?
+- Elevation looks great
+
 ### Tools
 
 - React Native
-- React Native Firebase
+- Firebase
 - Redux Toolkit
-- Redux
+- Redux/Thunk
 - Styled Components
 
 ### Todos
 
-- Add loading message for different redux states
-- Get extra meridian points data
 - Refix settings page and figure out the sign out button positioning
-- Ask dad what details to show on the page
-- Figure out why loading large tab screens take so long and how to work around that
+- Add search bar to search (user notes, location, accupuncture point names)?
+- ~Figure out why loading large tab screens take so long and how to work around that (switch to swiper)~
+- ~Create information modal or drawer for each point (drawer instead)~
+- ~Add loading message for different redux states~
+- ~Add loading message for different redux states~
+- ~Add loading message for different redux states~
 - ~Add note feature for the points~
 - ~Limit file size for image upload~
 - ~Stop using the same image~
@@ -26,6 +33,14 @@ My dad got his accupuncture license this year and did a great at his school with
 - ~Swiping between the different points. Probably makes the most sense to use the tab swipe component~
 
 ### Progress
+
+##### Week 3
+
+- Refactor for code and new redesign
+- Clean up styled components to inherit more properties when possible
+- Create modal to give an option between switching or editing the image
+- Add bottom sheet modal with accupuncture point details (Need to get location and other custom information into the application once that is collected)
+- Find icons (temp) for various Meridians
 
 ##### Week 2
 
@@ -38,9 +53,6 @@ My dad got his accupuncture license this year and did a great at his school with
 - Add a loading overlay for each individual accupuncture point when uploading an image
 
 ![sign in and uploading images or notes](public/readme/signin-uploadimage.gif)
-
-![meridian-point](public/readme/meridian-point.png)
-![select-image](public/readme/select-image.png)
 
 ##### Week 1
 

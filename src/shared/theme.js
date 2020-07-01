@@ -27,7 +27,7 @@ export const lightTheme = {
   LIGHT_GREY: 'lightgrey',
   GREY: 'grey',
   FACEBOOK: '#3B5998',
-  PRIMARY_BACKGROUND_COLOR: nord.snowStorm0,
+  PRIMARY_BACKGROUND_COLOR: nord.snowStorm1,
   BOTTOM_SHEET_BACKGROUND: nord.frost2,
   PRIMARY_TEXT_COLOR: 'black',
   ALTERNATE_TEXT_COLOR: nord.snowStorm0,

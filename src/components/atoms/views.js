@@ -26,7 +26,8 @@ export const View = styled.View`
 `
 
 export const Header = styled(View)`
-  background-color: ${(props) => props.theme.BOTTOM_SHEET_BACKGROUND};
+  /* background-color: ${(props) => props.theme.BOTTOM_SHEET_BACKGROUND}; */
+  elevation: 4;
 `
 
 export const AbsoluteView = styled(View)`
