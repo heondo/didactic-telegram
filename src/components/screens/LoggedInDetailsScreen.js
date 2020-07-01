@@ -68,10 +68,11 @@ const LoggedInDetailsScreenComponent = ({
   }
 
   const handleAddImagePress = () => {
+    setIsModalVisible(false)
     selectImageService.handleSelectImage(setSelectedImage)
   }
 
-  const handleSelectEditImage = () => {
+  const handleOpenModal = () => {
     setIsModalVisible(true)
   }
 
@@ -92,6 +93,8 @@ const LoggedInDetailsScreenComponent = ({
     <ThemeProvider theme={theme}>
       <SafeAreaView pd="0 0 8px 0">
         <SelectEditImageModal
+          selectedImage={selectedImage}
+          setSelectedImage={setSelectedImage}
           handleAddImagePress={handleAddImagePress}
           isModalVisible={isModalVisible}
           setIsModalVisible={setIsModalVisible}
@@ -130,7 +133,7 @@ const LoggedInDetailsScreenComponent = ({
         {selectedImage ? (
           <Row>
             <EmptySpace />
-            <CircleIconButton onPress={handleSelectEditImage}>
+            <CircleIconButton onPress={handleOpenModal}>
               <MatIcon name="edit" size={20} />
             </CircleIconButton>
             <CircleIconButton onPress={handleSubmitImage}>

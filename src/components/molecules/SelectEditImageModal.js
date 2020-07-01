@@ -3,6 +3,7 @@ import { connect, useDispatch } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
 import Modal from 'react-native-modal'
+import { RNPhotoEditor } from 'react-native-photo-editor'
 
 import {
   DarkHeaderText,
@@ -18,15 +19,32 @@ const SelectEditImageModalComponent = ({
   isModalVisible,
   setIsModalVisible,
   handleAddImagePress,
+  selectedImage,
+  setSelectedImage,
 }) => {
   const handleCancelPress = () => {
+    setIsModalVisible(false)
+  }
+
+  const handleEditImage = () => {
+    RNPhotoEditor.Edit({
+      path: selectedImage.path,
+      onDone: (imagePath) => {
+        const editedImage = {
+          uri: `file://${imagePath}`,
+          path: imagePath,
+          fileType: imagePath.split('.')[imagePath.split('.').length - 1],
+        }
+        setSelectedImage(editedImage)
+      },
+    })
     setIsModalVisible(false)
   }
 
   return (
     <ThemeProvider theme={theme}>
       <Modal
-        animationType="slide"
+        animationType="fade"
         backdropOpacity={0.8}
         transparent={true}
         isVisible={isModalVisible}
@@ -35,7 +53,7 @@ const SelectEditImageModalComponent = ({
         style={{ alignItems: 'center' }}>
         <ModalView>
           <DarkHeaderText fontSize="18px">Edit Selection</DarkHeaderText>
-          <ModalButton>
+          <ModalButton onPress={handleEditImage}>
             <ModalButtonText>Edit Image...</ModalButtonText>
           </ModalButton>
           <ModalButton onPress={handleAddImagePress}>

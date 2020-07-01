@@ -27,5 +27,6 @@ export const BottomSheetBar = styled(View)`
   height: 4px;
   opacity: 0.6;
   border-radius: 16px;
-  background-color: lightgrey;
+  background-color: ${(props) =>
+    props.color ? props.color : props.theme.PRIMARY_TEXT_COLOR};
 `
