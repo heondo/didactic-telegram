@@ -7,6 +7,7 @@ import {
   PrimaryMeridianPointsScreen,
   PrimaryPointDetailsTabs,
 } from './screens'
+import { MeridiansTitle } from './molecules'
 
 const HomeScreenStack = createStackNavigator()
 function HomeScreenTab({ theme, navigation }) {
@@ -16,7 +17,7 @@ function HomeScreenTab({ theme, navigation }) {
         name="Primary Meridians List"
         component={PrimaryMeridiansScreen}
         options={{
-          headerTitle: 'Meridians',
+          headerTitle: (props) => <MeridiansTitle {...props} />,
           headerShown: true,
           headerStyle: {
             backgroundColor: theme.PRIMARY_BACKGROUND_COLOR,

@@ -1,5 +1,5 @@
-import React, { useState, createRef } from 'react'
-import { connect, useDispatch } from 'react-redux'
+import React from 'react'
+import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
 import Modal from 'react-native-modal'
