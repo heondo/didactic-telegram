@@ -17,7 +17,9 @@ function HomeScreenTab({ theme, navigation }) {
         name="Primary Meridians List"
         component={PrimaryMeridiansScreen}
         options={{
-          headerTitle: (props) => <MeridiansTitle {...props} />,
+          headerTitle: (props) => (
+            <MeridiansTitle {...props} title="Meridians" />
+          ),
           headerShown: true,
           headerStyle: {
             backgroundColor: theme.PRIMARY_BACKGROUND_COLOR,

@@ -141,7 +141,7 @@ const LoggedInDetailsScreenComponent = ({
             </CircleIconButton>
           </Row>
         ) : null}
-        <View pd="4px 4px 20px 4px">
+        <View pd="4px 4px 24px 4px">
           <TextInput
             pd="6px 32px 6px 6px"
             multiline={true}
@@ -173,8 +173,8 @@ const LoggedInDetailsScreenComponent = ({
         </View>
         <BottomSheet
           ref={bottomSheetRef}
-          initialSnap={2}
-          snapPoints={[600, 450, 45]}
+          initialSnap={1}
+          snapPoints={[450, 125]}
           renderContent={(props) => (
             <BottomSheetContent {...props} pointData={pointData} />
           )}
