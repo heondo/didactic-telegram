@@ -21,6 +21,7 @@ My dad got his accupuncture license this year and did a great at his school with
 
 - Refix settings page and figure out the sign out button positioning
 - Add search bar to search (user notes, location, accupuncture point names)?
+- How to implement search algorithm because the data is a little spread out.
 - ~Figure out why loading large tab screens take so long and how to work around that (switch to swiper)~
 - ~Create information modal or drawer for each point (drawer instead)~
 - ~Add loading message for different redux states~
@@ -36,11 +37,16 @@ My dad got his accupuncture license this year and did a great at his school with
 
 ##### Week 3
 
+- Keep tweaking my personal website because responsiveness is terrible, I think it should be okay
 - Refactor for code and new redesign
 - Clean up styled components to inherit more properties when possible
 - Create modal to give an option between switching or editing the image
 - Add bottom sheet modal with accupuncture point details (Need to get location and other custom information into the application once that is collected)
 - Find icons (temp) for various Meridians
+
+![sign in and uploading images or notes](public/readme/light-home-screen.png)
+![sign in and uploading images or notes](public/readme/new-details-page.png)
+![sign in and uploading images or notes](public/readme/temp-screenshot.png)
 
 ##### Week 2
 

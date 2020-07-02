@@ -25,9 +25,13 @@ const LoggedOutDetailsScreenComponent = ({ theme, pointID }) => {
     bottomSheetRef.current.snapTo(0)
   }
 
+  const closeBottomSheet = () => {
+    bottomSheetRef.current.snapTo(1)
+  }
+
   return (
     <ThemeProvider theme={theme}>
-      <SafeAreaView pd="0 0 8px 0">
+      <SafeAreaView pd="0 0 8px 0" onTouchStart={closeBottomSheet}>
         <ImageAbsolute
           source={require('../../shared/images/no-image-add.png')}
           resizeMode="contain"
@@ -40,7 +44,7 @@ const LoggedOutDetailsScreenComponent = ({ theme, pointID }) => {
           </Row>
         </Header>
         <EmptySpace />
-        <View pd="4px 4px 20px 4px">
+        <View pd="4px 4px 24px 4px">
           <TextInput
             pd="6px 32px 6px 6px"
             multiline={true}
@@ -55,7 +59,7 @@ const LoggedOutDetailsScreenComponent = ({ theme, pointID }) => {
         <BottomSheet
           ref={bottomSheetRef}
           initialSnap={0}
-          snapPoints={[600, 450, 45]}
+          snapPoints={[450, 125]}
           renderContent={(props) => (
             <BottomSheetContent {...props} pointData={pointData} />
           )}

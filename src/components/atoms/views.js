@@ -46,7 +46,7 @@ export const ModalView = styled(View)`
 export const SubmitNoteContainer = styled(AbsoluteView)`
   width: auto;
   right: 0px;
-  bottom: 16px;
+  bottom: 24px;
 `
 
 export const BottomContentContainer = styled(View)`

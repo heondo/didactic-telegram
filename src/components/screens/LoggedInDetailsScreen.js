@@ -91,7 +91,7 @@ const LoggedInDetailsScreenComponent = ({
 
   return (
     <ThemeProvider theme={theme}>
-      <SafeAreaView pd="0 0 8px 0">
+      <SafeAreaView pd="0 0 8px 0" keyboardShouldPersistTaps="handled">
         <SelectEditImageModal
           selectedImage={selectedImage}
           setSelectedImage={setSelectedImage}

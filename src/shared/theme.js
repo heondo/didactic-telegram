@@ -10,7 +10,6 @@ const nord = {
   frost1: '#88c0d0',
   frost2: '#81a1c1',
   frost3: '#5e81ac',
-
   aurora0: '#bf616a',
   aurora1: '#d08770',
   aurora2: '#ebcb8b',

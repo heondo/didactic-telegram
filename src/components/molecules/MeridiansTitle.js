@@ -8,19 +8,35 @@ import {
   EmptySpace,
   MatIcon,
   TransparentButton,
+  TextInput,
 } from '../atoms'
 
 const MeridiansTitleComponent = ({ theme, title }) => {
   const [searchVisible, setSearchVisible] = useState(false)
+  const [searchText, setSearchText] = useState('')
+
+  const handleOpenSearch = () => {
+    setSearchVisible(true)
+  }
 
   return (
     <ThemeProvider theme={theme}>
       <Row>
-        <HeaderText fontSize="19px">{title}</HeaderText>
-        <EmptySpace />
-        <TransparentButton pd="0" mg="0">
-          <MatIcon name="search" size={20} />
-        </TransparentButton>
+        {searchVisible ? (
+          <TextInput
+            value={searchText}
+            onChangeText={setSearchText}
+            placeholder="Search points"
+          />
+        ) : (
+          <>
+            <HeaderText fontSize="19px">{title}</HeaderText>
+            <EmptySpace />
+            <TransparentButton onPress={handleOpenSearch} pd="0" mg="0">
+              <MatIcon name="search" size={20} />
+            </TransparentButton>
+          </>
+        )}
       </Row>
     </ThemeProvider>
   )
