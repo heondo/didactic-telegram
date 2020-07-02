@@ -9,25 +9,48 @@ import {
   MatIcon,
   TransparentButton,
   TextInput,
+  Text,
 } from '../atoms'
 
 const MeridiansTitleComponent = ({ theme, title }) => {
   const [searchVisible, setSearchVisible] = useState(false)
   const [searchText, setSearchText] = useState('')
+  const [searchResults, setSearchResults] = useState([])
 
   const handleOpenSearch = () => {
     setSearchVisible(true)
+  }
+
+  const handleCancelSearch = () => {
+    setSearchText('')
+    if (!searchText) {
+      setSearchVisible(false)
+    }
+  }
+
+  const handleChangeText = (text) => {
+    setSearchText(text)
   }
 
   return (
     <ThemeProvider theme={theme}>
       <Row>
         {searchVisible ? (
-          <TextInput
-            value={searchText}
-            onChangeText={setSearchText}
-            placeholder="Search points"
-          />
+          <Row>
+            <TextInput
+              width="auto"
+              value={searchText}
+              onChangeText={handleChangeText}
+              placeholder="Search points"
+            />
+            <TransparentButton onPress={handleCancelSearch}>
+              <MatIcon
+                name="cancel"
+                size={18}
+                color={theme.SECONDARY_BUTTON_COLOR}
+              />
+            </TransparentButton>
+          </Row>
         ) : (
           <>
             <HeaderText fontSize="19px">{title}</HeaderText>
@@ -48,6 +71,8 @@ const mapStateToProps = ({ theme }) => {
   }
 }
 
-MeridiansTitleComponent.propTypes = {}
+MeridiansTitleComponent.propTypes = {
+  title: PropTypes.string,
+}
 
 export const MeridiansTitle = connect(mapStateToProps)(MeridiansTitleComponent)

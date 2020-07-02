@@ -31,4 +31,6 @@ export const BottomSheetHeader = connect(mapStateToProps)(
   BottomSheetHeaderComponent,
 )
 
-BottomSheetHeaderComponent.propTypes = {}
+BottomSheetHeaderComponent.propTypes = {
+  onHeaderPress: PropTypes.func,
+}

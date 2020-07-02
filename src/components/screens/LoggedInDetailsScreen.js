@@ -14,7 +14,7 @@ import {
   ButtonText,
   ImageAbsolute,
   TextInput,
-  View,
+  NoteContainer,
   TransparentButton,
   SubmitNoteContainer,
   MatCommIcon,
@@ -141,7 +141,7 @@ const LoggedInDetailsScreenComponent = ({
             </CircleIconButton>
           </Row>
         ) : null}
-        <View pd="4px 4px 24px 4px">
+        <NoteContainer>
           <TextInput
             pd="6px 32px 6px 6px"
             multiline={true}
@@ -170,7 +170,7 @@ const LoggedInDetailsScreenComponent = ({
               )}
             </SubmitNoteContainer>
           ) : null}
-        </View>
+        </NoteContainer>
         <BottomSheet
           ref={bottomSheetRef}
           initialSnap={1}

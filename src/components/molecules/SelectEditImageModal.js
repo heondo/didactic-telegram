@@ -80,6 +80,9 @@ const mapStateToProps = ({ theme }) => {
 SelectEditImageModalComponent.propTypes = {
   isModalVisible: PropTypes.bool,
   setIsModalVisible: PropTypes.func,
+  handleAddImagePress: PropTypes.func,
+  selectedImage: PropTypes.func,
+  setSelectedImage: PropTypes.func,
 }
 
 export const SelectEditImageModal = connect(mapStateToProps)(

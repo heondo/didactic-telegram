@@ -37,6 +37,7 @@ My dad got his accupuncture license this year and did a great at his school with
 
 ##### Week 3
 
+- Tweak search bar, not as important, but figure out which fields of data to search then how to search it
 - Keep tweaking my personal website because responsiveness is terrible, I think it should be okay
 - Refactor for code and new redesign
 - Clean up styled components to inherit more properties when possible

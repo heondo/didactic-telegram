@@ -43,6 +43,10 @@ export const ModalView = styled(View)`
   width: 80%;
 `
 
+export const NoteContainer = styled(View)`
+  padding: 4px 4px 24px 4px;
+`
+
 export const SubmitNoteContainer = styled(AbsoluteView)`
   width: auto;
   right: 0px;

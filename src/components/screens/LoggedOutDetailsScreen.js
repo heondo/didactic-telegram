@@ -12,7 +12,7 @@ import {
   Row,
   ImageAbsolute,
   TextInput,
-  View,
+  NoteContainer,
 } from '../atoms'
 import { BottomSheetContent, BottomSheetHeader } from '../molecules'
 import MERIDIAN_POINTS_DATA from '../../shared/data/meridianPointsData'
@@ -44,7 +44,7 @@ const LoggedOutDetailsScreenComponent = ({ theme, pointID }) => {
           </Row>
         </Header>
         <EmptySpace />
-        <View pd="4px 4px 24px 4px">
+        <NoteContainer>
           <TextInput
             pd="6px 32px 6px 6px"
             multiline={true}
@@ -55,7 +55,7 @@ const LoggedOutDetailsScreenComponent = ({ theme, pointID }) => {
             placeholder={'Log in to save notes'}
             editable={false}
           />
-        </View>
+        </NoteContainer>
         <BottomSheet
           ref={bottomSheetRef}
           initialSnap={0}
