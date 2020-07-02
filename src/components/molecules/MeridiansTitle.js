@@ -11,8 +11,10 @@ import {
   TextInput,
   Text,
 } from '../atoms'
+import MERIDIAN_POINTS_DATA from '../../shared/data/meridianPointsData'
 
 const MeridiansTitleComponent = ({ theme, title }) => {
+  const meridianPointsArray = Object.entries(MERIDIAN_POINTS_DATA)
   const [searchVisible, setSearchVisible] = useState(false)
   const [searchText, setSearchText] = useState('')
   const [searchResults, setSearchResults] = useState([])
@@ -29,6 +31,7 @@ const MeridiansTitleComponent = ({ theme, title }) => {
   }
 
   const handleChangeText = (text) => {
+    const filteredResults = meridianPointsArray.map((entry) => {})
     setSearchText(text)
   }
 
