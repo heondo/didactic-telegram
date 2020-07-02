@@ -12,6 +12,7 @@ import {
   Text,
 } from '../atoms'
 import MERIDIAN_POINTS_DATA from '../../shared/data/meridianPointsData'
+import { SearchResultsList } from './SearchResultsList'
 
 const MeridiansTitleComponent = ({ theme, title }) => {
   const meridianPointsArray = Object.entries(MERIDIAN_POINTS_DATA)
@@ -24,14 +25,31 @@ const MeridiansTitleComponent = ({ theme, title }) => {
   }
 
   const handleCancelSearch = () => {
-    setSearchText('')
     if (!searchText) {
       setSearchVisible(false)
     }
+    setSearchResults([])
+    setSearchText('')
   }
 
   const handleChangeText = (text) => {
-    const filteredResults = meridianPointsArray.map((entry) => {})
+    const lowerInput = text.toLowerCase().trim()
+    if (!lowerInput) {
+      setSearchText('')
+      setSearchResults([])
+      return
+    }
+    const testFilteredResults = meridianPointsArray.filter((entry) => {
+      const [pointID, pointData] = entry
+      if (pointID.toLowerCase().indexOf(lowerInput) !== -1) {
+        return true
+      }
+      if (pointData.english.toLowerCase().indexOf(lowerInput) !== -1) {
+        return true
+      }
+      return false
+    })
+    setSearchResults(testFilteredResults)
     setSearchText(text)
   }
 
@@ -64,6 +82,9 @@ const MeridiansTitleComponent = ({ theme, title }) => {
           </>
         )}
       </Row>
+      {searchResults.length ? (
+        <SearchResultsList searchResults={searchResults} />
+      ) : null}
     </ThemeProvider>
   )
 }

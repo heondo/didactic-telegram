@@ -25,6 +25,17 @@ export const View = styled.View`
   height: ${(props) => (props.height ? props.height : 'auto')};
 `
 
+// export const ScrollView = styled.ScrollView`
+//   background-color: ${(props) => props.theme.PRIMARY_BACKGROUND_COLOR};
+//   color: ${(props) => props.theme.PRIMARY_TEXT_COLOR};
+//   position: relative;
+//   display: flex;
+//   padding: ${(props) => (props.pd ? props.pd : '0')};
+//   margin: ${(props) => (props.mg ? props.mg : '0')};
+//   width: ${(props) => (props.width ? props.width : '100%')};
+//   height: ${(props) => (props.height ? props.height : 'auto')};
+// `
+
 export const Header = styled(View)`
   /* background-color: ${(props) => props.theme.BOTTOM_SHEET_BACKGROUND}; */
   elevation: 4;
@@ -74,18 +85,6 @@ export const OverLay = styled(View)`
   bottom: 0;
   opacity: 0.5;
   z-index: 2;
-`
-
-export const ScrollView = styled.ScrollView`
-  flex: 1;
-  background-color: ${(props) => props.theme.PRIMARY_BACKGROUND_COLOR};
-  color: ${(props) => props.theme.PRIMARY_TEXT_COLOR};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: ${(props) => (props.width ? props.width : '100%')};
-  padding: ${(props) => (props.pd ? props.pd : '4px')};
-  margin: ${(props) => (props.mg ? props.mg : '0')};
 `
 
 export const Row = styled(View)`
