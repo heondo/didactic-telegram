@@ -8,9 +8,12 @@ export const FlatList = styled.FlatList`
 `
 
 export const SearchResultsFlatList = styled(FlatList)`
-  max-height: 400px;
+  max-height: 300px;
+  position: absolute;
+  top: 24px;
   width: 100%;
+  /* width: 100%;
   z-index: 5;
   position: absolute;
-  top: 32px;
+  top: 32px; */
 `

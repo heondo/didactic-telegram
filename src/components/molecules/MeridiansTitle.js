@@ -14,7 +14,7 @@ import {
 import MERIDIAN_POINTS_DATA from '../../shared/data/meridianPointsData'
 import { SearchResultsList } from './SearchResultsList'
 
-const MeridiansTitleComponent = ({ theme, title }) => {
+const MeridiansTitleComponent = ({ theme, title, userImages, navigation }) => {
   const meridianPointsArray = Object.entries(MERIDIAN_POINTS_DATA)
   const [searchVisible, setSearchVisible] = useState(false)
   const [searchText, setSearchText] = useState('')
@@ -32,6 +32,12 @@ const MeridiansTitleComponent = ({ theme, title }) => {
     setSearchText('')
   }
 
+  const goToPoint = (pointID) => {
+    navigation.navigate('Primary Point Details', {
+      pointID,
+    })
+  }
+
   const handleChangeText = (text) => {
     const lowerInput = text.toLowerCase().trim()
     if (!lowerInput) {
@@ -41,7 +47,15 @@ const MeridiansTitleComponent = ({ theme, title }) => {
     }
     const testFilteredResults = meridianPointsArray.filter((entry) => {
       const [pointID, pointData] = entry
-      if (pointID.toLowerCase().indexOf(lowerInput) !== -1) {
+      const usersPointNote =
+        userImages.images[pointID] && userImages.images[pointID].note
+          ? userImages.images[pointID].note
+          : ''
+      // for each pointID, i can check the userImages.images[pointID] && userImages.images[pointID]?.note.toLowerCase().indexOf(lowerInput)
+      if (
+        pointID.toLowerCase().indexOf(lowerInput) !== -1 ||
+        usersPointNote.toLowerCase().indexOf(lowerInput) !== -1
+      ) {
         return true
       }
       if (pointData.english.toLowerCase().indexOf(lowerInput) !== -1) {
@@ -83,15 +97,19 @@ const MeridiansTitleComponent = ({ theme, title }) => {
         )}
       </Row>
       {searchResults.length ? (
-        <SearchResultsList searchResults={searchResults} />
+        <SearchResultsList
+          searchResults={searchResults}
+          goToPoint={goToPoint}
+        />
       ) : null}
     </ThemeProvider>
   )
 }
 
-const mapStateToProps = ({ theme }) => {
+const mapStateToProps = ({ theme, userImages }) => {
   return {
     theme,
+    userImages,
   }
 }
 

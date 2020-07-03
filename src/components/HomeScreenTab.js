@@ -18,7 +18,11 @@ function HomeScreenTab({ theme, navigation }) {
         component={PrimaryMeridiansScreen}
         options={{
           headerTitle: (props) => (
-            <MeridiansTitle {...props} title="Meridians" />
+            <MeridiansTitle
+              {...props}
+              navigation={navigation}
+              title="Meridians"
+            />
           ),
           headerShown: true,
           headerStyle: {

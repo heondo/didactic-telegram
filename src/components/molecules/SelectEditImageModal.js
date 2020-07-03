@@ -81,7 +81,7 @@ SelectEditImageModalComponent.propTypes = {
   isModalVisible: PropTypes.bool,
   setIsModalVisible: PropTypes.func,
   handleAddImagePress: PropTypes.func,
-  selectedImage: PropTypes.func,
+  selectedImage: PropTypes.object,
   setSelectedImage: PropTypes.func,
 }
 
