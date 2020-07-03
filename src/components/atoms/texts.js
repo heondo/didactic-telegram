@@ -44,7 +44,9 @@ export const TextInput = styled.TextInput`
 `
 
 export const SearchInput = styled.TextInput`
-  width: ${(props) => (props.width ? props.width : '100%')};
+  flex-grow: 1;
+  /* Temp  fix for the auto growing text input */
+  max-width: 90%;
   font-size: 36px;
   padding: ${(props) => (props.pd ? props.pd : '0')};
   color: ${(props) => props.theme.FADED_TEXT_COLOR};

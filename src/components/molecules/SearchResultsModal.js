@@ -1,17 +1,13 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { Dimensions } from 'react-native'
 import { ThemeProvider } from '@react-navigation/native'
 import PropTypes from 'prop-types'
 import Modal from 'react-native-modal'
 
 import {
-  ButtonText,
   FlatList,
-  Text,
   SafeAreaView,
   Row,
-  TextInput,
   SearchInput,
   MatIcon,
   TransparentButton,
@@ -22,12 +18,11 @@ import { SearchResultsListItem } from './SearchResultsListItem'
 
 function SearchResultsModalComponent({
   theme,
+  userImages,
   goToPoint,
   searchVisible,
-  userImages,
   handleCloseSearch,
 }) {
-  const deviceWidth = Dimensions.get('screen').width
   const meridianPointsArray = Object.entries(MERIDIAN_POINTS_DATA)
   const [searchText, setSearchText] = useState('')
   const [searchResults, setSearchResults] = useState([])
@@ -77,10 +72,11 @@ function SearchResultsModalComponent({
       <Modal
         animationType="slide"
         hasBackdrop={true}
-        backdropOpacity={1}
+        backdropOpacity={0.5}
         onBackButtonPress={handleCloseSearch}
         backdropColor={theme.PRIMARY_BACKGROUND_COLOR}
         isVisible={searchVisible}
+        style={{ margin: 0 }}
         coverScreen={true}>
         <SafeAreaView>
           <Row pd="4px 2px 4px 6px">
@@ -90,7 +86,6 @@ function SearchResultsModalComponent({
               placeholderTextColor={theme.FADED_TEXT_COLOR}
               onChangeText={handleChangeText}
             />
-            <EmptySpace />
             <TransparentButton onPress={handleCancelSearch} pd="2px" mg="0">
               <MatIcon
                 name="close"
@@ -101,9 +96,13 @@ function SearchResultsModalComponent({
           </Row>
           <FlatList
             data={searchResults}
-            width={deviceWidth - 10 + 'px'}
             renderItem={({ item }) => (
-              <SearchResultsListItem pointID={item[0]} pointData={item[1]} />
+              <SearchResultsListItem
+                handleCloseSearch={handleCloseSearch}
+                goToPoint={goToPoint}
+                pointID={item[0]}
+                pointData={item[1]}
+              />
             )}
             keyExtractor={(item) => item[0]}
           />

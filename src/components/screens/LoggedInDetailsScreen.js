@@ -11,7 +11,6 @@ import {
   Header,
   Row,
   CircleIconButton,
-  ButtonText,
   ImageAbsolute,
   TextInput,
   NoteContainer,

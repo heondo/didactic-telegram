@@ -65,6 +65,12 @@ export const BottomHeaderContainer = styled(BottomContentContainer)`
   height: 20px;
 `
 
+export const SearchDetailsContainer = styled(View)`
+  align-items: flex-end;
+  width: auto;
+  flex-grow: 1;
+`
+
 export const OverLay = styled(View)`
   position: absolute;
   background-color: ${(props) => props.theme.OVERLAY_BG_COLOR};

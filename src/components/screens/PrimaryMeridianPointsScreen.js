@@ -11,7 +11,6 @@ const PrimaryMeridianPointsScreenComponent = ({ navigation, theme, route }) => {
   const handlePointPress = (pointID) => {
     navigation.navigate('Primary Point Details', {
       pointID,
-      points,
     })
   }
   return (

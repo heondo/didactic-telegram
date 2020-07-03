@@ -1,40 +1,64 @@
 import React from 'react'
-import { Dimensions } from 'react-native'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
 import {
   Text,
-  MeridianSquareButton,
   Row,
-  ImageAbsolute,
   EmptySpace,
-  HeaderText,
-  Image,
+  SearchDetailsContainer,
+  TransparentButton,
 } from '../atoms'
 
-function SearchResultsListItemComponent({ theme, pointID, pointData }) {
+function SearchResultsListItemComponent({
+  theme,
+  pointID,
+  goToPoint,
+  pointData,
+  userImages,
+  handleCloseSearch,
+}) {
+  const usersPointNote =
+    userImages.images[pointID] && userImages.images[pointID].note
+      ? userImages.images[pointID].note
+      : ''
+
+  // when i go to the  Primary Point Details, I need to send a pointID and then also,
+  // the matching points for the primaryMeridiansData
+
+  const handleSearchItemPress = () => {
+    goToPoint(pointID)
+    handleCloseSearch()
+  }
+
   return (
     <ThemeProvider theme={theme}>
-      <Row>
-        <Text fontSize="24px">{pointID}</Text>
-        <EmptySpace />
-        <Text fontSize="18px">{pointData.english}</Text>
-      </Row>
+      <TransparentButton onPress={handleSearchItemPress} pd="0" mg="0">
+        <Row>
+          <Text fontSize="28px">{pointID}</Text>
+          <EmptySpace />
+          <SearchDetailsContainer>
+            <Text fontSize="16px">{pointData.english}</Text>
+            <Text fontSize="14px">{usersPointNote}</Text>
+          </SearchDetailsContainer>
+        </Row>
+      </TransparentButton>
     </ThemeProvider>
   )
 }
 
-const mapStateToProps = ({ theme, authState }) => {
+const mapStateToProps = ({ theme, userImages }) => {
   return {
     theme,
-    authState,
+    userImages,
   }
 }
 
 SearchResultsListItemComponent.propTypes = {
   pointID: PropTypes.string,
   pointData: PropTypes.object,
+  goToPoint: PropTypes.func,
+  handleCloseSearch: PropTypes.func,
 }
 
 export const SearchResultsListItem = connect(mapStateToProps)(

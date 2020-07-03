@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components/native'
 
 import Swiper from 'react-native-swiper'
+import PRIMARY_MERIDIANS_DATA from '../../shared/data/primaryMeridiansData'
 import { LoggedOutDetailsScreen } from './LoggedOutDetailsScreen'
 import { LoggedInDetailsScreen } from './LoggedInDetailsScreen'
 
@@ -12,7 +13,11 @@ const PrimaryPointDetailsTabsComponent = ({
   theme,
   authState,
 }) => {
-  const { pointID, points } = route.params
+  const { pointID } = route.params
+  const points = PRIMARY_MERIDIANS_DATA.filter(
+    (m) => m.meridianID === pointID.split('-')[0],
+  )[0].points
+  const initialIndex = parseInt(pointID.split('-')[1], 0) - 1
 
   return (
     <ThemeProvider theme={theme}>
@@ -20,7 +25,7 @@ const PrimaryPointDetailsTabsComponent = ({
         loadMinimal={true}
         showsButtons={false}
         showsPagination={false}
-        index={parseInt(pointID.split('-')[1], 0) - 1}>
+        index={initialIndex}>
         {authState.isLoggedIn
           ? points.map((p) => <LoggedInDetailsScreen key={p} pointID={p} />)
           : points.map((p) => <LoggedOutDetailsScreen key={p} pointID={p} />)}
