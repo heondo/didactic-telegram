@@ -4,8 +4,8 @@ import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
 import {
   Text,
+  ItalicizedText,
   Row,
-  EmptySpace,
   SearchDetailsContainer,
   TransparentButton,
 } from '../atoms'
@@ -27,19 +27,20 @@ function SearchResultsListItemComponent({
   // the matching points for the primaryMeridiansData
 
   const handleSearchItemPress = () => {
-    goToPoint(pointID)
     handleCloseSearch()
+    goToPoint(pointID)
   }
 
   return (
     <ThemeProvider theme={theme}>
-      <TransparentButton onPress={handleSearchItemPress} pd="0" mg="0">
+      <TransparentButton onPress={handleSearchItemPress} pd="0" mg="4px 0">
         <Row>
           <Text fontSize="28px">{pointID}</Text>
-          <EmptySpace />
           <SearchDetailsContainer>
             <Text fontSize="16px">{pointData.english}</Text>
-            <Text fontSize="14px">{usersPointNote}</Text>
+            <ItalicizedText numberOfLines={2} fontSize="14px">
+              {usersPointNote}
+            </ItalicizedText>
           </SearchDetailsContainer>
         </Row>
       </TransparentButton>
