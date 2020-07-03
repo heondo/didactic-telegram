@@ -42,3 +42,10 @@ export const TextInput = styled.TextInput`
   border-bottom-color: ${(props) => props.theme.PRIMARY_TEXT_COLOR};
   border-bottom-width: 1px;
 `
+
+export const SearchInput = styled.TextInput`
+  width: ${(props) => (props.width ? props.width : '100%')};
+  font-size: 36px;
+  padding: ${(props) => (props.pd ? props.pd : '0')};
+  color: ${(props) => props.theme.FADED_TEXT_COLOR};
+`

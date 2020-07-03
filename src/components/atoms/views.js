@@ -25,17 +25,6 @@ export const View = styled.View`
   height: ${(props) => (props.height ? props.height : 'auto')};
 `
 
-// export const ScrollView = styled.ScrollView`
-//   background-color: ${(props) => props.theme.PRIMARY_BACKGROUND_COLOR};
-//   color: ${(props) => props.theme.PRIMARY_TEXT_COLOR};
-//   position: relative;
-//   display: flex;
-//   padding: ${(props) => (props.pd ? props.pd : '0')};
-//   margin: ${(props) => (props.mg ? props.mg : '0')};
-//   width: ${(props) => (props.width ? props.width : '100%')};
-//   height: ${(props) => (props.height ? props.height : 'auto')};
-// `
-
 export const Header = styled(View)`
   /* background-color: ${(props) => props.theme.BOTTOM_SHEET_BACKGROUND}; */
   elevation: 4;

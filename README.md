@@ -37,6 +37,8 @@ My dad got his accupuncture license this year and did a great at his school with
 
 ##### Week 3
 
+- Rendering a modal in the React Navigation Header causes issues whether it be covering the screen, not registering touches or swipes if I don't cover, etc.
+- Creating a full screen modal for the search, should be easier to manage
 - Tweak search bar, not as important, but figure out which fields of data to search then how to search it
 - Keep tweaking my personal website because responsiveness is terrible, I think it should be okay
 - Refactor for code and new redesign

@@ -148,7 +148,7 @@ const LoggedInDetailsScreenComponent = ({
             numberOfLines={2}
             style={{ textAlignVertical: 'top' }}
             maxLength={500}
-            placeholderTextColor={theme.GREY}
+            placeholderTextColor={theme.FADED_TEXT_COLOR}
             value={noteInput}
             onChangeText={(text) => setNoteInput(text)}
             placeholder="Add a note..."

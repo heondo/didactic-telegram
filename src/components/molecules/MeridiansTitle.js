@@ -11,25 +11,17 @@ import {
   TextInput,
   Text,
 } from '../atoms'
-import MERIDIAN_POINTS_DATA from '../../shared/data/meridianPointsData'
-import { SearchResultsList } from './SearchResultsList'
+import { SearchResultsModal } from './SearchResultsModal'
 
 const MeridiansTitleComponent = ({ theme, title, userImages, navigation }) => {
-  const meridianPointsArray = Object.entries(MERIDIAN_POINTS_DATA)
   const [searchVisible, setSearchVisible] = useState(false)
-  const [searchText, setSearchText] = useState('')
-  const [searchResults, setSearchResults] = useState([])
 
   const handleOpenSearch = () => {
     setSearchVisible(true)
   }
 
-  const handleCancelSearch = () => {
-    if (!searchText) {
-      setSearchVisible(false)
-    }
-    setSearchResults([])
-    setSearchText('')
+  const handleCloseSearch = () => {
+    setSearchVisible(false)
   }
 
   const goToPoint = (pointID) => {
@@ -38,70 +30,20 @@ const MeridiansTitleComponent = ({ theme, title, userImages, navigation }) => {
     })
   }
 
-  const handleChangeText = (text) => {
-    const lowerInput = text.toLowerCase().trim()
-    if (!lowerInput) {
-      setSearchText('')
-      setSearchResults([])
-      return
-    }
-    const testFilteredResults = meridianPointsArray.filter((entry) => {
-      const [pointID, pointData] = entry
-      const usersPointNote =
-        userImages.images[pointID] && userImages.images[pointID].note
-          ? userImages.images[pointID].note
-          : ''
-      // for each pointID, i can check the userImages.images[pointID] && userImages.images[pointID]?.note.toLowerCase().indexOf(lowerInput)
-      if (
-        pointID.toLowerCase().indexOf(lowerInput) !== -1 ||
-        usersPointNote.toLowerCase().indexOf(lowerInput) !== -1
-      ) {
-        return true
-      }
-      if (pointData.english.toLowerCase().indexOf(lowerInput) !== -1) {
-        return true
-      }
-      return false
-    })
-    setSearchResults(testFilteredResults)
-    setSearchText(text)
-  }
-
   return (
     <ThemeProvider theme={theme}>
       <Row>
-        {searchVisible ? (
-          <Row>
-            <TextInput
-              width="auto"
-              value={searchText}
-              onChangeText={handleChangeText}
-              placeholder="Search points"
-            />
-            <TransparentButton onPress={handleCancelSearch}>
-              <MatIcon
-                name="cancel"
-                size={18}
-                color={theme.SECONDARY_BUTTON_COLOR}
-              />
-            </TransparentButton>
-          </Row>
-        ) : (
-          <>
-            <HeaderText fontSize="19px">{title}</HeaderText>
-            <EmptySpace />
-            <TransparentButton onPress={handleOpenSearch} pd="0" mg="0">
-              <MatIcon name="search" size={20} />
-            </TransparentButton>
-          </>
-        )}
+        <HeaderText fontSize="19px">{title}</HeaderText>
+        <EmptySpace />
+        <TransparentButton onPress={handleOpenSearch} pd="0" mg="0">
+          <MatIcon name="search" size={20} />
+        </TransparentButton>
       </Row>
-      {searchResults.length ? (
-        <SearchResultsList
-          searchResults={searchResults}
-          goToPoint={goToPoint}
-        />
-      ) : null}
+      <SearchResultsModal
+        searchVisible={searchVisible}
+        goToPoint={goToPoint}
+        handleCloseSearch={handleCloseSearch}
+      />
     </ThemeProvider>
   )
 }

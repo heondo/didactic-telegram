@@ -5,13 +5,10 @@ export const FlatList = styled.FlatList`
   color: ${(props) => props.theme.PRIMARY_TEXT_COLOR};
   padding: ${(props) => (props.pd ? props.pd : '4px')};
   margin: ${(props) => (props.mg ? props.mg : '0')};
+  width: ${(props) => (props.width ? props.width : '100%')};
 `
 
 export const SearchResultsFlatList = styled(FlatList)`
-  max-height: 300px;
-  position: absolute;
-  top: 24px;
-  width: 100%;
   /* width: 100%;
   z-index: 5;
   position: absolute;

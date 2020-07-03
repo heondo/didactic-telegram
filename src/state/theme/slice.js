@@ -3,7 +3,7 @@ import { lightTheme, darkTheme } from '../../shared/theme'
 
 const themeSlice = createSlice({
   name: 'theme',
-  initialState: lightTheme,
+  initialState: darkTheme,
   reducers: {
     toggleTheme(state, __) {
       if (state.mode === 'light') {

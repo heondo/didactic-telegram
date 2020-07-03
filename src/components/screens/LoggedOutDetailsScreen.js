@@ -51,7 +51,7 @@ const LoggedOutDetailsScreenComponent = ({ theme, pointID }) => {
             numberOfLines={2}
             style={{ textAlignVertical: 'top' }}
             maxLength={500}
-            placeholderTextColor={theme.GREY}
+            placeholderTextColor={theme.FADED_TEXT_COLOR}
             placeholder={'Log in to save notes'}
             editable={false}
           />
