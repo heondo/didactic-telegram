@@ -6,7 +6,8 @@ My dad got his accupuncture license this year and did a great at his school with
 
 ### Random Thoughts
 
-- Why is React so much more popular than Angular?
+- I want to try Ionic, given they follow a more traditional MVC model. Flutter looks great too but I'd need to spend time learning Java/Kotlin.
+- Formatting on a small screen is way nicer
 - Elevation looks great
 
 ### Tools
@@ -47,9 +48,10 @@ My dad got his accupuncture license this year and did a great at his school with
 - Add bottom sheet modal with accupuncture point details (Need to get location and other custom information into the application once that is collected)
 - Find icons (temp) for various Meridians
 
-![sign in and uploading images or notes](public/readme/light-home-screen.png)
-![sign in and uploading images or notes](public/readme/new-details-page.png)
-![sign in and uploading images or notes](public/readme/temp-screenshot.png)
+![search bar for points and notes](public/readme/redesign-basic.gif)
+![redesigned light theme](public/readme/light-home-screen.png)
+![redesigned details page](public/readme/new-details-page.png)
+![redesigned open modal](public/readme/temp-screenshot.png)
 
 ##### Week 2
 
