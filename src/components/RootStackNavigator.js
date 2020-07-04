@@ -9,6 +9,7 @@ import { MatCommIcon } from './atoms'
 import HomeScreenTab from './HomeScreenTab'
 import SettingsScreen from './SettingsScreenTab'
 import { thunkLogin } from '../state/auth/slice'
+import BodyMapScreenTab from './BodyMapScreenTab'
 
 const Tab = createBottomTabNavigator()
 
@@ -56,6 +57,19 @@ function RootStackNavigator({ theme, authState }) {
             tabBarIcon: ({ focused }) => (
               <MatCommIcon
                 name="menu"
+                color={focused ? theme.WHITE : theme.GREY}
+                size={25}
+              />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Body Map"
+          component={BodyMapScreenTab}
+          options={{
+            tabBarIcon: ({ focused }) => (
+              <MatCommIcon
+                name="map"
                 color={focused ? theme.WHITE : theme.GREY}
                 size={25}
               />
