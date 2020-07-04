@@ -21,7 +21,6 @@ const SettingsListScreenComponent = ({
   navigation,
   theme,
   authState,
-  userImages,
   toggleTheme,
   startAuthLoading,
 }) => {
