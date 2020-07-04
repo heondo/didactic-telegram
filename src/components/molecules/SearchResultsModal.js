@@ -53,7 +53,11 @@ function SearchResultsModalComponent({
       ) {
         return true
       }
-      if (pointData.english.toLowerCase().indexOf(lowerText) !== -1) {
+      if (
+        pointData.english.toLowerCase().indexOf(lowerText) !== -1 ||
+        (pointData.location &&
+          pointData.location.toLowerCase().indexOf(lowerText) !== -1)
+      ) {
         return true
       }
       return false
