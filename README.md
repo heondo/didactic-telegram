@@ -20,9 +20,12 @@ My dad got his accupuncture license this year and did a great at his school with
 
 ### Todos
 
+- Different color for each point, toggle to switch view of meridian group, color. Rotate the image?
+- Component with an image. Position of various meridian points on the image. Overlay a set of annotations on the image based on coordinates..
+- Plan heaviliy ^ (no 3D because that doesn't seem to be supported well in RN)
 - Refix settings page and figure out the sign out button positioning
-- Add search bar to search (user notes, location, accupuncture point names)?
-- How to implement search algorithm because the data is a little spread out.
+- ~Add search bar to search (user notes, location, accupuncture point names)?~
+- ~How to implement search algorithm because the data is a little spread out.~
 - ~Figure out why loading large tab screens take so long and how to work around that (switch to swiper)~
 - ~Create information modal or drawer for each point (drawer instead)~
 - ~Add loading message for different redux states~
