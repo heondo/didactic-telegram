@@ -3,8 +3,7 @@ import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import { SafeAreaView, Text } from '../../atoms'
 
-const DetailsPointScreenComponent = ({ navigation, route, theme }) => {
-  const { pointID } = route.params
+const DetailsPointScreenComponent = ({ navigation, pointID, theme }) => {
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaView>

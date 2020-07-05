@@ -21,7 +21,7 @@ function MeridianImagesScreenTab({ theme, navigation }) {
             <ImagesHomeTitle
               {...props}
               navigation={navigation}
-              title="Images"
+              title="Photos"
             />
           ),
           headerShown: true,

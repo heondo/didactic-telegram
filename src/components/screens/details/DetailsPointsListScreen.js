@@ -9,7 +9,7 @@ const DetailsPointsListScreenComponent = ({ navigation, theme, route }) => {
   const { points } = route.params
 
   const handlePointPress = (pointID) => {
-    navigation.navigate('Details Point', {
+    navigation.navigate('Details Points Swiper', {
       pointID,
     })
   }

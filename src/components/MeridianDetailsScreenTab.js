@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import {
   DetailsHomeScreen,
   DetailsPointsListScreen,
-  DetailsPointScreen,
+  DetailsPointsSwiperScreen,
 } from './screens'
 
 const MeridianDetailsHomeScreenStack = createStackNavigator()
@@ -44,8 +44,8 @@ function BodyMapScreenTab({ theme, navigation }) {
         })}
       />
       <MeridianDetailsHomeScreenStack.Screen
-        name="Details Point"
-        component={DetailsPointScreen}
+        name="Details Points Swiper"
+        component={DetailsPointsSwiperScreen}
         options={({ route }) => ({
           headerTitle: route.params.name,
           headerShown: false,
