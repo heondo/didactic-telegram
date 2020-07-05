@@ -17,7 +17,7 @@ function BodyMapScreenTab({ theme, navigation }) {
         name="Details Home Screen"
         component={DetailsHomeScreen}
         options={{
-          headerTitle: 'Meridian Details',
+          headerTitle: 'Details',
           headerShown: true,
           headerStyle: {
             backgroundColor: theme.PRIMARY_BACKGROUND_COLOR,
