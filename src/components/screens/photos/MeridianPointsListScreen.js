@@ -2,8 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 
-import { FlatList } from '../atoms'
-import { MeridianPointListItem } from '../molecules'
+import { FlatList } from '../../atoms'
+import { MeridianPointListItem } from '../../molecules'
 
 const MeridianPointsListScreenComponent = ({ navigation, theme, route }) => {
   const { points } = route.params

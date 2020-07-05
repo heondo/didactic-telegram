@@ -3,11 +3,11 @@ import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components/native'
 
 import Swiper from 'react-native-swiper'
-import PRIMARY_MERIDIANS_DATA from '../../shared/data/primaryMeridiansData'
+import PRIMARY_MERIDIANS_DATA from '../../../shared/data/primaryMeridiansData'
 import { LoggedOutImageScreen } from './LoggedOutImageScreen'
 import { LoggedInImageScreen } from './LoggedInImageScreen'
 
-const PrimaryPointDetailsTabsComponent = ({
+const PrimaryPointImagesTabsComponent = ({
   navigation,
   route,
   theme,
@@ -42,6 +42,6 @@ const mapStateToProps = ({ theme, authState, userImages }) => {
   }
 }
 
-export const PrimaryPointDetailsTabs = connect(mapStateToProps)(
-  PrimaryPointDetailsTabsComponent,
+export const PrimaryPointImagesTabs = connect(mapStateToProps)(
+  PrimaryPointImagesTabsComponent,
 )

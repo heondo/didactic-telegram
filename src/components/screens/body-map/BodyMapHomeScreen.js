@@ -10,9 +10,9 @@ import {
   EmptySpace,
   ProfileImage,
   TransparentButton,
-} from '../atoms'
+} from '../../atoms'
 
-const BodyMapScreenComponent = ({ navigation, theme }) => {
+const BodyMapHomeScreenComponent = ({ navigation, theme }) => {
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaView>
@@ -27,4 +27,6 @@ const mapStateToProps = ({ theme }) => {
   }
 }
 
-export const BodyMapScreen = connect(mapStateToProps)(BodyMapScreenComponent)
+export const BodyMapHomeScreen = connect(mapStateToProps)(
+  BodyMapHomeScreenComponent,
+)
