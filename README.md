@@ -2,7 +2,7 @@
 
 ### Motivation
 
-My dad got his accupuncture license this year and did a great at his school with the curriculum because of a memorization technique he implemented. He now teaches (remotely now) this technique to his students and believes a mobile application would be a great tool for aspiring accupuncturists.
+My dad got his accupuncture license this year and did great at his school with the curriculum because of a memorization technique he implemented. He now teaches (remotely now) this technique to his students and believes a mobile application would be a great tool to accomdate his teaching as well as a general tool for aspiring accupuncturists.
 
 ### Random Thoughts
 
