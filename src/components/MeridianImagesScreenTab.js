@@ -3,19 +3,19 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { connect } from 'react-redux'
 
 import {
-  PrimaryMeridiansScreen,
-  PrimaryMeridianPointsScreen,
-  PrimaryPointDetailsTabs,
+  ImagesHomeScreen,
+  ImagesPointsListScreen,
+  ImagesPointsSwiperScreen,
 } from './screens'
 import { MeridiansTitle } from './molecules'
 
-const HomeScreenStack = createStackNavigator()
-function HomeScreenTab({ theme, navigation }) {
+const MeridianImagesScreenStack = createStackNavigator()
+function MeridianImagesScreenTab({ theme, navigation }) {
   return (
-    <HomeScreenStack.Navigator>
-      <HomeScreenStack.Screen
-        name="Primary Meridians List"
-        component={PrimaryMeridiansScreen}
+    <MeridianImagesScreenStack.Navigator>
+      <MeridianImagesScreenStack.Screen
+        name="Images Home Screen"
+        component={ImagesHomeScreen}
         options={{
           headerTitle: (props) => (
             <MeridiansTitle
@@ -34,9 +34,9 @@ function HomeScreenTab({ theme, navigation }) {
           headerTintColor: theme.PRIMARY_TEXT_COLOR,
         }}
       />
-      <HomeScreenStack.Screen
-        name="Primary Meridian Points List"
-        component={PrimaryMeridianPointsScreen}
+      <MeridianImagesScreenStack.Screen
+        name="Images Points List"
+        component={ImagesPointsListScreen}
         options={({ route }) => ({
           headerTitle: route.params.name,
           headerShown: true,
@@ -49,14 +49,14 @@ function HomeScreenTab({ theme, navigation }) {
           headerTintColor: theme.PRIMARY_TEXT_COLOR,
         })}
       />
-      <HomeScreenStack.Screen
-        name="Primary Point Details"
-        component={PrimaryPointDetailsTabs}
+      <MeridianImagesScreenStack.Screen
+        name="Images Points Swiper"
+        component={ImagesPointsSwiperScreen}
         options={{
           headerShown: false,
         }}
       />
-    </HomeScreenStack.Navigator>
+    </MeridianImagesScreenStack.Navigator>
   )
 }
 
@@ -66,4 +66,4 @@ const mapStateToProps = ({ theme }) => {
   }
 }
 
-export default connect(mapStateToProps)(HomeScreenTab)
+export default connect(mapStateToProps)(MeridianImagesScreenTab)

@@ -13,11 +13,11 @@ import {
   ImageAbsolute,
   TextInput,
   NoteContainer,
-} from '../atoms'
-import { BottomSheetContent, BottomSheetHeader } from '../molecules'
-import MERIDIAN_POINTS_DATA from '../../shared/data/meridianPointsData'
+} from '../../atoms'
+import { BottomSheetContent, BottomSheetHeader } from '../../molecules'
+import MERIDIAN_POINTS_DATA from '../../../shared/data/meridianPointsData'
 
-const LoggedOutDetailsScreenComponent = ({ theme, pointID }) => {
+const LoggedOutImageScreenComponent = ({ theme, pointID }) => {
   const pointData = MERIDIAN_POINTS_DATA[pointID]
   let bottomSheetRef = createRef()
 
@@ -33,7 +33,7 @@ const LoggedOutDetailsScreenComponent = ({ theme, pointID }) => {
     <ThemeProvider theme={theme}>
       <SafeAreaView pd="0 0 8px 0" onTouchStart={closeBottomSheet}>
         <ImageAbsolute
-          source={require('../../shared/images/no-image-add.png')}
+          source={require('../../../shared/images/no-image-add.png')}
           resizeMode="contain"
         />
         <Header pd="8px">
@@ -77,10 +77,10 @@ const mapStateToProps = ({ theme, authState }) => {
     authState,
   }
 }
-LoggedOutDetailsScreenComponent.propTypes = {
+LoggedOutImageScreenComponent.propTypes = {
   pointID: PropTypes.string,
 }
 
-export const LoggedOutDetailsScreen = connect(mapStateToProps)(
-  LoggedOutDetailsScreenComponent,
+export const LoggedOutImageScreen = connect(mapStateToProps)(
+  LoggedOutImageScreenComponent,
 )

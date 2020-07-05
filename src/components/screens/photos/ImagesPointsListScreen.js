@@ -2,14 +2,14 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 
-import { FlatList } from '../atoms'
-import { MeridianPointListItem } from '../molecules'
+import { FlatList } from '../../atoms'
+import { MeridianPointListItem } from '../../molecules'
 
-const PrimaryMeridianPointsScreenComponent = ({ navigation, theme, route }) => {
+const ImagesPointsListScreenComponent = ({ navigation, theme, route }) => {
   const { points } = route.params
 
   const handlePointPress = (pointID) => {
-    navigation.navigate('Primary Point Details', {
+    navigation.navigate('Images Points Swiper', {
       pointID,
     })
   }
@@ -34,6 +34,6 @@ const mapStateToProps = ({ theme }) => {
   }
 }
 
-export const PrimaryMeridianPointsScreen = connect(mapStateToProps)(
-  PrimaryMeridianPointsScreenComponent,
+export const ImagesPointsListScreen = connect(mapStateToProps)(
+  ImagesPointsListScreenComponent,
 )

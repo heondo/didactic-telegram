@@ -3,11 +3,11 @@ import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components/native'
 
 import Swiper from 'react-native-swiper'
-import PRIMARY_MERIDIANS_DATA from '../../shared/data/primaryMeridiansData'
-import { LoggedOutDetailsScreen } from './LoggedOutDetailsScreen'
-import { LoggedInDetailsScreen } from './LoggedInDetailsScreen'
+import PRIMARY_MERIDIANS_DATA from '../../../shared/data/primaryMeridiansData'
+import { LoggedOutImageScreen } from './LoggedOutImageScreen'
+import { LoggedInImageScreen } from './LoggedInImageScreen'
 
-const PrimaryPointDetailsTabsComponent = ({
+const ImagesPointsSwiperScreenComponent = ({
   navigation,
   route,
   theme,
@@ -27,8 +27,8 @@ const PrimaryPointDetailsTabsComponent = ({
         showsPagination={false}
         index={initialIndex}>
         {authState.isLoggedIn
-          ? points.map((p) => <LoggedInDetailsScreen key={p} pointID={p} />)
-          : points.map((p) => <LoggedOutDetailsScreen key={p} pointID={p} />)}
+          ? points.map((p) => <LoggedInImageScreen key={p} pointID={p} />)
+          : points.map((p) => <LoggedOutImageScreen key={p} pointID={p} />)}
       </Swiper>
     </ThemeProvider>
   )
@@ -42,6 +42,6 @@ const mapStateToProps = ({ theme, authState, userImages }) => {
   }
 }
 
-export const PrimaryPointDetailsTabs = connect(mapStateToProps)(
-  PrimaryPointDetailsTabsComponent,
+export const ImagesPointsSwiperScreen = connect(mapStateToProps)(
+  ImagesPointsSwiperScreenComponent,
 )

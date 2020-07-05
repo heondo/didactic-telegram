@@ -11,17 +11,16 @@ import {
   EmptySpace,
   ProfileImage,
   TransparentButton,
-} from '../atoms'
-import { firebaseService } from '../../services'
-import { toggleTheme } from '../../state/theme/slice'
-import { startAuthLoading, thunkLogout } from '../../state/auth/slice'
-import { LoadingOverlay } from '../molecules'
+} from '../../atoms'
+import { firebaseService } from '../../../services'
+import { toggleTheme } from '../../../state/theme/slice'
+import { startAuthLoading, thunkLogout } from '../../../state/auth/slice'
+import { LoadingOverlay } from '../../molecules'
 
 const SettingsListScreenComponent = ({
   navigation,
   theme,
   authState,
-  userImages,
   toggleTheme,
   startAuthLoading,
 }) => {
@@ -55,7 +54,7 @@ const SettingsListScreenComponent = ({
         ) : null}
         <View height="50%">
           <ImageAbsolute
-            source={require('../../shared/images/backdrop-sample.png')}
+            source={require('../../../shared/images/backdrop-sample.png')}
           />
           {authState.isLoggedIn ? (
             <>

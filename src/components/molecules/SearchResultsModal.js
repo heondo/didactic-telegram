@@ -47,13 +47,17 @@ function SearchResultsModalComponent({
           ? userImages.images[pointID].note
           : ''
       // for each pointID, i can check the userImages.images[pointID] && userImages.images[pointID]?.note.toLowerCase().indexOf(lowerInput)
-      if (
-        pointID.toLowerCase().indexOf(lowerText) !== -1 ||
-        usersPointNote.toLowerCase().indexOf(lowerText) !== -1
-      ) {
+      // user notes filter
+      if (usersPointNote.toLowerCase().indexOf(lowerText) !== -1) {
         return true
       }
-      if (pointData.english.toLowerCase().indexOf(lowerText) !== -1) {
+      // point Data filter
+      if (
+        pointID.toLowerCase().indexOf(lowerText) !== -1 ||
+        pointData.english.toLowerCase().indexOf(lowerText) !== -1 ||
+        (pointData.location &&
+          pointData.location.toLowerCase().indexOf(lowerText) !== -1)
+      ) {
         return true
       }
       return false

@@ -19,18 +19,18 @@ import {
   MatCommIcon,
   LoadingCircle,
   MatIcon,
-} from '../atoms'
+} from '../../atoms'
 import {
   BottomSheetHeader,
   BottomSheetContent,
   LoadingOverlay,
   SelectEditImageModal,
-} from '../molecules'
-import MERIDIAN_POINTS_DATA from '../../shared/data/meridianPointsData'
-import { thunkAddNote, thunkAddImage } from '../../state/userImages/slice'
-import { selectImageService } from '../../services'
+} from '../../molecules'
+import MERIDIAN_POINTS_DATA from '../../../shared/data/meridianPointsData'
+import { thunkAddNote, thunkAddImage } from '../../../state/userImages/slice'
+import { selectImageService } from '../../../services'
 
-const LoggedInDetailsScreenComponent = ({
+const LoggedInImageScreenComponent = ({
   theme,
   authState,
   userImages,
@@ -109,7 +109,7 @@ const LoggedInDetailsScreenComponent = ({
         ) : null}
         {!selectedImage && !userImageURL ? (
           <ImageAbsolute
-            source={require('../../shared/images/no-image-default.png')}
+            source={require('../../../shared/images/no-image-default.png')}
             resizeMode="contain"
           />
         ) : null}
@@ -193,10 +193,10 @@ const mapStateToProps = ({ theme, authState, userImages }) => {
   }
 }
 
-LoggedInDetailsScreenComponent.propTypes = {
+LoggedInImageScreenComponent.propTypes = {
   pointID: PropTypes.string,
 }
 
-export const LoggedInDetailsScreen = connect(mapStateToProps)(
-  LoggedInDetailsScreenComponent,
+export const LoggedInImageScreen = connect(mapStateToProps)(
+  LoggedInImageScreenComponent,
 )

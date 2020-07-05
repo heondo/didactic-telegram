@@ -51,3 +51,9 @@ export const SearchInput = styled.TextInput`
   padding: ${(props) => (props.pd ? props.pd : '0')};
   color: ${(props) => props.theme.FADED_TEXT_COLOR};
 `
+
+export const ItalicizedText = styled(Text)`
+  width: 100%;
+  text-align: right;
+  font-style: italic;
+`
