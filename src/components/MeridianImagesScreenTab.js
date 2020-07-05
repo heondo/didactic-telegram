@@ -5,15 +5,15 @@ import { connect } from 'react-redux'
 import {
   PrimaryMeridiansScreen,
   PrimaryMeridianPointsScreen,
-  PrimaryPointDetailsTabs,
+  PrimaryPointImagesTabs,
 } from './screens'
 import { MeridiansTitle } from './molecules'
 
-const HomeScreenStack = createStackNavigator()
-function HomeScreenTab({ theme, navigation }) {
+const MeridianImagesScreenStack = createStackNavigator()
+function MeridianImagesScreenTab({ theme, navigation }) {
   return (
-    <HomeScreenStack.Navigator>
-      <HomeScreenStack.Screen
+    <MeridianImagesScreenStack.Navigator>
+      <MeridianImagesScreenStack.Screen
         name="Primary Meridians List"
         component={PrimaryMeridiansScreen}
         options={{
@@ -34,7 +34,7 @@ function HomeScreenTab({ theme, navigation }) {
           headerTintColor: theme.PRIMARY_TEXT_COLOR,
         }}
       />
-      <HomeScreenStack.Screen
+      <MeridianImagesScreenStack.Screen
         name="Primary Meridian Points List"
         component={PrimaryMeridianPointsScreen}
         options={({ route }) => ({
@@ -49,14 +49,14 @@ function HomeScreenTab({ theme, navigation }) {
           headerTintColor: theme.PRIMARY_TEXT_COLOR,
         })}
       />
-      <HomeScreenStack.Screen
+      <MeridianImagesScreenStack.Screen
         name="Primary Point Details"
-        component={PrimaryPointDetailsTabs}
+        component={PrimaryPointImagesTabs}
         options={{
           headerShown: false,
         }}
       />
-    </HomeScreenStack.Navigator>
+    </MeridianImagesScreenStack.Navigator>
   )
 }
 
@@ -66,4 +66,4 @@ const mapStateToProps = ({ theme }) => {
   }
 }
 
-export default connect(mapStateToProps)(HomeScreenTab)
+export default connect(mapStateToProps)(MeridianImagesScreenTab)

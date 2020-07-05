@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import auth from '@react-native-firebase/auth'
 
 import { MatCommIcon } from './atoms'
-import HomeScreenTab from './HomeScreenTab'
+import MeridianImagesScreenTab from './MeridianImagesScreenTab'
 import SettingsScreen from './SettingsScreenTab'
 import { thunkLogin } from '../state/auth/slice'
 import BodyMapScreenTab from './BodyMapScreenTab'
@@ -51,8 +51,8 @@ function RootStackNavigator({ theme, authState }) {
           showLabel: true,
         }}>
         <Tab.Screen
-          name="Meridians"
-          component={HomeScreenTab}
+          name="Photos"
+          component={MeridianImagesScreenTab}
           options={{
             tabBarIcon: ({ focused }) => (
               <MatCommIcon

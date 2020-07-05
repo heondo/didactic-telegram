@@ -4,8 +4,8 @@ import { ThemeProvider } from 'styled-components/native'
 
 import Swiper from 'react-native-swiper'
 import PRIMARY_MERIDIANS_DATA from '../../shared/data/primaryMeridiansData'
-import { LoggedOutDetailsScreen } from './LoggedOutDetailsScreen'
-import { LoggedInDetailsScreen } from './LoggedInDetailsScreen'
+import { LoggedOutImageScreen } from './LoggedOutImageScreen'
+import { LoggedInImageScreen } from './LoggedInImageScreen'
 
 const PrimaryPointDetailsTabsComponent = ({
   navigation,
@@ -27,8 +27,8 @@ const PrimaryPointDetailsTabsComponent = ({
         showsPagination={false}
         index={initialIndex}>
         {authState.isLoggedIn
-          ? points.map((p) => <LoggedInDetailsScreen key={p} pointID={p} />)
-          : points.map((p) => <LoggedOutDetailsScreen key={p} pointID={p} />)}
+          ? points.map((p) => <LoggedInImageScreen key={p} pointID={p} />)
+          : points.map((p) => <LoggedOutImageScreen key={p} pointID={p} />)}
       </Swiper>
     </ThemeProvider>
   )
