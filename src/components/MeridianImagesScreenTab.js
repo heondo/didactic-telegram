@@ -7,7 +7,7 @@ import {
   ImagesPointsListScreen,
   ImagesPointsSwiperScreen,
 } from './screens'
-import { MeridiansTitle } from './molecules'
+import { ImagesHomeTitle } from './molecules'
 
 const MeridianImagesScreenStack = createStackNavigator()
 function MeridianImagesScreenTab({ theme, navigation }) {
@@ -18,10 +18,10 @@ function MeridianImagesScreenTab({ theme, navigation }) {
         component={ImagesHomeScreen}
         options={{
           headerTitle: (props) => (
-            <MeridiansTitle
+            <ImagesHomeTitle
               {...props}
               navigation={navigation}
-              title="Meridians"
+              title="Images"
             />
           ),
           headerShown: true,

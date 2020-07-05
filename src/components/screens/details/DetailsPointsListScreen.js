@@ -9,9 +9,9 @@ const DetailsPointsListScreenComponent = ({ navigation, theme, route }) => {
   const { points } = route.params
 
   const handlePointPress = (pointID) => {
-    // navigation.navigate('Primary Point Details', {
-    //   pointID,
-    // })
+    navigation.navigate('Details Point', {
+      pointID,
+    })
   }
   return (
     <ThemeProvider theme={theme}>

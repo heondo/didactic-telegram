@@ -13,7 +13,7 @@ import {
 } from '../atoms'
 import { SearchResultsModal } from './SearchResultsModal'
 
-const MeridiansTitleComponent = ({ theme, title, userImages, navigation }) => {
+const ImagesHomeTitleComponent = ({ theme, title, userImages, navigation }) => {
   const [searchVisible, setSearchVisible] = useState(false)
 
   const handleOpenSearch = () => {
@@ -55,8 +55,10 @@ const mapStateToProps = ({ theme, userImages }) => {
   }
 }
 
-MeridiansTitleComponent.propTypes = {
+ImagesHomeTitleComponent.propTypes = {
   title: PropTypes.string,
 }
 
-export const MeridiansTitle = connect(mapStateToProps)(MeridiansTitleComponent)
+export const ImagesHomeTitle = connect(mapStateToProps)(
+  ImagesHomeTitleComponent,
+)
