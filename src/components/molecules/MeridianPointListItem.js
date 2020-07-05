@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { Text, TransparentButton, View, Row, EmptySpace } from '../atoms'
+import { Text, TransparentButton, Row, EmptySpace } from '../atoms'
 import MERIDIAN_POINTS_DATA from '../../shared/data/meridianPointsData'
 
 function MeridianPointListItemComponent({ pointID, handlePointPress, theme }) {

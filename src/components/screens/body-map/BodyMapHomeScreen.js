@@ -2,21 +2,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 
-import {
-  SafeAreaView,
-  Text,
-  View,
-  ImageAbsolute,
-  EmptySpace,
-  ProfileImage,
-  TransparentButton,
-} from '../../atoms'
+import { SafeAreaView, Text } from '../../atoms'
 
 const BodyMapHomeScreenComponent = ({ navigation, theme }) => {
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaView>
-        <Text>Need to make a map here</Text>
+        <Text>Image Map Incoming...</Text>
       </SafeAreaView>
     </ThemeProvider>
   )

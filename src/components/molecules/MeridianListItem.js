@@ -7,7 +7,6 @@ import {
   Text,
   MeridianSquareButton,
   View,
-  ImageAbsolute,
   EmptySpace,
   HeaderText,
   Image,

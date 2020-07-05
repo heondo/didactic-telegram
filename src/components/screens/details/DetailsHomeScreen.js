@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 
-import { FlatList, Text } from '../../atoms'
+import { FlatList } from '../../atoms'
 import { MeridianListItem } from '../../molecules'
 import PRIMARY_MERIDIANS_DATA from '../../../shared/data/primaryMeridiansData'
 

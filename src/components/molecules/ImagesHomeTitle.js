@@ -8,8 +8,6 @@ import {
   EmptySpace,
   MatIcon,
   TransparentButton,
-  TextInput,
-  Text,
 } from '../atoms'
 import { SearchResultsModal } from './SearchResultsModal'
 

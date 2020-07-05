@@ -1,5 +1,3 @@
 export * from './ImagesHomeScreen'
 export * from './ImagesPointsListScreen'
 export * from './ImagesPointsSwiperScreen'
-// export * from './LoggedInImageScreen'
-// export * from './LoggedOutImageScreen'
