@@ -6,7 +6,7 @@ My dad got his accupuncture license this year and did a great at his school with
 
 ### Random Thoughts
 
-- I want to try Ionic, given they follow a more traditional MVC model. Flutter looks great too but I'd need to spend time learning Java/Kotlin.
+- I want to try Flutter because Google made it and I really liked Angular. Figuring they would use a lot of the same principles
 - Formatting on a small screen is way nicer
 - Elevation looks great
 
