@@ -6,10 +6,10 @@ import { FlatList } from '../../atoms'
 import { MeridianListItem } from '../../molecules'
 import PRIMARY_MERIDIANS_DATA from '../../../shared/data/primaryMeridiansData'
 
-const MeridianImagesHomeScreenComponent = ({ navigation, theme }) => {
+const ImagesHomeScreenComponent = ({ navigation, theme }) => {
   const handleMeridianPress = (meridianID, name, points) => {
     // navigate to the list of meridian points and pass in the meridian ID and points
-    navigation.navigate('Meridian Images Points List', {
+    navigation.navigate('Images Points List', {
       meridianID,
       name,
       points,
@@ -42,6 +42,6 @@ const mapStateToProps = ({ theme }) => {
   }
 }
 
-export const MeridianImagesHomeScreen = connect(mapStateToProps)(
-  MeridianImagesHomeScreenComponent,
+export const ImagesHomeScreen = connect(mapStateToProps)(
+  ImagesHomeScreenComponent,
 )

@@ -25,7 +25,7 @@ const MeridiansTitleComponent = ({ theme, title, userImages, navigation }) => {
   }
 
   const goToPoint = (pointID) => {
-    navigation.navigate('Primary Point Details', {
+    navigation.navigate('Images Points Swiper', {
       pointID,
     })
   }

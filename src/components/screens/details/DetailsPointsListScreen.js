@@ -5,11 +5,7 @@ import { ThemeProvider } from 'styled-components'
 import { FlatList } from '../../atoms'
 import { MeridianPointListItem } from '../../molecules'
 
-const MeridianDetailsPointsListScreenComponent = ({
-  navigation,
-  theme,
-  route,
-}) => {
+const DetailsPointsListScreenComponent = ({ navigation, theme, route }) => {
   const { points } = route.params
 
   const handlePointPress = (pointID) => {
@@ -38,6 +34,6 @@ const mapStateToProps = ({ theme }) => {
   }
 }
 
-export const MeridianDetailsPointsListScreen = connect(mapStateToProps)(
-  MeridianDetailsPointsListScreenComponent,
+export const DetailsPointsListScreen = connect(mapStateToProps)(
+  DetailsPointsListScreenComponent,
 )

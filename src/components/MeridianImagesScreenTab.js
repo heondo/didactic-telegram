@@ -3,9 +3,9 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { connect } from 'react-redux'
 
 import {
-  MeridianImagesHomeScreen,
-  MeridianImagesPointsListScreen,
-  PrimaryPointImagesTabs,
+  ImagesHomeScreen,
+  ImagesPointsListScreen,
+  ImagesPointsSwiperScreen,
 } from './screens'
 import { MeridiansTitle } from './molecules'
 
@@ -14,8 +14,8 @@ function MeridianImagesScreenTab({ theme, navigation }) {
   return (
     <MeridianImagesScreenStack.Navigator>
       <MeridianImagesScreenStack.Screen
-        name="Meridian Images Home Screen"
-        component={MeridianImagesHomeScreen}
+        name="Images Home Screen"
+        component={ImagesHomeScreen}
         options={{
           headerTitle: (props) => (
             <MeridiansTitle
@@ -35,8 +35,8 @@ function MeridianImagesScreenTab({ theme, navigation }) {
         }}
       />
       <MeridianImagesScreenStack.Screen
-        name="Meridian Images Points List"
-        component={MeridianImagesPointsListScreen}
+        name="Images Points List"
+        component={ImagesPointsListScreen}
         options={({ route }) => ({
           headerTitle: route.params.name,
           headerShown: true,
@@ -50,8 +50,8 @@ function MeridianImagesScreenTab({ theme, navigation }) {
         })}
       />
       <MeridianImagesScreenStack.Screen
-        name="Primary Point Details"
-        component={PrimaryPointImagesTabs}
+        name="Images Points Swiper"
+        component={ImagesPointsSwiperScreen}
         options={{
           headerShown: false,
         }}

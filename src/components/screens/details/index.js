@@ -1,2 +1,2 @@
-export * from './MeridianDetailsHomeScreen'
-export * from './MeridianDetailsPointsListScreen'
+export * from './DetailsHomeScreen'
+export * from './DetailsPointsListScreen'
