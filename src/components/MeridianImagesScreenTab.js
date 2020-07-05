@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import {
   MeridianImagesHomeScreen,
-  MeridianPointsListScreen,
+  MeridianImagesPointsListScreen,
   PrimaryPointImagesTabs,
 } from './screens'
 import { MeridiansTitle } from './molecules'
@@ -14,7 +14,7 @@ function MeridianImagesScreenTab({ theme, navigation }) {
   return (
     <MeridianImagesScreenStack.Navigator>
       <MeridianImagesScreenStack.Screen
-        name="Primary Meridians List"
+        name="Meridian Images Home Screen"
         component={MeridianImagesHomeScreen}
         options={{
           headerTitle: (props) => (
@@ -35,8 +35,8 @@ function MeridianImagesScreenTab({ theme, navigation }) {
         }}
       />
       <MeridianImagesScreenStack.Screen
-        name="Primary Meridian Points List"
-        component={MeridianPointsListScreen}
+        name="Meridian Images Points List"
+        component={MeridianImagesPointsListScreen}
         options={({ route }) => ({
           headerTitle: route.params.name,
           headerShown: true,

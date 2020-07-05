@@ -9,7 +9,7 @@ import PRIMARY_MERIDIANS_DATA from '../../../shared/data/primaryMeridiansData'
 const MeridianImagesHomeScreenComponent = ({ navigation, theme }) => {
   const handleMeridianPress = (meridianID, name, points) => {
     // navigate to the list of meridian points and pass in the meridian ID and points
-    navigation.navigate('Primary Meridian Points List', {
+    navigation.navigate('Meridian Images Points List', {
       meridianID,
       name,
       points,

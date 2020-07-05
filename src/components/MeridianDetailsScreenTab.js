@@ -2,7 +2,10 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { connect } from 'react-redux'
 
-import { MeridianDetailsHomeScreen } from './screens'
+import {
+  MeridianDetailsHomeScreen,
+  MeridianDetailsPointsListScreen,
+} from './screens'
 
 const MeridianDetailsHomeScreenStack = createStackNavigator()
 
@@ -23,6 +26,21 @@ function BodyMapScreenTab({ theme, navigation }) {
           },
           headerTintColor: theme.PRIMARY_TEXT_COLOR,
         }}
+      />
+      <MeridianDetailsHomeScreenStack.Screen
+        name="Meridian Details Points List"
+        component={MeridianDetailsPointsListScreen}
+        options={({ route }) => ({
+          headerTitle: route.params.name,
+          headerShown: true,
+          headerStyle: {
+            backgroundColor: theme.PRIMARY_BACKGROUND_COLOR,
+          },
+          headerTitleStyle: {
+            color: theme.PRIMARY_TEXT_COLOR,
+          },
+          headerTintColor: theme.PRIMARY_TEXT_COLOR,
+        })}
       />
     </MeridianDetailsHomeScreenStack.Navigator>
   )

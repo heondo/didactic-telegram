@@ -1,5 +1,5 @@
 export * from './MeridianImagesHomeScreen'
-export * from './MeridianPointsListScreen'
+export * from './MeridianImagesPointsListScreen'
 export * from './PrimaryPointImagesTabs'
 // export * from './LoggedInImageScreen'
 // export * from './LoggedOutImageScreen'
