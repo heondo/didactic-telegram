@@ -20,16 +20,17 @@ My dad got his accupuncture license this year and did great at his school with t
 
 ### Todos
 
+- Remove bottom modal for the images screen. Add navigation to the matching details page for the point
+- Move search component from photos title bar into its own component
+- Get new location, effect, color data and combine with existing format
 - Different color for each point, toggle to switch view of meridian group, color. Rotate the image?
 - Component with an image. Position of various meridian points on the image. Overlay a set of annotations on the image based on coordinates..
 - Plan heaviliy ^ (no 3D because that doesn't seem to be supported well in RN)
 - Refix settings page and figure out the sign out button positioning
-- ~Add search bar to search (user notes, location, accupuncture point names)?~
+- ~Add search bar to title bar (user notes, location, accupuncture point names)?~
 - ~How to implement search algorithm because the data is a little spread out.~
-- ~Figure out why loading large tab screens take so long and how to work around that (switch to swiper)~
+- ~Figure out why loading large tab screens take so long and how to work around that~ (switch to swiper)
 - ~Create information modal or drawer for each point (drawer instead)~
-- ~Add loading message for different redux states~
-- ~Add loading message for different redux states~
 - ~Add loading message for different redux states~
 - ~Add note feature for the points~
 - ~Limit file size for image upload~
@@ -39,9 +40,13 @@ My dad got his accupuncture license this year and did great at his school with t
 
 ### Progress
 
+##### Week 4
+
+- Rename files and components for clarity and consistency
+- Create separate screen for details, swipers screen etc.
+
 ##### Week 3
 
-- Rendering a modal in the React Navigation Header causes issues whether it be covering the screen, not registering touches or swipes if I don't cover, etc.
 - Creating a full screen modal for the search, should be easier to manage
 - Tweak search bar, not as important, but figure out which fields of data to search then how to search it
 - Keep tweaking my personal website because responsiveness is terrible, I think it should be okay
