@@ -17,7 +17,7 @@ function SearchResultsListItemComponent({
   userImages,
 }) {
   const usersPointNote =
-    userImages.images[pointID] && userImages.images[pointID].note
+    userImages.images && userImages.images[pointID]
       ? userImages.images[pointID].note
       : ''
 

@@ -9,7 +9,6 @@ import {
   Row,
   SearchInput,
   MatIcon,
-  Text,
   TransparentButton,
   EmptySpace,
 } from '../../atoms'
@@ -37,7 +36,7 @@ const SearchHomeScreenComponent = ({ navigation, theme, userImages }) => {
     meridianPointsArray.filter((entry) => {
       const [pointID, pointData] = entry
       const usersPointNote =
-        userImages.images[pointID] && userImages.images[pointID].note
+        userImages.images && userImages.images[pointID]
           ? userImages.images[pointID].note
           : ''
       // for each pointID, i can check the userImages.images[pointID] && userImages.images[pointID]?.note.toLowerCase().indexOf(lowerInput)

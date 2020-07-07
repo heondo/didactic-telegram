@@ -67,7 +67,7 @@ const userImagesSlice = createSlice({
     setImagesNull: (state, action) => {
       return {
         ...state,
-        images: {},
+        images: null,
       }
     },
   },
