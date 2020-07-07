@@ -42,6 +42,7 @@ My dad got his accupuncture license this year and did great at his school with t
 
 ##### Week 4
 
+- Was going to move the submit note button away from on top of the text input for user experience but it doesn't change anything. Clicks don't register when a text input is focused
 - Rename files and components for clarity and consistency
 - Create separate screen for details, swipers screen etc.
 

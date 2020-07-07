@@ -13,10 +13,8 @@ import {
 function SearchResultsListItemComponent({
   theme,
   pointID,
-  goToPoint,
   pointData,
   userImages,
-  handleCloseSearch,
 }) {
   const usersPointNote =
     userImages.images[pointID] && userImages.images[pointID].note
@@ -26,14 +24,9 @@ function SearchResultsListItemComponent({
   // when i go to the  Primary Point Details, I need to send a pointID and then also,
   // the matching points for the primaryMeridiansData
 
-  const handleSearchItemPress = () => {
-    handleCloseSearch()
-    goToPoint(pointID)
-  }
-
   return (
     <ThemeProvider theme={theme}>
-      <TransparentButton onPress={handleSearchItemPress} pd="0" mg="4px 0">
+      <TransparentButton pd="0" mg="4px 0">
         <Row>
           <Text fontSize="28px">{pointID}</Text>
           <SearchDetailsContainer>

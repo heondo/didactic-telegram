@@ -5,12 +5,13 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import PropTypes from 'prop-types'
 import auth from '@react-native-firebase/auth'
 
-import { MatCommIcon } from './atoms'
+import { MatCommIcon, MatIcon } from './atoms'
 import { thunkLogin } from '../state/auth/slice'
 import MeridianImagesScreenTab from './MeridianImagesScreenTab'
 import SettingsScreenTab from './SettingsScreenTab'
 import BodyMapScreenTab from './BodyMapScreenTab'
 import MeridianDetailsScreenTab from './MeridianDetailsScreenTab'
+import SearchScreenTab from './SearchScreenTab'
 
 const Tab = createBottomTabNavigator()
 
@@ -71,6 +72,19 @@ function RootStackNavigator({ theme, authState }) {
             tabBarIcon: ({ focused }) => (
               <MatCommIcon
                 name="book-open-outline"
+                color={focused ? theme.WHITE : theme.GREY}
+                size={25}
+              />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Search"
+          component={SearchScreenTab}
+          options={{
+            tabBarIcon: ({ focused }) => (
+              <MatIcon
+                name="search"
                 color={focused ? theme.WHITE : theme.GREY}
                 size={25}
               />

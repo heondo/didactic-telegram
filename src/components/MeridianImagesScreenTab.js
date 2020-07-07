@@ -7,7 +7,6 @@ import {
   ImagesPointsListScreen,
   ImagesPointsSwiperScreen,
 } from './screens'
-import { ImagesHomeTitle } from './molecules'
 
 const MeridianImagesScreenStack = createStackNavigator()
 function MeridianImagesScreenTab({ theme, navigation }) {
@@ -17,13 +16,7 @@ function MeridianImagesScreenTab({ theme, navigation }) {
         name="Images Home Screen"
         component={ImagesHomeScreen}
         options={{
-          headerTitle: (props) => (
-            <ImagesHomeTitle
-              {...props}
-              navigation={navigation}
-              title="Photos"
-            />
-          ),
+          headerTitle: 'Images',
           headerShown: true,
           headerStyle: {
             backgroundColor: theme.PRIMARY_BACKGROUND_COLOR,
