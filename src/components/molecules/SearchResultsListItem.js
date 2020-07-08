@@ -42,7 +42,7 @@ function SearchResultsListItemComponent({
 
   return (
     <ThemeProvider theme={theme}>
-      <TransparentButton onPress={handleItemPress} pd="0" mg="6px 0">
+      <TransparentButton onPress={handleItemPress} pd="6px 4px" mg="0 0 6px 0">
         <Row mg="0 0 6px 0">
           <Text fontSize="22px">{pointData.english}</Text>
           <EmptySpace />
