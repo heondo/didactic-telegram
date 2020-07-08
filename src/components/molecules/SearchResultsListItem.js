@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
 import {
   Text,
-  ItalicizedText,
+  SearchNoteText,
   Row,
   SearchDetailsContainer,
   TransparentButton,
+  EmptySpace,
 } from '../atoms'
 
 function SearchResultsListItemComponent({
@@ -16,10 +17,13 @@ function SearchResultsListItemComponent({
   pointData,
   userImages,
 }) {
-  const usersPointNote =
+  const [usersPointNote, setUsersPointNote] = useState('')
+
+  useEffect(() => {
     userImages.images && userImages.images[pointID]
-      ? userImages.images[pointID].note
-      : ''
+      ? setUsersPointNote(userImages.images[pointID].note)
+      : null
+  }, [pointID, userImages.images])
 
   // when i go to the  Primary Point Details, I need to send a pointID and then also,
   // the matching points for the primaryMeridiansData
@@ -27,14 +31,16 @@ function SearchResultsListItemComponent({
   return (
     <ThemeProvider theme={theme}>
       <TransparentButton pd="0" mg="4px 0">
+        <Row mg="4px 0">
+          <Text fontSize="22px">{pointData.english}</Text>
+          <EmptySpace />
+          <Text fontSize="20px">{pointID}</Text>
+        </Row>
         <Row>
-          <Text fontSize="28px">{pointID}</Text>
-          <SearchDetailsContainer>
-            <Text fontSize="16px">{pointData.english}</Text>
-            <ItalicizedText numberOfLines={2} fontSize="14px">
-              {usersPointNote}
-            </ItalicizedText>
-          </SearchDetailsContainer>
+          <SearchNoteText numberOfLines={2} fontSize="14px">
+            Note: {usersPointNote}
+          </SearchNoteText>
+          <EmptySpace />
         </Row>
       </TransparentButton>
     </ThemeProvider>

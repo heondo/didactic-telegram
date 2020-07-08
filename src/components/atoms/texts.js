@@ -54,6 +54,9 @@ export const SearchInput = styled.TextInput`
 
 export const ItalicizedText = styled(Text)`
   width: 100%;
-  text-align: right;
   font-style: italic;
+`
+
+export const SearchNoteText = styled(ItalicizedText)`
+  text-align: left;
 `

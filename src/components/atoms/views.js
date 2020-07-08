@@ -66,9 +66,7 @@ export const BottomHeaderContainer = styled(BottomContentContainer)`
 `
 
 export const SearchDetailsContainer = styled(View)`
-  align-items: flex-end;
-  width: auto;
-  flex-grow: 1;
+  /* align-items: flex-start; */
 `
 
 export const OverLay = styled(View)`
