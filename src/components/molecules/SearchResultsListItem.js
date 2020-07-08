@@ -6,16 +6,18 @@ import {
   Text,
   SearchNoteText,
   Row,
-  SearchDetailsContainer,
   TransparentButton,
   EmptySpace,
+  SearchItemBottomBorder,
+  MatIcon,
+  Button,
 } from '../atoms'
 
 function SearchResultsListItemComponent({
-  theme,
   pointID,
   pointData,
   userImages,
+  theme,
 }) {
   const [usersPointNote, setUsersPointNote] = useState('')
 
@@ -30,8 +32,8 @@ function SearchResultsListItemComponent({
 
   return (
     <ThemeProvider theme={theme}>
-      <TransparentButton pd="0" mg="4px 0">
-        <Row mg="4px 0">
+      <TransparentButton pd="0" mg="6px 0">
+        <Row mg="0 0 6px 0">
           <Text fontSize="22px">{pointData.english}</Text>
           <EmptySpace />
           <Text fontSize="20px">{pointID}</Text>
@@ -41,8 +43,17 @@ function SearchResultsListItemComponent({
             Note: {usersPointNote}
           </SearchNoteText>
           <EmptySpace />
+          <Button width="auto" pd="2px 4px" mg="0" elevation="6">
+            <Row width="auto">
+              <MatIcon name="info" size={16} />
+              <Text fontSize="16px" mg="0 0 0 8px">
+                Details
+              </Text>
+            </Row>
+          </Button>
         </Row>
       </TransparentButton>
+      <SearchItemBottomBorder />
     </ThemeProvider>
   )
 }

@@ -58,5 +58,6 @@ export const ItalicizedText = styled(Text)`
 `
 
 export const SearchNoteText = styled(ItalicizedText)`
+  width: auto;
   text-align: left;
 `

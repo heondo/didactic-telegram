@@ -37,7 +37,6 @@ const LoggedInImageScreenComponent = ({
   pointID,
 }) => {
   const dispatch = useDispatch()
-  const pointData = MERIDIAN_POINTS_DATA[pointID]
   let bottomSheetRef = createRef()
 
   const userImageURL =
@@ -50,6 +49,7 @@ const LoggedInImageScreenComponent = ({
       ? userImages.images[pointID].note
       : ''
 
+  const [pointData, setPointData] = useState(MERIDIAN_POINTS_DATA[pointID])
   const [noteInput, setNoteInput] = useState(userNote)
   const [isNoteLoading, setNoteLoading] = useState(false)
   const [selectedImage, setSelectedImage] = useState(null)

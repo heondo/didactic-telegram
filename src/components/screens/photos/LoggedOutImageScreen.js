@@ -1,4 +1,4 @@
-import React, { createRef } from 'react'
+import React, { createRef, useState } from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
@@ -18,7 +18,7 @@ import { BottomSheetContent, BottomSheetHeader } from '../../molecules'
 import MERIDIAN_POINTS_DATA from '../../../shared/data/meridianPointsData'
 
 const LoggedOutImageScreenComponent = ({ theme, pointID }) => {
-  const pointData = MERIDIAN_POINTS_DATA[pointID]
+  const [pointData, setPointData] = useState(MERIDIAN_POINTS_DATA[pointID])
   let bottomSheetRef = createRef()
 
   const onHeaderPress = () => {
