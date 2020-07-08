@@ -18,6 +18,8 @@ function SearchResultsListItemComponent({
   pointData,
   userImages,
   theme,
+  goToDetailsScreen,
+  goToImagesScreen,
 }) {
   const [usersPointNote, setUsersPointNote] = useState('')
 
@@ -30,9 +32,17 @@ function SearchResultsListItemComponent({
   // when i go to the  Primary Point Details, I need to send a pointID and then also,
   // the matching points for the primaryMeridiansData
 
+  const handleItemPress = () => {
+    goToImagesScreen(pointID)
+  }
+
+  const handleDetailsPress = () => {
+    goToDetailsScreen(pointID)
+  }
+
   return (
     <ThemeProvider theme={theme}>
-      <TransparentButton pd="0" mg="6px 0">
+      <TransparentButton onPress={handleItemPress} pd="0" mg="6px 0">
         <Row mg="0 0 6px 0">
           <Text fontSize="22px">{pointData.english}</Text>
           <EmptySpace />
@@ -43,7 +53,12 @@ function SearchResultsListItemComponent({
             Note: {usersPointNote}
           </SearchNoteText>
           <EmptySpace />
-          <Button width="auto" pd="2px 4px" mg="0" elevation="6">
+          <Button
+            onPress={handleDetailsPress}
+            width="auto"
+            pd="2px 4px"
+            mg="0"
+            elevation="6">
             <Row width="auto">
               <MatIcon name="info" size={16} />
               <Text fontSize="16px" mg="0 0 0 8px">
@@ -68,8 +83,8 @@ const mapStateToProps = ({ theme, userImages }) => {
 SearchResultsListItemComponent.propTypes = {
   pointID: PropTypes.string,
   pointData: PropTypes.object,
-  goToPoint: PropTypes.func,
-  handleCloseSearch: PropTypes.func,
+  goToDetailsScreen: PropTypes.func,
+  goToImagesScreen: PropTypes.func,
 }
 
 export const SearchResultsListItem = connect(mapStateToProps)(

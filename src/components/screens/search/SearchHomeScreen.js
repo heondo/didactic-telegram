@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
+import { CommonActions } from '@react-navigation/native'
 
 import {
   FlatList,
@@ -30,6 +31,26 @@ const SearchHomeScreenComponent = ({ navigation, theme, userImages }) => {
     const filteredResults = filterPoints(lowerInput)
     setSearchResults(filteredResults)
     setSearchText(text)
+  }
+
+  const goToImagesScreen = (pointID) => {
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 0,
+        routes: [{ name: 'Photos' }],
+      }),
+    )
+    navigation.navigate('Images Points Swiper', { pointID })
+  }
+
+  const goToDetailsScreen = (pointID) => {
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 1,
+        routes: [{ name: 'Details' }],
+      }),
+    )
+    navigation.navigate('Details Points Swiper', { pointID })
   }
 
   const filterPoints = (lowerText) =>
@@ -78,7 +99,12 @@ const SearchHomeScreenComponent = ({ navigation, theme, userImages }) => {
         <FlatList
           data={searchResults}
           renderItem={({ item }) => (
-            <SearchResultsListItem pointID={item[0]} pointData={item[1]} />
+            <SearchResultsListItem
+              pointID={item[0]}
+              pointData={item[1]}
+              goToImagesScreen={goToImagesScreen}
+              goToDetailsScreen={goToDetailsScreen}
+            />
           )}
           keyExtractor={(item) => item[0]}
         />
