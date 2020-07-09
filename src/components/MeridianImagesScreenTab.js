@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { connect } from 'react-redux'
 
@@ -9,9 +9,10 @@ import {
 } from './screens'
 
 const MeridianImagesScreenStack = createStackNavigator()
+
 function MeridianImagesScreenTab({ theme, navigation }) {
   return (
-    <MeridianImagesScreenStack.Navigator>
+    <MeridianImagesScreenStack.Navigator initialRouteName="Images">
       <MeridianImagesScreenStack.Screen
         name="Images Home Screen"
         component={ImagesHomeScreen}

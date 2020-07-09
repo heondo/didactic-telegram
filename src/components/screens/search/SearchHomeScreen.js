@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
-import { CommonActions } from '@react-navigation/native'
+import { CommonActions, StackActions } from '@react-navigation/native'
 
 import {
   FlatList,
@@ -34,22 +34,19 @@ const SearchHomeScreenComponent = ({ navigation, theme, userImages }) => {
   }
 
   const goToImagesScreen = (pointID) => {
-    navigation.dispatch(
-      CommonActions.reset({
-        index: 0,
-        routes: [{ name: 'Photos' }],
-      }),
-    )
-    navigation.navigate('Images Points Swiper', { pointID })
+    // navigation.dispatch(
+    //   StackActions.replace('Images Points Swiper', {
+    //     pointID,
+    //   }),
+    // )
+    navigation.navigate('Images Home Screen')
+    navigation.navigate('Images Points Swiper', {
+      pointID,
+    })
   }
 
   const goToDetailsScreen = (pointID) => {
-    navigation.dispatch(
-      CommonActions.reset({
-        index: 1,
-        routes: [{ name: 'Details' }],
-      }),
-    )
+    navigation.navigate('Details Home Screen')
     navigation.navigate('Details Points Swiper', { pointID })
   }
 
