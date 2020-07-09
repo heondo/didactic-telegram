@@ -53,6 +53,25 @@ function SearchResultsListItemComponent({
             Note: {usersPointNote}
           </SearchNoteText>
           <EmptySpace />
+          {/* <Button
+            onPress={handleDetailsPress}
+            width="auto"
+            pd="2px 4px"
+            mg="0"
+            elevation="6">
+            <Row width="auto">
+              <MatIcon name="info" size={16} />
+              <Text fontSize="16px" mg="0 0 0 8px">
+                Details
+              </Text>
+            </Row>
+          </Button> */}
+        </Row>
+        <Row>
+          <SearchNoteText numberOfLines={2} fontSize="14px">
+            Location: {pointData.location}
+          </SearchNoteText>
+          <EmptySpace />
           <Button
             onPress={handleDetailsPress}
             width="auto"

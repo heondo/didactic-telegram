@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components/native'
 
@@ -13,10 +13,16 @@ const DetailsPointsSwiperScreenComponent = ({
   authState,
 }) => {
   const { pointID } = route.params
-  const points = PRIMARY_MERIDIANS_DATA.filter(
-    (m) => m.meridianID === pointID.split('-')[0],
-  )[0].points
-  const initialIndex = parseInt(pointID.split('-')[1], 0) - 1
+  const [points, setPoints] = useState([])
+  const [initialIndex, setInitialIndex] = useState(0)
+
+  useEffect(() => {
+    setInitialIndex(parseInt(pointID.split('-')[1], 0) - 1)
+    const pointsArray = PRIMARY_MERIDIANS_DATA.filter(
+      (m) => m.meridianID === pointID.split('-')[0],
+    )[0].points
+    setPoints(pointsArray)
+  }, [pointID])
 
   return (
     <ThemeProvider theme={theme}>
