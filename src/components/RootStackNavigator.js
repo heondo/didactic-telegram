@@ -7,10 +7,10 @@ import auth from '@react-native-firebase/auth'
 
 import { MatCommIcon, MatIcon } from './atoms'
 import { thunkLogin } from '../state/auth/slice'
-import MeridianImagesScreenTab from './MeridianImagesScreenTab'
+import PhotosScreenTab from './PhotosScreenTab'
 import SettingsScreenTab from './SettingsScreenTab'
 import BodyMapScreenTab from './BodyMapScreenTab'
-import MeridianDetailsScreenTab from './MeridianDetailsScreenTab'
+import DetailsScreenTab from './DetailsScreenTab'
 import SearchScreenTab from './SearchScreenTab'
 
 const Tab = createBottomTabNavigator()
@@ -54,7 +54,7 @@ function RootStackNavigator({ theme, authState }) {
         }}>
         <Tab.Screen
           name="Photos"
-          component={MeridianImagesScreenTab}
+          component={PhotosScreenTab}
           options={{
             tabBarIcon: ({ focused }) => (
               <MatCommIcon
@@ -67,7 +67,7 @@ function RootStackNavigator({ theme, authState }) {
         />
         <Tab.Screen
           name="Details"
-          component={MeridianDetailsScreenTab}
+          component={DetailsScreenTab}
           options={{
             tabBarIcon: ({ focused }) => (
               <MatCommIcon

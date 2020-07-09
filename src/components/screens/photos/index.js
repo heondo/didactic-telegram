@@ -1,3 +1,3 @@
-export * from './ImagesHomeScreen'
-export * from './ImagesPointsListScreen'
-export * from './ImagesPointsSwiperScreen'
+export * from './PhotosHomeScreen'
+export * from './PhotosPointsListScreen'
+export * from './PhotosPointsSwiperScreen'

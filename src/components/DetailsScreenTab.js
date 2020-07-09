@@ -8,12 +8,12 @@ import {
   DetailsPointsSwiperScreen,
 } from './screens'
 
-const MeridianDetailsHomeScreenStack = createStackNavigator()
+const DetailsHomeScreenStack = createStackNavigator()
 
 function BodyMapScreenTab({ theme, navigation }) {
   return (
-    <MeridianDetailsHomeScreenStack.Navigator>
-      <MeridianDetailsHomeScreenStack.Screen
+    <DetailsHomeScreenStack.Navigator initialRouteName="Details Home Screen">
+      <DetailsHomeScreenStack.Screen
         name="Details Home Screen"
         component={DetailsHomeScreen}
         options={{
@@ -28,7 +28,7 @@ function BodyMapScreenTab({ theme, navigation }) {
           headerTintColor: theme.PRIMARY_TEXT_COLOR,
         }}
       />
-      <MeridianDetailsHomeScreenStack.Screen
+      <DetailsHomeScreenStack.Screen
         name="Details Points List"
         component={DetailsPointsListScreen}
         options={({ route }) => ({
@@ -43,7 +43,7 @@ function BodyMapScreenTab({ theme, navigation }) {
           headerTintColor: theme.PRIMARY_TEXT_COLOR,
         })}
       />
-      <MeridianDetailsHomeScreenStack.Screen
+      <DetailsHomeScreenStack.Screen
         name="Details Points Swiper"
         component={DetailsPointsSwiperScreen}
         options={({ route }) => ({
@@ -58,7 +58,7 @@ function BodyMapScreenTab({ theme, navigation }) {
           headerTintColor: theme.PRIMARY_TEXT_COLOR,
         })}
       />
-    </MeridianDetailsHomeScreenStack.Navigator>
+    </DetailsHomeScreenStack.Navigator>
   )
 }
 

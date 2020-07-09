@@ -34,13 +34,8 @@ const SearchHomeScreenComponent = ({ navigation, theme, userImages }) => {
   }
 
   const goToImagesScreen = (pointID) => {
-    // navigation.dispatch(
-    //   StackActions.replace('Images Points Swiper', {
-    //     pointID,
-    //   }),
-    // )
-    navigation.navigate('Images Home Screen')
-    navigation.navigate('Images Points Swiper', {
+    navigation.navigate('Photos Home Screen')
+    navigation.navigate('Photos Points Swiper', {
       pointID,
     })
   }

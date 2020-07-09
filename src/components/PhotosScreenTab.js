@@ -3,21 +3,21 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { connect } from 'react-redux'
 
 import {
-  ImagesHomeScreen,
-  ImagesPointsListScreen,
-  ImagesPointsSwiperScreen,
+  PhotosHomeScreen,
+  PhotosPointsListScreen,
+  PhotosPointsSwiperScreen,
 } from './screens'
 
-const MeridianImagesScreenStack = createStackNavigator()
+const PhotosScreenStack = createStackNavigator()
 
-function MeridianImagesScreenTab({ theme, navigation }) {
+function PhotosScreenTab({ theme, navigation }) {
   return (
-    <MeridianImagesScreenStack.Navigator initialRouteName="Images">
-      <MeridianImagesScreenStack.Screen
-        name="Images Home Screen"
-        component={ImagesHomeScreen}
+    <PhotosScreenStack.Navigator initialRouteName="Photos Home Screen">
+      <PhotosScreenStack.Screen
+        name="Photos Home Screen"
+        component={PhotosHomeScreen}
         options={{
-          headerTitle: 'Images',
+          headerTitle: 'Photos',
           headerShown: true,
           headerStyle: {
             backgroundColor: theme.PRIMARY_BACKGROUND_COLOR,
@@ -28,9 +28,9 @@ function MeridianImagesScreenTab({ theme, navigation }) {
           headerTintColor: theme.PRIMARY_TEXT_COLOR,
         }}
       />
-      <MeridianImagesScreenStack.Screen
-        name="Images Points List"
-        component={ImagesPointsListScreen}
+      <PhotosScreenStack.Screen
+        name="Photos Points List"
+        component={PhotosPointsListScreen}
         options={({ route }) => ({
           headerTitle: route.params.name,
           headerShown: true,
@@ -43,14 +43,14 @@ function MeridianImagesScreenTab({ theme, navigation }) {
           headerTintColor: theme.PRIMARY_TEXT_COLOR,
         })}
       />
-      <MeridianImagesScreenStack.Screen
-        name="Images Points Swiper"
-        component={ImagesPointsSwiperScreen}
+      <PhotosScreenStack.Screen
+        name="Photos Points Swiper"
+        component={PhotosPointsSwiperScreen}
         options={{
           headerShown: false,
         }}
       />
-    </MeridianImagesScreenStack.Navigator>
+    </PhotosScreenStack.Navigator>
   )
 }
 
@@ -60,4 +60,4 @@ const mapStateToProps = ({ theme }) => {
   }
 }
 
-export default connect(mapStateToProps)(MeridianImagesScreenTab)
+export default connect(mapStateToProps)(PhotosScreenTab)
