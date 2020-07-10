@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
-import { CommonActions, StackActions } from '@react-navigation/native'
 
 import {
   FlatList,
@@ -35,9 +34,7 @@ const SearchHomeScreenComponent = ({ navigation, theme, userImages }) => {
 
   const goToImagesScreen = (pointID) => {
     navigation.navigate('Photos Home Screen')
-    navigation.navigate('Photos Points Swiper', {
-      pointID,
-    })
+    navigation.navigate('Photos Points Swiper', { pointID })
   }
 
   const goToDetailsScreen = (pointID) => {
