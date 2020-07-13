@@ -36,7 +36,7 @@ const LoggedOutImageScreenComponent = ({ theme, pointID }) => {
           source={require('../../../shared/images/no-image-add.png')}
           resizeMode="contain"
         />
-        <Header pd="8px">
+        <Header>
           <Row>
             <HeaderText>{pointID}: </HeaderText>
             <HeaderText>{pointData.name}</HeaderText>

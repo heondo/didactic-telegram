@@ -49,7 +49,7 @@ const LoggedInImageScreenComponent = ({
       ? userImages.images[pointID].note
       : ''
 
-  const [pointData, setPointData] = useState(MERIDIAN_POINTS_DATA[pointID])
+  const pointData = MERIDIAN_POINTS_DATA[pointID]
   const [noteInput, setNoteInput] = useState(userNote)
   const [isNoteLoading, setNoteLoading] = useState(false)
   const [selectedImage, setSelectedImage] = useState(null)
@@ -113,7 +113,7 @@ const LoggedInImageScreenComponent = ({
             resizeMode="contain"
           />
         ) : null}
-        <Header pd="8px">
+        <Header>
           <Row>
             <HeaderText>{pointID}: </HeaderText>
             <HeaderText>{pointData.name}</HeaderText>

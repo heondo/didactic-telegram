@@ -13,6 +13,10 @@ export const HeaderText = styled(Text)`
   font-size: ${(props) => (props.fontSize ? props.fontSize : '28px')};
 `
 
+export const DetailsText = styled(Text)`
+  text-align: left;
+`
+
 export const ButtonText = styled(Text)`
   color: ${(props) => props.theme.PRIMARY_BUTTON_TEXT_COLOR};
 `
@@ -53,7 +57,6 @@ export const SearchInput = styled.TextInput`
 `
 
 export const ItalicizedText = styled(Text)`
-  width: 100%;
   font-style: italic;
 `
 

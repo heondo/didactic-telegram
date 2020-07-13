@@ -9,7 +9,7 @@ const PhotosPointsListScreenComponent = ({ navigation, theme, route }) => {
   const { points } = route.params
 
   const handlePointPress = (pointID) => {
-    navigation.navigate('Images Points Swiper', {
+    navigation.navigate('Photos Points Swiper', {
       pointID,
     })
   }

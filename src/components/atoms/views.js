@@ -13,19 +13,19 @@ export const SafeAreaView = styled.SafeAreaView`
 `
 
 export const View = styled.View`
-  background-color: ${(props) => props.theme.PRIMARY_BACKGROUND_COLOR};
   color: ${(props) => props.theme.PRIMARY_TEXT_COLOR};
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: ${(props) => (props.alignItems ? props.alignItems : 'center')};
   padding: ${(props) => (props.pd ? props.pd : '0')};
   margin: ${(props) => (props.mg ? props.mg : '0')};
-  width: ${(props) => (props.width ? props.width : '100%')};
+  width: ${(props) => (props.width ? props.width : 'auto')};
   height: ${(props) => (props.height ? props.height : 'auto')};
 `
 
 export const Header = styled(View)`
+  padding: 8px;
   /* background-color: ${(props) => props.theme.BOTTOM_SHEET_BACKGROUND}; */
   elevation: 4;
 `
@@ -79,6 +79,12 @@ export const OverLay = styled(View)`
 export const Row = styled(View)`
   flex-direction: row;
   background-color: transparent;
+`
+
+export const InfoBar = styled(View)`
+  flex-direction: row;
+  padding: 2px 8px;
+  background-color: ${(props) => props.theme.DETAIL_BAR_COLOR};
 `
 
 export const EmptySpace = styled.View`
