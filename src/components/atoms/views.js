@@ -81,6 +81,10 @@ export const Row = styled(View)`
   background-color: transparent;
 `
 
+// export const DetailsRow = styled(Row)`
+
+// `
+
 export const InfoBar = styled(View)`
   flex-direction: row;
   padding: 2px 8px;

@@ -3,7 +3,8 @@ import styled from 'styled-components/native'
 export const Text = styled.Text`
   color: ${(props) => props.theme.PRIMARY_TEXT_COLOR};
   font-size: ${(props) => (props.fontSize ? props.fontSize : '16px')};
-  text-align: center;
+  text-align: ${(props) => (props.textAlign ? props.textAlign : 'center')};
+  width: ${(props) => (props.width ? props.width : 'auto')};
   padding: ${(props) => (props.pd ? props.pd : '0')};
   margin: ${(props) => (props.mg ? props.mg : '0')};
 `
@@ -15,6 +16,8 @@ export const HeaderText = styled(Text)`
 
 export const DetailsText = styled(Text)`
   text-align: left;
+  flex-shrink: 1;
+  flex: 1;
 `
 
 export const ButtonText = styled(Text)`

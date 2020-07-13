@@ -48,10 +48,25 @@ const DetailsPointScreenComponent = ({ navigation, pointID, theme }) => {
             {pointData.depth}
           </Text>
         </InfoBar>
-        <View pd="6px" alignItems="flex-start">
-          <DetailsText>Location: {pointData.location}</DetailsText>
-          <DetailsText>Indications: {pointData.indications}</DetailsText>
-          <DetailsText>Actions: {pointData.actions}</DetailsText>
+        <View pd="6px">
+          <Row alignItems="flex-start">
+            <Text mg="0 4px 0 0" textAlign="left" width="22%">
+              Location:
+            </Text>
+            <DetailsText>{pointData.location}</DetailsText>
+          </Row>
+          <Row alignItems="flex-start">
+            <Text mg="0 4px 0 0" textAlign="left" width="22%">
+              Indications:
+            </Text>
+            <DetailsText>{pointData.indications}</DetailsText>
+          </Row>
+          <Row alignItems="flex-start">
+            <Text mg="0 4px 0 0" textAlign="left" width="22%">
+              Action:
+            </Text>
+            <DetailsText>{pointData.action}</DetailsText>
+          </Row>
         </View>
         <EmptySpace />
       </SafeAreaView>
