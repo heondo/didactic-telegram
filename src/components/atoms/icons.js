@@ -8,6 +8,7 @@ export const MatCommIcon = styled(MTCIcon)`
     props.color ? props.color : props.theme.PRIMARY_TEXT_COLOR};
   width: ${(props) => (props.width ? props.width : 'auto')};
   height: ${(props) => (props.height ? props.height : 'auto')};
+  margin: ${(props) => (props.mg ? props.mg : '0')};
 `
 
 export const MatIcon = styled(MIcon)`
@@ -15,6 +16,16 @@ export const MatIcon = styled(MIcon)`
     props.color ? props.color : props.theme.PRIMARY_TEXT_COLOR};
   width: ${(props) => (props.width ? props.width : 'auto')};
   height: ${(props) => (props.height ? props.height : 'auto')};
+  margin: ${(props) => (props.mg ? props.mg : '0')};
+`
+
+export const ColorCodeCircle = styled.View`
+  background-color: ${(props) => props.color};
+  margin-right: 4px;
+  border-radius: 7px;
+  border: 1px solid ${(props) => props.theme.FADED_TEXT_COLOR};
+  height: 14px;
+  width: 14px;
 `
 
 export const LoadingCircle = styled.ActivityIndicator`

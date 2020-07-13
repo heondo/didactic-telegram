@@ -91,7 +91,30 @@ const LoggedInImageScreenComponent = ({
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaView pd="0 0 8px 0" keyboardShouldPersistTaps="handled">
-        <SelectEditImageModal
+        <Header>
+          <Row>
+            <HeaderText>{pointID}: </HeaderText>
+            <HeaderText>{pointData.name}</HeaderText>
+            <EmptySpace />
+          </Row>
+        </Header>
+        <EmptySpace />
+        {imageUploading ? (
+          <LoadingOverlay loadingMessage="Uploading image and note" />
+        ) : null}
+        {selectedImage ? (
+          <ImageAbsolute source={selectedImage} resizeMode="contain" />
+        ) : null}
+        {!selectedImage && userImageURL ? (
+          <ImageAbsolute source={{ uri: userImageURL }} resizeMode="contain" />
+        ) : null}
+        {!selectedImage && !userImageURL ? (
+          <ImageAbsolute
+            source={require('../../../shared/images/no-image-default.png')}
+            resizeMode="contain"
+          />
+        ) : null}
+        {/* <SelectEditImageModal
           selectedImage={selectedImage}
           setSelectedImage={setSelectedImage}
           handleAddImagePress={handleAddImagePress}
@@ -180,7 +203,7 @@ const LoggedInImageScreenComponent = ({
           renderHeader={(props) => (
             <BottomSheetHeader {...props} onHeaderPress={onHeaderPress} />
           )}
-        />
+        /> */}
       </SafeAreaView>
     </ThemeProvider>
   )

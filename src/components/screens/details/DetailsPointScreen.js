@@ -15,6 +15,7 @@ import {
   InfoBar,
   View,
   MatCommIcon,
+  ColorCodeCircle,
 } from '../../atoms'
 import MERIDIAN_POINTS_DATA from '../../../shared/data/meridianPointsData'
 
@@ -43,6 +44,12 @@ const DetailsPointScreenComponent = ({ navigation, pointID, theme }) => {
             <ItalicizedText>{pointData.transliteration}</ItalicizedText>
           </View>
           <EmptySpace />
+          <ColorCodeCircle color={pointData.colorCode} />
+          {/* <MatCommIcon
+            name="circle"
+            mg="0 4px 0 0"
+            color={pointData.colorCode}
+          /> */}
           <MatCommIcon name="ruler-square" size={18} />
           <Text fontSize="14px" mg="0 0 0 4px">
             {pointData.depth}
