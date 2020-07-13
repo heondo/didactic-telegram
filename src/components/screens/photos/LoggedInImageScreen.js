@@ -1,8 +1,7 @@
-import React, { useState, createRef } from 'react'
+import React, { useState } from 'react'
 import { connect, useDispatch } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
-import BottomSheet from 'reanimated-bottom-sheet'
 
 import {
   SafeAreaView,
@@ -22,12 +21,7 @@ import {
   MatIcon,
   View,
 } from '../../atoms'
-import {
-  BottomSheetHeader,
-  BottomSheetContent,
-  LoadingOverlay,
-  SelectEditImageModal,
-} from '../../molecules'
+import { LoadingOverlay, SelectEditImageModal } from '../../molecules'
 import MERIDIAN_POINTS_DATA from '../../../shared/data/meridianPointsData'
 import { thunkAddNote, thunkAddImage } from '../../../state/userImages/slice'
 import { selectImageService } from '../../../services'
@@ -39,7 +33,6 @@ const LoggedInImageScreenComponent = ({
   pointID,
 }) => {
   const dispatch = useDispatch()
-  let bottomSheetRef = createRef()
 
   const userImageURL =
     userImages.images && userImages.images[pointID]
@@ -62,10 +55,6 @@ const LoggedInImageScreenComponent = ({
     dispatch(
       thunkAddNote(authState.user.uid, pointID, noteInput, setNoteLoading),
     )
-  }
-
-  const onHeaderPress = () => {
-    bottomSheetRef.current.snapTo(0)
   }
 
   const handleAddImagePress = () => {

@@ -1,8 +1,7 @@
-import React, { createRef, useState } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
-import BottomSheet from 'reanimated-bottom-sheet'
 
 import {
   SafeAreaView,
@@ -15,24 +14,14 @@ import {
   TextInput,
   NoteContainer,
 } from '../../atoms'
-import { BottomSheetContent, BottomSheetHeader } from '../../molecules'
 import MERIDIAN_POINTS_DATA from '../../../shared/data/meridianPointsData'
 
 const LoggedOutImageScreenComponent = ({ theme, pointID }) => {
   const [pointData, setPointData] = useState(MERIDIAN_POINTS_DATA[pointID])
-  let bottomSheetRef = createRef()
-
-  const onHeaderPress = () => {
-    bottomSheetRef.current.snapTo(0)
-  }
-
-  const closeBottomSheet = () => {
-    bottomSheetRef.current.snapTo(1)
-  }
 
   return (
     <ThemeProvider theme={theme}>
-      <SafeAreaView pd="0 0 8px 0" onTouchStart={closeBottomSheet}>
+      <SafeAreaView pd="0 0 8px 0">
         <Header>
           <Row>
             <HeaderText>{pointID}: </HeaderText>

@@ -90,6 +90,9 @@ const SettingsListScreenComponent = ({
             value={theme.mode !== 'light'}
           />
         </View>
+        <TransparentButton onPress={handleLogout} width="30%">
+          <Text>Sign Out</Text>
+        </TransparentButton>
       </SafeAreaView>
     </ThemeProvider>
   )
