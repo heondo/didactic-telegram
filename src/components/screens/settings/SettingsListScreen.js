@@ -52,7 +52,7 @@ const SettingsListScreenComponent = ({
         {authState.isLoading ? (
           <LoadingOverlay loadingMessage={authState.loadingMessage} />
         ) : null}
-        <View height="50%">
+        <View height="50%" width="100%">
           <ImageAbsolute
             source={require('../../../shared/images/backdrop-sample.png')}
           />
@@ -90,9 +90,6 @@ const SettingsListScreenComponent = ({
             value={theme.mode !== 'light'}
           />
         </View>
-        <TransparentButton onPress={handleLogout} width="30%">
-          <Text>Sign Out</Text>
-        </TransparentButton>
       </SafeAreaView>
     </ThemeProvider>
   )

@@ -7,8 +7,7 @@ export const Image = styled.Image`
 `
 
 export const ImageAbsolute = styled(Image)`
-  /* position: absolute; */
-  /* height: 80%; */
+  position: absolute;
 `
 
 export const ProfileImage = styled(Image)`

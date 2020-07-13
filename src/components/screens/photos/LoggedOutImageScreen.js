@@ -9,7 +9,7 @@ import {
   EmptySpace,
   Header,
   Row,
-  ImageAbsolute,
+  Image,
   View,
   TextInput,
   NoteContainer,
@@ -30,12 +30,11 @@ const LoggedOutImageScreenComponent = ({ theme, pointID }) => {
           </Row>
         </Header>
         <View width="100%" height="78%">
-          <ImageAbsolute
+          <Image
             source={require('../../../shared/images/no-image-add.png')}
             resizeMode="contain"
           />
         </View>
-
         <EmptySpace />
         <NoteContainer>
           <TextInput

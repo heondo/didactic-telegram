@@ -10,7 +10,7 @@ import {
   Header,
   Row,
   CircleIconButton,
-  ImageAbsolute,
+  Image,
   TextInput,
   NoteContainer,
   TransparentButton,
@@ -102,16 +102,13 @@ const LoggedInImageScreenComponent = ({
             <LoadingOverlay loadingMessage="Uploading image and note" />
           ) : null}
           {selectedImage ? (
-            <ImageAbsolute source={selectedImage} resizeMode="contain" />
+            <Image source={selectedImage} resizeMode="contain" />
           ) : null}
           {!selectedImage && userImageURL ? (
-            <ImageAbsolute
-              source={{ uri: userImageURL }}
-              resizeMode="contain"
-            />
+            <Image source={{ uri: userImageURL }} resizeMode="contain" />
           ) : null}
           {!selectedImage && !userImageURL ? (
-            <ImageAbsolute
+            <Image
               source={require('../../../shared/images/no-image-default.png')}
               resizeMode="contain"
             />
