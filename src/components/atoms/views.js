@@ -26,13 +26,19 @@ export const View = styled.View`
 
 export const Header = styled(View)`
   padding: 8px;
-  /* background-color: ${(props) => props.theme.BOTTOM_SHEET_BACKGROUND}; */
+  background-color: ${(props) => props.theme.BOTTOM_SHEET_BACKGROUND};
   elevation: 4;
 `
 
 export const AbsoluteView = styled(View)`
   position: absolute;
   background-color: transparent;
+`
+
+export const ImageCircleButtons = styled(AbsoluteView)`
+  flex-direction: row;
+  bottom: 0;
+  right: 0;
 `
 
 export const ModalView = styled(View)`
@@ -44,13 +50,14 @@ export const ModalView = styled(View)`
 `
 
 export const NoteContainer = styled(View)`
-  padding: 4px 4px 24px 4px;
+  padding: 8px 4px;
+  width: 100%;
 `
 
 export const SubmitNoteContainer = styled(AbsoluteView)`
   width: auto;
   right: 0px;
-  bottom: 24px;
+  bottom: 8px;
 `
 
 export const BottomContentContainer = styled(View)`

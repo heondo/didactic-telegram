@@ -11,6 +11,7 @@ import {
   Header,
   Row,
   ImageAbsolute,
+  View,
   TextInput,
   NoteContainer,
 } from '../../atoms'
@@ -32,10 +33,6 @@ const LoggedOutImageScreenComponent = ({ theme, pointID }) => {
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaView pd="0 0 8px 0" onTouchStart={closeBottomSheet}>
-        <ImageAbsolute
-          source={require('../../../shared/images/no-image-add.png')}
-          resizeMode="contain"
-        />
         <Header>
           <Row>
             <HeaderText>{pointID}: </HeaderText>
@@ -43,6 +40,13 @@ const LoggedOutImageScreenComponent = ({ theme, pointID }) => {
             <EmptySpace />
           </Row>
         </Header>
+        <View width="100%" height="78%">
+          <ImageAbsolute
+            source={require('../../../shared/images/no-image-add.png')}
+            resizeMode="contain"
+          />
+        </View>
+
         <EmptySpace />
         <NoteContainer>
           <TextInput
@@ -56,17 +60,6 @@ const LoggedOutImageScreenComponent = ({ theme, pointID }) => {
             editable={false}
           />
         </NoteContainer>
-        <BottomSheet
-          ref={bottomSheetRef}
-          initialSnap={0}
-          snapPoints={[450, 125]}
-          renderContent={(props) => (
-            <BottomSheetContent {...props} pointData={pointData} />
-          )}
-          renderHeader={(props) => (
-            <BottomSheetHeader {...props} onHeaderPress={onHeaderPress} />
-          )}
-        />
       </SafeAreaView>
     </ThemeProvider>
   )

@@ -18,7 +18,9 @@ import {
   SubmitNoteContainer,
   MatCommIcon,
   LoadingCircle,
+  ImageCircleButtons,
   MatIcon,
+  View,
 } from '../../atoms'
 import {
   BottomSheetHeader,
@@ -90,52 +92,14 @@ const LoggedInImageScreenComponent = ({
 
   return (
     <ThemeProvider theme={theme}>
-      <SafeAreaView pd="0 0 8px 0" keyboardShouldPersistTaps="handled">
-        <Header>
-          <Row>
-            <HeaderText>{pointID}: </HeaderText>
-            <HeaderText>{pointData.name}</HeaderText>
-            <EmptySpace />
-          </Row>
-        </Header>
-        <EmptySpace />
-        {imageUploading ? (
-          <LoadingOverlay loadingMessage="Uploading image and note" />
-        ) : null}
-        {selectedImage ? (
-          <ImageAbsolute source={selectedImage} resizeMode="contain" />
-        ) : null}
-        {!selectedImage && userImageURL ? (
-          <ImageAbsolute source={{ uri: userImageURL }} resizeMode="contain" />
-        ) : null}
-        {!selectedImage && !userImageURL ? (
-          <ImageAbsolute
-            source={require('../../../shared/images/no-image-default.png')}
-            resizeMode="contain"
-          />
-        ) : null}
-        {/* <SelectEditImageModal
+      <SafeAreaView pd="0" keyboardShouldPersistTaps="handled">
+        <SelectEditImageModal
           selectedImage={selectedImage}
           setSelectedImage={setSelectedImage}
           handleAddImagePress={handleAddImagePress}
           isModalVisible={isModalVisible}
           setIsModalVisible={setIsModalVisible}
         />
-        {imageUploading ? (
-          <LoadingOverlay loadingMessage="Uploading image and note" />
-        ) : null}
-        {selectedImage ? (
-          <ImageAbsolute source={selectedImage} resizeMode="contain" />
-        ) : null}
-        {!selectedImage && userImageURL ? (
-          <ImageAbsolute source={{ uri: userImageURL }} resizeMode="contain" />
-        ) : null}
-        {!selectedImage && !userImageURL ? (
-          <ImageAbsolute
-            source={require('../../../shared/images/no-image-default.png')}
-            resizeMode="contain"
-          />
-        ) : null}
         <Header>
           <Row>
             <HeaderText>{pointID}: </HeaderText>
@@ -143,31 +107,50 @@ const LoggedInImageScreenComponent = ({
             <EmptySpace />
           </Row>
         </Header>
+        {/* <EmptySpace /> */}
+        <View width="100%" height="78%">
+          {imageUploading ? (
+            <LoadingOverlay loadingMessage="Uploading image and note" />
+          ) : null}
+          {selectedImage ? (
+            <ImageAbsolute source={selectedImage} resizeMode="contain" />
+          ) : null}
+          {!selectedImage && userImageURL ? (
+            <ImageAbsolute
+              source={{ uri: userImageURL }}
+              resizeMode="contain"
+            />
+          ) : null}
+          {!selectedImage && !userImageURL ? (
+            <ImageAbsolute
+              source={require('../../../shared/images/no-image-default.png')}
+              resizeMode="contain"
+            />
+          ) : null}
+          {!selectedImage ? (
+            <ImageCircleButtons>
+              <CircleIconButton onPress={handleAddImagePress}>
+                <MatIcon name="add" size={28} />
+              </CircleIconButton>
+            </ImageCircleButtons>
+          ) : null}
+          {selectedImage ? (
+            <ImageCircleButtons>
+              <CircleIconButton onPress={handleOpenModal}>
+                <MatIcon name="edit" size={20} />
+              </CircleIconButton>
+              <CircleIconButton onPress={handleSubmitImage}>
+                <MatIcon name="cloud-upload" size={20} />
+              </CircleIconButton>
+            </ImageCircleButtons>
+          ) : null}
+        </View>
         <EmptySpace />
-        {!selectedImage ? (
-          <Row>
-            <EmptySpace />
-            <CircleIconButton onPress={handleAddImagePress}>
-              <MatIcon name="add" size={28} />
-            </CircleIconButton>
-          </Row>
-        ) : null}
-        {selectedImage ? (
-          <Row>
-            <EmptySpace />
-            <CircleIconButton onPress={handleOpenModal}>
-              <MatIcon name="edit" size={20} />
-            </CircleIconButton>
-            <CircleIconButton onPress={handleSubmitImage}>
-              <MatIcon name="cloud-upload" size={20} />
-            </CircleIconButton>
-          </Row>
-        ) : null}
         <NoteContainer>
           <TextInput
-            pd="6px 32px 6px 6px"
+            pd="6px"
             multiline={true}
-            numberOfLines={2}
+            numberOfLines={3}
             style={{ textAlignVertical: 'top' }}
             maxLength={500}
             placeholderTextColor={theme.FADED_TEXT_COLOR}
@@ -193,17 +176,6 @@ const LoggedInImageScreenComponent = ({
             </SubmitNoteContainer>
           ) : null}
         </NoteContainer>
-        <BottomSheet
-          ref={bottomSheetRef}
-          initialSnap={1}
-          snapPoints={[450, 125]}
-          renderContent={(props) => (
-            <BottomSheetContent {...props} pointData={pointData} />
-          )}
-          renderHeader={(props) => (
-            <BottomSheetHeader {...props} onHeaderPress={onHeaderPress} />
-          )}
-        /> */}
       </SafeAreaView>
     </ThemeProvider>
   )
