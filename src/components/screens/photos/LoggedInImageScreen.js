@@ -136,7 +136,8 @@ const LoggedInImageScreenComponent = ({
           <TextInput
             pd="6px"
             multiline={true}
-            numberOfLines={3}
+            maxHeight={80}
+            numberOfLines={4}
             style={{ textAlignVertical: 'top' }}
             maxLength={500}
             placeholderTextColor={theme.FADED_TEXT_COLOR}

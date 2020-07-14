@@ -69,7 +69,7 @@ const DetailsPointScreenComponent = ({ navigation, pointID, theme }) => {
             </Text>
             <DetailsText>{pointData.indications}</DetailsText>
           </Row>
-          <Row alignItems="flex-start">
+          <Row pd="0 0 12px 0" alignItems="flex-start">
             <Text mg="0 4px 0 0" textAlign="left" width="22%">
               Action:
             </Text>
