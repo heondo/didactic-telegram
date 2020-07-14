@@ -14,6 +14,7 @@ import {
   Image,
   InfoBar,
   View,
+  ScrollView,
   MatCommIcon,
   ColorCodeCircle,
 } from '../../atoms'
@@ -45,24 +46,24 @@ const DetailsPointScreenComponent = ({ navigation, pointID, theme }) => {
           </View>
           <EmptySpace />
           <ColorCodeCircle color={pointData.colorCode} />
-          {/* <MatCommIcon
-            name="circle"
-            mg="0 4px 0 0"
-            color={pointData.colorCode}
-          /> */}
           <MatCommIcon name="ruler-square" size={18} />
           <Text fontSize="14px" mg="0 0 0 4px">
             {pointData.depth}
           </Text>
         </InfoBar>
-        <View pd="6px">
+        <ScrollView
+          contentContainerStyle={{
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+          pd="6px">
           <Row alignItems="flex-start">
             <Text mg="0 4px 0 0" textAlign="left" width="22%">
               Location:
             </Text>
             <DetailsText>{pointData.location}</DetailsText>
           </Row>
-          <Row alignItems="flex-start">
+          <Row alignItems="flex-start" mg="8px 0">
             <Text mg="0 4px 0 0" textAlign="left" width="22%">
               Indications:
             </Text>
@@ -74,7 +75,7 @@ const DetailsPointScreenComponent = ({ navigation, pointID, theme }) => {
             </Text>
             <DetailsText>{pointData.action}</DetailsText>
           </Row>
-        </View>
+        </ScrollView>
         <EmptySpace />
       </SafeAreaView>
     </ThemeProvider>
