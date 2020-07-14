@@ -16,6 +16,13 @@ const DetailsPointsSwiperScreenComponent = ({
   const [points, setPoints] = useState([])
   const [initialIndex, setInitialIndex] = useState(0)
 
+  const navigateToPhotosPoint = (pointID) => {
+    navigation.navigate('Photos Home Screen')
+    navigation.navigate('Photos Points Swiper', {
+      pointID,
+    })
+  }
+
   useEffect(() => {
     setInitialIndex(parseInt(pointID.split('-')[1], 0) - 1)
     const pointsArray = PRIMARY_MERIDIANS_DATA.filter(
@@ -32,7 +39,11 @@ const DetailsPointsSwiperScreenComponent = ({
         showsPagination={false}
         index={initialIndex}>
         {points.map((p) => (
-          <DetailsPointScreen key={p} pointID={p} />
+          <DetailsPointScreen
+            key={p}
+            pointID={p}
+            navigateToPhotosPoint={navigateToPhotosPoint}
+          />
         ))}
       </Swiper>
     </ThemeProvider>

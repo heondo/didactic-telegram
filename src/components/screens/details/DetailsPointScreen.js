@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
+import PropTypes from 'prop-types'
 
 import {
   SafeAreaView,
@@ -14,14 +15,24 @@ import {
   Image,
   InfoBar,
   View,
+  TransparentButton,
   ScrollView,
   MatCommIcon,
   ColorCodeCircle,
 } from '../../atoms'
 import MERIDIAN_POINTS_DATA from '../../../shared/data/meridianPointsData'
 
-const DetailsPointScreenComponent = ({ navigation, pointID, theme }) => {
+const DetailsPointScreenComponent = ({
+  authState,
+  pointID,
+  navigateToPhotosPoint,
+  theme,
+}) => {
   const pointData = MERIDIAN_POINTS_DATA[pointID]
+
+  const handleToPhotos = () => {
+    navigateToPhotosPoint(pointID)
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -45,6 +56,11 @@ const DetailsPointScreenComponent = ({ navigation, pointID, theme }) => {
             <ItalicizedText>{pointData.transliteration}</ItalicizedText>
           </View>
           <EmptySpace />
+          {authState.isLoggedIn ? (
+            <TransparentButton onPress={handleToPhotos}>
+              <Text>To Photos</Text>
+            </TransparentButton>
+          ) : null}
           <ColorCodeCircle color={pointData.colorCode} />
           <MatCommIcon name="ruler-square" size={18} />
           <Text fontSize="14px" mg="0 0 0 4px">
@@ -81,10 +97,15 @@ const DetailsPointScreenComponent = ({ navigation, pointID, theme }) => {
     </ThemeProvider>
   )
 }
-const mapStateToProps = ({ theme }) => {
+const mapStateToProps = ({ authState, theme }) => {
   return {
+    authState,
     theme,
   }
+}
+
+DetailsPointScreenComponent.propTypes = {
+  pointID: PropTypes.string,
 }
 
 export const DetailsPointScreen = connect(mapStateToProps)(
