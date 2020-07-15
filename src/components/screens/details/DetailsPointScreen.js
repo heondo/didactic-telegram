@@ -19,6 +19,7 @@ import {
   ScrollView,
   MatCommIcon,
   ColorCodeCircle,
+  MatIcon,
 } from '../../atoms'
 import MERIDIAN_POINTS_DATA from '../../../shared/data/meridianPointsData'
 
@@ -58,7 +59,10 @@ const DetailsPointScreenComponent = ({
           <EmptySpace />
           {authState.isLoggedIn ? (
             <TransparentButton onPress={handleToPhotos}>
-              <Text>To Photos</Text>
+              <Row>
+                <MatIcon name="navigate-before" size={18} />
+                <MatIcon name="photo" size={18} />
+              </Row>
             </TransparentButton>
           ) : null}
           <ColorCodeCircle color={pointData.colorCode} />
