@@ -61,5 +61,6 @@ buck-out/
 
 src/shared/data/*
 /android/app/google-services.json
-/android/app/my-release-key.keystore
+/android/keystore.properties
+/android/my-upload-key.keystore
 environment.js
