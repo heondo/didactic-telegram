@@ -10,7 +10,7 @@ import {
 
 const DetailsHomeScreenStack = createStackNavigator()
 
-function BodyMapScreenTab({ theme, navigation }) {
+function DetailsScreenTab({ theme, navigation }) {
   return (
     <DetailsHomeScreenStack.Navigator initialRouteName="Details Home Screen">
       <DetailsHomeScreenStack.Screen
@@ -46,7 +46,7 @@ function BodyMapScreenTab({ theme, navigation }) {
       <DetailsHomeScreenStack.Screen
         name="Details Points Swiper"
         component={DetailsPointsSwiperScreen}
-        options={({ route }) => ({
+        options={{
           headerShown: false,
           headerStyle: {
             backgroundColor: theme.PRIMARY_BACKGROUND_COLOR,
@@ -55,7 +55,7 @@ function BodyMapScreenTab({ theme, navigation }) {
             color: theme.PRIMARY_TEXT_COLOR,
           },
           headerTintColor: theme.PRIMARY_TEXT_COLOR,
-        })}
+        }}
       />
     </DetailsHomeScreenStack.Navigator>
   )
@@ -67,4 +67,4 @@ const mapStateToProps = ({ theme }) => {
   }
 }
 
-export default connect(mapStateToProps)(BodyMapScreenTab)
+export default connect(mapStateToProps)(DetailsScreenTab)

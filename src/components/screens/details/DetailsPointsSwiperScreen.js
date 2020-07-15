@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components/native'
+import { CommonActions } from '@react-navigation/native'
 
 import Swiper from 'react-native-swiper'
 import PRIMARY_MERIDIANS_DATA from '../../../shared/data/primaryMeridiansData'
@@ -16,11 +17,17 @@ const DetailsPointsSwiperScreenComponent = ({
   const [points, setPoints] = useState([])
   const [initialIndex, setInitialIndex] = useState(0)
 
-  const navigateToPhotosPoint = (pointID) => {
-    navigation.navigate('Photos Home Screen')
-    navigation.navigate('Photos Points Swiper', {
-      pointID,
-    })
+  const navigateToPhotosPoint = (pID) => {
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 0,
+        routes: [
+          { name: 'Photos Home Screen' },
+          { name: 'Photos Points Swiper', params: { pointID: pID } },
+        ],
+      }),
+    )
+    navigation.navigate('Photos')
   }
 
   useEffect(() => {

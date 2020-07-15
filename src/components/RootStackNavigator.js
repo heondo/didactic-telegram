@@ -45,6 +45,7 @@ function RootStackNavigator({ theme, authState }) {
   return (
     <NavigationContainer>
       <Tab.Navigator
+        lazy={false}
         tabBarOptions={{
           activeBackgroundColor: theme.BLACK,
           inactiveBackgroundColor: theme.BLACK,

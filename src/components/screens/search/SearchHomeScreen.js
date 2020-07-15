@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
+import { CommonActions } from '@react-navigation/native'
 import PropTypes from 'prop-types'
 
 import {
@@ -33,17 +34,29 @@ const SearchHomeScreenComponent = ({ navigation, theme, userImages }) => {
   }
 
   const goToImagesScreen = (pointID) => {
-    navigation.navigate('Photos Home Screen')
-    navigation.navigate('Photos Points Swiper', { pointID })
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 0,
+        routes: [
+          { name: 'Photos Home Screen' },
+          { name: 'Photos Points Swiper', params: { pointID } },
+        ],
+      }),
+    )
+    navigation.navigate('Photos')
   }
 
   const goToDetailsScreen = (pointID) => {
-    // navigation.navigate('Details', {
-    //   screen: 'Details Points Swiper',
-    //   params: { pointID },
-    // })
-    navigation.navigate('Details Home Screen')
-    navigation.navigate('Details Points Swiper', { pointID })
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 1,
+        routes: [
+          { name: 'Details Home Screen' },
+          { name: 'Details Points Swiper', params: { pointID } },
+        ],
+      }),
+    )
+    navigation.navigate('Details')
   }
 
   const filterPoints = (lowerText) =>
@@ -78,7 +91,7 @@ const SearchHomeScreenComponent = ({ navigation, theme, userImages }) => {
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaView>
-        <Row pd="4px 2px 4px 6px">
+        <Row pd="16px 2px 4px 6px">
           <SearchInput
             placeholder="SEARCH..."
             value={searchText}
@@ -86,7 +99,7 @@ const SearchHomeScreenComponent = ({ navigation, theme, userImages }) => {
             onChangeText={handleChangeText}
           />
           <TransparentButton onPress={handleCancelSearch} pd="2px" mg="0">
-            <MatIcon name="close" size={32} color={theme.PRIMARY_TEXT_COLOR} />
+            <MatIcon name="close" size={40} color={theme.PRIMARY_TEXT_COLOR} />
           </TransparentButton>
         </Row>
         <FlatList

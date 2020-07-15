@@ -11,7 +11,7 @@ export const Text = styled.Text`
 
 export const HeaderText = styled(Text)`
   font-weight: bold;
-  font-size: ${(props) => (props.fontSize ? props.fontSize : '28px')};
+  font-size: ${(props) => (props.fontSize ? props.fontSize : '34px')};
 `
 
 export const DetailsText = styled(Text)`
@@ -54,7 +54,7 @@ export const SearchInput = styled.TextInput`
   flex-grow: 1;
   /* Temp  fix for the auto growing text input */
   max-width: 90%;
-  font-size: 36px;
+  font-size: 40px;
   padding: ${(props) => (props.pd ? props.pd : '0')};
   color: ${(props) => props.theme.FADED_TEXT_COLOR};
 `
