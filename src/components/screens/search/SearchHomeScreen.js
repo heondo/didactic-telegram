@@ -38,12 +38,9 @@ const SearchHomeScreenComponent = ({ navigation, theme, userImages }) => {
   }
 
   const goToDetailsScreen = (pointID) => {
-    // the react navigation API is quite difficult
     // navigation.navigate('Details', {
     //   screen: 'Details Points Swiper',
-    //   params: {
-    //     pointID,
-    //   },
+    //   params: { pointID },
     // })
     navigation.navigate('Details Home Screen')
     navigation.navigate('Details Points Swiper', { pointID })
