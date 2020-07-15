@@ -47,7 +47,6 @@ function BodyMapScreenTab({ theme, navigation }) {
         name="Details Points Swiper"
         component={DetailsPointsSwiperScreen}
         options={({ route }) => ({
-          headerTitle: route.params.name,
           headerShown: false,
           headerStyle: {
             backgroundColor: theme.PRIMARY_BACKGROUND_COLOR,
