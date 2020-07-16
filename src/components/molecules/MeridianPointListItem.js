@@ -17,13 +17,15 @@ function MeridianPointListItemComponent({ pointID, handlePointPress, theme }) {
       <TransparentButton
         onPress={handleButtonPress}
         mg="0"
-        pd="6px"
+        pd="8px 6px"
         width="100%">
         <Row>
-          <Text mg="0 4px 0 0">{pointID}</Text>
-          <Text>{pointData.english}</Text>
+          <Text fontSize="18px" mg="0 4px 0 0">
+            {pointID}
+          </Text>
+          <Text fontSize="18px">{pointData.english}</Text>
           <EmptySpace />
-          <Text>{pointData.name}</Text>
+          <Text fontSize="18px">{pointData.name}</Text>
         </Row>
       </TransparentButton>
     </ThemeProvider>
