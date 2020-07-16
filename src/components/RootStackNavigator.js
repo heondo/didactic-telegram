@@ -47,6 +47,7 @@ function RootStackNavigator({ theme, authState }) {
       <Tab.Navigator
         lazy={false}
         tabBarOptions={{
+          style: { height: '8%' },
           activeBackgroundColor: theme.BLACK,
           inactiveBackgroundColor: theme.BLACK,
           activeTintColor: theme.WHITE,
@@ -61,7 +62,7 @@ function RootStackNavigator({ theme, authState }) {
               <MatCommIcon
                 name="image"
                 color={focused ? theme.WHITE : theme.GREY}
-                size={30}
+                size={28}
               />
             ),
           }}
@@ -74,7 +75,7 @@ function RootStackNavigator({ theme, authState }) {
               <MatCommIcon
                 name="book-open-outline"
                 color={focused ? theme.WHITE : theme.GREY}
-                size={30}
+                size={28}
               />
             ),
           }}

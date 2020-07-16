@@ -33,19 +33,11 @@ const LoggedInImageScreenComponent = ({
   pointID,
 }) => {
   const dispatch = useDispatch()
+  const pointData = MERIDIAN_POINTS_DATA[pointID]
 
   const [userImageURL, setUserImageURL] = useState(null)
   const [userNote, setUserNote] = useState('')
-
-  // const userImageURL =
-  //   userImages.images && userImages.images[pointID]
-  //     ? userImages.images[pointID].imageURL
-  //     : null
-
-  // const userNote =
-  //   userImages.images && userImages.images[pointID]
-  //     ? userImages.images[pointID].note
-  //     : ''
+  const [noteInput, setNoteInput] = useState(userNote)
 
   useEffect(() => {
     if (userImages.images && userImages.images[pointID]) {
@@ -55,8 +47,6 @@ const LoggedInImageScreenComponent = ({
     }
   }, [pointID, userImages.images])
 
-  const pointData = MERIDIAN_POINTS_DATA[pointID]
-  const [noteInput, setNoteInput] = useState(userNote)
   const [isNoteLoading, setNoteLoading] = useState(false)
   const [selectedImage, setSelectedImage] = useState(null)
   const [imageUploading, setImageUploading] = useState(false)
