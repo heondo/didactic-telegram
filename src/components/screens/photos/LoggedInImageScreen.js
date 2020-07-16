@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect, useDispatch } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
@@ -34,15 +34,26 @@ const LoggedInImageScreenComponent = ({
 }) => {
   const dispatch = useDispatch()
 
-  const userImageURL =
-    userImages.images && userImages.images[pointID]
-      ? userImages.images[pointID].imageURL
-      : null
+  const [userImageURL, setUserImageURL] = useState(null)
+  const [userNote, setUserNote] = useState('')
 
-  const userNote =
-    userImages.images && userImages.images[pointID]
-      ? userImages.images[pointID].note
-      : ''
+  // const userImageURL =
+  //   userImages.images && userImages.images[pointID]
+  //     ? userImages.images[pointID].imageURL
+  //     : null
+
+  // const userNote =
+  //   userImages.images && userImages.images[pointID]
+  //     ? userImages.images[pointID].note
+  //     : ''
+
+  useEffect(() => {
+    if (userImages.images && userImages.images[pointID]) {
+      setUserImageURL(userImages.images[pointID].imageURL || null)
+      setUserNote(userImages.images[pointID].note || '')
+      setNoteInput(userImages.images[pointID].note || '')
+    }
+  }, [pointID, userImages.images])
 
   const pointData = MERIDIAN_POINTS_DATA[pointID]
   const [noteInput, setNoteInput] = useState(userNote)

@@ -61,7 +61,7 @@ function RootStackNavigator({ theme, authState }) {
               <MatCommIcon
                 name="image"
                 color={focused ? theme.WHITE : theme.GREY}
-                size={25}
+                size={30}
               />
             ),
           }}
@@ -74,7 +74,7 @@ function RootStackNavigator({ theme, authState }) {
               <MatCommIcon
                 name="book-open-outline"
                 color={focused ? theme.WHITE : theme.GREY}
-                size={25}
+                size={30}
               />
             ),
           }}
@@ -87,7 +87,7 @@ function RootStackNavigator({ theme, authState }) {
               <MatIcon
                 name="search"
                 color={focused ? theme.WHITE : theme.GREY}
-                size={25}
+                size={30}
               />
             ),
           }}
@@ -100,7 +100,7 @@ function RootStackNavigator({ theme, authState }) {
               <MatCommIcon
                 name="map"
                 color={focused ? theme.WHITE : theme.GREY}
-                size={25}
+                size={30}
               />
             ),
           }}
@@ -113,7 +113,7 @@ function RootStackNavigator({ theme, authState }) {
               <MatCommIcon
                 name="settings"
                 color={focused ? theme.WHITE : theme.GREY}
-                size={25}
+                size={30}
               />
             ),
           }}
