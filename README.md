@@ -40,6 +40,14 @@ My dad got his accupuncture license this year and did great at his school with t
 
 ### Progress
 
+##### Week 5
+
+- Working on trying to publish for internal testing on the Play Store
+- Install on Dad's phone to get feedback and make changes
+- Add security rules for Firestore and Firebase Database and limit read/write to each user
+- Create fake privacy policy page on my website to link to, for now
+- Firebase not working with release build, causing a lot of headaches
+
 ##### Week 4
 
 - Finally got the extra data for the the accupuncture points like location and whatnot
