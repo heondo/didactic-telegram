@@ -1,4 +1,4 @@
-# Accupuncture App (name pending)
+# Mapupuncture
 
 ### Motivation
 
