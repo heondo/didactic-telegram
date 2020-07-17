@@ -42,6 +42,8 @@ My dad got his accupuncture license this year and did great at his school with t
 
 ##### Week 5
 
+![Details, Photos, Search Tab](public/readme/new-tabs-overview.gif)
+
 - Working on trying to publish for internal testing on the Play Store
 - Install on Dad's phone to get feedback and make changes
 - Add security rules for Firestore and Firebase Database and limit read/write to each user
@@ -82,6 +84,10 @@ My dad got his accupuncture license this year and did great at his school with t
 - Grab user images when the user is finished authenticating.
 - Add a loading overlay for each individual accupuncture point when uploading an image
 
+![Points List](public/readme/primary_meridians.png)
+![Sign In](public/readme/signedin-user.png)
+![Light Theme](public/readme/light-theme.png)
+
 ![sign in and uploading images or notes](public/readme/signin-uploadimage.gif)
 
 ##### Week 1
@@ -92,7 +98,3 @@ My dad got his accupuncture license this year and did great at his school with t
 - Implement signing in through Firebase
 - Aggregate accupuncture meridians data into csv format from Wikipedia (thanks to Regex101.com and Wiki Tables for being fairly consistents)
 - Select an image to upload
-
-![Points List](public/readme/primary_meridians.png)
-![Sign In](public/readme/signedin-user.png)
-![Light Theme](public/readme/light-theme.png)
