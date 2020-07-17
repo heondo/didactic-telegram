@@ -27,9 +27,9 @@ function MeridianListItemComponent({
   return (
     <ThemeProvider theme={theme}>
       <View
-        width="33%"
+        width="33.3%"
         height={`${Dimensions.get('screen').height / 5.5}px`}
-        pd="4px 8px">
+        pd="4px 6px">
         <MeridianSquareButton
           onPress={handleButtonPress}
           height="100%"

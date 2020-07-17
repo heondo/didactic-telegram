@@ -46,7 +46,7 @@ export const SearchItemBottomBorder = styled.View`
   background-color: ${(props) =>
     props.color ? props.color : props.theme.PRIMARY_TEXT_COLOR};
   height: 1px;
-  bottom: 0;
+  top: 0;
   width: 100%;
   display: flex;
   justify-content: center;

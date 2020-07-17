@@ -6,7 +6,6 @@ def keystorePropertiesFile = rootProject.file("keystore.properties")
 def keystoreProperties = new Properties()
 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
-
 /**
  * The react.gradle file registers a task for each build variant (e.g. bundleDebugJsAndAssets
  * and bundleReleaseJsAndAssets).
@@ -83,7 +82,11 @@ keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
  */
 
 project.ext.react = [
+    // whether to bundle JS and assets in debug mode
     enableHermes: false,  // clean and rebuild if changing
+    bundleInDebug: true,    // whether to bundle JS and assets in release mode
+    bundleInRelease: true, 
+    root: "../../",
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
@@ -132,7 +135,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
+    dexOptions {       
+        javaMaxHeapSize "4g"
+    }
     defaultConfig {
         applicationId "com.accupunture"
         minSdkVersion rootProject.ext.minSdkVersion
