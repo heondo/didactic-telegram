@@ -15,6 +15,7 @@ import {
   TextInput,
   NoteContainer,
 } from '../../atoms'
+import { CircleOrTriangle } from '../../molecules'
 import MERIDIAN_POINTS_DATA from '../../../shared/data/meridianPointsData'
 
 const LoggedOutImageScreenComponent = ({ theme, pointID }) => {
@@ -25,10 +26,10 @@ const LoggedOutImageScreenComponent = ({ theme, pointID }) => {
       <SafeAreaView pd="0 0 8px 0">
         <Header>
           <Row>
-            <ColorCodeCircle
+            <CircleOrTriangle
               marginRight="8px"
               size="18px"
-              color={pointData.colorCode}
+              colorCode={pointData.colorCode}
             />
             <HeaderText>{pointID}: </HeaderText>
             <HeaderText>{pointData.name}</HeaderText>

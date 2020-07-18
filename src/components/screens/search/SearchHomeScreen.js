@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import { CommonActions } from '@react-navigation/native'
@@ -17,15 +17,18 @@ import { SearchResultsListItem } from '../../molecules'
 import MERIDIAN_POINTS_DATA from '../../../shared/data/meridianPointsData'
 
 const SearchHomeScreenComponent = ({ navigation, theme, userImages }) => {
-  const meridianPointsArray = Object.entries(MERIDIAN_POINTS_DATA)
   const [searchText, setSearchText] = useState('')
   const [searchResults, setSearchResults] = useState([])
+  const [meridianPointsArray, setMeridianPointsArray] = useState([])
+
+  useEffect(() => {
+    setMeridianPointsArray(Object.entries(MERIDIAN_POINTS_DATA))
+  }, [])
 
   const handleChangeText = (text) => {
     const lowerInput = text.toLowerCase().trim()
     if (!lowerInput) {
-      setSearchText('')
-      setSearchResults([])
+      handleCancelSearch()
       return
     }
     const filteredResults = filterPoints(lowerInput)

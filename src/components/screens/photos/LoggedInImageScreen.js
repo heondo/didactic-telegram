@@ -22,7 +22,11 @@ import {
   ColorCodeCircle,
   View,
 } from '../../atoms'
-import { LoadingOverlay, SelectEditImageModal } from '../../molecules'
+import {
+  LoadingOverlay,
+  SelectEditImageModal,
+  CircleOrTriangle,
+} from '../../molecules'
 import MERIDIAN_POINTS_DATA from '../../../shared/data/meridianPointsData'
 import { thunkAddNote, thunkAddImage } from '../../../state/userImages/slice'
 import { selectImageService } from '../../../services'
@@ -96,10 +100,10 @@ const LoggedInImageScreenComponent = ({
         ) : null}
         <Header>
           <Row>
-            <ColorCodeCircle
+            <CircleOrTriangle
               marginRight="8px"
               size="18px"
-              color={pointData.colorCode}
+              colorCode={pointData.colorCode}
             />
             <HeaderText>{pointID}: </HeaderText>
             <HeaderText>{pointData.name}</HeaderText>
