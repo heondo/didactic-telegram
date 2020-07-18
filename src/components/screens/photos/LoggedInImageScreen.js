@@ -90,6 +90,9 @@ const LoggedInImageScreenComponent = ({
           isModalVisible={isModalVisible}
           setIsModalVisible={setIsModalVisible}
         />
+        {imageUploading ? (
+          <LoadingOverlay loadingMessage="Uploading image and note" />
+        ) : null}
         <Header>
           <Row>
             <HeaderText>{pointID}: </HeaderText>
@@ -98,10 +101,7 @@ const LoggedInImageScreenComponent = ({
           </Row>
         </Header>
         {/* <EmptySpace /> */}
-        <View width="100%" height="78%">
-          {imageUploading ? (
-            <LoadingOverlay loadingMessage="Uploading image and note" />
-          ) : null}
+        <View width="100%" height="76%">
           {selectedImage ? (
             <Image source={selectedImage} resizeMode="contain" />
           ) : null}

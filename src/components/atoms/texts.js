@@ -16,6 +16,7 @@ export const HeaderText = styled(Text)`
 
 export const DetailsText = styled(Text)`
   text-align: left;
+  font-size: 18px;
   flex-shrink: 1;
   flex: 1;
 `

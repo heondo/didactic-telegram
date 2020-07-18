@@ -53,23 +53,23 @@ const DetailsPointScreenComponent = ({
         />
         <InfoBar>
           <View alignItems="flex-start">
-            <Text>{pointData.english}</Text>
-            <ItalicizedText>{pointData.transliteration}</ItalicizedText>
+            <Text fontSize="20px">{pointData.english}</Text>
+            <ItalicizedText fontSize="20px">
+              {pointData.transliteration}
+            </ItalicizedText>
           </View>
           <EmptySpace />
           {authState.isLoggedIn ? (
             <TransparentButton onPress={handleToPhotos}>
               <Row>
-                <MatIcon name="navigate-before" size={18} />
-                <MatIcon name="photo" size={18} />
+                <MatIcon name="navigate-before" size={22} />
+                <MatIcon name="photo" size={22} />
               </Row>
             </TransparentButton>
           ) : null}
           <ColorCodeCircle color={pointData.colorCode} />
-          <MatCommIcon name="ruler-square" size={18} />
-          <Text fontSize="14px" mg="0 0 0 4px">
-            {pointData.depth}
-          </Text>
+          <MatCommIcon name="ruler-square" size={22} />
+          <Text mg="0 0 0 4px">{pointData.depth}</Text>
         </InfoBar>
         <ScrollView
           contentContainerStyle={{
@@ -78,19 +78,19 @@ const DetailsPointScreenComponent = ({
           }}
           pd="6px">
           <Row alignItems="flex-start">
-            <Text mg="0 4px 0 0" textAlign="left" width="22%">
+            <Text fontSize="18px" mg="0 4px 0 0" textAlign="left" width="25%">
               Location:
             </Text>
             <DetailsText>{pointData.location}</DetailsText>
           </Row>
           <Row alignItems="flex-start" mg="8px 0">
-            <Text mg="0 4px 0 0" textAlign="left" width="22%">
+            <Text fontSize="18px" mg="0 4px 0 0" textAlign="left" width="25%">
               Indications:
             </Text>
             <DetailsText>{pointData.indications}</DetailsText>
           </Row>
           <Row pd="0 0 12px 0" alignItems="flex-start">
-            <Text mg="0 4px 0 0" textAlign="left" width="22%">
+            <Text fontSize="18px" mg="0 4px 0 0" textAlign="left" width="25%">
               Action:
             </Text>
             <DetailsText>{pointData.action}</DetailsText>
