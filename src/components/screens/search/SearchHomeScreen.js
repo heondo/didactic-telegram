@@ -75,8 +75,10 @@ const SearchHomeScreenComponent = ({ navigation, theme, userImages }) => {
       if (
         pointID.toLowerCase().indexOf(lowerText) !== -1 ||
         pointData.english.toLowerCase().indexOf(lowerText) !== -1 ||
-        (pointData.location &&
-          pointData.location.toLowerCase().indexOf(lowerText) !== -1)
+        pointData.transliteration.toLowerCase().indexOf(lowerText) !== -1 ||
+        pointData.action.toLowerCase().indexOf(lowerText) !== -1 ||
+        pointData.indications.toLowerCase().indexOf(lowerText) !== -1 ||
+        pointData.location.toLowerCase().indexOf(lowerText) !== -1
       ) {
         return true
       }
