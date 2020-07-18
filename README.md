@@ -40,6 +40,13 @@ My dad got his accupuncture license this year and did great at his school with t
 
 ### Progress
 
+##### Week 6
+
+Working on feedback from my dad
+
+- Prevent rotating to landscape, remove extra chinese characters from Meridian Group Names
+- Make submit note, add, edit, and submit image button larger
+
 ##### Week 5
 
 ![Details, Photos, Search Tab](public/readme/new-tabs-overview.gif)

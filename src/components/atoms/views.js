@@ -69,8 +69,8 @@ export const NoteContainer = styled(View)`
 
 export const SubmitNoteContainer = styled(AbsoluteView)`
   width: auto;
-  right: 0px;
-  bottom: 8px;
+  right: 4px;
+  bottom: 16px;
 `
 
 export const BottomContentContainer = styled(View)`

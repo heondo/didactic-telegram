@@ -15,11 +15,11 @@ export const Button = styled.TouchableOpacity`
 
 export const CircleIconButton = styled(Button)`
   elevation: 5;
-  border-radius: 22px;
+  border-radius: 30px;
   margin-bottom: 10px;
   margin-right: 10px;
-  width: 44px;
-  height: 44px;
+  width: 60px;
+  height: 60px;
   opacity: 0.85;
   padding: 0;
 `

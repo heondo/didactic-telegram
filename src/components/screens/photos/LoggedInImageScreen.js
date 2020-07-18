@@ -117,17 +117,17 @@ const LoggedInImageScreenComponent = ({
           {!selectedImage ? (
             <ImageCircleButtons>
               <CircleIconButton onPress={handleAddImagePress}>
-                <MatIcon name="add" size={28} />
+                <MatIcon name="add" size={36} />
               </CircleIconButton>
             </ImageCircleButtons>
           ) : null}
           {selectedImage ? (
             <ImageCircleButtons>
               <CircleIconButton onPress={handleOpenModal}>
-                <MatIcon name="edit" size={20} />
+                <MatIcon name="edit" size={26} />
               </CircleIconButton>
               <CircleIconButton onPress={handleSubmitImage}>
-                <MatIcon name="cloud-upload" size={20} />
+                <MatIcon name="save" size={28} />
               </CircleIconButton>
             </ImageCircleButtons>
           ) : null}
@@ -135,7 +135,7 @@ const LoggedInImageScreenComponent = ({
         <EmptySpace />
         <NoteContainer>
           <TextInput
-            pd="6px"
+            pd="6px 50px 6px 6px"
             multiline={true}
             maxHeight={80}
             numberOfLines={4}
@@ -156,7 +156,7 @@ const LoggedInImageScreenComponent = ({
                 <TransparentButton onPress={handleSubmitNote}>
                   <MatCommIcon
                     name="send-circle"
-                    size={26}
+                    size={36}
                     color={theme.SECONDARY_BUTTON_COLOR}
                   />
                 </TransparentButton>
