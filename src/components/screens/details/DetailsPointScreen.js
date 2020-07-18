@@ -40,6 +40,11 @@ const DetailsPointScreenComponent = ({
       <SafeAreaView pd="0">
         <Header>
           <Row>
+            <ColorCodeCircle
+              marginRight="8px"
+              size="18px"
+              color={pointData.colorCode}
+            />
             <HeaderText>{pointID}: </HeaderText>
             <HeaderText>{pointData.name}</HeaderText>
             <EmptySpace />

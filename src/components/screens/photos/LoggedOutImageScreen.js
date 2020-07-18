@@ -10,6 +10,7 @@ import {
   Header,
   Row,
   Image,
+  ColorCodeCircle,
   View,
   TextInput,
   NoteContainer,
@@ -24,6 +25,11 @@ const LoggedOutImageScreenComponent = ({ theme, pointID }) => {
       <SafeAreaView pd="0 0 8px 0">
         <Header>
           <Row>
+            <ColorCodeCircle
+              marginRight="8px"
+              size="18px"
+              color={pointData.colorCode}
+            />
             <HeaderText>{pointID}: </HeaderText>
             <HeaderText>{pointData.name}</HeaderText>
             <EmptySpace />

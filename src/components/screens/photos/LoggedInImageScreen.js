@@ -19,6 +19,7 @@ import {
   LoadingCircle,
   ImageCircleButtons,
   MatIcon,
+  ColorCodeCircle,
   View,
 } from '../../atoms'
 import { LoadingOverlay, SelectEditImageModal } from '../../molecules'
@@ -95,6 +96,11 @@ const LoggedInImageScreenComponent = ({
         ) : null}
         <Header>
           <Row>
+            <ColorCodeCircle
+              marginRight="8px"
+              size="18px"
+              color={pointData.colorCode}
+            />
             <HeaderText>{pointID}: </HeaderText>
             <HeaderText>{pointData.name}</HeaderText>
             <EmptySpace />
