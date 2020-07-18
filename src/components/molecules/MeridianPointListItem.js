@@ -3,7 +3,13 @@ import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { Text, TransparentButton, Row, EmptySpace } from '../atoms'
+import {
+  Text,
+  TransparentButton,
+  Row,
+  EmptySpace,
+  ColorCodeCircle,
+} from '../atoms'
 import MERIDIAN_POINTS_DATA from '../../shared/data/meridianPointsData'
 
 function MeridianPointListItemComponent({ pointID, handlePointPress, theme }) {
@@ -20,6 +26,7 @@ function MeridianPointListItemComponent({ pointID, handlePointPress, theme }) {
         pd="8px 6px"
         width="100%">
         <Row>
+          <ColorCodeCircle color={pointData.colorCode} size="14px" />
           <Text fontSize="18px" mg="0 4px 0 0">
             {pointID}
           </Text>

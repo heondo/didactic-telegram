@@ -60,6 +60,7 @@ const SearchHomeScreenComponent = ({ navigation, theme, userImages }) => {
   }
 
   const filterPoints = (lowerText) =>
+    // i feel like i need to let users have better search options like commas for multiple terms
     meridianPointsArray.filter((entry) => {
       const [pointID, pointData] = entry
       const usersPointNote =
@@ -77,6 +78,7 @@ const SearchHomeScreenComponent = ({ navigation, theme, userImages }) => {
         pointData.english.toLowerCase().indexOf(lowerText) !== -1 ||
         pointData.transliteration.toLowerCase().indexOf(lowerText) !== -1 ||
         pointData.action.toLowerCase().indexOf(lowerText) !== -1 ||
+        pointData.color.toLowerCase().indexOf(lowerText) !== -1 ||
         pointData.indications.toLowerCase().indexOf(lowerText) !== -1 ||
         pointData.location.toLowerCase().indexOf(lowerText) !== -1
       ) {

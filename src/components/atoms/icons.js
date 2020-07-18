@@ -20,7 +20,7 @@ export const MatIcon = styled(MIcon)`
 `
 
 export const ColorCodeCircle = styled.View`
-  background-color: ${(props) => props.color};
+  background-color: ${(props) => (props.color ? props.color : 'grey')};
   margin-right: ${(props) => (props.marginRight ? props.marginRight : '4px')};
   border-radius: 15px;
   border: 1px solid ${(props) => props.theme.FADED_TEXT_COLOR};

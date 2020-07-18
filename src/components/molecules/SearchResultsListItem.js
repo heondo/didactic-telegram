@@ -11,6 +11,7 @@ import {
   SearchItemBottomBorder,
   MatIcon,
   Button,
+  ColorCodeCircle,
 } from '../atoms'
 
 function SearchResultsListItemComponent({
@@ -47,6 +48,7 @@ function SearchResultsListItemComponent({
           <Text fontSize="22px">{pointData.english} - </Text>
           <Text fontSize="18px">{pointData.transliteration}</Text>
           <EmptySpace />
+          <ColorCodeCircle color={pointData.colorCode} />
           <Text fontSize="20px">{pointID}</Text>
         </Row>
         <Row>
