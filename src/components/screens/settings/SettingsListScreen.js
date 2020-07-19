@@ -2,6 +2,7 @@ import React from 'react'
 import { Switch } from 'react-native'
 import { connect, useDispatch } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
+import AsyncStorage from '@react-native-community/async-storage'
 
 import {
   SafeAreaView,
@@ -46,6 +47,19 @@ const SettingsListScreenComponent = ({
     dispatch(thunkLogout())
   }
 
+  const handleThemechange = async () => {
+    try {
+      //
+      await AsyncStorage.setItem(
+        'themeMode',
+        theme.mode === 'light' ? 'dark' : 'light',
+      )
+      toggleTheme()
+    } catch (err) {
+      console.error('error')
+    }
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaView pd="0 0 8px 0">
@@ -86,7 +100,7 @@ const SettingsListScreenComponent = ({
             thumbColor={
               theme.mode === 'light' ? theme.frost3 : theme.snowStorm0
             }
-            onValueChange={toggleTheme}
+            onValueChange={handleThemechange}
             value={theme.mode !== 'light'}
           />
         </View>

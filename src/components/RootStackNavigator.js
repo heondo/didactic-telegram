@@ -12,13 +12,29 @@ import SettingsScreenTab from './SettingsScreenTab'
 import BodyMapScreenTab from './BodyMapScreenTab'
 import DetailsScreenTab from './DetailsScreenTab'
 import SearchScreenTab from './SearchScreenTab'
+import AsyncStorage from '@react-native-community/async-storage'
+import { toggleTheme } from '../state/theme/slice'
 
 const Tab = createBottomTabNavigator()
 
-function RootStackNavigator({ theme, authState }) {
+function RootStackNavigator({ theme, authState, toggleTheme }) {
   const dispatch = useDispatch()
 
   const [initializing, setInitializing] = useState(true)
+  useEffect(() => {
+    const getThemeMode = async () => {
+      try {
+        const themeMode = await AsyncStorage.getItem('themeMode')
+        if (themeMode === 'light') {
+          toggleTheme()
+        }
+      } catch (err) {
+        console.error(err)
+      }
+    }
+    getThemeMode()
+  }, [])
+
   useEffect(() => {
     const onAuthStateChanged = (user) => {
       const strippedDown = user
@@ -136,4 +152,4 @@ RootStackNavigator.propTypes = {
   auth: PropTypes.object,
 }
 
-export default connect(mapStateToProps)(RootStackNavigator)
+export default connect(mapStateToProps, { toggleTheme })(RootStackNavigator)
