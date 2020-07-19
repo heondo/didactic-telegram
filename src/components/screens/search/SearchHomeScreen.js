@@ -98,7 +98,7 @@ const SearchHomeScreenComponent = ({ navigation, theme, userImages }) => {
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaView>
-        <Row pd="16px 2px 4px 6px">
+        <Row pd="12px 2px 4px 6px">
           <SearchInput
             placeholder="SEARCH..."
             value={searchText}
