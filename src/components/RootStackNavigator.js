@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import PropTypes from 'prop-types'
 import auth from '@react-native-firebase/auth'
+import AsyncStorage from '@react-native-community/async-storage'
 
 import { MatCommIcon, MatIcon } from './atoms'
 import { thunkLogin } from '../state/auth/slice'
@@ -12,7 +13,6 @@ import SettingsScreenTab from './SettingsScreenTab'
 import BodyMapScreenTab from './BodyMapScreenTab'
 import DetailsScreenTab from './DetailsScreenTab'
 import SearchScreenTab from './SearchScreenTab'
-import AsyncStorage from '@react-native-community/async-storage'
 import { toggleTheme } from '../state/theme/slice'
 
 const Tab = createBottomTabNavigator()
