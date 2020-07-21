@@ -8,7 +8,7 @@ import AsyncStorage from '@react-native-community/async-storage'
 
 import { MatCommIcon, MatIcon } from './atoms'
 import { thunkLogin } from '../state/auth/slice'
-import PhotosScreenTab from './PhotosScreenTab'
+import MemoryScreenTab from './MemoryScreenTab'
 import SettingsScreenTab from './SettingsScreenTab'
 import BodyMapScreenTab from './BodyMapScreenTab'
 import DetailsScreenTab from './DetailsScreenTab'
@@ -72,7 +72,7 @@ function RootStackNavigator({ theme, authState, toggleTheme }) {
         }}>
         <Tab.Screen
           name="Memory"
-          component={PhotosScreenTab}
+          component={MemoryScreenTab}
           options={{
             tabBarIcon: ({ focused }) => (
               <MatCommIcon

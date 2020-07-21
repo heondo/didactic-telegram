@@ -7,7 +7,7 @@ import PRIMARY_MERIDIANS_DATA from '../../../shared/data/primaryMeridiansData'
 import { LoggedOutImageScreen } from './LoggedOutImageScreen'
 import { LoggedInImageScreen } from './LoggedInImageScreen'
 
-const PhotosPointsSwiperScreenComponent = ({
+const MemoryPointsSwiperScreenComponent = ({
   navigation,
   route,
   theme,
@@ -48,6 +48,6 @@ const mapStateToProps = ({ theme, authState, userImages }) => {
   }
 }
 
-export const PhotosPointsSwiperScreen = connect(mapStateToProps)(
-  PhotosPointsSwiperScreenComponent,
+export const MemoryPointsSwiperScreen = connect(mapStateToProps)(
+  MemoryPointsSwiperScreenComponent,
 )

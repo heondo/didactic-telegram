@@ -5,11 +5,11 @@ import { ThemeProvider } from 'styled-components'
 import { FlatList } from '../../atoms'
 import { MeridianPointListItem } from '../../molecules'
 
-const PhotosPointsListScreenComponent = ({ navigation, theme, route }) => {
+const MemoryPointsListScreenComponent = ({ navigation, theme, route }) => {
   const { points } = route.params
 
   const handlePointPress = (pointID) => {
-    navigation.navigate('Photos Points Swiper', {
+    navigation.navigate('Memory Points Swiper', {
       pointID,
     })
   }
@@ -34,6 +34,6 @@ const mapStateToProps = ({ theme }) => {
   }
 }
 
-export const PhotosPointsListScreen = connect(mapStateToProps)(
-  PhotosPointsListScreenComponent,
+export const MemoryPointsListScreen = connect(mapStateToProps)(
+  MemoryPointsListScreenComponent,
 )

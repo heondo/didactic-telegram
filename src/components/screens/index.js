@@ -1,4 +1,4 @@
-export * from './photos'
+export * from './memory'
 export * from './settings'
 export * from './body-map'
 export * from './details'

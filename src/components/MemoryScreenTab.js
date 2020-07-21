@@ -3,21 +3,21 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { connect } from 'react-redux'
 
 import {
-  PhotosHomeScreen,
-  PhotosPointsListScreen,
-  PhotosPointsSwiperScreen,
+  MemoryHomeScreen,
+  MemoryPointsListScreen,
+  MemoryPointsSwiperScreen,
 } from './screens'
 
-const PhotosScreenStack = createStackNavigator()
+const MemoryScreenStack = createStackNavigator()
 
-function PhotosScreenTab({ theme, navigation }) {
+function MemoryScreenTab({ theme, navigation }) {
   return (
-    <PhotosScreenStack.Navigator initialRouteName="Photos Home Screen">
-      <PhotosScreenStack.Screen
-        name="Photos Home Screen"
-        component={PhotosHomeScreen}
+    <MemoryScreenStack.Navigator initialRouteName="Memory Home Screen">
+      <MemoryScreenStack.Screen
+        name="Memory Home Screen"
+        component={MemoryHomeScreen}
         options={{
-          headerTitle: 'Photos',
+          headerTitle: 'Memory',
           headerShown: true,
           headerStyle: {
             backgroundColor: theme.PRIMARY_BACKGROUND_COLOR,
@@ -28,9 +28,9 @@ function PhotosScreenTab({ theme, navigation }) {
           headerTintColor: theme.PRIMARY_TEXT_COLOR,
         }}
       />
-      <PhotosScreenStack.Screen
-        name="Photos Points List"
-        component={PhotosPointsListScreen}
+      <MemoryScreenStack.Screen
+        name="Memory Points List"
+        component={MemoryPointsListScreen}
         options={({ route }) => ({
           headerTitle: route.params.name,
           headerShown: true,
@@ -43,14 +43,14 @@ function PhotosScreenTab({ theme, navigation }) {
           headerTintColor: theme.PRIMARY_TEXT_COLOR,
         })}
       />
-      <PhotosScreenStack.Screen
-        name="Photos Points Swiper"
-        component={PhotosPointsSwiperScreen}
+      <MemoryScreenStack.Screen
+        name="Memory Points Swiper"
+        component={MemoryPointsSwiperScreen}
         options={{
           headerShown: false,
         }}
       />
-    </PhotosScreenStack.Navigator>
+    </MemoryScreenStack.Navigator>
   )
 }
 
@@ -60,4 +60,4 @@ const mapStateToProps = ({ theme }) => {
   }
 }
 
-export default connect(mapStateToProps)(PhotosScreenTab)
+export default connect(mapStateToProps)(MemoryScreenTab)

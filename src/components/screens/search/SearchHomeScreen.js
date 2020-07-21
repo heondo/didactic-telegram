@@ -41,12 +41,12 @@ const SearchHomeScreenComponent = ({ navigation, theme, userImages }) => {
       CommonActions.reset({
         index: 0,
         routes: [
-          { name: 'Photos Home Screen' },
-          { name: 'Photos Points Swiper', params: { pointID } },
+          { name: 'Memory Home Screen' },
+          { name: 'Memory Points Swiper', params: { pointID } },
         ],
       }),
     )
-    navigation.navigate('Photos')
+    navigation.navigate('Memory')
   }
 
   const goToDetailsScreen = (pointID) => {

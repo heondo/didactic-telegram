@@ -22,12 +22,12 @@ const DetailsPointsSwiperScreenComponent = ({
       CommonActions.reset({
         index: 0,
         routes: [
-          { name: 'Photos Home Screen' },
-          { name: 'Photos Points Swiper', params: { pointID: pID } },
+          { name: 'Memory Home Screen' },
+          { name: 'Memory Points Swiper', params: { pointID: pID } },
         ],
       }),
     )
-    navigation.navigate('Photos')
+    navigation.navigate('Memory')
   }
 
   useEffect(() => {
