@@ -81,10 +81,11 @@
       }
     },
     "transformIgnorePatterns": [
-      "./node_modules/(?!react-native|react-clone-referenced-element|react-navigation)"
+      "./node_modules/(?!react-native|react-navigation|@react-native)"
     ],
     "setupFiles": [
-      "./node_modules/react-native-gesture-handler/jestSetup.js"
+      "./node_modules/react-native-gesture-handler/jestSetup.js",
+      "./__mocks__/mockFirebase.js"
     ]
   }
 }

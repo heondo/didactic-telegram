@@ -67,5 +67,5 @@ src/shared/data/*
 environment.js
 
 # testing folders
-/cache/*
-/coverage/*
+/cache/
+/coverage/
