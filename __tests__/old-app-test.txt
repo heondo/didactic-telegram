@@ -1,0 +1,17 @@
+/**
+ * @format
+ */
+
+import 'react-native'
+import React from 'react'
+import App from '../App'
+
+import renderer from 'react-test-renderer'
+
+// reading up on the different kinds of testing, this is a snapshot test and not good
+// for components that are stateful and change
+
+test('renders correctly', async () => {
+  const tree = renderer.create(<App />).toJSON()
+  expect(tree).toMatchSnapshot()
+})

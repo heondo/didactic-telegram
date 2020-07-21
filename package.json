@@ -87,7 +87,8 @@
       "./node_modules/react-native-gesture-handler/jestSetup.js",
       "./__mocks__/mockFirebase.js",
       "./__mocks__/mockRNImagePicker.js",
-      "./__mocks__/mockAsyncStorage.js"
+      "./__mocks__/mockAsyncStorage.js",
+      "./__mocks__/mock.js"
     ]
   }
 }

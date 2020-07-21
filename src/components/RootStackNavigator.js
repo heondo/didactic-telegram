@@ -71,7 +71,7 @@ function RootStackNavigator({ theme, authState, toggleTheme }) {
           showLabel: true,
         }}>
         <Tab.Screen
-          name="Photos"
+          name="Memory"
           component={PhotosScreenTab}
           options={{
             tabBarIcon: ({ focused }) => (
