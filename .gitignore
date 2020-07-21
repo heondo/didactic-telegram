@@ -69,3 +69,4 @@ environment.js
 # testing folders
 /cache/
 /coverage/
+/__tests__/__snapshots__/
