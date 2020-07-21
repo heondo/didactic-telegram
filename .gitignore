@@ -65,3 +65,7 @@ src/shared/data/*
 /android/java_pid5048.hprof
 /android/my-upload-key.keystore
 environment.js
+
+# testing folders
+/cache/*
+/coverage/*
