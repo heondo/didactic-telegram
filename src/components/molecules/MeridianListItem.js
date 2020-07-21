@@ -61,7 +61,7 @@ MeridianListItemComponent.propTypes = {
   english: PropTypes.string,
   points: PropTypes.array,
   handleMeridianPress: PropTypes.func,
-  iconPath: PropTypes.number,
+  iconPath: PropTypes.oneOfType([PropTypes.number, PropTypes.object]),
 }
 
 export const MeridianListItem = connect(mapStateToProps)(
