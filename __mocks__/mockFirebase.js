@@ -13,7 +13,7 @@ jest.mock('@react-native-firebase/storage', () => ({
 jest.mock('@react-native-firebase/auth', () => ({
   default: jest.fn(() => ({
     signInWithCredential: jest.fn(),
-    onAuthStateChanged: jest.fn(),
+    onAuthStateChanged: jest.fn(() => {}),
     signOut: jest.fn(),
   })),
 }))
