@@ -41,7 +41,7 @@ function MeridianListItemComponent({
           ) : null}
           <EmptySpace />
           <Text fontSize="14px">{name}</Text>
-          <Text>{chinese}</Text>
+          <Text fontSize="18px">{chinese}</Text>
         </MeridianSquareButton>
       </View>
     </ThemeProvider>

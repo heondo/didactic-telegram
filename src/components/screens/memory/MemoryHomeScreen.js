@@ -16,6 +16,7 @@ const MemoryHomeScreenComponent = ({ navigation, theme }) => {
       points,
     })
   }
+
   return (
     <ThemeProvider theme={theme}>
       <FlatList
