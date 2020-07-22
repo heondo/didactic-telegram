@@ -32,10 +32,6 @@ const DetailsPointScreenComponent = ({
 }) => {
   const pointData = MERIDIAN_POINTS_DATA[pointID]
 
-  const handleToPhotos = () => {
-    navigateToPhotosPoint(pointID)
-  }
-
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaView pd="0">
@@ -56,7 +52,11 @@ const DetailsPointScreenComponent = ({
         <InfoBar>
           <Text fontSize="22px">{pointData.english}</Text>
           <EmptySpace />
-          <CircleOrIcon size="18px" colorCode={pointData.colorCode} />
+          <CircleOrIcon
+            size={16}
+            colorCode={pointData.colorCode}
+            margin="0 4px 0 0"
+          />
           <Text mg="0 0 0 4px" fontSize="18px">
             {pointData.depth}
           </Text>

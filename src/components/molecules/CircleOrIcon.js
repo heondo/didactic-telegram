@@ -3,34 +3,32 @@ import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { ColorCodeCircle } from '../atoms'
+import { ColorCodeCircle, MatCommIcon, View } from '../atoms'
 
-function CircleOrIconComponent({ theme, colorCode, size, marginRight }) {
+function CircleOrIconComponent({ theme, colorCode, size, margin }) {
   let shapeComponent = null
   switch (colorCode) {
     case 'triangle':
-      shapeComponent = null
+      shapeComponent = <MatCommIcon name="triangle" size={size} />
       break
     case 'circle':
-      shapeComponent = null
+      shapeComponent = <MatCommIcon name="circle" size={size} />
       break
     case 'square':
-      shapeComponent = null
+      shapeComponent = <MatCommIcon name="square" size={size} />
       break
     case 'x':
-      shapeComponent = null
+      shapeComponent = <MatCommIcon name="close" size={size} />
       break
     default:
-      shapeComponent = (
-        <ColorCodeCircle
-          size={size}
-          color={colorCode}
-          marginRight={marginRight}
-        />
-      )
+      shapeComponent = <ColorCodeCircle size={size} color={colorCode} />
   }
 
-  return <ThemeProvider theme={theme}>{shapeComponent}</ThemeProvider>
+  return (
+    <ThemeProvider theme={theme}>
+      <View mg={margin}>{shapeComponent}</View>
+    </ThemeProvider>
+  )
 }
 
 const mapStateToProps = ({ theme }) => {
@@ -41,7 +39,7 @@ const mapStateToProps = ({ theme }) => {
 
 CircleOrIconComponent.propTypes = {
   colorCode: PropTypes.string,
-  size: PropTypes.string,
+  size: PropTypes.number,
   marginRight: PropTypes.string,
 }
 

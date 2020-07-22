@@ -21,11 +21,10 @@ export const MatIcon = styled(MIcon)`
 
 export const ColorCodeCircle = styled.View`
   background-color: ${(props) => (props.color ? props.color : 'gray')};
-  margin-right: ${(props) => (props.marginRight ? props.marginRight : '4px')};
   border-radius: 15px;
   border: 1px solid ${(props) => props.theme.FADED_TEXT_COLOR};
-  height: ${(props) => (props.size ? props.size : '14px')};
-  width: ${(props) => (props.size ? props.size : '14px')};
+  height: ${(props) => (props.size ? props.size : '14')}px;
+  width: ${(props) => (props.size ? props.size : '14')}px;
 `
 
 export const LoadingCircle = styled.ActivityIndicator`

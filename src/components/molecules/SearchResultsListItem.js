@@ -48,7 +48,7 @@ function SearchResultsListItemComponent({
           <Text fontSize="22px">{pointData.english} - </Text>
           <Text fontSize="18px">{pointData.transliteration}</Text>
           <EmptySpace />
-          <CircleOrIcon colorCode={pointData.colorCode} marginRight="4px" />
+          <CircleOrIcon colorCode={pointData.colorCode} />
           <Text fontSize="20px">{pointID}</Text>
         </Row>
         <Row>

@@ -7,7 +7,12 @@ import { Text, TransparentButton, Row, EmptySpace } from '../atoms'
 import { CircleOrIcon } from './CircleOrIcon'
 import MERIDIAN_POINTS_DATA from '../../shared/data/meridianPointsData'
 
-function MeridianPointListItemComponent({ pointID, handlePointPress, theme }) {
+function MeridianPointListItemComponent({
+  pointID,
+  handlePointPress,
+  theme,
+  margin,
+}) {
   const pointData = MERIDIAN_POINTS_DATA[pointID]
 
   const handleButtonPress = () => {
@@ -22,9 +27,9 @@ function MeridianPointListItemComponent({ pointID, handlePointPress, theme }) {
         width="100%">
         <Row>
           <CircleOrIcon
+            size={18}
             colorCode={pointData.colorCode}
-            marginRight="8px"
-            size="16px"
+            margin="0 6px 0 0"
           />
           <Text fontSize="18px" mg="0 4px 0 0">
             {pointID}
@@ -49,6 +54,7 @@ const mapStateToProps = ({ theme, authState }) => {
 MeridianPointListItemComponent.propTypes = {
   pointID: PropTypes.string,
   handlePointPress: PropTypes.func,
+  margin: PropTypes.string,
 }
 
 export const MeridianPointListItem = connect(mapStateToProps)(
