@@ -65,14 +65,6 @@ const DetailsPointScreenComponent = ({
             </ItalicizedText>
           </View>
           <EmptySpace />
-          {authState.isLoggedIn ? (
-            <TransparentButton onPress={handleToPhotos}>
-              <Row>
-                <MatIcon name="navigate-before" size={22} />
-                <MatIcon name="photo" size={22} />
-              </Row>
-            </TransparentButton>
-          ) : null}
           <CircleOrIcon colorCode={pointData.colorCode} />
           <MatCommIcon name="ruler-square" size={22} />
           <Text mg="0 0 0 4px">{pointData.depth}</Text>
