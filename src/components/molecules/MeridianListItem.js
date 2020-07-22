@@ -22,7 +22,7 @@ function MeridianListItemComponent({
   theme,
 }) {
   const handleButtonPress = () => {
-    handleMeridianPress(meridianID, name, points)
+    handleMeridianPress(meridianID, name, points, chinese)
   }
   return (
     <ThemeProvider theme={theme}>

@@ -32,7 +32,7 @@ function DetailsScreenTab({ theme, navigation }) {
         name="Details Points List"
         component={DetailsPointsListScreen}
         options={({ route }) => ({
-          headerTitle: route.params.name,
+          headerTitle: `${route.params.name} - ${route.params.chinese}`,
           headerShown: true,
           headerStyle: {
             backgroundColor: theme.PRIMARY_BACKGROUND_COLOR,

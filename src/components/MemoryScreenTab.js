@@ -32,7 +32,7 @@ function MemoryScreenTab({ theme, navigation }) {
         name="Memory Points List"
         component={MemoryPointsListScreen}
         options={({ route }) => ({
-          headerTitle: route.params.name,
+          headerTitle: `${route.params.name} - ${route.params.chinese}`,
           headerShown: true,
           headerStyle: {
             backgroundColor: theme.PRIMARY_BACKGROUND_COLOR,

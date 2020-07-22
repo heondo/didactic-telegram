@@ -7,12 +7,13 @@ import { MeridianListItem } from '../../molecules'
 import PRIMARY_MERIDIANS_DATA from '../../../shared/data/primaryMeridiansData'
 
 const DetailsHomeScreenComponent = ({ navigation, theme }) => {
-  const handleMeridianPress = (meridianID, name, points) => {
+  const handleMeridianPress = (meridianID, name, points, chinese) => {
     // navigate to the list of meridian points and pass in the meridian ID and points
     navigation.navigate('Details Points List', {
       meridianID,
       name,
       points,
+      chinese,
     })
   }
 
