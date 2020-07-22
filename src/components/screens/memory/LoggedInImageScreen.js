@@ -100,17 +100,12 @@ const LoggedInImageScreenComponent = ({
         ) : null}
         <Header>
           <Row>
-            <CircleOrIcon
-              marginRight="8px"
-              size="18px"
-              colorCode={pointData.colorCode}
-            />
             <HeaderText>{pointID}: </HeaderText>
-            <HeaderText>{pointData.name}</HeaderText>
+            <HeaderText>{pointData.name} </HeaderText>
+            <HeaderText>{pointData.transliteration}</HeaderText>
             <EmptySpace />
           </Row>
         </Header>
-        {/* <EmptySpace /> */}
         <View width="100%" height="76%">
           {selectedImage ? (
             <Image source={selectedImage} resizeMode="contain" />

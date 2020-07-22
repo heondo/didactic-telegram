@@ -41,13 +41,9 @@ const DetailsPointScreenComponent = ({
       <SafeAreaView pd="0">
         <Header>
           <Row>
-            <CircleOrIcon
-              marginRight="8px"
-              size="18px"
-              colorCode={pointData.colorCode}
-            />
             <HeaderText>{pointID}: </HeaderText>
-            <HeaderText>{pointData.name}</HeaderText>
+            <HeaderText>{pointData.name} </HeaderText>
+            <HeaderText>{pointData.transliteration}</HeaderText>
             <EmptySpace />
           </Row>
         </Header>
@@ -58,16 +54,12 @@ const DetailsPointScreenComponent = ({
           source={require('../../../shared/images/point/LU-1.png')}
         />
         <InfoBar>
-          <View alignItems="flex-start">
-            <Text fontSize="20px">{pointData.english}</Text>
-            <ItalicizedText fontSize="20px">
-              {pointData.transliteration}
-            </ItalicizedText>
-          </View>
+          <Text fontSize="22px">{pointData.english}</Text>
           <EmptySpace />
-          <CircleOrIcon colorCode={pointData.colorCode} />
-          <MatCommIcon name="ruler-square" size={22} />
-          <Text mg="0 0 0 4px">{pointData.depth}</Text>
+          <CircleOrIcon size="18px" colorCode={pointData.colorCode} />
+          <Text mg="0 0 0 4px" fontSize="18px">
+            {pointData.depth}
+          </Text>
         </InfoBar>
         <ScrollView
           contentContainerStyle={{

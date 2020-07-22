@@ -26,13 +26,9 @@ const LoggedOutImageScreenComponent = ({ theme, pointID }) => {
       <SafeAreaView pd="0 0 8px 0">
         <Header>
           <Row>
-            <CircleOrIcon
-              marginRight="8px"
-              size="18px"
-              colorCode={pointData.colorCode}
-            />
             <HeaderText>{pointID}: </HeaderText>
-            <HeaderText>{pointData.name}</HeaderText>
+            <HeaderText>{pointData.name} </HeaderText>
+            <HeaderText>{pointData.transliteration}</HeaderText>
             <EmptySpace />
           </Row>
         </Header>

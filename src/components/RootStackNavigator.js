@@ -110,7 +110,7 @@ function RootStackNavigator({ theme, authState, toggleTheme }) {
           }}
         />
         <Tab.Screen
-          name="Body Map"
+          name="Point Depth"
           component={BodyMapScreenTab}
           options={{
             tabBarIcon: ({ focused }) => (
