@@ -25,7 +25,7 @@ import {
 import {
   LoadingOverlay,
   SelectEditImageModal,
-  CircleOrTriangle,
+  CircleOrIcon,
 } from '../../molecules'
 import MERIDIAN_POINTS_DATA from '../../../shared/data/meridianPointsData'
 import { thunkAddNote, thunkAddImage } from '../../../state/userImages/slice'
@@ -100,7 +100,7 @@ const LoggedInImageScreenComponent = ({
         ) : null}
         <Header>
           <Row>
-            <CircleOrTriangle
+            <CircleOrIcon
               marginRight="8px"
               size="18px"
               colorCode={pointData.colorCode}

@@ -12,7 +12,7 @@ import {
   MatIcon,
   Button,
 } from '../atoms'
-import { CircleOrTriangle } from './CircleOrTriangle'
+import { CircleOrIcon } from './CircleOrIcon'
 
 function SearchResultsListItemComponent({
   pointID,
@@ -48,7 +48,7 @@ function SearchResultsListItemComponent({
           <Text fontSize="22px">{pointData.english} - </Text>
           <Text fontSize="18px">{pointData.transliteration}</Text>
           <EmptySpace />
-          <CircleOrTriangle colorCode={pointData.colorCode} marginRight="4px" />
+          <CircleOrIcon colorCode={pointData.colorCode} marginRight="4px" />
           <Text fontSize="20px">{pointID}</Text>
         </Row>
         <Row>

@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
 
 import { Text, TransparentButton, Row, EmptySpace } from '../atoms'
-import { CircleOrTriangle } from './CircleOrTriangle'
+import { CircleOrIcon } from './CircleOrIcon'
 import MERIDIAN_POINTS_DATA from '../../shared/data/meridianPointsData'
 
 function MeridianPointListItemComponent({ pointID, handlePointPress, theme }) {
@@ -21,7 +21,7 @@ function MeridianPointListItemComponent({ pointID, handlePointPress, theme }) {
         pd="8px 6px"
         width="100%">
         <Row>
-          <CircleOrTriangle colorCode={pointData.colorCode} marginRight="8px" />
+          <CircleOrIcon colorCode={pointData.colorCode} marginRight="8px" />
           <Text fontSize="18px" mg="0 4px 0 0">
             {pointID}
           </Text>

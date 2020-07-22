@@ -21,7 +21,7 @@ import {
   ColorCodeCircle,
   MatIcon,
 } from '../../atoms'
-import { CircleOrTriangle } from '../../molecules'
+import { CircleOrIcon } from '../../molecules'
 import MERIDIAN_POINTS_DATA from '../../../shared/data/meridianPointsData'
 
 const DetailsPointScreenComponent = ({
@@ -41,7 +41,7 @@ const DetailsPointScreenComponent = ({
       <SafeAreaView pd="0">
         <Header>
           <Row>
-            <CircleOrTriangle
+            <CircleOrIcon
               marginRight="8px"
               size="18px"
               colorCode={pointData.colorCode}
@@ -73,7 +73,7 @@ const DetailsPointScreenComponent = ({
               </Row>
             </TransparentButton>
           ) : null}
-          <CircleOrTriangle colorCode={pointData.colorCode} />
+          <CircleOrIcon colorCode={pointData.colorCode} />
           <MatCommIcon name="ruler-square" size={22} />
           <Text mg="0 0 0 4px">{pointData.depth}</Text>
         </InfoBar>
