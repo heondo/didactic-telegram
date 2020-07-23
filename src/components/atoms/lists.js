@@ -8,9 +8,4 @@ export const FlatList = styled.FlatList`
   width: ${(props) => (props.width ? props.width : '100%')};
 `
 
-export const SearchResultsFlatList = styled(FlatList)`
-  /* width: 100%;
-  z-index: 5;
-  position: absolute;
-  top: 32px; */
-`
+export const SearchResultsFlatList = styled(FlatList)``

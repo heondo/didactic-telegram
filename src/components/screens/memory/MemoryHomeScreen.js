@@ -31,6 +31,7 @@ const MemoryHomeScreenComponent = ({ navigation, theme }) => {
             handleMeridianPress={handleMeridianPress}
           />
         )}
+        pd="0"
         numColumns={3}
         horizontal={false}
         keyExtractor={(item) => item.meridianID}

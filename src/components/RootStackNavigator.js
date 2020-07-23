@@ -71,7 +71,7 @@ function RootStackNavigator({ theme, authState, toggleTheme }) {
           showLabel: true,
         }}>
         <Tab.Screen
-          name="Memory"
+          name="Road Map"
           component={MemoryScreenTab}
           options={{
             tabBarIcon: ({ focused }) => (
