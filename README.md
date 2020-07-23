@@ -40,10 +40,11 @@ My dad got his accupuncture license this year and did great at his school with t
 
 ### Progress
 
-##### Week 6
+##### Week 6 - 8
 
 Working on feedback from my dad
 
+- Adding icons, DRY for margins and customizable components. Trying to get Firebase to work in the release build of my app. Added the Google Play Console key
 - Prevent rotating to landscape, remove extra chinese characters from Meridian Group Names
 - Make submit note, add, edit, and submit image button larger
 
