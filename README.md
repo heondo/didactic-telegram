@@ -20,23 +20,10 @@ My dad got his accupuncture license this year and did great at his school with t
 
 ### Todos
 
-- Remove bottom modal for the images screen. Add navigation to the matching details page for the point
-- Move search component from photos title bar into its own component
-- Get new location, effect, color data and combine with existing format
-- Different color for each point, toggle to switch view of meridian group, color. Rotate the image?
+- -variant-release doesn't open anymore, I can't think of anything that I changed that would lead to this. Dev works fine, added Google Console signing keys to Firebase. Annoying.
 - Component with an image. Position of various meridian points on the image. Overlay a set of annotations on the image based on coordinates..
 - Plan heaviliy ^ (no 3D because that doesn't seem to be supported well in RN)
 - Refix settings page and figure out the sign out button positioning
-- ~Add search bar to title bar (user notes, location, accupuncture point names)?~
-- ~How to implement search algorithm because the data is a little spread out.~
-- ~Figure out why loading large tab screens take so long and how to work around that~ (switch to swiper)
-- ~Create information modal or drawer for each point (drawer instead)~
-- ~Add loading message for different redux states~
-- ~Add note feature for the points~
-- ~Limit file size for image upload~
-- ~Stop using the same image~
-- ~Trying to figure out the design for the upload image image.~
-- ~Swiping between the different points. Probably makes the most sense to use the tab swipe component~
 
 ### Progress
 
@@ -44,6 +31,7 @@ My dad got his accupuncture license this year and did great at his school with t
 
 Working on feedback from my dad
 
+- React Native release build no longer opens for some reason, didn't change anything in the gradle files/etc. Development version continues to work fine.
 - Adding icons, DRY for margins and customizable components. Trying to get Firebase to work in the release build of my app. Added the Google Play Console key
 - Prevent rotating to landscape, remove extra chinese characters from Meridian Group Names
 - Make submit note, add, edit, and submit image button larger
