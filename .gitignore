@@ -62,7 +62,7 @@ buck-out/
 src/shared/data/*
 /android/app/google-services.json
 /android/keystore.properties
-/android/java_pid5048.hprof
+/android/java_pid*.hprof
 /android/my-upload-key.keystore
 environment.js
 

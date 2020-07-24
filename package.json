@@ -8,6 +8,7 @@
     "start": "react-native start",
     "prettier:write": "npx prettier --write '**/*.{js,jsx}'",
     "clean-gradle": "cd android && gradle clean && cd ..",
+    "bundle-release": "cd android/ && ./gradlew bundleRelease && cd ../",
     "test": "jest --verbose --coverage",
     "test:update": "jest --verbose --coverage --updateSnapshot",
     "test:watch": "jest --verbose --watch",
