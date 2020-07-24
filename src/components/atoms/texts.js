@@ -47,9 +47,8 @@ export const TextInput = styled.TextInput`
   font-size: 16px;
   padding: ${(props) => (props.pd ? props.pd : '0')};
   color: ${(props) => props.theme.PRIMARY_TEXT_COLOR};
-  border-style: solid;
-  border-bottom-color: ${(props) => props.theme.PRIMARY_TEXT_COLOR};
-  border-bottom-width: 1px;
+  border: 1px solid ${(props) => props.theme.FADED_TEXT_COLOR};
+  border-radius: 5px;
 `
 
 export const SearchInput = styled.TextInput`

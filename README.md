@@ -31,6 +31,8 @@ My dad got his accupuncture license this year and did great at his school with t
 
 Working on feedback from my dad
 
+- Working on cleaning up the Play Store Listing, additional tweaks
+- `implementation 'com.facebook.soloader:soloader:0.9.0+'` saved my release build
 - React Native release build no longer opens for some reason, didn't change anything in the gradle files/etc. Development version continues to work fine.
 - Adding icons, DRY for margins and customizable components. Trying to get Firebase to work in the release build of my app. Added the Google Play Console key
 - Prevent rotating to landscape, remove extra chinese characters from Meridian Group Names
