@@ -85,6 +85,20 @@ export const BottomHeaderContainer = styled(BottomContentContainer)`
   height: 20px;
 `
 
+export const PointDepthButtonContainer = styled.ImageBackground`
+  color: ${(props) => props.theme.PRIMARY_TEXT_COLOR};
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: ${(props) => (props.alignItems ? props.alignItems : 'center')};
+  width: ${(props) => (props.width ? props.width : '100%')};
+  height: 120px;
+  border-radius: 12px;
+  overflow: hidden;
+  elevation: 4;
+  margin: 8px 0;
+`
+
 export const OverLay = styled(View)`
   position: absolute;
   background-color: ${(props) => props.theme.OVERLAY_BG_COLOR};

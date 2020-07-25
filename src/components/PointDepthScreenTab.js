@@ -2,18 +2,18 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { connect } from 'react-redux'
 
-import { BodyMapHomeScreen } from './screens'
+import { PointDepthHomeScreen } from './screens'
 
-const BodyMapScreenStack = createStackNavigator()
+const PointDepthScreenStack = createStackNavigator()
 
-function BodyMapScreenTab({ theme, navigation }) {
+function PointDepthScreenTab({ theme, navigation }) {
   return (
-    <BodyMapScreenStack.Navigator>
-      <BodyMapScreenStack.Screen
-        name="Body Map"
-        component={BodyMapHomeScreen}
+    <PointDepthScreenStack.Navigator>
+      <PointDepthScreenStack.Screen
+        name="Point Depth Home Screen"
+        component={PointDepthHomeScreen}
         options={{
-          headerTitle: 'Body Map',
+          headerTitle: 'Point Depth',
           headerShown: true,
           headerStyle: {
             backgroundColor: theme.PRIMARY_BACKGROUND_COLOR,
@@ -24,7 +24,7 @@ function BodyMapScreenTab({ theme, navigation }) {
           headerTintColor: theme.PRIMARY_TEXT_COLOR,
         }}
       />
-    </BodyMapScreenStack.Navigator>
+    </PointDepthScreenStack.Navigator>
   )
 }
 
@@ -34,4 +34,4 @@ const mapStateToProps = ({ theme }) => {
   }
 }
 
-export default connect(mapStateToProps)(BodyMapScreenTab)
+export default connect(mapStateToProps)(PointDepthScreenTab)

@@ -37,6 +37,17 @@ export const BottomHeaderButton = styled(TouchableWithoutFeedback)`
   background-color: ${(props) => props.theme.BOTTOM_SHEET_BACKGROUND};
 `
 
+export const PointDepthButton = styled(Button)`
+  /* padding: 8px;
+  height: 120px;
+  border-radius: 12px;
+  elevation: 4;
+  margin: 8px 0; */
+  background-color: rgba( 0, 0, 0, 0.6 ),
+  height: 100%;
+  /* background-color: transparent; */
+`
+
 export const MeridianSquareButton = styled(Button)`
   border-radius: 18px;
   elevation: 4;

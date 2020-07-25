@@ -10,7 +10,7 @@ import { MatCommIcon, MatIcon } from './atoms'
 import { thunkLogin } from '../state/auth/slice'
 import MemoryScreenTab from './MemoryScreenTab'
 import SettingsScreenTab from './SettingsScreenTab'
-import BodyMapScreenTab from './BodyMapScreenTab'
+import PointDepthScreenTab from './PointDepthScreenTab'
 import DetailsScreenTab from './DetailsScreenTab'
 import SearchScreenTab from './SearchScreenTab'
 import { toggleTheme } from '../state/theme/slice'
@@ -111,7 +111,7 @@ function RootStackNavigator({ theme, authState, toggleTheme }) {
         />
         <Tab.Screen
           name="Point Depth"
-          component={BodyMapScreenTab}
+          component={PointDepthScreenTab}
           options={{
             tabBarIcon: ({ focused }) => (
               <MatCommIcon
