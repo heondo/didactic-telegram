@@ -14,28 +14,28 @@ const PointDepthHomeScreenComponent = ({ navigation, theme }) => {
     <ThemeProvider theme={theme}>
       <SafeAreaView pd="0 8px">
         <PointDepthButtonContainer
-          blurRadius={1}
+          blurRadius={1.5}
           source={require('../../../shared/images/point-depth-bg.jpg')}>
           <PointDepthButton>
             <ButtonText>COLOR</ButtonText>
           </PointDepthButton>
         </PointDepthButtonContainer>
         <PointDepthButtonContainer
-          blurRadius={1}
+          blurRadius={1.5}
           source={require('../../../shared/images/point-depth-bg.jpg')}>
           <PointDepthButton>
             <ButtonText>FRONT</ButtonText>
           </PointDepthButton>
         </PointDepthButtonContainer>
         <PointDepthButtonContainer
-          blurRadius={1}
+          blurRadius={1.5}
           source={require('../../../shared/images/point-depth-bg.jpg')}>
           <PointDepthButton>
             <ButtonText>BACK</ButtonText>
           </PointDepthButton>
         </PointDepthButtonContainer>
         <PointDepthButtonContainer
-          blurRadius={1}
+          blurRadius={1.5}
           source={require('../../../shared/images/point-depth-bg.jpg')}>
           <PointDepthButton>
             <ButtonText>SIDE</ButtonText>
