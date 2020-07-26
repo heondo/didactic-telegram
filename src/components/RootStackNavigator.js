@@ -21,6 +21,7 @@ function RootStackNavigator({ theme, authState, toggleTheme }) {
   const dispatch = useDispatch()
 
   const [initializing, setInitializing] = useState(true)
+
   useEffect(() => {
     const getThemeMode = async () => {
       try {
@@ -33,9 +34,6 @@ function RootStackNavigator({ theme, authState, toggleTheme }) {
       }
     }
     getThemeMode()
-  }, [])
-
-  useEffect(() => {
     const onAuthStateChanged = (user) => {
       const strippedDown = user
         ? {
@@ -57,6 +55,10 @@ function RootStackNavigator({ theme, authState, toggleTheme }) {
     return subscriber // unsubscribe on unmount
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  if (initializing) {
+    return null
+  }
 
   return (
     <NavigationContainer>
@@ -127,7 +129,7 @@ function RootStackNavigator({ theme, authState, toggleTheme }) {
           component={SettingsScreenTab}
           options={{
             tabBarIcon: ({ focused }) => (
-              <MatCommIcon
+              <MatIcon
                 name="settings"
                 color={focused ? theme.WHITE : theme.GREY}
                 size={30}
