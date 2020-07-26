@@ -38,7 +38,10 @@ export const BottomHeaderButton = styled(TouchableWithoutFeedback)`
 `
 
 export const PointDepthButton = styled(Button)`
-  background-color: rgba( 0, 0, 0, 0.6),
+  background-color: ${(props) =>
+    props.theme.mode === 'dark'
+      ? 'rgba(0, 0, 0, 0.6)'
+      : 'rgba(255, 255, 255, .4)'};
   height: 100%;
 `
 

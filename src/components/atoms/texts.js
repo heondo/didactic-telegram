@@ -25,6 +25,13 @@ export const ButtonText = styled(Text)`
   color: ${(props) => props.theme.PRIMARY_BUTTON_TEXT_COLOR};
 `
 
+export const DepthButtonText = styled(ButtonText)`
+  color: ${(props) => props.theme.PRIMARY_TEXT_COLOR};
+  font-size: 26px;
+  letter-spacing: 3px;
+  font-weight: bold;
+`
+
 export const DarkText = styled(Text)`
   color: ${(props) => props.theme.BLACK};
 `

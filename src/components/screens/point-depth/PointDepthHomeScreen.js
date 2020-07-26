@@ -4,12 +4,16 @@ import { ThemeProvider } from 'styled-components'
 
 import {
   SafeAreaView,
-  ButtonText,
+  DepthButtonText,
   PointDepthButton,
   PointDepthButtonContainer,
 } from '../../atoms'
 
 const PointDepthHomeScreenComponent = ({ navigation, theme }) => {
+  const navigateToFront = () => {
+    navigation.navigate('Point Depth Front')
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaView pd="0 8px">
@@ -17,28 +21,28 @@ const PointDepthHomeScreenComponent = ({ navigation, theme }) => {
           blurRadius={1.5}
           source={require('../../../shared/images/point-depth-bg.jpg')}>
           <PointDepthButton>
-            <ButtonText>COLOR</ButtonText>
+            <DepthButtonText>COLOR</DepthButtonText>
+          </PointDepthButton>
+        </PointDepthButtonContainer>
+        <PointDepthButtonContainer
+          blurRadius={1.5}
+          source={require('../../../shared/images/point-depth-bg.jpg')}>
+          <PointDepthButton onPress={navigateToFront}>
+            <DepthButtonText>FRONT</DepthButtonText>
           </PointDepthButton>
         </PointDepthButtonContainer>
         <PointDepthButtonContainer
           blurRadius={1.5}
           source={require('../../../shared/images/point-depth-bg.jpg')}>
           <PointDepthButton>
-            <ButtonText>FRONT</ButtonText>
+            <DepthButtonText>BACK</DepthButtonText>
           </PointDepthButton>
         </PointDepthButtonContainer>
         <PointDepthButtonContainer
           blurRadius={1.5}
           source={require('../../../shared/images/point-depth-bg.jpg')}>
           <PointDepthButton>
-            <ButtonText>BACK</ButtonText>
-          </PointDepthButton>
-        </PointDepthButtonContainer>
-        <PointDepthButtonContainer
-          blurRadius={1.5}
-          source={require('../../../shared/images/point-depth-bg.jpg')}>
-          <PointDepthButton>
-            <ButtonText>SIDE</ButtonText>
+            <DepthButtonText>SIDE</DepthButtonText>
           </PointDepthButton>
         </PointDepthButtonContainer>
       </SafeAreaView>
