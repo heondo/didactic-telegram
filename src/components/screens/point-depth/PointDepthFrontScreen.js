@@ -1,26 +1,23 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
-
-import {
-  SafeAreaView,
-  DepthButtonText,
-  PointDepthButton,
-  PointDepthButtonContainer,
-} from '../../atoms'
+import Svg, { Image } from 'react-native-svg'
 
 const PointDepthFrontScreenComponent = ({ navigation, theme }) => {
   return (
     <ThemeProvider theme={theme}>
-      <SafeAreaView pd="0 8px">
-        <PointDepthButtonContainer
-          blurRadius={1.5}
-          source={require('../../../shared/images/point-depth-bg.jpg')}>
-          <PointDepthButton>
-            <DepthButtonText>Front</DepthButtonText>
-          </PointDepthButton>
-        </PointDepthButtonContainer>
-      </SafeAreaView>
+      <Svg height="100%" width="100%">
+        <Image
+          // x="5%"
+          // y="5%"
+          width="100%"
+          height="100%"
+          // preserveAspectRatio="xMidYMid slice"
+          // opacity="0.5"
+          href={require('../../../shared/images/depth-images/front-core.png')}
+          clipPath="url(#clip)"
+        />
+      </Svg>
     </ThemeProvider>
   )
 }
