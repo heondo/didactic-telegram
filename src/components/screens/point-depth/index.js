@@ -1,2 +1,5 @@
 export * from './PointDepthHomeScreen'
 export * from './PointDepthFrontScreen'
+export * from './PointDepthBackScreen'
+export * from './PointDepthSideScreen'
+export * from './PointDepthColorScreen'

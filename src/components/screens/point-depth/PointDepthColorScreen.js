@@ -9,7 +9,7 @@ import {
   PointDepthButtonContainer,
 } from '../../atoms'
 
-const PointDepthFrontScreenComponent = ({ navigation, theme }) => {
+const PointDepthColorScreenComponent = ({ navigation, theme }) => {
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaView pd="0 8px">
@@ -17,7 +17,7 @@ const PointDepthFrontScreenComponent = ({ navigation, theme }) => {
           blurRadius={1.5}
           source={require('../../../shared/images/point-depth-bg.jpg')}>
           <PointDepthButton>
-            <DepthButtonText>Front</DepthButtonText>
+            <DepthButtonText>COLOR</DepthButtonText>
           </PointDepthButton>
         </PointDepthButtonContainer>
       </SafeAreaView>
@@ -30,6 +30,6 @@ const mapStateToProps = ({ theme }) => {
   }
 }
 
-export const PointDepthFrontScreen = connect(mapStateToProps)(
-  PointDepthFrontScreenComponent,
+export const PointDepthColorScreen = connect(mapStateToProps)(
+  PointDepthColorScreenComponent,
 )
