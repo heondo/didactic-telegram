@@ -22,6 +22,7 @@ function RootStackNavigator({ theme, authState, toggleTheme }) {
   const dispatch = useDispatch()
 
   const [initializing, setInitializing] = useState(true)
+  const [loadingTheme, setLoadingTheme] = useState(true)
   const [firstLaunch, setFirstLaunch] = useState(true)
 
   const setAlreadyLaunched = async () => {
@@ -42,6 +43,7 @@ function RootStackNavigator({ theme, authState, toggleTheme }) {
         if (themeMode === 'light') {
           toggleTheme()
         }
+        setLoadingTheme(false)
       } catch (err) {
         console.error(err)
       }
@@ -70,7 +72,7 @@ function RootStackNavigator({ theme, authState, toggleTheme }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  if (initializing) {
+  if (initializing || loadingTheme) {
     return null
   }
 
