@@ -19,16 +19,18 @@ const IntroSwiperScreenComponent = ({
   theme,
   setAlreadyLaunched,
 }) => {
+  let swiperRef
   const [currentIndex, setCurrentIndex] = useState(0)
   return (
     <ThemeProvider theme={theme}>
       <Swiper
         showsButtons={false}
         loop={false}
+        ref={(swiper) => (swiperRef = swiper)}
         activeDotColor={theme.PRIMARY_TEXT_COLOR}
         showsPagination={true}
         onIndexChanged={(index) => setCurrentIndex(index)}
-        index={currentIndex}>
+        index={0}>
         <FirstIntroScreen />
         <SafeAreaView>
           <Text>Hello</Text>
@@ -45,10 +47,7 @@ const IntroSwiperScreenComponent = ({
         ) : null}
         <EmptySpace />
         {currentIndex < 2 ? (
-          <TransparentButton
-            onPress={() => {
-              setCurrentIndex(currentIndex + 1)
-            }}>
+          <TransparentButton onPress={() => swiperRef.scrollBy(1)}>
             <Text>NEXT</Text>
           </TransparentButton>
         ) : (

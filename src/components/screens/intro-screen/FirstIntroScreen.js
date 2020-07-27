@@ -8,10 +8,10 @@ const FirstIntroScreenComponent = ({ navigation, route, theme }) => {
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaView pd="12px">
-        <Image
+        {/* <Image
           resizeMode="contain"
           source={require('../../../shared/images/guy-checking-map.jpg')}
-        />
+        /> */}
         <EmptySpace />
       </SafeAreaView>
     </ThemeProvider>
