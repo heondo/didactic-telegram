@@ -44,7 +44,11 @@ const IntroSwiperScreenComponent = ({
           <TransparentButton onPress={setAlreadyLaunched}>
             <Text>SKIP</Text>
           </TransparentButton>
-        ) : null}
+        ) : (
+          <TransparentButton onPress={() => swiperRef.scrollBy(-1)}>
+            <Text>PREV</Text>
+          </TransparentButton>
+        )}
         <EmptySpace />
         {currentIndex < 2 ? (
           <TransparentButton onPress={() => swiperRef.scrollBy(1)}>
