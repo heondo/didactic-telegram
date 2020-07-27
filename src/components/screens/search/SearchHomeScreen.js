@@ -48,7 +48,7 @@ const SearchHomeScreenComponent = ({ navigation, theme, userImages }) => {
   const goToDetailsScreen = (pointID) => {
     navigation.dispatch(
       CommonActions.reset({
-        index: 1,
+        index: 3,
         routes: [
           { name: 'Details Home Screen' },
           { name: 'Details Points Swiper', params: { pointID } },

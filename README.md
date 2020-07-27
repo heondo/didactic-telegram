@@ -96,3 +96,7 @@ Working on feedback from my dad
 - Implement signing in through Firebase
 - Aggregate accupuncture meridians data into csv format from Wikipedia (thanks to Regex101.com and Wiki Tables for being fairly consistents)
 - Select an image to upload
+
+## Attributions
+
+- <a href='https://www.freepik.com/free-photos-vectors/city'>City vector created by stories - www.freepik.com</a>

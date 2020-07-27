@@ -10,16 +10,10 @@ import {
   Row,
   HeaderText,
   EmptySpace,
-  ItalicizedText,
   DetailsText,
   Image,
   InfoBar,
-  View,
-  TransparentButton,
   ScrollView,
-  MatCommIcon,
-  ColorCodeCircle,
-  MatIcon,
 } from '../../atoms'
 import { CircleOrIcon } from '../../molecules'
 import MERIDIAN_POINTS_DATA from '../../../shared/data/meridianPointsData'

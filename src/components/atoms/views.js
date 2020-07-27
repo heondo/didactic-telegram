@@ -121,3 +121,7 @@ export const InfoBar = styled(View)`
 export const EmptySpace = styled.View`
   flex-grow: 1;
 `
+export const TutorialButtonsRow = styled(Row)`
+  position: absolute;
+  bottom: 14px;
+`

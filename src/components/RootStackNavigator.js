@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import auth from '@react-native-firebase/auth'
 import AsyncStorage from '@react-native-community/async-storage'
 
-import { MatCommIcon, MatIcon } from './atoms'
+import { MatCommIcon, MatIcon, Text } from './atoms'
 import { thunkLogin } from '../state/auth/slice'
 import MemoryScreenTab from './MemoryScreenTab'
 import SettingsScreenTab from './SettingsScreenTab'
@@ -14,6 +14,7 @@ import PointDepthScreenTab from './PointDepthScreenTab'
 import DetailsScreenTab from './DetailsScreenTab'
 import SearchScreenTab from './SearchScreenTab'
 import { toggleTheme } from '../state/theme/slice'
+import { IntroSwiperScreen } from './screens/intro-screen'
 
 const Tab = createBottomTabNavigator()
 
@@ -21,8 +22,20 @@ function RootStackNavigator({ theme, authState, toggleTheme }) {
   const dispatch = useDispatch()
 
   const [initializing, setInitializing] = useState(true)
+  const [firstLaunch, setFirstLaunch] = useState(true)
+
+  const setAlreadyLaunched = async () => {
+    await AsyncStorage.setItem('wasLaunched', 'true')
+    setFirstLaunch(false)
+  }
 
   useEffect(() => {
+    const getWasLaunched = async () => {
+      const wasAlreadyLaunched = await AsyncStorage.getItem('wasLaunched') // if booted, will return true
+      if (wasAlreadyLaunched) {
+        setFirstLaunch(false)
+      }
+    }
     const getThemeMode = async () => {
       try {
         const themeMode = await AsyncStorage.getItem('themeMode')
@@ -34,6 +47,7 @@ function RootStackNavigator({ theme, authState, toggleTheme }) {
       }
     }
     getThemeMode()
+    getWasLaunched()
     const onAuthStateChanged = (user) => {
       const strippedDown = user
         ? {
@@ -58,6 +72,10 @@ function RootStackNavigator({ theme, authState, toggleTheme }) {
 
   if (initializing) {
     return null
+  }
+
+  if (firstLaunch) {
+    return <IntroSwiperScreen setAlreadyLaunched={setAlreadyLaunched} />
   }
 
   return (
@@ -98,19 +116,7 @@ function RootStackNavigator({ theme, authState, toggleTheme }) {
             ),
           }}
         />
-        <Tab.Screen
-          name="Search"
-          component={SearchScreenTab}
-          options={{
-            tabBarIcon: ({ focused }) => (
-              <MatIcon
-                name="search"
-                color={focused ? theme.WHITE : theme.GREY}
-                size={30}
-              />
-            ),
-          }}
-        />
+
         <Tab.Screen
           name="Details"
           component={DetailsScreenTab}
@@ -120,6 +126,19 @@ function RootStackNavigator({ theme, authState, toggleTheme }) {
                 name="book-open-outline"
                 color={focused ? theme.WHITE : theme.GREY}
                 size={28}
+              />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Search"
+          component={SearchScreenTab}
+          options={{
+            tabBarIcon: ({ focused }) => (
+              <MatIcon
+                name="search"
+                color={focused ? theme.WHITE : theme.GREY}
+                size={30}
               />
             ),
           }}
