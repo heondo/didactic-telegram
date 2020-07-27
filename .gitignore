@@ -60,6 +60,7 @@ buck-out/
 
 
 src/shared/data/*
+src/shared/images/point/*
 /android/app/google-services.json
 /android/keystore.properties
 /android/java_pid*.hprof

@@ -46,7 +46,7 @@ const DetailsPointScreenComponent = ({
         <Image
           width="100%"
           height="40%"
-          resizeMode="cover"
+          resizeMode="contain"
           source={pointData.image}
         />
         <InfoBar>
