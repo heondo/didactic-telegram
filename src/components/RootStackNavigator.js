@@ -73,7 +73,7 @@ function RootStackNavigator({ theme, authState, toggleTheme }) {
           showLabel: true,
         }}>
         <Tab.Screen
-          name="Road Map"
+          name="Road Memory"
           component={MemoryScreenTab}
           options={{
             tabBarIcon: ({ focused }) => (
@@ -86,14 +86,14 @@ function RootStackNavigator({ theme, authState, toggleTheme }) {
           }}
         />
         <Tab.Screen
-          name="Details"
-          component={DetailsScreenTab}
+          name="Point Depth"
+          component={PointDepthScreenTab}
           options={{
             tabBarIcon: ({ focused }) => (
               <MatCommIcon
-                name="book-open-outline"
+                name="map"
                 color={focused ? theme.WHITE : theme.GREY}
-                size={28}
+                size={30}
               />
             ),
           }}
@@ -112,14 +112,14 @@ function RootStackNavigator({ theme, authState, toggleTheme }) {
           }}
         />
         <Tab.Screen
-          name="Point Depth"
-          component={PointDepthScreenTab}
+          name="Details"
+          component={DetailsScreenTab}
           options={{
             tabBarIcon: ({ focused }) => (
               <MatCommIcon
-                name="map"
+                name="book-open-outline"
                 color={focused ? theme.WHITE : theme.GREY}
-                size={30}
+                size={28}
               />
             ),
           }}

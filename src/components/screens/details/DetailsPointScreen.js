@@ -47,7 +47,7 @@ const DetailsPointScreenComponent = ({
           width="100%"
           height="40%"
           resizeMode="cover"
-          source={require('../../../shared/images/point/LU-1.png')}
+          source={pointData.image}
         />
         <InfoBar>
           <Text fontSize="22px">{pointData.english}</Text>
