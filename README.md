@@ -4,12 +4,6 @@
 
 My dad got his accupuncture license this year and did great at his school with the curriculum because of a memorization technique he implemented. He now teaches (remotely now) this technique to his students and believes a mobile application would be a great tool to accomdate his teaching as well as a general tool for aspiring accupuncturists.
 
-### Random Thoughts
-
-- I want to try Flutter because Google made it and I really liked Angular. Figuring they would use a lot of the same principles
-- Formatting on a small screen is way nicer
-- Elevation looks great
-
 ### Tools
 
 - React Native
