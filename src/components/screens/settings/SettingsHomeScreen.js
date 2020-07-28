@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Switch } from 'react-native'
 import { connect, useDispatch } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
@@ -16,6 +16,8 @@ import {
   AbsoluteView,
   MatCommIcon,
   HeaderText,
+  Button,
+  ButtonText,
 } from '../../atoms'
 import { firebaseService } from '../../../services'
 import { toggleTheme } from '../../../state/theme/slice'
@@ -25,6 +27,7 @@ import {
   thunkLogout,
 } from '../../../state/auth/slice'
 import { LoadingOverlay, SignedInBanner } from '../../molecules'
+import { IntroSwiperScreen } from '../intro-screen'
 
 const SettingsHomeScreenComponent = ({
   navigation,
@@ -35,6 +38,7 @@ const SettingsHomeScreenComponent = ({
   endAuthLoading,
 }) => {
   const dispatch = useDispatch()
+  const [showTutorial, setShowTutorial] = useState(false)
 
   const handleGoogleSignIn = async () => {
     try {
@@ -72,10 +76,16 @@ const SettingsHomeScreenComponent = ({
     }
   }
 
-  const rewatchTutorial = async () => {
-    await AsyncStorage.setItem('wasLaunched', 'false')
-    //... this wont. work. I need to create a redux state for it because the root componeent
-    // isnt listening to the asyncstorage change
+  const openTutorial = () => {
+    setShowTutorial(true)
+  }
+
+  const closeTutorial = () => {
+    setShowTutorial(false)
+  }
+
+  if (showTutorial) {
+    return <IntroSwiperScreen handleCloseTutorial={closeTutorial} />
   }
 
   return (
@@ -103,6 +113,11 @@ const SettingsHomeScreenComponent = ({
           <Text>Review Tutorial</Text>
         </TransparentButton> */}
         {/* Theme toggler */}
+        <View>
+          <Button onPress={openTutorial}>
+            <ButtonText>Review Tutorial</ButtonText>
+          </Button>
+        </View>
         <View mg="4px 0">
           <Text>
             {theme.mode === 'light' ? 'Enable' : 'Disable'} Dark Theme

@@ -78,7 +78,7 @@ function RootStackNavigator({ theme, toggleTheme }) {
   }
 
   if (firstLaunch) {
-    return <IntroSwiperScreen setAlreadyLaunched={setAlreadyLaunched} />
+    return <IntroSwiperScreen handleCloseTutorial={setAlreadyLaunched} />
   }
 
   return (

@@ -17,7 +17,7 @@ const IntroSwiperScreenComponent = ({
   navigation,
   route,
   theme,
-  setAlreadyLaunched,
+  handleCloseTutorial,
 }) => {
   let swiperRef
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -41,7 +41,7 @@ const IntroSwiperScreenComponent = ({
       </Swiper>
       <TutorialButtonsRow pd="0 8px">
         {currentIndex === 0 ? (
-          <TransparentButton onPress={setAlreadyLaunched}>
+          <TransparentButton onPress={handleCloseTutorial}>
             <Text>SKIP</Text>
           </TransparentButton>
         ) : (
@@ -55,7 +55,7 @@ const IntroSwiperScreenComponent = ({
             <Text>NEXT</Text>
           </TransparentButton>
         ) : (
-          <TransparentButton onPress={setAlreadyLaunched}>
+          <TransparentButton onPress={handleCloseTutorial}>
             <Text>DONE</Text>
           </TransparentButton>
         )}
@@ -71,7 +71,7 @@ const mapStateToProps = ({ theme }) => {
 }
 
 IntroSwiperScreenComponent.propTypes = {
-  setAlreadyLaunched: PropTypes.func,
+  handleCloseTutorial: PropTypes.func,
 }
 
 export const IntroSwiperScreen = connect(mapStateToProps)(
