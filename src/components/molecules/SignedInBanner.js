@@ -4,15 +4,13 @@ import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
 
 import {
-  SafeAreaView,
   Text,
-  View,
-  ImageAbsolute,
-  EmptySpace,
+  ItalicizedText,
   ProfileImage,
   TransparentButton,
   MatCommIcon,
   SettingsRow,
+  Button,
 } from '../atoms'
 
 function SignedInBannerComponent({
@@ -55,30 +53,44 @@ function SignedInBannerComponent({
   }
   // const numPhotos
 
+  const convertJoinedDate = (date) => {
+    const dateObj = new Date(date)
+    const month = dateObj.toLocaleString('default').split(' ')
+    month.splice(3, 1)
+    month.splice(0, 1)
+    console.log(month)
+    return month.join(' ')
+  }
+
   return (
     <ThemeProvider theme={theme}>
-      <SettingsRow width="100%" justifyContent="flex-start" pd="4px">
+      <SettingsRow pd="4px">
         <ProfileImage
           source={{
             uri: authState.user.photoURL,
           }}
-          mg="0 8px"
+          mg="0 16px 0 0"
         />
-        <Text fontSize="26px">
-          Hello, {capitalize(authState.user.displayName)}
-        </Text>
+        <Text fontSize="26px">{capitalize(authState.user.displayName)}</Text>
       </SettingsRow>
-      <SettingsRow width="100%" justifyContent="flex-start">
+      <SettingsRow>
         <MatCommIcon name="image-outline" size={28} />
         <Text fontSize="24px"> - {userStats.photosCount} photos</Text>
       </SettingsRow>
-      <SettingsRow width="100%" justifyContent="flex-start">
+      <SettingsRow>
         <MatCommIcon name="notebook-outline" size={28} />
         <Text fontSize="24px"> - {userStats.notesCount} notes</Text>
       </SettingsRow>
-      <TransparentButton onPress={handleLogout} width="30%">
-        <Text>Sign Out</Text>
-      </TransparentButton>
+      <SettingsRow>
+        <ItalicizedText>
+          Joined: {convertJoinedDate(authState.user.signUpDate)}
+        </ItalicizedText>
+      </SettingsRow>
+      <SettingsRow>
+        <Button onPress={handleLogout} width="25%" pd="10px 6px" mg="0">
+          <Text>Sign Out</Text>
+        </Button>
+      </SettingsRow>
     </ThemeProvider>
   )
 }

@@ -84,30 +84,6 @@ const SettingsHomeScreenComponent = ({
           </TransparentButton>
         )}
         {/* Image and sign in/out button container */}
-        {/* <View height="50%" width="100%">
-          <ImageAbsolute
-            source={require('../../../shared/images/backdrop-sample.png')}
-          />
-          {authState.isLoggedIn ? (
-            <>
-              <ProfileImage
-                source={{
-                  uri: authState.user.photoURL,
-                }}
-              />
-              <Text fontSize="22px">
-                {capitalize(authState.user.displayName)}
-              </Text>
-              <TransparentButton onPress={handleLogout} width="30%">
-                <Text>Sign Out</Text>
-              </TransparentButton>
-            </>
-          ) : (
-            <TransparentButton onPress={handleGoogleSignIn}>
-              <Text fontSize="24px">G - SIGN IN</Text>
-            </TransparentButton>
-          )}
-        </View> */}
         <EmptySpace />
         {/* Theme toggler */}
         <View mg="4px 0">
