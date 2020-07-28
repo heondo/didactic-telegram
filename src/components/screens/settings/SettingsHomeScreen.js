@@ -13,6 +13,9 @@ import {
   ProfileImage,
   TransparentButton,
   Row,
+  AbsoluteView,
+  MatCommIcon,
+  HeaderText,
 } from '../../atoms'
 import { firebaseService } from '../../../services'
 import { toggleTheme } from '../../../state/theme/slice'
@@ -79,9 +82,14 @@ const SettingsHomeScreenComponent = ({
         {authState.isLoggedIn ? (
           <SignedInBanner handleLogout={handleLogout} />
         ) : (
-          <TransparentButton onPress={handleGoogleSignIn}>
-            <Text fontSize="24px">G - SIGN IN</Text>
-          </TransparentButton>
+          <AbsoluteView>
+            <TransparentButton onPress={handleGoogleSignIn}>
+              <Row>
+                <MatCommIcon name="google" size={32} mg="0 8px" />
+                <HeaderText fontSize="32px">- SIGN IN</HeaderText>
+              </Row>
+            </TransparentButton>
+          </AbsoluteView>
         )}
         {/* Image and sign in/out button container */}
         <EmptySpace />

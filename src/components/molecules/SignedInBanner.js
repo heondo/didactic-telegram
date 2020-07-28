@@ -56,9 +56,7 @@ function SignedInBannerComponent({
   const convertJoinedDate = (date) => {
     const dateObj = new Date(date)
     const month = dateObj.toLocaleString('default').split(' ')
-    month.splice(3, 1)
-    month.splice(0, 1)
-    console.log(month)
+    month.splice(3, 1) && month.splice(0, 1) // i didnt know this works
     return month.join(' ')
   }
 
