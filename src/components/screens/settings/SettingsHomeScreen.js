@@ -15,15 +15,20 @@ import {
 } from '../../atoms'
 import { firebaseService } from '../../../services'
 import { toggleTheme } from '../../../state/theme/slice'
-import { startAuthLoading, thunkLogout } from '../../../state/auth/slice'
+import {
+  startAuthLoading,
+  endAuthLoading,
+  thunkLogout,
+} from '../../../state/auth/slice'
 import { LoadingOverlay } from '../../molecules'
 
-const SettingsListScreenComponent = ({
+const SettingsHomeScreenComponent = ({
   navigation,
   theme,
   authState,
   toggleTheme,
   startAuthLoading,
+  endAuthLoading,
 }) => {
   const dispatch = useDispatch()
 
@@ -34,6 +39,9 @@ const SettingsListScreenComponent = ({
       })
       await firebaseService.googleLogin()
     } catch (err) {
+      endAuthLoading({
+        loadingMessage: 'Logging In',
+      })
       console.error(err)
     }
   }
@@ -63,9 +71,11 @@ const SettingsListScreenComponent = ({
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaView pd="0 0 8px 0">
+        {/* Loading overlay if loading */}
         {authState.isLoading ? (
           <LoadingOverlay loadingMessage={authState.loadingMessage} />
         ) : null}
+        {/* Image and sign in/out button container */}
         <View height="50%" width="100%">
           <ImageAbsolute
             source={require('../../../shared/images/backdrop-sample.png')}
@@ -91,6 +101,7 @@ const SettingsListScreenComponent = ({
           )}
         </View>
         <EmptySpace />
+        {/* Theme toggler */}
         <View mg="4px 0">
           <Text>
             {theme.mode === 'light' ? 'Enable' : 'Disable'} Dark Theme
@@ -116,7 +127,8 @@ const mapStateToProps = ({ theme, authState, userImages }) => {
   }
 }
 
-export const SettingsListScreen = connect(mapStateToProps, {
+export const SettingsHomeScreen = connect(mapStateToProps, {
   toggleTheme,
   startAuthLoading,
-})(SettingsListScreenComponent)
+  endAuthLoading,
+})(SettingsHomeScreenComponent)

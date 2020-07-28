@@ -1,1 +1,1 @@
-export * from './SettingsListScreen'
+export * from './SettingsHomeScreen'

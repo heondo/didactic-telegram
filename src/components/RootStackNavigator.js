@@ -14,7 +14,7 @@ import PointDepthScreenTab from './PointDepthScreenTab'
 import DetailsScreenTab from './DetailsScreenTab'
 import SearchScreenTab from './SearchScreenTab'
 import { toggleTheme } from '../state/theme/slice'
-import { IntroSwiperScreen } from './screens/intro-screen'
+import { IntroSwiperScreen } from './screens'
 
 const Tab = createBottomTabNavigator()
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { connect } from 'react-redux'
 
-import { SettingsListScreen } from './screens'
+import { SettingsHomeScreen } from './screens'
 
 const SettingsScreenStack = createStackNavigator()
 
@@ -10,8 +10,8 @@ function SettingsScreenTab({ theme }) {
   return (
     <SettingsScreenStack.Navigator>
       <SettingsScreenStack.Screen
-        name="Settings List"
-        component={SettingsListScreen}
+        name="Settings Home Screen"
+        component={SettingsHomeScreen}
         options={{
           headerTitle: 'Settings',
           headerShown: true,

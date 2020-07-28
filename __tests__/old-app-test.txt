@@ -1,17 +1,15 @@
 /**
  * @format
  */
+jest.useFakeTimers()
 
 import 'react-native'
 import React from 'react'
 import App from '../App'
 
+// Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer'
 
-// reading up on the different kinds of testing, this is a snapshot test and not good
-// for components that are stateful and change
-
-test('renders correctly', async () => {
-  const tree = renderer.create(<App />).toJSON()
-  expect(tree).toMatchSnapshot()
+it('App renders correctly', () => {
+  renderer.create(<App />)
 })
