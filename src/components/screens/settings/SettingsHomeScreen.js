@@ -114,7 +114,7 @@ const SettingsHomeScreenComponent = ({
         </TransparentButton> */}
         {/* Theme toggler */}
         <View>
-          <Button onPress={openTutorial}>
+          <Button elevation={2} onPress={openTutorial}>
             <ButtonText>Review Tutorial</ButtonText>
           </Button>
         </View>

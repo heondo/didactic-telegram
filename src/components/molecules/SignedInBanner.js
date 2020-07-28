@@ -85,7 +85,12 @@ function SignedInBannerComponent({
         </ItalicizedText>
       </SettingsRow>
       <SettingsRow>
-        <Button onPress={handleLogout} width="25%" pd="10px 6px" mg="0">
+        <Button
+          elevation={2}
+          onPress={handleLogout}
+          width="25%"
+          pd="10px 6px"
+          mg="0">
           <Text>Sign Out</Text>
         </Button>
       </SettingsRow>

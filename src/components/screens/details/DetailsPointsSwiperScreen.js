@@ -38,6 +38,7 @@ const DetailsPointsSwiperScreenComponent = ({ navigation, route, theme }) => {
       <Swiper
         loadMinimal={true}
         showsButtons={false}
+        loop={false}
         showsPagination={false}
         index={initialIndex}>
         {points.map((p) => (

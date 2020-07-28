@@ -25,6 +25,7 @@ const MemoryPointsSwiperScreenComponent = ({ route, theme, authState }) => {
       <Swiper
         loadMinimal={true}
         showsButtons={false}
+        loop={false}
         showsPagination={false}
         index={initialIndex}>
         {authState.isLoggedIn
