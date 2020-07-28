@@ -23,7 +23,7 @@ function RootStackNavigator({ theme, toggleTheme }) {
 
   const [initializing, setInitializing] = useState(true)
   const [loadingTheme, setLoadingTheme] = useState(true)
-  const [firstLaunch, setFirstLaunch] = useState(true)
+  const [firstLaunch, setFirstLaunch] = useState(false)
 
   const setAlreadyLaunched = async () => {
     await AsyncStorage.setItem('wasLaunched', 'true')
@@ -33,8 +33,8 @@ function RootStackNavigator({ theme, toggleTheme }) {
   useEffect(() => {
     const getWasLaunched = async () => {
       const wasAlreadyLaunched = await AsyncStorage.getItem('wasLaunched') // if booted, will return true
-      if (wasAlreadyLaunched === 'true') {
-        setFirstLaunch(false)
+      if (wasAlreadyLaunched !== 'true') {
+        setFirstLaunch(true)
       }
     }
     const getThemeMode = async () => {
@@ -86,7 +86,7 @@ function RootStackNavigator({ theme, toggleTheme }) {
       <Tab.Navigator
         lazy={false}
         tabBarOptions={{
-          style: { height: '8%' },
+          style: { height: '7.5%' },
           activeBackgroundColor: theme.BLACK,
           inactiveBackgroundColor: theme.BLACK,
           activeTintColor: theme.WHITE,
