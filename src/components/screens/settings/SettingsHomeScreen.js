@@ -72,6 +72,12 @@ const SettingsHomeScreenComponent = ({
     }
   }
 
+  const rewatchTutorial = async () => {
+    await AsyncStorage.setItem('wasLaunched', 'false')
+    //... this wont. work. I need to create a redux state for it because the root componeent
+    // isnt listening to the asyncstorage change
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaView pd="12px">
@@ -93,6 +99,9 @@ const SettingsHomeScreenComponent = ({
         )}
         {/* Image and sign in/out button container */}
         <EmptySpace />
+        {/* <TransparentButton onPress={rewatchTutorial}>
+          <Text>Review Tutorial</Text>
+        </TransparentButton> */}
         {/* Theme toggler */}
         <View mg="4px 0">
           <Text>
