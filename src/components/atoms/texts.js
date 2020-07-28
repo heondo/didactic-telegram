@@ -21,11 +21,7 @@ export const DetailsText = styled(Text)`
   flex: 1;
 `
 
-export const ButtonText = styled(Text)`
-  color: ${(props) => props.theme.PRIMARY_BUTTON_TEXT_COLOR};
-`
-
-export const DepthButtonText = styled(ButtonText)`
+export const DepthButtonText = styled(Text)`
   color: ${(props) => props.theme.PRIMARY_TEXT_COLOR};
   font-size: 26px;
   letter-spacing: 3px;

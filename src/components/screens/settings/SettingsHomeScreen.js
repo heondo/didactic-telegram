@@ -8,16 +8,13 @@ import {
   SafeAreaView,
   Text,
   View,
-  ImageAbsolute,
   EmptySpace,
-  ProfileImage,
-  TransparentButton,
   Row,
+  TransparentButton,
   AbsoluteView,
   MatCommIcon,
   HeaderText,
   Button,
-  ButtonText,
 } from '../../atoms'
 import { firebaseService } from '../../../services'
 import { toggleTheme } from '../../../state/theme/slice'
@@ -115,7 +112,7 @@ const SettingsHomeScreenComponent = ({
         {/* Theme toggler */}
         <View>
           <Button elevation={2} onPress={openTutorial}>
-            <ButtonText>Review Tutorial</ButtonText>
+            <Text>Review Tutorial</Text>
           </Button>
         </View>
         <View mg="4px 0">
