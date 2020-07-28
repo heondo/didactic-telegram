@@ -2,16 +2,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components/native'
 
-import { SafeAreaView, EmptySpace, Image } from '../../atoms'
+import { SafeAreaView, EmptySpace, Image, Text } from '../../atoms'
 
 const FirstIntroScreenComponent = ({ theme }) => {
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaView pd="12px">
-        {/* <Image
-          resizeMode="contain"
-          source={require('../../../shared/images/guy-checking-map.jpg')}
-        /> */}
+        <Text>First tutorial screen, etc etc</Text>
         <EmptySpace />
       </SafeAreaView>
     </ThemeProvider>
