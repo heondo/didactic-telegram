@@ -31,7 +31,7 @@ export const lightTheme = {
   PRIMARY_TEXT_COLOR: nord.nordNight0,
   FADED_TEXT_COLOR: nord.nordNight2,
   ALTERNATE_TEXT_COLOR: nord.snowStorm0,
-  DETAIL_BAR_COLOR: nord.snowStorm0,
+  DETAIL_BAR_COLOR: nord.snowStorm1,
   TAB_BACKGROUND: nord.aurora3,
   TAB_INDICATOR: nord.snowStorm2,
   PRIMARY_BUTTON_COLOR: nord.snowStorm1,
