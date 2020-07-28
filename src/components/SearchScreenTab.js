@@ -6,7 +6,7 @@ import { SearchHomeScreen } from './screens'
 
 const SearchScreenStack = createStackNavigator()
 
-function SearchScreenTab({ theme, navigation }) {
+function SearchScreenTab({}) {
   return (
     <SearchScreenStack.Navigator>
       <SearchScreenStack.Screen

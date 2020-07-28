@@ -7,12 +7,7 @@ import PRIMARY_MERIDIANS_DATA from '../../../shared/data/primaryMeridiansData'
 import { LoggedOutImageScreen } from './LoggedOutImageScreen'
 import { LoggedInImageScreen } from './LoggedInImageScreen'
 
-const MemoryPointsSwiperScreenComponent = ({
-  navigation,
-  route,
-  theme,
-  authState,
-}) => {
+const MemoryPointsSwiperScreenComponent = ({ route, theme, authState }) => {
   const [points, setPoints] = useState([])
   const [initialIndex, setInitialIndex] = useState(0)
 

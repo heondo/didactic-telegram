@@ -6,7 +6,7 @@ import { SettingsListScreen } from './screens'
 
 const SettingsScreenStack = createStackNavigator()
 
-function SettingsScreenTab({ theme, navigation }) {
+function SettingsScreenTab({ theme }) {
   return (
     <SettingsScreenStack.Navigator>
       <SettingsScreenStack.Screen

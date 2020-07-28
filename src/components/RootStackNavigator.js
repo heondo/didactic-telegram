@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import auth from '@react-native-firebase/auth'
 import AsyncStorage from '@react-native-community/async-storage'
 
-import { MatCommIcon, MatIcon, Text } from './atoms'
+import { MatCommIcon, MatIcon } from './atoms'
 import { thunkLogin } from '../state/auth/slice'
 import MemoryScreenTab from './MemoryScreenTab'
 import SettingsScreenTab from './SettingsScreenTab'
@@ -18,7 +18,7 @@ import { IntroSwiperScreen } from './screens/intro-screen'
 
 const Tab = createBottomTabNavigator()
 
-function RootStackNavigator({ theme, authState, toggleTheme }) {
+function RootStackNavigator({ theme, toggleTheme }) {
   const dispatch = useDispatch()
 
   const [initializing, setInitializing] = useState(true)

@@ -19,14 +19,9 @@ import {
   LoadingCircle,
   ImageCircleButtons,
   MatIcon,
-  ColorCodeCircle,
   View,
 } from '../../atoms'
-import {
-  LoadingOverlay,
-  SelectEditImageModal,
-  CircleOrIcon,
-} from '../../molecules'
+import { LoadingOverlay, SelectEditImageModal } from '../../molecules'
 import MERIDIAN_POINTS_DATA from '../../../shared/data/meridianPointsData'
 import { thunkAddNote, thunkAddImage } from '../../../state/userImages/slice'
 import { selectImageService } from '../../../services'

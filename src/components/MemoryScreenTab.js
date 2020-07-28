@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { connect } from 'react-redux'
 
@@ -10,7 +10,7 @@ import {
 
 const MemoryScreenStack = createStackNavigator()
 
-function MemoryScreenTab({ theme, navigation }) {
+function MemoryScreenTab({ theme }) {
   return (
     <MemoryScreenStack.Navigator initialRouteName="Memory Home Screen">
       <MemoryScreenStack.Screen

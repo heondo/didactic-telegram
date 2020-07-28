@@ -10,12 +10,10 @@ import {
   Header,
   Row,
   Image,
-  ColorCodeCircle,
   View,
   TextInput,
   NoteContainer,
 } from '../../atoms'
-import { CircleOrIcon } from '../../molecules'
 import MERIDIAN_POINTS_DATA from '../../../shared/data/meridianPointsData'
 
 const LoggedOutImageScreenComponent = ({ theme, pointID }) => {
@@ -55,10 +53,9 @@ const LoggedOutImageScreenComponent = ({ theme, pointID }) => {
     </ThemeProvider>
   )
 }
-const mapStateToProps = ({ theme, authState }) => {
+const mapStateToProps = ({ theme }) => {
   return {
     theme,
-    authState,
   }
 }
 LoggedOutImageScreenComponent.propTypes = {

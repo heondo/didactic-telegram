@@ -19,7 +19,6 @@ import { CircleOrIcon } from '../../molecules'
 import MERIDIAN_POINTS_DATA from '../../../shared/data/meridianPointsData'
 
 const DetailsPointScreenComponent = ({
-  authState,
   pointID,
   navigateToPhotosPoint,
   theme,
@@ -85,9 +84,8 @@ const DetailsPointScreenComponent = ({
     </ThemeProvider>
   )
 }
-const mapStateToProps = ({ authState, theme }) => {
+const mapStateToProps = ({ theme }) => {
   return {
-    authState,
     theme,
   }
 }

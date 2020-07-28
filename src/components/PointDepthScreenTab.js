@@ -12,7 +12,7 @@ import {
 
 const PointDepthScreenStack = createStackNavigator()
 
-function PointDepthScreenTab({ theme, navigation }) {
+function PointDepthScreenTab({ theme }) {
   return (
     <PointDepthScreenStack.Navigator>
       <PointDepthScreenStack.Screen

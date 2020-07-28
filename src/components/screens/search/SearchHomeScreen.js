@@ -1,8 +1,7 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import { CommonActions } from '@react-navigation/native'
-import PropTypes from 'prop-types'
 
 import {
   FlatList,

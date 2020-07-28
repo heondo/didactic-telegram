@@ -2,9 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components/native'
 
-import { SafeAreaView, Text, HeaderText, EmptySpace, Image } from '../../atoms'
+import { SafeAreaView, EmptySpace, Image } from '../../atoms'
 
-const FirstIntroScreenComponent = ({ navigation, route, theme }) => {
+const FirstIntroScreenComponent = ({ theme }) => {
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaView pd="12px">

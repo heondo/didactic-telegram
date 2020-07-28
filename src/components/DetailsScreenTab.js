@@ -10,7 +10,7 @@ import {
 
 const DetailsHomeScreenStack = createStackNavigator()
 
-function DetailsScreenTab({ theme, navigation }) {
+function DetailsScreenTab({ theme }) {
   return (
     <DetailsHomeScreenStack.Navigator initialRouteName="Details Home Screen">
       <DetailsHomeScreenStack.Screen

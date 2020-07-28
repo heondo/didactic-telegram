@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 import { Text, OverLay, LoadingCircle } from '../atoms'
 
-function LoadingOverlayComponent({ theme, authState, loadingMessage }) {
+function LoadingOverlayComponent({ theme, loadingMessage }) {
   return (
     <ThemeProvider theme={theme}>
       <OverLay>
@@ -16,10 +16,9 @@ function LoadingOverlayComponent({ theme, authState, loadingMessage }) {
   )
 }
 
-const mapStateToProps = ({ theme, authState }) => {
+const mapStateToProps = ({ theme }) => {
   return {
     theme,
-    authState,
   }
 }
 

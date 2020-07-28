@@ -15,10 +15,10 @@ import {
 import { CircleOrIcon } from './CircleOrIcon'
 
 function SearchResultsListItemComponent({
-  pointID,
-  pointData,
   userImages,
   theme,
+  pointID,
+  pointData,
   goToDetailsScreen,
   goToImagesScreen,
 }) {

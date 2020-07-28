@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import Svg, { Image } from 'react-native-svg'
 
-const PointDepthFrontScreenComponent = ({ navigation, theme }) => {
+const PointDepthFrontScreenComponent = ({ theme }) => {
   // biggest features
   /**
    * 1. image of "side"
