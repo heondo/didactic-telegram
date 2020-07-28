@@ -51,12 +51,14 @@ function RootStackNavigator({ theme, toggleTheme }) {
     getThemeMode()
     getWasLaunched()
     const onAuthStateChanged = (user) => {
+      console.log(user)
       const strippedDown = user
         ? {
             displayName: user.displayName,
             email: user.email,
             photoURL: user.photoURL,
             uid: user.uid,
+            signUpDate: user.metadata.creationTime,
           }
         : null
       if (initializing) {

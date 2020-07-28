@@ -11,7 +11,7 @@ export const ImageAbsolute = styled(Image)`
 `
 
 export const ProfileImage = styled(Image)`
-  border-radius: 25px;
+  border-radius: 8px;
   height: 50px;
   width: 50px;
 `

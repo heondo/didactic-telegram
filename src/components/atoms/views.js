@@ -105,7 +105,15 @@ export const OverLay = styled(View)`
 
 export const Row = styled(View)`
   flex-direction: row;
+  justify-content: ${(props) =>
+    props.justifyContent ? props.justifyContent : 'center'};
   background-color: transparent;
+`
+
+export const SettingsRow = styled(Row)`
+  justify-content: flex-start;
+  width: 100%;
+  padding: ${(props) => (props.pd ? props.pd : '8px')};
 `
 
 // export const DetailsRow = styled(Row)`

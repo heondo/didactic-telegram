@@ -12,6 +12,7 @@ import {
   EmptySpace,
   ProfileImage,
   TransparentButton,
+  Row,
 } from '../../atoms'
 import { firebaseService } from '../../../services'
 import { toggleTheme } from '../../../state/theme/slice'
@@ -20,7 +21,7 @@ import {
   endAuthLoading,
   thunkLogout,
 } from '../../../state/auth/slice'
-import { LoadingOverlay } from '../../molecules'
+import { LoadingOverlay, SignedInBanner } from '../../molecules'
 
 const SettingsHomeScreenComponent = ({
   navigation,
@@ -70,13 +71,20 @@ const SettingsHomeScreenComponent = ({
 
   return (
     <ThemeProvider theme={theme}>
-      <SafeAreaView pd="0 0 8px 0">
+      <SafeAreaView pd="12px">
         {/* Loading overlay if loading */}
         {authState.isLoading ? (
           <LoadingOverlay loadingMessage={authState.loadingMessage} />
         ) : null}
+        {authState.isLoggedIn ? (
+          <SignedInBanner handleLogout={handleLogout} />
+        ) : (
+          <TransparentButton onPress={handleGoogleSignIn}>
+            <Text fontSize="24px">G - SIGN IN</Text>
+          </TransparentButton>
+        )}
         {/* Image and sign in/out button container */}
-        <View height="50%" width="100%">
+        {/* <View height="50%" width="100%">
           <ImageAbsolute
             source={require('../../../shared/images/backdrop-sample.png')}
           />
@@ -99,7 +107,7 @@ const SettingsHomeScreenComponent = ({
               <Text fontSize="24px">G - SIGN IN</Text>
             </TransparentButton>
           )}
-        </View>
+        </View> */}
         <EmptySpace />
         {/* Theme toggler */}
         <View mg="4px 0">
