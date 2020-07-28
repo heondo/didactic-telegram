@@ -31,6 +31,8 @@ My dad got his accupuncture license this year and did great at his school with t
 
 Working on feedback from my dad
 
+- Testing in React Native with Jest. Low amount of documentation and people actually writing tests is making this quite difficult. Particularly surrounding React Native specific issues.
+- I tested for a correct App render though
 - Working on cleaning up the Play Store Listing, additional tweaks
 - `implementation 'com.facebook.soloader:soloader:0.9.0+'` saved my release build
 - React Native release build no longer opens for some reason, didn't change anything in the gradle files/etc. Development version continues to work fine.
