@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import Svg, { Image } from 'react-native-svg'
+import { View } from '../../atoms'
 
 const PointDepthFrontScreenComponent = ({ theme }) => {
   // biggest features
@@ -15,15 +16,17 @@ const PointDepthFrontScreenComponent = ({ theme }) => {
    */
   return (
     <ThemeProvider theme={theme}>
-      <Svg height="100%" width="100%">
-        <Image
-          width="100%"
-          height="100%"
-          preserveAspectRatio="xMidYMid slice"
-          href={require('../../../shared/images/depth-images/front-core.png')}
-          clipPath="url(#clip)"
-        />
-      </Svg>
+      <View height="100%" width="100%">
+        <Svg height="100%" width="100%">
+          <Image
+            width="100%"
+            height="100%"
+            preserveAspectRatio="xMidYMid slice"
+            href={require('../../../shared/images/depth-images/front-core.png')}
+            clipPath="url(#clip)"
+          />
+        </Svg>
+      </View>
     </ThemeProvider>
   )
 }
