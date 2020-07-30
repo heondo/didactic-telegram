@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
-import { Dimensions } from 'react-native'
 import { ImageZoomBody } from '../../molecules'
 
 const PointDepthBackScreenComponent = ({ theme }) => {
