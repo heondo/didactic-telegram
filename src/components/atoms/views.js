@@ -56,7 +56,7 @@ export const ModalView = styled(View)`
 `
 
 export const NoteContainer = styled(View)`
-  padding: 8px 4px;
+  padding: 8px 12px;
   width: 100%;
 `
 

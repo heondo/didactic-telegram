@@ -21,6 +21,17 @@ My dad got his accupuncture license this year and did great at his school with t
 
 ### Progress
 
+##### Week 9 +
+
+![New Settings Page](public/readme/new-settings.png)
+![Tutorial Panning](public/readme/tutorial-preview.gif)
+
+The real tutorial covers the whole screen this preview is not quite
+
+- Redesigned settings screen
+- Tutorial screen on bootup to give the user a sense of how to use the app
+- Pan responder for moving a component around, working on pinch and then combining the behavior.
+
 ##### Week 6 - 8
 
 Working on feedback from my dad

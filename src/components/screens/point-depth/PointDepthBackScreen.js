@@ -9,6 +9,7 @@ const PointDepthBackScreenComponent = ({ theme }) => {
   // const pan = useRef(new Animated.ValueXY()).current
 
   const [isDragging, setIsDragging] = useState(false)
+  const [isZooming, setIsZooming] = useState(false)
   const _gesturePosition = useRef(new Animated.ValueXY()).current
   const _scaleValue = useRef(new Animated.Value(1)).current
 
@@ -16,6 +17,7 @@ const PointDepthBackScreenComponent = ({ theme }) => {
     transform: _gesturePosition.getTranslateTransform(),
   }
   let initialStyle = {
+    // this has to customized, or calculated better based off where the gestures end up.
     transform: [{ translateY: 0 }],
   }
 
@@ -36,11 +38,16 @@ const PointDepthBackScreenComponent = ({ theme }) => {
       })
       setIsDragging(true)
     },
-    onPanResponderMove: (e, gestureState) =>
-      Animated.event(
-        [null, { dx: _gesturePosition.x, dy: _gesturePosition.y }],
-        { useNativeDriver: false },
-      )(e, gestureState),
+    onPanResponderMove: (e, gestureState) => {
+      if (gestureState.numberActiveTouches === 1) {
+        return Animated.event(
+          [null, { dx: _gesturePosition.x, dy: _gesturePosition.y }],
+          { useNativeDriver: false },
+        )(e, gestureState)
+      } else if (gestureState.numberActiveTouches === 2) {
+        // if two touches
+      }
+    },
     onPanResponderRelease: (e, gestureState) => {
       setIsDragging(false)
     },
