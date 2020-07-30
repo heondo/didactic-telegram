@@ -32,7 +32,7 @@ function RootStackNavigator({ theme, toggleTheme }) {
 
   useEffect(() => {
     const getWasLaunched = async () => {
-      const wasAlreadyLaunched = await AsyncStorage.getItem('wasLaunched') // if booted, will return true
+      const wasAlreadyLaunched = await AsyncStorage.getItem('wasLaunched')
       if (wasAlreadyLaunched !== 'true') {
         setFirstLaunch(true)
       }

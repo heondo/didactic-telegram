@@ -2,38 +2,53 @@ import React, { useRef, useState } from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import Svg, { Image, G } from 'react-native-svg'
+import { View, Text, Button } from '../../atoms'
 import { Animated, PanResponder } from 'react-native'
 
-import { View, Text, Button } from '../../atoms'
-
 const PointDepthBackScreenComponent = ({ theme }) => {
-  // useNativeDriver not specified?
-  const pan = useRef(new Animated.ValueXY()).current
+  // const pan = useRef(new Animated.ValueXY()).current
 
-  const panResponder = useRef(
-    PanResponder.create({
-      onMoveShouldSetPanResponder: () => true,
-      onPanResponderGrant: () => {
-        pan.setOffset({
-          x: pan.x._value,
-          y: pan.y._value,
-        })
-      },
-      onPanResponderMove: Animated.event([null, { dx: pan.x, dy: pan.y }]),
-      onPanResponderRelease: () => {
-        pan.flattenOffset()
-      },
-    }),
-  ).current
+  const [isDragging, setIsDragging] = useState(false)
+  const _gesturePosition = useRef(new Animated.ValueXY()).current
+  const _scaleValue = useRef(new Animated.Value(1)).current
+
+  let animatedStyle = {
+    transform: _gesturePosition.getTranslateTransform(),
+  }
+  let initialStyle = {
+    transform: [{ translateY: 0 }],
+  }
+
+  let style = [{}, isDragging ? animatedStyle : initialStyle]
+
+  const panResponder = PanResponder.create({
+    onStartShouldSetPanResponder: () => true,
+    onMoveShouldSetPanResponder: () => true,
+    onPanResponderGrant: () => {
+      _gesturePosition.setOffset({
+        x: 0,
+        y: 0,
+      })
+      // set initial gesture value
+      _gesturePosition.setValue({
+        x: 0,
+        y: 0,
+      })
+      setIsDragging(true)
+    },
+    onPanResponderMove: (e, gestureState) =>
+      Animated.event(
+        [null, { dx: _gesturePosition.x, dy: _gesturePosition.y }],
+        { useNativeDriver: false },
+      )(e, gestureState),
+    onPanResponderRelease: (e, gestureState) => {
+      setIsDragging(false)
+    },
+  })
 
   return (
     <ThemeProvider theme={theme}>
-      <Text>Drag this box!</Text>
-      <Animated.View
-        style={{
-          transform: [{ translateX: pan.x }, { translateY: pan.y }],
-        }}
-        {...panResponder.panHandlers}>
+      <Animated.View style={style} {...panResponder.panHandlers}>
         <Svg height="100%" width="100%">
           <G>
             <Image
