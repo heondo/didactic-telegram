@@ -1,73 +1,35 @@
-import React, { useRef, useState } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
+import { Dimensions } from 'react-native'
 import Svg, { Image, G } from 'react-native-svg'
-import { View, Text, Button } from '../../atoms'
-import { Animated, PanResponder } from 'react-native'
+import ImageZoom from 'react-native-image-pan-zoom'
 
 const PointDepthBackScreenComponent = ({ theme }) => {
-  // const pan = useRef(new Animated.ValueXY()).current
-
-  const [isDragging, setIsDragging] = useState(false)
-  const [isZooming, setIsZooming] = useState(false)
-  const _gesturePosition = useRef(new Animated.ValueXY()).current
-  const _scaleValue = useRef(new Animated.Value(1)).current
-
-  let animatedStyle = {
-    transform: _gesturePosition.getTranslateTransform(),
-  }
-  let initialStyle = {
-    // this has to customized, or calculated better based off where the gestures end up.
-    transform: [{ translateY: 0 }],
-  }
-
-  let style = [{}, isDragging ? animatedStyle : initialStyle]
-
-  const panResponder = PanResponder.create({
-    onStartShouldSetPanResponder: () => true,
-    onMoveShouldSetPanResponder: () => true,
-    onPanResponderGrant: () => {
-      _gesturePosition.setOffset({
-        x: 0,
-        y: 0,
-      })
-      // set initial gesture value
-      _gesturePosition.setValue({
-        x: 0,
-        y: 0,
-      })
-      setIsDragging(true)
-    },
-    onPanResponderMove: (e, gestureState) => {
-      if (gestureState.numberActiveTouches === 1) {
-        return Animated.event(
-          [null, { dx: _gesturePosition.x, dy: _gesturePosition.y }],
-          { useNativeDriver: false },
-        )(e, gestureState)
-      } else if (gestureState.numberActiveTouches === 2) {
-        // if two touches
-      }
-    },
-    onPanResponderRelease: (e, gestureState) => {
-      setIsDragging(false)
-    },
-  })
+  const { width: deviceWidth, height: deviceHeight } = Dimensions.get('window')
 
   return (
     <ThemeProvider theme={theme}>
-      <Animated.View style={style} {...panResponder.panHandlers}>
+      <ImageZoom
+        cropWidth={deviceWidth}
+        cropHeight={deviceHeight}
+        imageWidth={deviceWidth}
+        imageHeight={deviceHeight}
+        useNativeDriver={true}
+        minScale={1}
+        maxScale={3}>
         <Svg height="100%" width="100%">
           <G>
             <Image
               width="100%"
               height="100%"
-              preserveAspectRatio="xMidYMid slice"
+              preserveAspectRatio="xMidYMid"
               href={require('../../../shared/images/depth-images/front-core.png')}
               clipPath="url(#clip)"
             />
           </G>
         </Svg>
-      </Animated.View>
+      </ImageZoom>
     </ThemeProvider>
   )
 }

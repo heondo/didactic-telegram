@@ -35,7 +35,7 @@ function PointDepthScreenTab({ theme }) {
         component={PointDepthFrontScreen}
         options={{
           headerTitle: 'Front',
-          headerShown: true,
+          headerShown: false,
           headerStyle: {
             backgroundColor: theme.PRIMARY_BACKGROUND_COLOR,
           },
@@ -50,7 +50,7 @@ function PointDepthScreenTab({ theme }) {
         component={PointDepthBackScreen}
         options={{
           headerTitle: 'Back',
-          headerShown: true,
+          headerShown: false,
           headerStyle: {
             backgroundColor: theme.PRIMARY_BACKGROUND_COLOR,
           },
@@ -65,7 +65,7 @@ function PointDepthScreenTab({ theme }) {
         component={PointDepthSideScreen}
         options={{
           headerTitle: 'Side',
-          headerShown: true,
+          headerShown: false,
           headerStyle: {
             backgroundColor: theme.PRIMARY_BACKGROUND_COLOR,
           },

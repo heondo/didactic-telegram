@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Dimensions } from 'react-native'
 import { ThemeProvider } from 'styled-components'
 import Svg, { Image, G } from 'react-native-svg'
 import ImageZoom from 'react-native-image-pan-zoom'
-import { Dimensions } from 'react-native'
 
 const PointDepthFrontScreenComponent = ({ theme }) => {
   // biggest features
@@ -16,15 +16,16 @@ const PointDepthFrontScreenComponent = ({ theme }) => {
    * 4. Click each point and view...details?
    */
 
-  const { width: deviceWidth, height: deviceHeight } = Dimensions.get('window')
+  const { width: deviceWidth, height: deviceHeight } = Dimensions.get('screen')
 
   return (
     <ThemeProvider theme={theme}>
       <ImageZoom
         cropWidth={deviceWidth}
-        cropHeight={deviceHeight}
+        cropHeight={deviceHeight * 0.85}
         imageWidth={deviceWidth}
-        imageHeight={deviceHeight}
+        imageHeight={deviceHeight * 0.85}
+        useNativeDriver={true}
         minScale={1}
         maxScale={3}>
         <Svg height="100%" width="100%">
@@ -36,6 +37,10 @@ const PointDepthFrontScreenComponent = ({ theme }) => {
               href={require('../../../shared/images/depth-images/front-core.png')}
               clipPath="url(#clip)"
             />
+            {
+              // render an array of points with an x and y coordinate, colors exist in meridia points data.
+              // or, add coordinate data to meridian points data. No
+            }
           </G>
         </Svg>
       </ImageZoom>
