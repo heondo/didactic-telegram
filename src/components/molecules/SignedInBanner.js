@@ -12,6 +12,7 @@ import {
   SettingsRow,
   Button,
 } from '../atoms'
+import { capitalize } from '../../utils'
 
 function SignedInBannerComponent({
   theme,
@@ -19,11 +20,6 @@ function SignedInBannerComponent({
   userImages,
   handleLogout,
 }) {
-  const capitalize = (str, lower = false) =>
-    (lower ? str.toLowerCase() : str).replace(/(?:^|\s|["'([{])+\S/g, (match) =>
-      match.toUpperCase(),
-    )
-
   const [userStats, setUserStats] = useState({})
 
   useEffect(() => {
