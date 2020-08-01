@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { EmptySpace, MatCommIcon, Row, Text } from '../atoms'
+import { EmptySpace, Row, Text } from '../atoms'
 import { CircleOrIcon } from './CircleOrIcon'
 import { capitalize } from '../../utils'
 

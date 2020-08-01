@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Dimensions } from 'react-native'
 import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
-import Svg, { Image, G } from 'react-native-svg'
+import Svg, { Image, G, Circle } from 'react-native-svg'
 import ImageZoom from 'react-native-image-pan-zoom'
 import svgPointsData from '../../shared/data/svgPointsData'
 
@@ -31,7 +31,7 @@ const ImageZoomBodyComponent = ({ theme, side }) => {
         imageHeight={deviceHeight * 0.85}
         useNativeDriver={true}
         minScale={1}
-        maxScale={3}>
+        maxScale={2.5}>
         <Svg height="100%" width="100%">
           <G>
             <Image
@@ -44,6 +44,9 @@ const ImageZoomBodyComponent = ({ theme, side }) => {
             {
               // render an array of points with an x and y coordinate, colors exist in meridia points data.
               // or, add coordinate data to meridian points data. No
+              points.map((p) => (
+                <Circle key={p.pointID} cx={p.x} cy={p.y} r={10} fill="red" />
+              ))
             }
           </G>
         </Svg>
