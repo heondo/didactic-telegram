@@ -105,27 +105,27 @@ const LoggedInImageScreenComponent = ({
             <EmptySpace />
           </Row>
         </Header>
-        <View width="100%">
-          <ImageZoom
-            cropWidth={deviceWidth * 0.85}
-            imageWidth={deviceWidth * 0.85}
-            cropHeight={deviceHeight * 0.64}
-            imageHeight={deviceHeight * 0.64}
-            minScale={1}
-            useNativeDriver={true}>
-            {selectedImage ? (
-              <Image source={selectedImage} resizeMode="contain" />
-            ) : null}
-            {!selectedImage && userImageURL ? (
+        <View width="100%" height="76%">
+          {selectedImage ? (
+            <Image source={selectedImage} resizeMode="contain" />
+          ) : null}
+          {!selectedImage && userImageURL ? (
+            <ImageZoom
+              cropWidth={deviceWidth * 0.85}
+              imageWidth={deviceWidth * 0.85}
+              cropHeight={deviceHeight * 0.64}
+              imageHeight={deviceHeight * 0.64}
+              minScale={1}
+              useNativeDriver={true}>
               <Image source={{ uri: userImageURL }} resizeMode="contain" />
-            ) : null}
-            {!selectedImage && !userImageURL ? (
-              <Image
-                source={require('../../../shared/images/no-image-default.png')}
-                resizeMode="contain"
-              />
-            ) : null}
-          </ImageZoom>
+            </ImageZoom>
+          ) : null}
+          {!selectedImage && !userImageURL ? (
+            <Image
+              source={require('../../../shared/images/no-image-default.png')}
+              resizeMode="contain"
+            />
+          ) : null}
           {!selectedImage ? (
             <ImageCircleButtons>
               <CircleIconButton onPress={handleAddImagePress}>
