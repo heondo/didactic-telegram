@@ -26,8 +26,8 @@ const ImageZoomBodyComponent = ({ theme, side }) => {
     <ThemeProvider theme={theme}>
       <ImageZoom
         cropWidth={deviceWidth}
-        cropHeight={deviceHeight * 0.85}
         imageWidth={deviceWidth}
+        cropHeight={deviceHeight * 0.85}
         imageHeight={deviceHeight * 0.85}
         useNativeDriver={true}
         minScale={1}

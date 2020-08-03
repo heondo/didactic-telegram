@@ -25,6 +25,8 @@ import { LoadingOverlay, SelectEditImageModal } from '../../molecules'
 import MERIDIAN_POINTS_DATA from '../../../shared/data/meridianPointsData'
 import { thunkAddNote, thunkAddImage } from '../../../state/userImages/slice'
 import { selectImageService } from '../../../services'
+import ImageZoom from 'react-native-image-pan-zoom'
+import { Dimensions } from 'react-native'
 
 const LoggedInImageScreenComponent = ({
   theme,
@@ -80,6 +82,8 @@ const LoggedInImageScreenComponent = ({
     )
   }
 
+  const { width: deviceWidth, height: deviceHeight } = Dimensions.get('screen')
+
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaView pd="0" keyboardShouldPersistTaps="handled">
@@ -101,19 +105,27 @@ const LoggedInImageScreenComponent = ({
             <EmptySpace />
           </Row>
         </Header>
-        <View width="100%" height="76%">
-          {selectedImage ? (
-            <Image source={selectedImage} resizeMode="contain" />
-          ) : null}
-          {!selectedImage && userImageURL ? (
-            <Image source={{ uri: userImageURL }} resizeMode="contain" />
-          ) : null}
-          {!selectedImage && !userImageURL ? (
-            <Image
-              source={require('../../../shared/images/no-image-default.png')}
-              resizeMode="contain"
-            />
-          ) : null}
+        <View width="100%">
+          <ImageZoom
+            cropWidth={deviceWidth * 0.85}
+            imageWidth={deviceWidth * 0.85}
+            cropHeight={deviceHeight * 0.64}
+            imageHeight={deviceHeight * 0.64}
+            minScale={1}
+            useNativeDriver={true}>
+            {selectedImage ? (
+              <Image source={selectedImage} resizeMode="contain" />
+            ) : null}
+            {!selectedImage && userImageURL ? (
+              <Image source={{ uri: userImageURL }} resizeMode="contain" />
+            ) : null}
+            {!selectedImage && !userImageURL ? (
+              <Image
+                source={require('../../../shared/images/no-image-default.png')}
+                resizeMode="contain"
+              />
+            ) : null}
+          </ImageZoom>
           {!selectedImage ? (
             <ImageCircleButtons>
               <CircleIconButton onPress={handleAddImagePress}>
