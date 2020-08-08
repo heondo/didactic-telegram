@@ -111,8 +111,8 @@ const LoggedInImageScreenComponent = ({
           ) : null}
           {!selectedImage && userImageURL ? (
             <ImageZoom
-              cropWidth={deviceWidth * 0.85}
-              imageWidth={deviceWidth * 0.85}
+              cropWidth={deviceWidth * 0.9}
+              imageWidth={deviceWidth * 0.9}
               cropHeight={deviceHeight * 0.64}
               imageHeight={deviceHeight * 0.64}
               minScale={1}

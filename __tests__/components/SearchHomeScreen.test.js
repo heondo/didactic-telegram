@@ -7,8 +7,8 @@ import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import renderer from 'react-test-renderer'
 
-import { DetailsHomeScreen } from '../src/components/screens'
-import { defaultLoggedOutState } from '../__mocks__/mockInitialState'
+import { SearchHomeScreen } from '../../src/components/screens'
+import { defaultLoggedOutState } from '../../__mocks__/mockInitialState'
 
 // Note: test renderer must be required after react-native.
 
@@ -22,7 +22,7 @@ it('Details Home Screen with list renders correctly', () => {
     // what? why do i have to render it here in order to mock the store correctly
     component = renderer.create(
       <Provider store={store}>
-        <DetailsHomeScreen />
+        <SearchHomeScreen />
       </Provider>,
     )
   })

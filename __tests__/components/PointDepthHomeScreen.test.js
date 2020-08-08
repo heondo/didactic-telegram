@@ -7,8 +7,8 @@ import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import renderer from 'react-test-renderer'
 
-import { PointDepthHomeScreen } from '../src/components/screens'
-import { defaultLoggedOutState } from '../__mocks__/mockInitialState'
+import { PointDepthHomeScreen } from '../../src/components/screens'
+import { defaultLoggedOutState } from '../../__mocks__/mockInitialState'
 
 // Note: test renderer must be required after react-native.
 

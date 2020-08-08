@@ -10,6 +10,8 @@ import svgPointsData from '../../shared/data/svgPointsData'
 const ImageZoomBodyComponent = ({ theme, side }) => {
   // biggest features
   /**
+   * Do i have to render svgs...based on the device width and height? Gonna have to experiment
+   *
    * 1. image of "side"
    * 2. array of images with to include and plot
    * 3. Button to filter/toggle which points to display? (which ones)
